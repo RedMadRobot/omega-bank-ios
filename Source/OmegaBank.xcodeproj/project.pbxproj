@@ -1,0 +1,820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DF3C5BEC98535C54FABA896 /* OmegaBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D13CCECF9ABE420FFF25BC /* OmegaBankTests.swift */; };
+		14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658DAB702A03CEE79F4968D4 /* Assets.xcassets */; };
+		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
+		60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3764A850A4D197A1767543 /* ServiceLayer.swift */; };
+		668588E3477BCD084AFCC5BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680B9CF081276FBADBC2AC0 /* MainViewController.swift */; };
+		6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */; };
+		7876D6728749E062C73A76D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA12461B296D3BC73883D1 /* Main.storyboard */; };
+		80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */; };
+		926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */; };
+		A831740758724667D902F5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */; };
+		EC59A1286272D417102B2E2E /* Pods_OmegaBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A41D800F600A7016753748 /* Pods_OmegaBankTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E31EB640952F27C54F73AA34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3F7E603EE9F82DA02B4E8F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A7B2F3A96B474D7B6D7640F;
+			remoteInfo = OmegaBank;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A0982154C7F786F7BC8967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		12F800949B545DDDA78E87E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
+		658DAB702A03CEE79F4968D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		670B4953E269E99CC82A52AF /* Pods-OmegaBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.debug.xcconfig"; sourceTree = "<group>"; };
+		6B3764A850A4D197A1767543 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		74A513E3D65F3A65954B833B /* Pods-OmegaBankTests.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankTests.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests.qa.xcconfig"; sourceTree = "<group>"; };
+		77A41D800F600A7016753748 /* Pods_OmegaBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8680B9CF081276FBADBC2AC0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8D1CCA7F58FE51C1DBE04FE6 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5DB692E97C969DF99492CB /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OmegaBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.qa.xcconfig"; sourceTree = "<group>"; };
+		B79A5467BD3E86D8CEC94729 /* Pods-OmegaBankTests.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankTests.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests.app-store.xcconfig"; sourceTree = "<group>"; };
+		C4AFAFE259F9C1B9DAE51644 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		D2CA12461B296D3BC73883D1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F32599AA48444258A623E162 /* Pods-OmegaBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankTests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4D13CCECF9ABE420FFF25BC /* OmegaBankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmegaBankTests.swift; sourceTree = "<group>"; };
+		FE0FFF4E3746FE9118638CF8 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		FE5FD665DF2DA830858C8539 /* Pods-OmegaBank.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.app-store.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C586945A718D70FAC6D2079 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BB67672F64200C770BB8581 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC59A1286272D417102B2E2E /* Pods_OmegaBankTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0456EC851FAE5D627EFD2E37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06A0982154C7F786F7BC8967 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FC2005DF7280A5FEE7A4853 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7EFAA648B5E788AA04BFB980 /* Launch */,
+				1BED0BD51E2BAF40926E60CB /* Main */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		192ADA30B0326B78BC60E29B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */,
+				53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1BED0BD51E2BAF40926E60CB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				654999E9C3907F0A2ED8A4CC /* View */,
+				97577A9CB0018693F571E706 /* View Controller */,
+				F43165B0931A0C25335AE942 /* View Model */,
+				D2CA12461B296D3BC73883D1 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		22368E87F95CD228FAD9808D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8D1CCA7F58FE51C1DBE04FE6 /* .gitkeep */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		49A7CD2B1300A9481E1B5BA8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9283B12EFE816628821DB7C9 /* OmegaBank.app */,
+				A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		654999E9C3907F0A2ED8A4CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE0FFF4E3746FE9118638CF8 /* .gitkeep */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		68507F20657486F6C872BB56 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				192ADA30B0326B78BC60E29B /* Constants */,
+				97D4E80384A708717CB3ACE1 /* Model */,
+				22368E87F95CD228FAD9808D /* Service */,
+				6B3764A850A4D197A1767543 /* ServiceLayer.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		706F4C8B4B9EF5BBFADB0B0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE5FD665DF2DA830858C8539 /* Pods-OmegaBank.app-store.xcconfig */,
+				670B4953E269E99CC82A52AF /* Pods-OmegaBank.debug.xcconfig */,
+				B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */,
+				B79A5467BD3E86D8CEC94729 /* Pods-OmegaBankTests.app-store.xcconfig */,
+				F32599AA48444258A623E162 /* Pods-OmegaBankTests.debug.xcconfig */,
+				74A513E3D65F3A65954B833B /* Pods-OmegaBankTests.qa.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		77A14C4DF8965B3856AAB950 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */,
+				77A41D800F600A7016753748 /* Pods_OmegaBankTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EFAA648B5E788AA04BFB980 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		97577A9CB0018693F571E706 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8680B9CF081276FBADBC2AC0 /* MainViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		97D4E80384A708717CB3ACE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4AFAFE259F9C1B9DAE51644 /* .gitkeep */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BCD388ED1D3671CF771E22C /* OmegaBank */ = {
+			isa = PBXGroup;
+			children = (
+				D71718D22A2970D059BB6E40 /* Classes */,
+				D90746AE75F4CC2CB3A82FBD /* Resources */,
+				0456EC851FAE5D627EFD2E37 /* Supporting Files */,
+			);
+			path = OmegaBank;
+			sourceTree = "<group>";
+		};
+		AF83BE1EE06BC13F31AAD8DC /* OmegaBankTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCF5D40C51D5B5F77B629AA2 /* Supporting Files */,
+				F4D13CCECF9ABE420FFF25BC /* OmegaBankTests.swift */,
+			);
+			path = OmegaBankTests;
+			sourceTree = "<group>";
+		};
+		D71718D22A2970D059BB6E40 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EB77C1EF7A96F267D3B590DF /* Application */,
+				68507F20657486F6C872BB56 /* Business Logic */,
+				0FC2005DF7280A5FEE7A4853 /* Presentation */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D90746AE75F4CC2CB3A82FBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				658DAB702A03CEE79F4968D4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DCF5D40C51D5B5F77B629AA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12F800949B545DDDA78E87E7 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB77C1EF7A96F267D3B590DF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F169C3A7E19F841DC793E691 = {
+			isa = PBXGroup;
+			children = (
+				9BCD388ED1D3671CF771E22C /* OmegaBank */,
+				AF83BE1EE06BC13F31AAD8DC /* OmegaBankTests */,
+				49A7CD2B1300A9481E1B5BA8 /* Products */,
+				706F4C8B4B9EF5BBFADB0B0A /* Pods */,
+				77A14C4DF8965B3856AAB950 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F43165B0931A0C25335AE942 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A5DB692E97C969DF99492CB /* .gitkeep */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A7B2F3A96B474D7B6D7640F /* OmegaBank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCC4AC414AC9D154B3FD69DE /* Build configuration list for PBXNativeTarget "OmegaBank" */;
+			buildPhases = (
+				F67E67FFAFEEA913DCFB2CDE /* [CP] Check Pods Manifest.lock */,
+				4D47B14A7F1FFB12E16E658B /* SwiftLint */,
+				5A99F0724B51FD218DF7FCDA /* Sources */,
+				A57BB72FA754E1D574F3D67A /* Resources */,
+				2C9F440BEDC9520B8CD203A5 /* Fabric */,
+				1C586945A718D70FAC6D2079 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OmegaBank;
+			productName = OmegaBank;
+			productReference = 9283B12EFE816628821DB7C9 /* OmegaBank.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8E4C42559AE79B09CDC9A6B7 /* OmegaBankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CA0F14673B535FD6DEBEA4B /* Build configuration list for PBXNativeTarget "OmegaBankTests" */;
+			buildPhases = (
+				C33ECC39BADF9F5EF4F8499D /* [CP] Check Pods Manifest.lock */,
+				C135D8F5A84309E271CE5703 /* Sources */,
+				7BB67672F64200C770BB8581 /* Frameworks */,
+				BB6B4E09EAE93A2958626CC6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				640CF3A4D2D70665D2A5B681 /* PBXTargetDependency */,
+			);
+			name = OmegaBankTests;
+			productName = OmegaBankTests;
+			productReference = A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3F7E603EE9F82DA02B4E8F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					1A7B2F3A96B474D7B6D7640F = {
+						ProvisioningStyle = Automatic;
+					};
+					8E4C42559AE79B09CDC9A6B7 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1A7B2F3A96B474D7B6D7640F;
+					};
+				};
+			};
+			buildConfigurationList = F67E94FAFE81BB4E49D6ED0C /* Build configuration list for PBXProject "OmegaBank" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F169C3A7E19F841DC793E691;
+			productRefGroup = 49A7CD2B1300A9481E1B5BA8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A7B2F3A96B474D7B6D7640F /* OmegaBank */,
+				8E4C42559AE79B09CDC9A6B7 /* OmegaBankTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A57BB72FA754E1D574F3D67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
+				80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */,
+				7876D6728749E062C73A76D1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C9F440BEDC9520B8CD203A5 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Uncomment next line after adding GoogleService-Info.plist to the project\n# \"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		4D47B14A7F1FFB12E16E658B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		BB6B4E09EAE93A2958626CC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OmegaBankTests/Pods-OmegaBankTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C33ECC39BADF9F5EF4F8499D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OmegaBankTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F67E67FFAFEEA913DCFB2CDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OmegaBank-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A99F0724B51FD218DF7FCDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */,
+				A831740758724667D902F5D4 /* AppDelegate.swift in Sources */,
+				926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */,
+				668588E3477BCD084AFCC5BE /* MainViewController.swift in Sources */,
+				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C135D8F5A84309E271CE5703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DF3C5BEC98535C54FABA896 /* OmegaBankTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		640CF3A4D2D70665D2A5B681 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A7B2F3A96B474D7B6D7640F /* OmegaBank */;
+			targetProxy = E31EB640952F27C54F73AA34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A622499D248F7EBB3D5BAE4 /* QA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_SWIFT_FLAGS = "-D QA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = QA;
+		};
+		17D8BF87F7E0EA73D7395885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		315643EF16720D05A342752E /* QA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74A513E3D65F3A65954B833B /* Pods-OmegaBankTests.qa.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBankTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBankTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmegaBank.app/OmegaBank";
+				TEST_TARGET_NAME = OmegaBank;
+			};
+			name = QA;
+		};
+		3A35498E4F27DEE671D35F35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 670B4953E269E99CC82A52AF /* Pods-OmegaBank.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBank/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		3D1B95C22A5ACFFA83CA3B69 /* QA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBank/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = QA;
+		};
+		4885EDDC20D85CEFD73BD6BC /* App-Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_SWIFT_FLAGS = "-D APPSTORE";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "App-Store";
+		};
+		4DF619EE80FE3872D16616B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F32599AA48444258A623E162 /* Pods-OmegaBankTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBankTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBankTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmegaBank.app/OmegaBank";
+				TEST_TARGET_NAME = OmegaBank;
+			};
+			name = Debug;
+		};
+		A2DCCEB36A05302FD6E89A3D /* App-Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B79A5467BD3E86D8CEC94729 /* Pods-OmegaBankTests.app-store.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBankTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBankTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmegaBank.app/OmegaBank";
+				TEST_TARGET_NAME = OmegaBank;
+			};
+			name = "App-Store";
+		};
+		F215AAA9997EA5BEBCC3277C /* App-Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE5FD665DF2DA830858C8539 /* Pods-OmegaBank.app-store.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = "$(SRCROOT)/OmegaBank/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "App-Store";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CA0F14673B535FD6DEBEA4B /* Build configuration list for PBXNativeTarget "OmegaBankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2DCCEB36A05302FD6E89A3D /* App-Store */,
+				4DF619EE80FE3872D16616B3 /* Debug */,
+				315643EF16720D05A342752E /* QA */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "";
+		};
+		F67E94FAFE81BB4E49D6ED0C /* Build configuration list for PBXProject "OmegaBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4885EDDC20D85CEFD73BD6BC /* App-Store */,
+				17D8BF87F7E0EA73D7395885 /* Debug */,
+				0A622499D248F7EBB3D5BAE4 /* QA */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FCC4AC414AC9D154B3FD69DE /* Build configuration list for PBXNativeTarget "OmegaBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F215AAA9997EA5BEBCC3277C /* App-Store */,
+				3A35498E4F27DEE671D35F35 /* Debug */,
+				3D1B95C22A5ACFFA83CA3B69 /* QA */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3F7E603EE9F82DA02B4E8F0 /* Project object */;
+}

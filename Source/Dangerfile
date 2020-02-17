@@ -1,0 +1,31 @@
+configuration_files = [
+  "Dangerfile",
+  "Podfile",
+  "Podfile.lock",
+  "Gemfile",
+  "Gemfile.lock",
+  ".swiftlint.yml",
+  "OmegaBank/Supporting Files/Info.plist"
+].map { |file| "Source/#{file}" }
+configuration_files << ".gitlab-ci.yml"
+ 
+configuration_files.each do |file|
+  warn "#{gitlab.html_link(file)} was edited." if git.modified_files.include? file
+end
+
+warn "MR is classed as Work in Progress" if gitlab.mr_title.include? "[WIP]"
+warn "This MR does not have any assignees yet." unless gitlab.mr_json["assignee"]
+
+warn "Please provide a summary in the Merge Request description" if gitlab.mr_body.length < 3
+fail "Please re-submit this MR to develop, we may have already fixed your issue." if gitlab.branch_for_merge != "develop"
+
+swiftlint.config_file = 'Source/.swiftlint.yml'
+swiftlint.binary_path = 'Source/Pods/SwiftLint/swiftlint'
+swiftlint.lint_files
+
+xcov.report(
+   scheme: 'Debug',
+   workspace: 'Source/OmegaBank.xcworkspace',
+   only_project_targets: true,
+   minimum_coverage_percentage: 10.0
+)

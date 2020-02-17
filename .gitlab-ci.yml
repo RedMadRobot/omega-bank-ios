@@ -1,0 +1,36 @@
+before_script:
+  - cd "$CI_PROJECT_DIR/Source/"
+  - bundle install
+
+
+qa:
+  only:
+    - /^qa\/[0-9]{1,}.[0-9]{1,}(.[0-9]{1,})?\/[0-9]{1,}$/ # qa/1.0.0/99
+  except:
+    - branches
+    - triggers
+  script:
+    - bundle exec fastlane qa ci:true
+  tags:
+    - ios-qa-release
+
+tf:
+  only:
+    - /^tf\/[0-9]{1,}.[0-9]{1,}(.[0-9]{1,})?\/[0-9]{1,}$/ # tf/1.0.0/99
+  except:
+    - branches
+    - triggers
+  script:
+    - bundle exec fastlane tf ci:true
+  tags:
+    - ios-qa-release
+
+test:
+  only:
+    - /^fix|bugfix|refactor|feature\/.+$/
+  except:
+    - web
+  script:
+    - bundle exec fastlane test ci:true
+  tags:
+    - ios-test
