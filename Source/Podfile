@@ -1,0 +1,26 @@
+platform :ios, '11.0'
+use_frameworks!
+inhibit_all_warnings!
+
+#Библиотеки располагаются в алфавитном порядке
+def main_pods
+  pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'SwiftLint'
+end 
+
+#Библиотеки для таргета с тестами
+def test_pods
+  pod 'iOSSnapshotTestCase'
+end 
+
+
+target 'OmegaBank' do
+  project 'OmegaBank.xcodeproj'
+  main_pods
+end
+
+target 'OmegaBankTests' do
+  project 'OmegaBank.xcodeproj'
+  test_pods
+end

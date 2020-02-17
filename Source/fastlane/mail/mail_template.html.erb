@@ -1,0 +1,16 @@
+<p>Доступна сборка приложения OmegaBank ✴ <%= @version %></p>
+</br>
+
+<% @groups.each do |title, issues| %>
+  <h3><%= title %></h3>
+  <ol>
+    <% issues.each do |issue| %>
+      <% url = "#{@base_url}/browse/#{issue.key}" %>
+      <li>[<a href="<%= url %>"><%= issue.key %></a>] - <%= issue.summary %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+</br>
+<p>Это письмо автоматически отправлено с помощью <a href="https://fastlane.tools">fastlane</a></p>
+</br>

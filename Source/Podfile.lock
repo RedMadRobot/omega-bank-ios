@@ -1,0 +1,33 @@
+PODS:
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
+  - SwiftLint (0.39.1)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - iOSSnapshotTestCase
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Crashlytics
+    - Fabric
+    - iOSSnapshotTestCase
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+
+PODFILE CHECKSUM: 13353d09963b0584437a93b07d5261c01f9fc3b0
+
+COCOAPODS: 1.8.4
