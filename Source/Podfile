@@ -6,6 +6,7 @@ inhibit_all_warnings!
 def main_pods
   pod 'Crashlytics'
   pod 'Fabric'
+  pod 'KeychainAccess'
   pod 'SwiftLint'
 end 
 
@@ -14,10 +15,19 @@ def test_pods
   pod 'iOSSnapshotTestCase'
 end 
 
-
 target 'OmegaBank' do
   project 'OmegaBank.xcodeproj'
   main_pods
+end
+
+target 'OmegaBankAPI' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 4.8'
+
+  target 'OmegaBankAPITests' do
+    inherit! :search_paths
+  end
 end
 
 target 'OmegaBankTests' do

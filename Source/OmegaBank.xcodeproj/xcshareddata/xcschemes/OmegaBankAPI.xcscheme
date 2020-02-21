@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,43 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A7B2F3A96B474D7B6D7640F"
-               BuildableName = "OmegaBank.app"
-               BlueprintName = "OmegaBank"
+               BlueprintIdentifier = "77196A5123FA915E007C8C84"
+               BuildableName = "OmegaBankAPI.framework"
+               BlueprintName = "OmegaBankAPI"
                ReferencedContainer = "container:OmegaBank.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "QA"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A7B2F3A96B474D7B6D7640F"
-            BuildableName = "OmegaBank.app"
-            BlueprintName = "OmegaBank"
-            ReferencedContainer = "container:OmegaBank.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77196A5923FA915E007C8C84"
-               BuildableName = "OmegaBankAPITests.xctest"
-               BlueprintName = "OmegaBankAPITests"
-               ReferencedContainer = "container:OmegaBank.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "QA"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -59,39 +40,28 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A7B2F3A96B474D7B6D7640F"
-            BuildableName = "OmegaBank.app"
-            BlueprintName = "OmegaBank"
-            ReferencedContainer = "container:OmegaBank.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "QA"
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A7B2F3A96B474D7B6D7640F"
-            BuildableName = "OmegaBank.app"
-            BlueprintName = "OmegaBank"
+            BlueprintIdentifier = "77196A5123FA915E007C8C84"
+            BuildableName = "OmegaBankAPI.framework"
+            BlueprintName = "OmegaBankAPI"
             ReferencedContainer = "container:OmegaBank.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "QA">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "QA"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
