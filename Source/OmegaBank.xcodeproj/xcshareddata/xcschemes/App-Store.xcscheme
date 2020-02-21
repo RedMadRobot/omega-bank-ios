@@ -37,6 +37,16 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "77196A5923FA915E007C8C84"
+               BuildableName = "OmegaBankAPITests.xctest"
+               BlueprintName = "OmegaBankAPITests"
+               ReferencedContainer = "container:OmegaBank.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
