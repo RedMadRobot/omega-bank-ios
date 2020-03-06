@@ -38,10 +38,21 @@
 		77196AAB23FBCF3A007C8C84 /* EmptyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196AAA23FBCF3A007C8C84 /* EmptyEndpoint.swift */; };
 		77196AAC23FBCFAA007C8C84 /* SendPhoneEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196AA523FBCC70007C8C84 /* SendPhoneEndpoint.swift */; };
 		77196AAE23FCFB37007C8C84 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196AAD23FCFB37007C8C84 /* Results.swift */; };
+		7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BC432404E4B90063ACBD /* NavigationController.swift */; };
+		7757BC472404E5CC0063ACBD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BC462404E5CC0063ACBD /* Color.swift */; };
+		7757BC492404E5D50063ACBD /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BC482404E5D50063ACBD /* Font.swift */; };
+		777426B42405197B008E5810 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777426B32405197B008E5810 /* TableViewCell.swift */; };
+		777426B824051ABF008E5810 /* NibRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777426B724051ABF008E5810 /* NibRepresentable.swift */; };
+		777426BF24052364008E5810 /* UITableView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777426BE24052364008E5810 /* UITableView+Nib.swift */; };
+		777426C1240523B5008E5810 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777426C0240523B5008E5810 /* NibLoadable.swift */; };
+		777961B9240E62B70066762B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777961B7240E62B70066762B /* MainViewController.swift */; };
+		777961BA240E62B70066762B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777961B8240E62B70066762B /* MainViewController.xib */; };
 		77C34B4A23FE4A4A005CFD23 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196A9E23FACDB5007C8C84 /* APIService.swift */; };
 		77C34B4D23FFB2BB005CFD23 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C34B4C23FFB2BB005CFD23 /* Asserts.swift */; };
 		77C34B5023FFBDB5005CFD23 /* SendPhoneEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C34B4F23FFBDB5005CFD23 /* SendPhoneEndpointTest.swift */; };
 		77C34B5223FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C34B5123FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift */; };
+		77C74935240CE47400A109A0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C74934240CE47400A109A0 /* View.swift */; };
+		77CF6F3524066FB3000A5082 /* BarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF6F3424066FB3000A5082 /* BarButtonItems.swift */; };
 		80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */; };
 		926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */; };
 		9BA3854966982881FF5B4A25 /* Pods_OmegaBankAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012B1146DCCBAB350E6C6FFD /* Pods_OmegaBankAPITests.framework */; };
@@ -136,10 +147,21 @@
 		77196AAA23FBCF3A007C8C84 /* EmptyEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEndpoint.swift; sourceTree = "<group>"; };
 		77196AAD23FCFB37007C8C84 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		77196AAF23FD162C007C8C84 /* OmegaBank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmegaBank.entitlements; sourceTree = "<group>"; };
+		7757BC432404E4B90063ACBD /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		7757BC462404E5CC0063ACBD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7757BC482404E5D50063ACBD /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		777426B32405197B008E5810 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		777426B724051ABF008E5810 /* NibRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibRepresentable.swift; sourceTree = "<group>"; };
+		777426BE24052364008E5810 /* UITableView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Nib.swift"; sourceTree = "<group>"; };
+		777426C0240523B5008E5810 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		777961B7240E62B70066762B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		777961B8240E62B70066762B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		77A41D800F600A7016753748 /* Pods_OmegaBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C34B4C23FFB2BB005CFD23 /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		77C34B4F23FFBDB5005CFD23 /* SendPhoneEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneEndpointTest.swift; sourceTree = "<group>"; };
 		77C34B5123FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSmsCodeEndpointTest.swift; sourceTree = "<group>"; };
+		77C74934240CE47400A109A0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		77CF6F3424066FB3000A5082 /* BarButtonItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItems.swift; sourceTree = "<group>"; };
 		7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmegaBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +228,8 @@
 		0FC2005DF7280A5FEE7A4853 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				7757BC412404E47B0063ACBD /* Common */,
+				777961B1240E62210066762B /* Main */,
 				77196AA023FBC288007C8C84 /* Auth */,
 				7EFAA648B5E788AA04BFB980 /* Launch */,
 			);
@@ -400,6 +424,7 @@
 		77196AA023FBC288007C8C84 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				777426B924051C15008E5810 /* View */,
 				77196AB223FD3E04007C8C84 /* View Controller */,
 			);
 			path = Auth;
@@ -410,6 +435,78 @@
 			children = (
 				77196AA123FBC2A0007C8C84 /* LoginViewController.swift */,
 				77196AA323FBC2CE007C8C84 /* LoginViewController.xib */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		7757BC412404E47B0063ACBD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				777426B624051AA6008E5810 /* Helper */,
+				777426B224051967008E5810 /* View */,
+				7757BC452404E5B40063ACBD /* Appearence */,
+				7757BC422404E4860063ACBD /* ViewController */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7757BC422404E4860063ACBD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7757BC432404E4B90063ACBD /* NavigationController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7757BC452404E5B40063ACBD /* Appearence */ = {
+			isa = PBXGroup;
+			children = (
+				7757BC462404E5CC0063ACBD /* Color.swift */,
+				7757BC482404E5D50063ACBD /* Font.swift */,
+			);
+			path = Appearence;
+			sourceTree = "<group>";
+		};
+		777426B224051967008E5810 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77C74930240CE41000A109A0 /* Cell */,
+				77C74931240CE41F00A109A0 /* View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		777426B624051AA6008E5810 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				777426B724051ABF008E5810 /* NibRepresentable.swift */,
+				777426BE24052364008E5810 /* UITableView+Nib.swift */,
+				777426C0240523B5008E5810 /* NibLoadable.swift */,
+				77CF6F3424066FB3000A5082 /* BarButtonItems.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		777426B924051C15008E5810 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		777961B1240E62210066762B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				777961B6240E625A0066762B /* View Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		777961B6240E625A0066762B /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				777961B7240E62B70066762B /* MainViewController.swift */,
+				777961B8240E62B70066762B /* MainViewController.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -440,6 +537,22 @@
 				77C34B5123FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		77C74930240CE41000A109A0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				777426B32405197B008E5810 /* TableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		77C74931240CE41F00A109A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77C74934240CE47400A109A0 /* View.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7EFAA648B5E788AA04BFB980 /* Launch */ = {
@@ -687,6 +800,7 @@
 			files = (
 				77196AA423FBC2CE007C8C84 /* LoginViewController.xib in Resources */,
 				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
+				777961BA240E62B70066762B /* MainViewController.xib in Resources */,
 				80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -859,10 +973,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777426B42405197B008E5810 /* TableViewCell.swift in Sources */,
 				77196AA223FBC2A0007C8C84 /* LoginViewController.swift in Sources */,
+				7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */,
+				7757BC492404E5D50063ACBD /* Font.swift in Sources */,
 				6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */,
+				777961B9240E62B70066762B /* MainViewController.swift in Sources */,
 				77196A9D23FACC52007C8C84 /* BoolStorage.swift in Sources */,
+				77CF6F3524066FB3000A5082 /* BarButtonItems.swift in Sources */,
+				777426B824051ABF008E5810 /* NibRepresentable.swift in Sources */,
+				7757BC472404E5CC0063ACBD /* Color.swift in Sources */,
+				77C74935240CE47400A109A0 /* View.swift in Sources */,
+				777426C1240523B5008E5810 /* NibLoadable.swift in Sources */,
 				77196A9923FACB58007C8C84 /* KeychainStorage.swift in Sources */,
+				777426BF24052364008E5810 /* UITableView+Nib.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
 				77196A9723FACA6C007C8C84 /* AccessTokenStorage.swift in Sources */,

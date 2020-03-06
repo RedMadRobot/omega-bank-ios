@@ -10,13 +10,13 @@ import Foundation
 import KeychainAccess
 
 /// Хранилище данных в `Keychain`.
-public final class KeychainStorage {
+final class KeychainStorage {
 
     private static let keychainCleaned = "ru.rt.omegabank.key.isKeychainCleaned"
 
     private let keychain: Keychain
 
-    public init(service: String, accessGroup: String, flagStorage: BoolStorage) {
+    init(service: String, accessGroup: String, flagStorage: BoolStorage) {
         keychain = Keychain(service: service, accessGroup: accessGroup)
 
         // При удалении приложения Keychain сбрасывается не сразу. Чистим принудительно
@@ -31,7 +31,7 @@ public final class KeychainStorage {
 
 extension KeychainStorage: DataStorage {
 
-    public func set(_ data: Data?, for key: String) throws {
+    func set(_ data: Data?, for key: String) throws {
         if let data = data {
             try keychain.set(data, key: key)
         } else {
@@ -39,7 +39,7 @@ extension KeychainStorage: DataStorage {
         }
     }
 
-    public func data(for key: String) throws -> Data? {
+    func data(for key: String) throws -> Data? {
         try keychain.getData(key)
     }
 }

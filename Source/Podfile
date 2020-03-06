@@ -6,9 +6,10 @@ inhibit_all_warnings!
 def main_pods
   pod 'Crashlytics'
   pod 'Fabric'
+  pod 'InputMask'
   pod 'KeychainAccess'
   pod 'SwiftLint'
-end 
+end
 
 #Библиотеки для таргета с тестами
 def test_pods

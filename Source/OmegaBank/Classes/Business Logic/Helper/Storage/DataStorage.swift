@@ -11,7 +11,7 @@ import Foundation
 /// Хранилище бинарных данных.
 ///
 /// Закрывает собой `Keychain` или `UserDefaults`.
-public protocol DataStorage: AnyObject {
+protocol DataStorage: AnyObject {
 
     /// Сохранение, обновление или удаление данных.
     ///
@@ -33,11 +33,11 @@ public protocol DataStorage: AnyObject {
 
 extension UserDefaults: DataStorage {
 
-    public func set(_ data: Data?, for key: String) throws {
+    func set(_ data: Data?, for key: String) throws {
         set(data, forKey: key)
     }
 
-    public func data(for key: String) throws -> Data? {
+    func data(for key: String) throws -> Data? {
         data(forKey: key)
     }
 }

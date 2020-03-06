@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
+  - InputMask (5.0.0)
   - iOSSnapshotTestCase (6.2.0):
     - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
   - iOSSnapshotTestCase/Core (6.2.0)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.8)
   - Crashlytics
   - Fabric
+  - InputMask
   - iOSSnapshotTestCase
   - KeychainAccess
   - SwiftLint
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Alamofire
     - Crashlytics
     - Fabric
+    - InputMask
     - iOSSnapshotTestCase
     - KeychainAccess
     - SwiftLint
@@ -32,10 +35,11 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  InputMask: 8a10dbc8ac3f94f0a5b4c380424bbe6795c69b16
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: b7f0f05aae141dd7984ac0805aa7aed95572034f
+PODFILE CHECKSUM: ed812d2b79d8b33d67b877a32afd725c457f7db0
 
 COCOAPODS: 1.8.4
