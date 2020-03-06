@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol BoolStorage: AnyObject {
+protocol BoolStorage: AnyObject {
 
     func set(_ value: Bool, forKey defaultName: String)
     func bool(forKey defaultName: String) -> Bool

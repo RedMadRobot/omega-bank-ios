@@ -8,10 +8,10 @@
 import Foundation
 import OmegaBankAPI
 
-public typealias AuthCompletionHandler = (Error?) -> Void
+typealias AuthCompletionHandler = (Error?) -> Void
 
 /// Сервис авторизации.
-public protocol LoginService {
+protocol LoginService {
 
     /// Авторизован ли пользователь.
     var isAuthorized: Bool { get }
@@ -28,15 +28,15 @@ public protocol LoginService {
 }
 
 /// Сервис авторизации.
-public final class AuthService {
+final class AuthService {
 
     private var apiClient: ApiClient
     private let accessTokenStorage: AccessTokenStorage
     private let baseURL: () -> URL
 
-    public var tokenInvalidHandler: (() -> Void)?
+    var tokenInvalidHandler: (() -> Void)?
     
-    public init(apiClient: ApiClient, accessTokenStorage: AccessTokenStorage, baseURL: @escaping () -> URL) {
+    init(apiClient: ApiClient, accessTokenStorage: AccessTokenStorage, baseURL: @escaping () -> URL) {
 
         self.apiClient = apiClient
         self.accessTokenStorage = accessTokenStorage
@@ -63,17 +63,21 @@ extension AuthService: LoginService {
 
     /// Регистрация пользователя по номеру телефона.
     @discardableResult
-    public func sendPhoneNumber(phone: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
+    func sendPhoneNumber(phone: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
         let endpoint = SendPhoneEndpoint(phone: phone)
-
-        return apiClient.request(endpoint) { _ in
-            completionHandler(nil)
+        
+        return apiClient.request(endpoint) { result in
+            switch result {
+            case .success:
+                completionHandler(nil)
+            case .failure(let error):
+                completionHandler(error)
+            }
         }
     }
     
     /// Получение  access_token по номеру телефона.
-    public func checkSmsCode(smsCode: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
-        
+    func checkSmsCode(smsCode: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
         let endpoint = CheckSmsCodeEndpoint(smsCode: smsCode)
         
         return apiClient.request(endpoint) { [weak self] result in
@@ -88,12 +92,12 @@ extension AuthService: LoginService {
     }
 
     /// Авторизован ли пользователь.
-    public var isAuthorized: Bool {
+    var isAuthorized: Bool {
         accessTokenStorage.accessToken != nil
     }
 
     /// Обновить статус авторизации и параметры подключения.
-    public func restore() {
+    func restore() {
         apiClient.accessToken = accessTokenStorage.accessToken
         apiClient.baseURL = baseURL()
     }

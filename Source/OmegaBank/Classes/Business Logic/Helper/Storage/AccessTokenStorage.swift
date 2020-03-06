@@ -12,7 +12,7 @@ enum AccessTokenStorageProperties {
 }
 
 /// Хранилище токена доступа.
-public protocol AccessTokenStorage: AnyObject {
+protocol AccessTokenStorage: AnyObject {
 
     /// Текущий токен доступа.
     var accessToken: String? { get }
@@ -26,12 +26,12 @@ public protocol AccessTokenStorage: AnyObject {
 
 extension KeychainStorage: AccessTokenStorage {
 
-    public var accessToken: String? {
+    var accessToken: String? {
         try? data(for: AccessTokenStorageProperties.accessTokenKey)
             .flatMap { String(data: $0, encoding: .utf8) }
     }
 
-    public func setAccessToken(_ token: String?) throws {
+    func setAccessToken(_ token: String?) throws {
         let data = token.map { Data($0.utf8) }
         try set(data, for: AccessTokenStorageProperties.accessTokenKey)
     }

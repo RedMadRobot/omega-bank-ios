@@ -9,7 +9,7 @@
 import Foundation
 import OmegaBankAPI
 
-public extension Bundle {
+extension Bundle {
     var appBundleId: String {
         // swiftlint:disable:next force_cast
         return object(forInfoDictionaryKey: "APP_BUNDLE_IDENTIFIER") as! String
@@ -29,12 +29,6 @@ final class ServiceLayer {
     private var bundle: Bundle { Bundle.main }
     private var userDefaults: UserDefaults { UserDefaults.standard }
     private lazy var baseURL = BaseURL(bundle: bundle)
-    
-    /// Общий сервис авторизации
-    private lazy var authService: AuthService = AuthService(
-        apiClient: apiClient,
-        accessTokenStorage: keychainStorage,
-        baseURL: fetchBaseURL)
 
     private lazy var keychainStorage: KeychainStorage = {
         let storage = KeychainStorage(
@@ -44,12 +38,18 @@ final class ServiceLayer {
         return storage
     }()
     
+    /// Общий сервис авторизации
+    private lazy var authService = AuthService(
+        apiClient: apiClient,
+        accessTokenStorage: keychainStorage,
+        baseURL: fetchBaseURL)
+    
     // MARK: - Public Properties
     
     /// Сервис авторизации.
-    public var loginService: LoginService { authService }
+    var loginService: LoginService { authService }
 
-    public private(set) lazy var apiClient: ApiClient = {
+    private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(
             baseURL: fetchBaseURL(),
             responseObserver: {  _, _, _, error in
@@ -58,7 +58,7 @@ final class ServiceLayer {
             })
     }()
     
-    internal struct BaseURL {
+    struct BaseURL {
         let bundle: Bundle
 
         func fetch() -> URL {

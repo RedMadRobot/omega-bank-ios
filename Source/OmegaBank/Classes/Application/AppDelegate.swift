@@ -12,8 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    private lazy var loginViewController = LoginViewController()
+
+    private lazy var mainViewController = MainViewController()
 
     func application(
         _ application: UIApplication,
@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = loginViewController
+        
+        let navigationController = NavigationController(rootViewController: mainViewController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
