@@ -15,7 +15,13 @@ enum LoginState {
     case sms(phone: String)
 }
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func loginViewControllerDidAuth(_ controller: LoginViewController)
+}
+
 final class LoginViewController: UIViewController {
+
+    weak var delegate: LoginViewControllerDelegate?
     
     /// Внутренние контсанты.
     private enum Constants {
@@ -56,6 +62,7 @@ final class LoginViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         title = "Sign In"
+        tabBarItem.image = #imageLiteral(resourceName: "signin")
     }
 
     required init?(coder: NSCoder) {
@@ -89,7 +96,7 @@ final class LoginViewController: UIViewController {
             return
         }
         
-        progress = sendPhone(phone)
+        sendPhone(phone)
     }
     
     @objc private func sendSmsCode() {
@@ -98,7 +105,7 @@ final class LoginViewController: UIViewController {
             return
         }
         
-        progress = checkSmsCode(code)
+        checkSmsCode(code)
     }
     
     // MARK: - Private
@@ -168,7 +175,7 @@ final class LoginViewController: UIViewController {
 
     /// При успешной аутентификации прячем ViewController.
     private func authSucceed() {
-        dismiss(animated: true)
+        delegate?.loginViewControllerDidAuth(self)
     }
     
     /// Отображаем ошибку.
@@ -204,8 +211,8 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Service
 
-    private func sendPhone(_ phone: String) -> Progress {
-        loginService.sendPhoneNumber(phone: phone) { [weak self] error in
+    private func sendPhone(_ phone: String) {
+        progress = loginService.sendPhoneNumber(phone: phone) { [weak self] error in
             if let error = error {
                 self?.showErrorMessage(error.localizedDescription)
                 return
@@ -215,8 +222,8 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    private func checkSmsCode(_ smsCode: String) -> Progress {
-        loginService.checkSmsCode(smsCode: smsCode) { [weak self] error in
+    private func checkSmsCode(_ smsCode: String) {
+        progress = loginService.checkSmsCode(smsCode: smsCode) { [weak self] error in
             if let error = error {
                 self?.showErrorMessage(error.localizedDescription)
                 return

@@ -9,7 +9,17 @@
 import UIKit
 
 extension UIFont {
+    
     static var body1: UIFont {
         UIFont.boldSystemFont(ofSize: 16.0)
     }
+    
+    static var body2: UIFont {
+        UIFont.systemFont(ofSize: 12.0)
+    }
+    
+    static var caption1: UIFont {
+        UIFont.systemFont(ofSize: 17)
+    }
+
 }

@@ -12,14 +12,18 @@ import Foundation
 ///
 /// Contains shared logic for all endpoints in app.
 protocol JsonEndpoint: Endpoint where Content: Decodable {
+    associatedtype Root: Decodable = Content
+
+    func content(from root: Root) -> Content
 }
 
 extension JsonEndpoint {
+
     public func content(from response: URLResponse?, with body: Data) throws -> Content {
-        
         try ResponseValidator.validate(response, with: body)
-        let value = try JSONDecoder.default.decode(ResponseData<Content>.self, from: body)
-        return value.data
+        let root = try JSONDecoder.default.decode(ResponseData<Root>.self, from: body)
+
+        return content(from: root.data)
     }
 }
 

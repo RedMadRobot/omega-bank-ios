@@ -10,6 +10,7 @@ import Foundation
 
 /// Авторизация по номеру телефона.
 public struct CheckSmsCodeEndpoint: JsonEndpoint, Encodable {
+
     public typealias Content = AuthData
 
     public let smsCode: String
@@ -17,6 +18,8 @@ public struct CheckSmsCodeEndpoint: JsonEndpoint, Encodable {
     public init(smsCode: String) {
         self.smsCode = smsCode
     }
+
+    func content(from root: AuthData) -> AuthData { root }
 
     public func makeRequest() throws -> URLRequest {
         let url = URL(string: "auth/sms/check-code")!
