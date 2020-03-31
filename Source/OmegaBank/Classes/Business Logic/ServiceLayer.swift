@@ -37,17 +37,17 @@ final class ServiceLayer {
             flagStorage: self.userDefaults)
         return storage
     }()
-    
-    /// Общий сервис авторизации
-    private lazy var authService = AuthService(
-        apiClient: apiClient,
-        accessTokenStorage: keychainStorage,
-        baseURL: fetchBaseURL)
-    
+
     // MARK: - Public Properties
     
     /// Сервис авторизации.
-    var loginService: LoginService { authService }
+    private(set) lazy var loginService = AuthService(
+        apiClient: apiClient,
+        accessTokenStorage: keychainStorage,
+        baseURL: fetchBaseURL)
+
+    /// Сервис партнеров
+    private(set) lazy var partnerListService = PartnerListServiceImplementation(apiClient: apiClient)
 
     private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(

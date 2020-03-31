@@ -18,6 +18,8 @@ protocol NavigationUnit {
 /// Кастомный NavigationController приложения
 final class NavigationController: UINavigationController {
 
+    // MARK: - Private Properties
+    
     /// Текущий вью контроллер.
     private var viewController: UIViewController? { topViewController }
 
@@ -26,16 +28,20 @@ final class NavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
-
+    
+    private let transition = FadeTranstion()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
 
+        transitioningDelegate = transition
+        modalPresentationStyle = .custom
+        
         navigationBar.barStyle = .default
         navigationBar.isTranslucent = false
         navigationBar.tintColor = .textPrimary
         navigationBar.shadowImage = UIImage()
-        navigationBar.barTintColor = .bar
+        navigationBar.barTintColor = .makeGradient(from: .bar1, to: .bar2, on: navigationBar.bounds)
 
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.font: UIFont.body1,

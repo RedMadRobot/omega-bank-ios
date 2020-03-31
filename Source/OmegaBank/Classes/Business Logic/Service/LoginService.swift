@@ -77,6 +77,7 @@ extension AuthService: LoginService {
     }
     
     /// Получение  access_token по номеру телефона.
+    @discardableResult
     func checkSmsCode(smsCode: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
         let endpoint = CheckSmsCodeEndpoint(smsCode: smsCode)
         

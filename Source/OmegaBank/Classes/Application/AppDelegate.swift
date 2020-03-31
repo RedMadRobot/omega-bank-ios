@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private lazy var mainViewController = MainViewController()
+    private lazy var appViewController = AppViewController()
 
     func application(
         _ application: UIApplication,
@@ -29,9 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let navigationController = NavigationController(rootViewController: mainViewController)
-        window?.rootViewController = navigationController
+
+        window?.rootViewController = appViewController
         window?.makeKeyAndVisible()
     }
 }

@@ -4,6 +4,7 @@ inhibit_all_warnings!
 
 #Библиотеки располагаются в алфавитном порядке
 def main_pods
+  pod 'AlamofireImage'
   pod 'Crashlytics'
   pod 'Fabric'
   pod 'InputMask'
