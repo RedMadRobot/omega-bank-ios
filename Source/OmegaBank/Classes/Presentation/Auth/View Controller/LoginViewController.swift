@@ -80,6 +80,8 @@ final class LoginViewController: UIViewController {
 
         setupInputMask()
         setupViews()
+        
+        smsCodeTextField.addTarget(self, action: #selector(smsCodeEditing), for: .editingChanged)
     }
     
     // MARK: - Action
@@ -89,7 +91,7 @@ final class LoginViewController: UIViewController {
     }
 
     @objc private func goSmsStage() {
-        self.toggleNextButton(isEnabled: false)
+        toggleNextButton(isEnabled: false)
         
         guard let phone = rawPhoneNumber else {
             showErrorMessage("Телефон не может быть пустым")
@@ -113,8 +115,11 @@ final class LoginViewController: UIViewController {
     /// Настраиваем Views.
     private func setupViews() {
         stageDidChange(animated: false)
-        phoneTextField.delegate = inputMaskListener
         enableNextButton()
+    }
+    
+    @objc private func smsCodeEditing() {
+        isValid = smsCodeTextField.hasText
     }
 
     /// Обновляем ViewController при смене стейта
@@ -124,13 +129,17 @@ final class LoginViewController: UIViewController {
         case .phone:
             navigationItem.leftBarButtonItem = nil
             navigationItem.rightBarButtonItem = UIBarButtonItem.next(target: self, action: #selector(goSmsStage))
+            navigationItem.rightBarButtonItem?.accessibilityLabel = "next"
 
             headerTransition(title: "Your Phone", options: [.transitionFlipFromTop], animated: animated)
             inputViewTransition(from: smsInputView, to: phoneInputView, animated: animated)
 
         case .sms:
             navigationItem.leftBarButtonItem = UIBarButtonItem.back(target: self, action: #selector(goPhoneStage))
+            navigationItem.leftBarButtonItem?.accessibilityLabel = "back"
             navigationItem.rightBarButtonItem = UIBarButtonItem.next(target: self, action: #selector(sendSmsCode))
+            navigationItem.rightBarButtonItem?.accessibilityLabel = "login"
+            navigationItem.rightBarButtonItem?.isEnabled = false
 
             headerTransition(title: "Enter Code", options: [.transitionFlipFromBottom], animated: animated)
             inputViewTransition(from: phoneInputView, to: smsInputView, animated: animated)
@@ -144,8 +153,6 @@ final class LoginViewController: UIViewController {
 
     /// Анимация при смене этапов аутентификации для поля ввода.
     private func inputViewTransition(from fromView: UIView, to toView: UIView, animated: Bool) {
-        toggleNextButton(isEnabled: true)
-
         guard animated else { return }
 
         UIView.transition(
@@ -195,18 +202,11 @@ final class LoginViewController: UIViewController {
     
     /// Настраиваем маску ввода
     private func setupInputMask() {
+        inputMaskListener.delegate = self
+        phoneTextField.delegate = inputMaskListener
+        
         inputMaskListener.affinityCalculationStrategy = .prefix
         inputMaskListener.affineFormats = ["([000]) [000]-[00]-[00]"]
-        inputMaskListener.onMaskedTextChangedCallback = { [weak self] textInput, value, complete in
-            guard let self = self else { return }
-            
-            if self.isValid != complete {
-                self.isValid = complete
-            }
-
-            self.rawPhoneNumber = complete ? value : nil
-            self.toggleNextButton(isEnabled: complete)
-        }
     }
     
     // MARK: - Service
@@ -231,5 +231,19 @@ final class LoginViewController: UIViewController {
             
             self?.authSucceed()
         }
+    }
+}
+
+extension LoginViewController: MaskedTextFieldDelegateListener {
+
+    func textField(_ textField: UITextField, didFillMandatoryCharacters complete: Bool, didExtractValue value: String) {
+        guard textField == phoneTextField else { return }
+
+        if self.isValid != complete {
+            self.isValid = complete
+        }
+
+        self.rawPhoneNumber = complete ? value : nil
+        self.toggleNextButton(isEnabled: complete)
     }
 }
