@@ -72,9 +72,12 @@ final class PartnterDetailedViewController: UIViewController {
         let limits = partner.limits.map { PartnerDescriptionViewModel(limit: $0) }
         let dailyLimits = partner.dailyLimits.map { PartnerDescriptionViewModel(limit: $0) }
         
-        addCollectionViewItem(title: Caption.limits, viewModels: limits)
+        addCollectionViewItem(title: Caption.limits, viewModels: limits, accessibilityIdentifier: "limits")
         addSerapator()
-        addCollectionViewItem(title: Caption.dailyLimits, viewModels: dailyLimits)
+        addCollectionViewItem(
+            title: Caption.dailyLimits,
+            viewModels: dailyLimits,
+            accessibilityIdentifier: "dailyLimits")
         addSerapator()
         
         addDescriptionViewView(header: Caption.pointType, description: partner.pointType)
@@ -102,7 +105,11 @@ final class PartnterDetailedViewController: UIViewController {
         stackView.addArrangedSubview(limitationView)
     }
     
-    private func addCollectionViewItem(title: String, viewModels: [PartnerDescriptionViewModel]) {
+    private func addCollectionViewItem(
+        title: String,
+        viewModels: [PartnerDescriptionViewModel],
+        accessibilityIdentifier: String) {
+        
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont.caption1
         label.text = title
@@ -117,6 +124,7 @@ final class PartnterDetailedViewController: UIViewController {
         collectionViewController.view.heightAnchor.constraint(
             equalToConstant: Size.collectionViewHeight).isActive = true
         collectionViewController.didMove(toParent: self)
+        collectionViewController.collectionView.accessibilityIdentifier = accessibilityIdentifier
     }
     
     private func addSerapator() {

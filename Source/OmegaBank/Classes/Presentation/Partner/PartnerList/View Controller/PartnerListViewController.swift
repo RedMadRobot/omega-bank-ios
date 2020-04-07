@@ -110,6 +110,7 @@ final class PartnerListViewController: PageViewController {
         layout.animator = CardAttributesAnimator(minAlpha: 0.5, itemSpacing: 0.4, scaleRate: 0.8)
 
         collectionView.collectionViewLayout = layout
+        collectionView.accessibilityIdentifier = "collection view"
 
         progress = partnerListService.load { [weak self] result in
             self?.loadDidFinish(result)

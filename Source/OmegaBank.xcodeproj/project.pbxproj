@@ -65,6 +65,8 @@
 		80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */; };
 		926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */; };
 		9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544F9ED242A1E7900127693 /* CurvedView.swift */; };
+		9547B2D3243750540057C4D1 /* PartnerListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547B2D2243750540057C4D1 /* PartnerListViewControllerTests.swift */; };
+		9547B2D6243751760057C4D1 /* PartnerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547B2D5243751760057C4D1 /* PartnerMock.swift */; };
 		9547F8C3242A384800EC42A0 /* PartnerLimitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547F8C1242A384800EC42A0 /* PartnerLimitCell.swift */; };
 		9547F8C4242A384800EC42A0 /* PartnerLimitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9547F8C2242A384800EC42A0 /* PartnerLimitCell.xib */; };
 		954BA2802429D091009CA09F /* PartnersEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BA27E2429D021009CA09F /* PartnersEndpointTest.swift */; };
@@ -73,7 +75,12 @@
 		954BD42D242C967F00DDF91A /* PartnerLimitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BD42C242C967F00DDF91A /* PartnerLimitViewModel.swift */; };
 		954BD433242CB47700DDF91A /* PartnerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BD432242CB47700DDF91A /* PartnerDescriptionView.swift */; };
 		954BD435242CB90F00DDF91A /* PartnerDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954BD434242CB90F00DDF91A /* PartnerDescriptionView.xib */; };
+		955BF9D4243B3145004621BB /* PartnerDetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */; };
 		955EECF9242DEB1B0096DE38 /* PartnerSerapatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */; };
+		95796CE7243464C8000CD182 /* ViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CE6243464C8000CD182 /* ViewControllerTestCase.swift */; };
+		95796CEA24346634000CD182 /* UIView+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CE924346634000CD182 /* UIView+Subview.swift */; };
+		95796CEC24346697000CD182 /* UIControl+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CEB24346697000CD182 /* UIControl+User.swift */; };
+		95796CF024346C18000CD182 /* UIViewController+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */; };
 		958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */; };
 		958BD2D42432005900543642 /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D32432005900543642 /* LayoutGuide.swift */; };
 		958BD2D72432239400543642 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D62432239400543642 /* FadeTransition.swift */; };
@@ -86,6 +93,11 @@
 		9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */; };
 		9599A4DC2428C38C000411EC /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4DB2428C38C000411EC /* String+Html.swift */; };
 		9599A4DF2428D341000411EC /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4DE2428D341000411EC /* CAGradientLayer.swift */; };
+		95A5586D2433572B003ED9A2 /* MockLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5586C2433572B003ED9A2 /* MockLoginService.swift */; };
+		95A5586F2433574C003ED9A2 /* MockPartnerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5586E2433574C003ED9A2 /* MockPartnerListService.swift */; };
+		95A5587124335855003ED9A2 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5587024335855003ED9A2 /* MockClient.swift */; };
+		95A5587624335E16003ED9A2 /* AuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5587524335E16003ED9A2 /* AuthServiceTests.swift */; };
+		95A5588024338FAC003ED9A2 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */; };
 		9BA3854966982881FF5B4A25 /* Pods_OmegaBankAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012B1146DCCBAB350E6C6FFD /* Pods_OmegaBankAPITests.framework */; };
 		A831740758724667D902F5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */; };
 		EC59A1286272D417102B2E2E /* Pods_OmegaBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A41D800F600A7016753748 /* Pods_OmegaBankTests.framework */; };
@@ -205,6 +217,8 @@
 		7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9544F9ED242A1E7900127693 /* CurvedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
+		9547B2D2243750540057C4D1 /* PartnerListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerListViewControllerTests.swift; sourceTree = "<group>"; };
+		9547B2D5243751760057C4D1 /* PartnerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerMock.swift; sourceTree = "<group>"; };
 		9547F8C1242A384800EC42A0 /* PartnerLimitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitCell.swift; sourceTree = "<group>"; };
 		9547F8C2242A384800EC42A0 /* PartnerLimitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnerLimitCell.xib; sourceTree = "<group>"; };
 		954BA27E2429D021009CA09F /* PartnersEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersEndpointTest.swift; sourceTree = "<group>"; };
@@ -213,7 +227,12 @@
 		954BD42C242C967F00DDF91A /* PartnerLimitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitViewModel.swift; sourceTree = "<group>"; };
 		954BD432242CB47700DDF91A /* PartnerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerDescriptionView.swift; sourceTree = "<group>"; };
 		954BD434242CB90F00DDF91A /* PartnerDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnerDescriptionView.xib; sourceTree = "<group>"; };
+		955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerDetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerSerapatorView.swift; sourceTree = "<group>"; };
+		95796CE6243464C8000CD182 /* ViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTestCase.swift; sourceTree = "<group>"; };
+		95796CE924346634000CD182 /* UIView+Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subview.swift"; sourceTree = "<group>"; };
+		95796CEB24346697000CD182 /* UIControl+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+User.swift"; sourceTree = "<group>"; };
+		95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIBarButtonItem.swift"; sourceTree = "<group>"; };
 		958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitCollectionViewController.swift; sourceTree = "<group>"; };
 		958BD2D32432005900543642 /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		958BD2D62432239400543642 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
@@ -226,6 +245,11 @@
 		9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Nib.swift"; sourceTree = "<group>"; };
 		9599A4DB2428C38C000411EC /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
 		9599A4DE2428D341000411EC /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
+		95A5586C2433572B003ED9A2 /* MockLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginService.swift; sourceTree = "<group>"; };
+		95A5586E2433574C003ED9A2 /* MockPartnerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPartnerListService.swift; sourceTree = "<group>"; };
+		95A5587024335855003ED9A2 /* MockClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClient.swift; sourceTree = "<group>"; };
+		95A5587524335E16003ED9A2 /* AuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTests.swift; sourceTree = "<group>"; };
+		95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmegaBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CCA46F7A338FEA9569BC87 /* Pods-OmegaBankAPI.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.app-store.xcconfig"; sourceTree = "<group>"; };
 		A8B33C0F2873D23A021D58D9 /* Pods-OmegaBankAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -291,8 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				7757BC412404E47B0063ACBD /* Common */,
-				777961B1240E62210066762B /* PartnerList */,
-				9547F8BD242A37E300EC42A0 /* PartnerDetailed */,
+				955BF9D2243B30E5004621BB /* Partner */,
 				77196AA023FBC288007C8C84 /* Auth */,
 				7EFAA648B5E788AA04BFB980 /* Launch */,
 			);
@@ -628,9 +651,8 @@
 		77C34B4E23FFBD11005CFD23 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				77C34B4F23FFBDB5005CFD23 /* SendPhoneEndpointTest.swift */,
-				77C34B5123FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift */,
-				954BA27E2429D021009CA09F /* PartnersEndpointTest.swift */,
+				95A5586824335653003ED9A2 /* Services */,
+				95A5586724334F97003ED9A2 /* Endpoints */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -667,6 +689,31 @@
 				6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		9547B2D0243750190057C4D1 /* Partner */ = {
+			isa = PBXGroup;
+			children = (
+				9547B2D12437503C0057C4D1 /* ViewController */,
+			);
+			path = Partner;
+			sourceTree = "<group>";
+		};
+		9547B2D12437503C0057C4D1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9547B2D2243750540057C4D1 /* PartnerListViewControllerTests.swift */,
+				955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9547B2D4243751610057C4D1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9547B2D5243751760057C4D1 /* PartnerMock.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		9547F8BD242A37E300EC42A0 /* PartnerDetailed */ = {
@@ -715,6 +762,33 @@
 				954BD42C242C967F00DDF91A /* PartnerLimitViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		955BF9D2243B30E5004621BB /* Partner */ = {
+			isa = PBXGroup;
+			children = (
+				777961B1240E62210066762B /* PartnerList */,
+				9547F8BD242A37E300EC42A0 /* PartnerDetailed */,
+			);
+			path = Partner;
+			sourceTree = "<group>";
+		};
+		95796CE52434649E000CD182 /* Case */ = {
+			isa = PBXGroup;
+			children = (
+				95796CE6243464C8000CD182 /* ViewControllerTestCase.swift */,
+			);
+			path = Case;
+			sourceTree = "<group>";
+		};
+		95796CE82434661F000CD182 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				95796CE924346634000CD182 /* UIView+Subview.swift */,
+				95796CEB24346697000CD182 /* UIControl+User.swift */,
+				95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		958BD2D52432237D00543642 /* Transition */ = {
@@ -775,6 +849,108 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		95A5586724334F97003ED9A2 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				77C34B4F23FFBDB5005CFD23 /* SendPhoneEndpointTest.swift */,
+				77C34B5123FFC035005CFD23 /* CheckSmsCodeEndpointTest.swift */,
+				954BA27E2429D021009CA09F /* PartnersEndpointTest.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		95A5586824335653003ED9A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		95A55869243356F5003ED9A2 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				9547B2D4243751610057C4D1 /* API */,
+				95A5586A243356FC003ED9A2 /* Business Logic */,
+				95A5587924336F4A003ED9A2 /* Model */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		95A5586A243356FC003ED9A2 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				95A5586B24335708003ED9A2 /* Service */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		95A5586B24335708003ED9A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587024335855003ED9A2 /* MockClient.swift */,
+				95A5586C2433572B003ED9A2 /* MockLoginService.swift */,
+				95A5586E2433574C003ED9A2 /* MockPartnerListService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		95A5587224335DD6003ED9A2 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587C24338F0B003ED9A2 /* Presentation */,
+				95A5587324335DDC003ED9A2 /* Business Logic */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		95A5587324335DDC003ED9A2 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587424335DEB003ED9A2 /* Service */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		95A5587424335DEB003ED9A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587524335E16003ED9A2 /* AuthServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		95A5587924336F4A003ED9A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95A5587C24338F0B003ED9A2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9547B2D0243750190057C4D1 /* Partner */,
+				95A5587D24338F3C003ED9A2 /* Auth */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		95A5587D24338F3C003ED9A2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587E24338F42003ED9A2 /* ViewController */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		95A5587E24338F42003ED9A2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		97D4E80384A708717CB3ACE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +972,10 @@
 		AF83BE1EE06BC13F31AAD8DC /* OmegaBankTests */ = {
 			isa = PBXGroup;
 			children = (
+				95796CE82434661F000CD182 /* Helpers */,
+				95A5587224335DD6003ED9A2 /* Test */,
+				95796CE52434649E000CD182 /* Case */,
+				95A55869243356F5003ED9A2 /* Mock */,
 				DCF5D40C51D5B5F77B629AA2 /* Supporting Files */,
 				F4D13CCECF9ABE420FFF25BC /* OmegaBankTests.swift */,
 			);
@@ -1276,7 +1456,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9547B2D6243751760057C4D1 /* PartnerMock.swift in Sources */,
+				95796CEA24346634000CD182 /* UIView+Subview.swift in Sources */,
+				95A5588024338FAC003ED9A2 /* LoginViewControllerTests.swift in Sources */,
+				955BF9D4243B3145004621BB /* PartnerDetailedViewControllerTests.swift in Sources */,
+				95A5587624335E16003ED9A2 /* AuthServiceTests.swift in Sources */,
+				95796CF024346C18000CD182 /* UIViewController+UIBarButtonItem.swift in Sources */,
+				95A5587124335855003ED9A2 /* MockClient.swift in Sources */,
+				95796CE7243464C8000CD182 /* ViewControllerTestCase.swift in Sources */,
+				95796CEC24346697000CD182 /* UIControl+User.swift in Sources */,
 				0DF3C5BEC98535C54FABA896 /* OmegaBankTests.swift in Sources */,
+				9547B2D3243750540057C4D1 /* PartnerListViewControllerTests.swift in Sources */,
+				95A5586D2433572B003ED9A2 /* MockLoginService.swift in Sources */,
+				95A5586F2433574C003ED9A2 /* MockPartnerListService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

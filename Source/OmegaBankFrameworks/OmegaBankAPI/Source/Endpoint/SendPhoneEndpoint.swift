@@ -11,7 +11,7 @@ import Foundation
 /// Зарегистрировать номер телефона.
 public struct SendPhoneEndpoint: EmptyEndpoint, Encodable {
 
-    private let phoneNumber: String
+    public let phoneNumber: String
     
     public init(phone: String) {
         self.phoneNumber = phone
