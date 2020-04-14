@@ -33,17 +33,18 @@ final class AppViewController: UITabBarController {
         super.viewDidLoad()
 
         showContent()
+        delegate = self
     }
 
-    // MARK: - Private
+    // MARK: - Private Methods
     
     private func setupTabBar() {
-        tabBar.barTintColor = UIColor.makeGradient(from: .bar1, to: .bar2, on: tabBar.bounds)
+        tabBar.barTintColor = .makeGradient(from: .bar1, to: .bar2, on: tabBar.bounds)
         tabBar.tintColor = .textPrimary
     }
 
-    private func show(_ vc: UIViewController, animated: Bool = true) {
-        setViewControllers([vc], animated: animated)
+    private func show(_ viewControllers: [UIViewController], animated: Bool = true) {
+        setViewControllers(viewControllers, animated: animated)
     }
 
     private func showLogin(animated: Bool = true) {
@@ -51,16 +52,19 @@ final class AppViewController: UITabBarController {
         let nc = NavigationController(rootViewController: controller)
         controller.delegate = self
 
-        show(nc, animated: animated)
+        show([nc], animated: animated)
     }
 
     private func showMain(animated: Bool = true) {
-        let controller = PartnerListViewController()
-        let navigationController = NavigationController(rootViewController: controller)
-        controller.delegate = self
-        controller.tabBarItem = UITabBarItem(title: "Partners", image: #imageLiteral(resourceName: "customers"), tag: 0)
+        let productList = MainProductListViewController.make(delegate: self)
+        let partnerList = PartnerListViewController.make(delegate: self)
 
-        show(navigationController, animated: animated)
+        let tabBarViewControllers = [
+            productList,
+            partnerList
+        ]
+
+        show(tabBarViewControllers, animated: animated)
     }
 
     private func showContent(animated: Bool = true) {
@@ -81,11 +85,25 @@ extension AppViewController: LoginViewControllerDelegate {
     }
 }
 
-// MARK: - MainViewControllerDelegate
+// MARK: - ProfileViewControllerDelegate
 
-extension AppViewController: MainViewControllerDelegate {
+extension AppViewController: ProfileViewControllerDelegate {
 
     func mainViewControllerDidLogout() {
         showLogin(animated: true)
     }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension AppViewController: UITabBarControllerDelegate {
+
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        animationControllerForTransitionFrom fromVC: UIViewController,
+        to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+        FadeTranstion.makeAnimator()
+    }
+
 }

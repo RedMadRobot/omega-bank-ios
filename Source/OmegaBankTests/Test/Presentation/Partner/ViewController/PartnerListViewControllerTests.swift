@@ -43,7 +43,7 @@ final class PartnerListViewControllerTests: ViewControllerTestCase, PartnerMock 
         checkCountOfCells(count: 0)
         
         guard let alert = viewController.presentedViewController as? UIAlertController else {
-            return XCTFail("Нет алрета, \(String(describing: viewController.presentedViewController))")
+            return XCTFail("Нет алерта, \(String(describing: viewController.presentedViewController))")
         }
         
         XCTAssertEqual(alert.preferredStyle, .alert)

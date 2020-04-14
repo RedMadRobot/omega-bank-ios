@@ -82,12 +82,21 @@ final class PartnerListViewController: PageViewController {
 
     // MARK: - Initializers
     
+    static func make(delegate: ProfileViewControllerDelegate?) -> UIViewController {
+        let controller = PartnerListViewController()
+        controller.delegate = delegate
+        let navigationController = NavigationController(rootViewController: controller)
+
+        return navigationController
+    }
+    
     init(partnerListService: PartnerListService = ServiceLayer.shared.partnerListService) {
         self.partnerListService = partnerListService
     
         super.init(nibName: nil, bundle: nil)
         
         title = "Partners"
+        tabBarItem = UITabBarItem(title: "Partners", image: #imageLiteral(resourceName: "customers"), tag: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -102,7 +111,7 @@ final class PartnerListViewController: PageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupCollectionView()
 
         let layout = AnimatedCollectionViewLayout()

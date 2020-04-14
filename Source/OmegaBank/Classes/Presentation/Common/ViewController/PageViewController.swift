@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainViewControllerDelegate: AnyObject {
+protocol ProfileViewControllerDelegate: AnyObject {
 
     /// Обработка логаута из главного экрана
     func mainViewControllerDidLogout()
@@ -18,13 +18,13 @@ class PageViewController: UIViewController {
 
     // MARK: - Public properties
 
-    weak var delegate: MainViewControllerDelegate?
+    weak var delegate: ProfileViewControllerDelegate?
 
     // MARK: - ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "logout"),
             style: .plain,
