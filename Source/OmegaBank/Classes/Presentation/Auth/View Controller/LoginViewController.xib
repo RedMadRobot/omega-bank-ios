@@ -17,6 +17,7 @@
                 <outlet property="phoneTextField" destination="Ajj-ec-YoU" id="ymt-Rd-Wmw"/>
                 <outlet property="smsCodeTextField" destination="jzq-Aa-Q72" id="MsG-Rz-0qr"/>
                 <outlet property="smsInputView" destination="f2I-SH-Zbu" id="VQx-oW-NXc"/>
+                <outlet property="titledCurvedView" destination="muR-GC-Pnx" id="7aL-Y2-3AM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="g2s-Uh-wFP"/>
             </connections>
         </placeholder>
@@ -26,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvm-Bn-WZd">
-                    <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                    <rect key="frame" x="0.0" y="214" width="414" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLz-I9-Tzx">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
@@ -55,7 +56,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gba-66-TbZ">
-                    <rect key="frame" x="0.0" y="124" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="294" width="414" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2I-SH-Zbu">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -151,15 +152,25 @@
                         <constraint firstItem="f2I-SH-Zbu" firstAttribute="top" secondItem="Gba-66-TbZ" secondAttribute="top" id="tFI-fl-MMr"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muR-GC-Pnx" customClass="TitledCurvedView" customModule="OmegaBank" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="170"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="DNl-eX-Vlz"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="Gba-66-TbZ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="20f-wW-EAT"/>
                 <constraint firstItem="iDb-ep-Lr4" firstAttribute="height" secondItem="jlB-L7-At1" secondAttribute="height" id="9dg-GV-OAY"/>
                 <constraint firstItem="zIo-l9-Nn0" firstAttribute="width" secondItem="iDb-ep-Lr4" secondAttribute="height" id="Adk-n1-JZS"/>
+                <constraint firstItem="muR-GC-Pnx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Fhp-Qi-kDG"/>
+                <constraint firstItem="muR-GC-Pnx" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="H1c-50-1Wf"/>
+                <constraint firstItem="gvm-Bn-WZd" firstAttribute="top" secondItem="muR-GC-Pnx" secondAttribute="bottom" id="M2B-KU-1NS"/>
                 <constraint firstItem="iA7-Df-ajR" firstAttribute="height" secondItem="iDb-ep-Lr4" secondAttribute="height" id="Wug-Bp-fXh"/>
                 <constraint firstItem="Gba-66-TbZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cPr-cT-z0X"/>
-                <constraint firstItem="gvm-Bn-WZd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eFx-cP-H35"/>
+                <constraint firstItem="muR-GC-Pnx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ih1-c8-uTF"/>
                 <constraint firstItem="gvm-Bn-WZd" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sPq-RC-URF"/>
                 <constraint firstItem="Gba-66-TbZ" firstAttribute="top" secondItem="gvm-Bn-WZd" secondAttribute="bottom" id="v3D-iv-NPB"/>
                 <constraint firstItem="gvm-Bn-WZd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yTc-vN-GLm"/>

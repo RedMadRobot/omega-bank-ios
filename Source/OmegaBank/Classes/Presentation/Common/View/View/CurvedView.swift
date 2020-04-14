@@ -8,15 +8,15 @@
 
 import UIKit
 
-final class CurvedView: View {
-
-    // MARK: - Initializers
+class CurvedView: View {
+    
+    // MARK: - Initialization
     
     override func commonInit() {
         super.commonInit()
         
         let step: CGFloat = frame.width / 2
-        // - step потому что 3 цвет в коллекции
+        // - step потому что 3 цвета в коллекции
         let bounds = CGRect(
             origin: CGPoint.zero,
             size: CGSize(width: frame.size.width - step, height: frame.size.height))
@@ -31,7 +31,7 @@ final class CurvedView: View {
         
         for i in 0..<min(palette.count, 3) {
             let color = palette[i]
-        
+
             let cl = makeCurveLayer(color: color)
             let scaleTransform = CGAffineTransform(scaleX: 2, y: 1)
             let translationTransform = CGAffineTransform(translationX: -(step * CGFloat(i)), y: 0)
@@ -43,7 +43,7 @@ final class CurvedView: View {
         }
     }
     
-    // MARK: - Private Methods
+    // MARK: - Private methods
 
     private func makeCurveLayer(
         color: UIColor,

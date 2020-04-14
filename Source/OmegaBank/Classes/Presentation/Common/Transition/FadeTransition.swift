@@ -10,18 +10,23 @@ import UIKit
 
 /// Переход с затуханием.
 final class FadeTranstion: NSObject, UIViewControllerTransitioningDelegate {
-
-    private let duration: TimeInterval = 0.5
+    private enum Constants {
+        static let duration: TimeInterval = 0.5
+    }
 
     func animationController(
         forPresented presented: UIViewController,
         presenting: UIViewController,
         source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        FadePresentingAnimator(duration: duration)
+        FadePresentingAnimator(duration: Constants.duration)
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        FadeDismisingAnimator(duration: duration)
+        FadeDismisingAnimator(duration: Constants.duration)
+    }
+    
+    static func makeAnimator() -> ViewControllerTranstionAnimator {
+        FadePresentingAnimator(duration: Constants.duration)
     }
 }
 
@@ -37,7 +42,7 @@ private final class FadePresentingAnimator: ViewControllerTranstionAnimator {
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            options: [.beginFromCurrentState, .curveEaseIn],
+            options: .curveEaseIn,
             animations: {
                 toView.alpha = 1
             },
@@ -59,7 +64,7 @@ private final class FadeDismisingAnimator: ViewControllerTranstionAnimator {
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            options: [.beginFromCurrentState, .curveEaseIn],
+            options: .curveEaseIn,
             animations: {
                 fromView.alpha = 0
             },

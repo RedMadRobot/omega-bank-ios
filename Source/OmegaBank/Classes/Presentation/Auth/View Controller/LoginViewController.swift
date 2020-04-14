@@ -46,6 +46,7 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet private var titledCurvedView: TitledCurvedView!
     @IBOutlet private var smsCodeTextField: UITextField!
     @IBOutlet private var phoneTextField: UITextField!
     @IBOutlet private var headerLabel: UILabel!
@@ -62,6 +63,7 @@ final class LoginViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         title = "Sign In"
+        navigationItem.title = nil
         tabBarItem.image = #imageLiteral(resourceName: "signin")
     }
 
@@ -116,6 +118,7 @@ final class LoginViewController: UIViewController {
     private func setupViews() {
         stageDidChange(animated: false)
         enableNextButton()
+        titledCurvedView.setup(with: title ?? "")
     }
     
     @objc private func smsCodeEditing() {

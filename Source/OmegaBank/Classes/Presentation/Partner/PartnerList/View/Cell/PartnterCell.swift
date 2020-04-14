@@ -29,8 +29,8 @@ final class PartnterCell: UICollectionViewCell, NibRepresentable {
                 \(partner.limitations)
                 """.makeHtmlAttributed() {
                 htmlAttributed.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.textPrimary,
-                                          NSAttributedString.Key.font: UIFont.body1],
-                                         range: NSRange(location: 0, length: htmlAttributed.length))
+                                              NSAttributedString.Key.font: UIFont.body1],
+                                              range: NSRange(location: 0, length: htmlAttributed.length))
                 
                 limitationsTextView.attributedText = htmlAttributed
             }

@@ -21,5 +21,12 @@ extension UIFont {
     static var caption1: UIFont {
         UIFont.systemFont(ofSize: 17)
     }
+    
+    static var header1: UIFont {
+        UIFont.systemFont(ofSize: 30.0, weight: .bold)
+    }
 
+    static var tableSectionHeader: UIFont {
+        UIFont.systemFont(ofSize: 15)
+    }
 }

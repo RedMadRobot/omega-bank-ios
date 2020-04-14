@@ -25,12 +25,15 @@ extension UIColor {
     
     static var curve1: UIColor { UIColor(named: #function)! }
     static var curve2: UIColor { UIColor(named: #function)! }
+    static var ph1: UIColor { UIColor(named: #function)! }
     static var ph2: UIColor { UIColor(named: #function)! }
+    static var ph3: UIColor { UIColor(named: #function)! }
     
     // MARK: - Backgound Colors
     
     static var backgroundPrimaryPressed: UIColor { UIColor(named: #function)! }
     static var scrollViewBackground: UIColor { UIColor(named: #function)! }
+    static var defaultBackground: UIColor { UIColor(named: #function)! }
     
     // MARK: - Palette
     
@@ -45,4 +48,5 @@ extension UIColor {
         return UIColor(patternImage: image)
         
     }
+
 }
