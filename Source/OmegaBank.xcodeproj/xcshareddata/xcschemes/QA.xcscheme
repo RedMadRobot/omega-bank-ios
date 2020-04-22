@@ -47,6 +47,16 @@
                ReferencedContainer = "container:OmegaBank.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "95E08EBC2446E7E40048DCDB"
+               BuildableName = "OmegaBankUITests.xctest"
+               BlueprintName = "OmegaBankUITests"
+               ReferencedContainer = "container:OmegaBank.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -5,17 +5,10 @@ inhibit_all_warnings!
 #Библиотеки располагаются в алфавитном порядке
 def main_pods
   pod 'AlamofireImage'
-  pod 'Crashlytics'
-  pod 'Fabric'
   pod 'InputMask'
   pod 'KeychainAccess'
   pod 'SwiftLint'
 end
-
-#Библиотеки для таргета с тестами
-def test_pods
-  pod 'iOSSnapshotTestCase'
-end 
 
 target 'OmegaBank' do
   project 'OmegaBank.xcodeproj'
@@ -32,7 +25,7 @@ target 'OmegaBankAPI' do
   end
 end
 
-target 'OmegaBankTests' do
+target 'OmegaBankUITests' do
   project 'OmegaBank.xcodeproj'
-  test_pods
+  pod 'Catbird'
 end

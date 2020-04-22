@@ -94,6 +94,7 @@ final class LoginViewController: UIViewController {
 
     @objc private func goSmsStage() {
         toggleNextButton(isEnabled: false)
+        smsCodeTextField.text = ""
         
         guard let phone = rawPhoneNumber else {
             showErrorMessage("Телефон не может быть пустым")

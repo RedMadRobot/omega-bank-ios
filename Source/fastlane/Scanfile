@@ -1,0 +1,5 @@
+scheme "Debug"
+devices ["iPhone 8"]
+output_types ""
+formatter "xcpretty-json-formatter"
+clean true
