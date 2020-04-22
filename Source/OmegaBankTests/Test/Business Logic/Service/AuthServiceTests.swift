@@ -27,22 +27,22 @@ final class AuthServiceTest: XCTestCase {
             baseURL: { [unowned self] in self.baseURL })
     }
 
-    func testSendPhoneNumber() {
+    func testSendPhoneNumber() throws {
         var error: Error? = makeError()
-        _ = authService.sendPhoneNumber(phone: "\(9_999_99_99)") { error = $0 }
-        let endpoint = apiClient.fulfil(SendPhoneEndpoint.self, with: ())
+        _ = authService.sendPhoneNumber(phone: "\(8_888_888_88_88)") { error = $0 }
+        let endpoint = try XCTUnwrap(apiClient.fulfil(SendPhoneEndpoint.self, with: ()))
         
-        XCTAssertEqual(endpoint?.phoneNumber, "\(9_999_99_99)")
+        XCTAssertEqual(endpoint.phoneNumber, "\(8_888_888_88_88)")
         XCTAssertNil(error)
         
     }
     
-    func testSendPhoneNumberWithNetworkError() {
+    func testSendPhoneNumberWithNetworkError() throws {
         var error: Error?
-        _ = authService.sendPhoneNumber(phone: "\(9_999_99_99)") { error = $0 }
-        let endpoint = apiClient.fail(SendPhoneEndpoint.self, with: URLError(.badServerResponse))
+        _ = authService.sendPhoneNumber(phone: "\(8_888_888_88_88)") { error = $0 }
+        let endpoint = try XCTUnwrap(apiClient.fail(SendPhoneEndpoint.self, with: URLError(.badServerResponse)))
         
-        XCTAssertEqual(endpoint?.phoneNumber, "\(9_999_99_99)")
+        XCTAssertEqual(endpoint.phoneNumber, "\(8_888_888_88_88)")
         XCTAssertNotNil(error)
         
     }

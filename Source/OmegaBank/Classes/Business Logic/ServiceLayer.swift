@@ -35,6 +35,17 @@ final class ServiceLayer {
             service: "ru.rt.omegabank",
             accessGroup: "\(self.bundle.appIdentifierPrefix).ru.rt.key.keychain_sharing",
             flagStorage: self.userDefaults)
+        
+        #if DEBUG        
+        if Environment.isUnitTesting {
+            if Environment.shouldSkipAuth {
+                try? storage.setAccessToken("123")
+            } else {
+                try? storage.setAccessToken(nil)
+            }
+        }
+        #endif
+        
         return storage
     }()
 
@@ -44,14 +55,14 @@ final class ServiceLayer {
     private(set) lazy var loginService = AuthService(
         apiClient: apiClient,
         accessTokenStorage: keychainStorage,
-        baseURL: fetchBaseURL)
+        baseURL: baseURL.fetch)
 
     /// Сервис партнеров
     private(set) lazy var partnerListService = PartnerListServiceImplementation(apiClient: apiClient)
 
     private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(
-            baseURL: fetchBaseURL(),
+            baseURL: baseURL.fetch(),
             responseObserver: {  _, _, _, error in
                 guard let error = error else { return }
                 // логируем ошибки.
@@ -62,17 +73,19 @@ final class ServiceLayer {
         let bundle: Bundle
 
         func fetch() -> URL {
+            let urlKey = "API_BASE_URL"
             // URL из Info.plist swiftlint:disable:next force_cast
-            let string = (bundle.object(forInfoDictionaryKey: "API_BASE_URL") as! String)
+            var string = (bundle.object(forInfoDictionaryKey: urlKey) as! String)
                 .replacingOccurrences(of: "\\", with: "") // Убрираем экранирующие символы
+            
+            #if DEBUG
+            if let urlFromEnvironment = UserDefaults.standard.string(forKey: urlKey) {
+                string = urlFromEnvironment
+            }
+            #endif
 
             return URL(string: string)!
         }
     }
     
-    private func fetchBaseURL() -> URL {
-        let url = baseURL.fetch()
-
-        return url
-    }
 }

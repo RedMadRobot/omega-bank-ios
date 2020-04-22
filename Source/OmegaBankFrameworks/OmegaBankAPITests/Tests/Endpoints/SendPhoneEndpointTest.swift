@@ -12,14 +12,14 @@ import XCTest
 final class SendPhoneEndpointTest: XCTestCase {
     func testMakeRequest() throws {
         
-        let endpoint = SendPhoneEndpoint(phone: "\(9_999_99_99)")
+        let endpoint = SendPhoneEndpoint(phone: "\(8_888_888_88_88)")
         
         let request = try endpoint.makeRequest()
         
         assertPOST(request)
         assertURL(request, "auth/sms/send-code")
         assertJsonBody(request, [
-            "phone_number": "\(9_999_99_99)"
+            "phone_number": "\(8_888_888_88_88)"
         ])
     }
 }

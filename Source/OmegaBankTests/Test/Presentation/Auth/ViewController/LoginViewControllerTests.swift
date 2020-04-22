@@ -104,7 +104,7 @@ final class LoginViewControllerTests: ViewControllerTestCase {
             file: file,
             line: line)
         
-        view.assertSubview(UITextField.self, by: "code")?.userInput(smsCode)
+        view.assertSubview(UITextField.self, by: "sms code")?.userInput(smsCode)
         
         XCTAssertTrue(
             nextButton.isEnabled,

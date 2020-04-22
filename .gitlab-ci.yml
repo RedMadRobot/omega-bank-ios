@@ -2,7 +2,7 @@ before_script:
   - cd "$CI_PROJECT_DIR/Source/"
   - bundle install
 
-
+# Сборка для QA
 qa:
   only:
     - /^qa\/[0-9]{1,}.[0-9]{1,}(.[0-9]{1,})?\/[0-9]{1,}$/ # qa/1.0.0/99
@@ -10,27 +10,28 @@ qa:
     - branches
     - triggers
   script:
-    - bundle exec fastlane qa ci:true
+    - bundle exec fastlane ci
   tags:
     - ios-qa-release
-
-tf:
-  only:
-    - /^tf\/[0-9]{1,}.[0-9]{1,}(.[0-9]{1,})?\/[0-9]{1,}$/ # tf/1.0.0/99
-  except:
-    - branches
-    - triggers
-  script:
-    - bundle exec fastlane tf ci:true
-  tags:
-    - ios-qa-release
-
+    
+# Запуск всех тестов кроме UI-тестов
 test:
   only:
     - /^fix|bugfix|refactor|feature\/.+$/
   except:
-    - web
+    - schedules
   script:
-    - bundle exec fastlane test ci:true
+    - bundle exec fastlane test ui_tests:false
   tags:
     - ios-test
+  allow_failure: false
+
+# Запуск UI-тестов по расписанию
+ui_test:
+  only:
+    - schedules
+  script:
+    - bundle exec fastlane test ui_tests:true
+  tags:
+    - ios-test
+  allow_failure: false

@@ -2,7 +2,4 @@
 #
 # Ensure this file is checked in to source control!
 
-gem 'fastlane-plugin-jira_versions'
-gem 'fastlane-plugin-jira_release_notes'
-gem 'fastlane-plugin-badge'
-gem 'fastlane-plugin-gmail'
+gem 'fastlane-plugin-firebase_app_distribution'

@@ -7,11 +7,11 @@ app_appstore_provisioning = "OmegaBank Store Distribution" # TODO
 app_project_path          = "../OmegaBank.xcodeproj"
 app_workspace             = "OmegaBank.xcworkspace"
 app_project               = "OmegaBank.xcodeproj"
+app_ui_test_target        = "OmegaBankUITests"
 app_target                = "OmegaBank"
 app_qa_scheme             = "QA"
 app_debug_scheme          = "Debug"
 app_appstore_scheme       = "App-Store"
-testing_simulator_device  = "iPhone 8"
 app_tests_output_path     = "fastlane/xcov_output/OmegaBank"
 app_iconset               = "../OmegaBank/Resources/Assets.xcassets/AppIcon.appiconset"
 app_default_team_id       = "Redmadrobot OOO"
@@ -19,179 +19,85 @@ app_default_team_id       = "Redmadrobot OOO"
 
 desc "Run all tests"
 lane :test do |options|
+  clean_cocoapods_cache
   cocoapods
-
-  scan(
-    scheme: app_debug_scheme, 
-    devices: [testing_simulator_device]
-  )
-
-  xcov(
-    workspace: app_workspace,
-    scheme: app_debug_scheme,
-    only_project_targets: true,
-    output_directory: app_tests_output_path
-  )
-
-  options[:ci] = false if options[:ci].nil?
-  ci = options[:ci]
-
-  if ci
-    Dir.chdir("../../") do
-      sh "bundle exec danger --dangerfile=Source/Dangerfile"
+  
+  begin
+    if options[:ui_tests]
+      run_tests
+    else
+      run_tests(
+        skip_testing: [app_ui_test_target]
+      )
+    end
+  ensure
+    xcov(
+      workspace: app_workspace,
+      scheme: app_debug_scheme,
+      only_project_targets: true,
+      output_directory: app_tests_output_path
+    )
+    if is_ci
+      Dir.chdir("../../") do
+        sh "bundle exec danger --dangerfile=Source/Dangerfile"
+      end
     end
   end
+  
 end
-
 
 desc "Предварительный этап сборки, выполняется локально."
 desc "Увеличиваем билд-номер и ставим тег для сборки на CI"
-lane :prepare_for_ci do |options|
-  prefix = ""
-  if options[:qa]
-    prefix = "qa"
-  elsif options[:tf]
-    prefix = "tf"
-  end
+lane :ci do
+  bump_build
 
-  if prefix.empty? 
-    UI.error "Не указан тэг: qa или tf"
-  end
-
-  bumpBuild
-  buildNumber = get_build_number
-
-  tag = "#{prefix}/#{get_version_number}/#{buildNumber}"
+  tag = "#{qa}/#{get_version_number}/#{get_build_number}"
   add_git_tag(tag: tag)
   push_to_git_remote()
 end
 
+desc "Сборка для тестировщиков (в firebase)"
+lane :qa do
 
-desc "Сборка для тестировщиков (в fabric)"
-lane :qa do |options|
+  # Проверить что нет незакомиченных файлов
+  ensure_git_status_clean
 
-  cocoapods(
-    try_repo_update_on_error: true
-  )
+  # Скачиванием поды
+  cocoapods
 
-  buildNumber = get_build_number
-  version = formatted_version(buildNumber)
+  # Выгружаем ExportOptions
+  export_options = "OmegaBank/Supporting Files/ExportOptions.plist"
 
-  # Список закрытых багов для crashlytics release notes
-  notes = jira_release_notes(
-    version: "i#{version}",
-    format: "plain"
-  )
-
+  version = formatted_version(get_build_number)
   team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
-
-  # Добавить версию на иконку приложеня
-  add_version_badge
-
-  options[:ci] = false if options[:ci].nil?
-  ci = options[:ci]
-
-  sigh(
-    app_identifier: app_bundleid,
-    readonly: true,
-    skip_certificate_verification: true
-  ) if ci
-
-  gym(
+  
+  # Скомпилировать и подписать приложение
+  ipa_path = gym(
     scheme: app_qa_scheme,
-    silent: false,
-    export_method: "enterprise",
-    export_options: {
-      uploadBitcode: false
-    }
+    export_options: export_options
+  )
+  
+  # Выложить в firebase
+  firebase_app_distribution(
+    groups: "testers",
+    ipa_path: ipa_path
   )
 
-  crashlytics(
-    api_token: ENV["CRASHLYTICS_API_TOKEN"],
-    build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
-    emails: ENV["CRASHLYTICS_EMAILS"],
-    notes: notes,
-    notifications: true
-  )
-
-  # Убрать бейдж с иконок
-  sh "git checkout #{app_iconset}"
-
-  # Отправить release notes по почте
-  send_release_notes_mail(version: version, type: "QA")
-
-  release_jira(app_target)
+  # Удалить артефакты ipa и тд.
+  clean_build_artifacts
 
 end
-
-
-desc "Отправляем билд в Test Flight"
-lane :tf do |options|
-
-  cocoapods(
-    try_repo_update_on_error: true
-  )
-
-  team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
-
-  options[:ci] = false if options[:ci].nil?
-  ci = options[:ci]
-
-  sigh(
-    app_identifier: app_appstore_bundleid,
-    readonly: true,
-    skip_certificate_verification: true
-  ) if ci
-
-  gym(
-    scheme: app_appstore_scheme,
-    output_name: app_target,
-    silent: true,
-    export_method: "app-store",
-    export_team_id: team_id
-  )
-
-  pilot(
-    app_identifier: app_appstore_bundleid,
-    skip_waiting_for_build_processing: true
-  )
-
-  release_jira(app_target)
-
-  # Отправляем dsym в fabric
-  upload_appstore_dsyms_to_fabric
-
-end
-
-desc "Загрузка dSYM в Fabric после отправки сборки в App Store"
-lane :upload_appstore_dsyms_to_fabric do
-build_number = get_build_number_from_plist
-itc_team_id = CredentialsManager::AppfileConfig.try_fetch_value(:itc_team_id)
-team_name = CredentialsManager::AppfileConfig.try_fetch_value(:team_name)
-
-  download_dsyms(				   # Download dSYM files from iTC
-    app_identifier: app_appstore_bundleid,
-    build_number: build_number,
-    team_name: team_name,
-    team_id: itc_team_id				  
-  )                 
-  upload_symbols_to_crashlytics   # Upload them to Crashlytics
-  clean_build_artifacts           # Delete the local dSYM files
-end
-
 
 desc "Поднимаем номер билда"
-private_lane :bumpBuild do
+private_lane :bump_build do
   increment_build_number
-  buildNumber = get_build_number
-  version = formatted_version(buildNumber)
+  version = formatted_version(get_build_number)
   commit_version_bump(
     message: "Поднята версия #{version}",
     force: true,
     xcodeproj: app_project
   )
 end
-
 
 #####################################################
 # @!group Helpers
@@ -200,49 +106,4 @@ end
 # Получить полную версию с билд-номером.
 def formatted_version(build)
   "#{get_version_number}(#{build})"
-end
-
-# Отправить письмо с Release Notes
-def send_release_notes_mail(version: version, type: type)
-  require_relative "mail/mail_renderer"
-  
-  # Получить закрытые баги для версии без форматирования
-  issues = jira_release_notes(version: "i#{version}", format: "none")
-  
-  # Отрендерить текст письма с закрытыми багами
-  body = MailRenderer.new(version, ENV["FL_JIRA_SITE"], issues).render
-  
-  # Отправить письмо
-  gmail(
-    to: File.read("mail/recipients.txt").split("\n"),
-    subject: "OmegaBank #{type}-сборка #{version}",
-    body: body
-  )
-end
-
-
-# Релиз текущей версии JIRA и создание следующей версии
-def release_jira(target)
-  
-  # Релиз текущей версии
-  buildNumber = get_build_number
-  current_version = formatted_version(buildNumber)
-  release_jira_version(name: "i#{current_version}")
-  
-  # Создать новую версию в JIRA
-  next_version = formatted_version(buildNumber.to_i + 1)
-  create_jira_version(name: "i#{next_version}")
-
-end
-
-
-# Добавить версию на иконку приложения
-def add_version_badge
-  buildNumber = get_build_number
-  add_badge(
-    shield: "#{get_version_number}-#{buildNumber}-blue",
-    shield_gravity: "North",
-    shield_no_resize: false,
-    no_badge: false
-  )
 end

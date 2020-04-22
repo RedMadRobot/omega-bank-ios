@@ -63,7 +63,7 @@
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzq-Aa-Q72">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <accessibility key="accessibilityConfiguration" identifier="code">
+                                    <accessibility key="accessibilityConfiguration" identifier="sms code">
                                         <accessibilityTraits key="traits" staticText="YES"/>
                                     </accessibility>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

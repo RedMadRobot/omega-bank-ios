@@ -22,6 +22,7 @@ final class TitledCurvedView: CurvedView {
         titleLabel = UILabel()
         titleLabel.font = .header1
         titleLabel.textColor = .textPrimary
+        titleLabel.accessibilityLabel = "title"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         
