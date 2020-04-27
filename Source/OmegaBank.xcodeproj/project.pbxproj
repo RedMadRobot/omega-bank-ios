@@ -64,6 +64,11 @@
 		80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */; };
 		8F317A3D218558E99167066F /* Pods_OmegaBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */; };
 		926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */; };
+		953B143924504E9400D609B0 /* AppearingViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143824504E9400D609B0 /* AppearingViewAnimation.swift */; };
+		953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143A2450758F00D609B0 /* HotActionListViewController.swift */; };
+		953B143D2450758F00D609B0 /* HotActionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143B2450758F00D609B0 /* HotActionListViewController.xib */; };
+		953B144024507BCE00D609B0 /* HotActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143E24507BCE00D609B0 /* HotActionView.xib */; };
+		953B144124507BCE00D609B0 /* HotActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143F24507BCE00D609B0 /* HotActionView.swift */; };
 		9540C34A244731DA00F46687 /* SendPhoneMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C349244731DA00F46687 /* SendPhoneMock.swift */; };
 		9540C34D244733DF00F46687 /* RequestBagConvertible+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C34C244733DF00F46687 /* RequestBagConvertible+Json.swift */; };
 		954241072444432A00E2C196 /* MainTransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954241062444432A00E2C196 /* MainTransactionHistoryViewController.swift */; };
@@ -252,6 +257,11 @@
 		77CF6F3424066FB3000A5082 /* BarButtonItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItems.swift; sourceTree = "<group>"; };
 		7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		953B143824504E9400D609B0 /* AppearingViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearingViewAnimation.swift; sourceTree = "<group>"; };
+		953B143A2450758F00D609B0 /* HotActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotActionListViewController.swift; sourceTree = "<group>"; };
+		953B143B2450758F00D609B0 /* HotActionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotActionListViewController.xib; sourceTree = "<group>"; };
+		953B143E24507BCE00D609B0 /* HotActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotActionView.xib; sourceTree = "<group>"; };
+		953B143F24507BCE00D609B0 /* HotActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotActionView.swift; sourceTree = "<group>"; };
 		9540C349244731DA00F46687 /* SendPhoneMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneMock.swift; sourceTree = "<group>"; };
 		9540C34C244733DF00F46687 /* RequestBagConvertible+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestBagConvertible+Json.swift"; sourceTree = "<group>"; };
 		954241062444432A00E2C196 /* MainTransactionHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTransactionHistoryViewController.swift; sourceTree = "<group>"; };
@@ -637,6 +647,7 @@
 		7757BC412404E47B0063ACBD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				95A6D03E24517C1C0016811E /* Animation */,
 				958BD2D52432237D00543642 /* Transition */,
 				9599A4DA2428C36C000411EC /* Helper */,
 				774B93E82424A8DE008237BF /* CollectionViewController */,
@@ -912,27 +923,25 @@
 		955169B2243C77BF0072F8AB /* Savings */ = {
 			isa = PBXGroup;
 			children = (
-				955169B3243C77D40072F8AB /* SavingsList */,
+				955169B3243C77D40072F8AB /* ProductList */,
 				95424100244441FC00E2C196 /* TransactionHistory */,
 			);
 			path = Savings;
 			sourceTree = "<group>";
 		};
-		955169B3243C77D40072F8AB /* SavingsList */ = {
+		955169B3243C77D40072F8AB /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				9542410F24445C9A00E2C196 /* ViewModel */,
-				95CF5E9A243CBD5000BD94A8 /* Model */,
-				95CF5E91243CA46200BD94A8 /* View */,
-				955169B4243C77E10072F8AB /* View Controller */,
+				95BD979D245039670034D40A /* Main */,
+				95BD979E2450398A0034D40A /* ProductList */,
+				95BD979F245039B90034D40A /* HotActions */,
 			);
-			path = SavingsList;
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 		955169B4243C77E10072F8AB /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				954DAFF6243F51E6009C6B73 /* MainProductListViewController.swift */,
 				955169B6243C78360072F8AB /* ProductListViewController.swift */,
 				956FC11D243F82550060F2B0 /* ProductListViewController.xib */,
 			);
@@ -1140,6 +1149,60 @@
 				95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		95A6D03E24517C1C0016811E /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				953B143824504E9400D609B0 /* AppearingViewAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		95BD979D245039670034D40A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				954DAFF6243F51E6009C6B73 /* MainProductListViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		95BD979E2450398A0034D40A /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				95CF5E91243CA46200BD94A8 /* View */,
+				95CF5E9A243CBD5000BD94A8 /* Model */,
+				9542410F24445C9A00E2C196 /* ViewModel */,
+				955169B4243C77E10072F8AB /* View Controller */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		95BD979F245039B90034D40A /* HotActions */ = {
+			isa = PBXGroup;
+			children = (
+				95BD97A1245039E80034D40A /* View */,
+				95BD97A224503A190034D40A /* View Controller */,
+			);
+			path = HotActions;
+			sourceTree = "<group>";
+		};
+		95BD97A1245039E80034D40A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				953B143F24507BCE00D609B0 /* HotActionView.swift */,
+				953B143E24507BCE00D609B0 /* HotActionView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95BD97A224503A190034D40A /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				953B143A2450758F00D609B0 /* HotActionListViewController.swift */,
+				953B143B2450758F00D609B0 /* HotActionListViewController.xib */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		95CF5E91243CA46200BD94A8 /* View */ = {
@@ -1483,9 +1546,11 @@
 				9574E463244313DA0020128E /* SeparatorView.xib in Resources */,
 				77196AA423FBC2CE007C8C84 /* LoginViewController.xib in Resources */,
 				95CF5E99243CABF300BD94A8 /* ProductCell.xib in Resources */,
+				953B143D2450758F00D609B0 /* HotActionListViewController.xib in Resources */,
 				9599A4D0242893CB000411EC /* PartnterCell.xib in Resources */,
 				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
 				777961BA240E62B70066762B /* PartnerListViewController.xib in Resources */,
+				953B144024507BCE00D609B0 /* HotActionView.xib in Resources */,
 				95A744582445C1DD00BD6779 /* ProductHeader.xib in Resources */,
 				9547F8C4242A384800EC42A0 /* PartnerLimitCell.xib in Resources */,
 				9547E154244EDDCB00E2E8AE /* ExportOptions.plist in Resources */,
@@ -1695,7 +1760,9 @@
 				6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */,
 				777961B9240E62B70066762B /* PartnerListViewController.swift in Sources */,
 				9542411124445CC800E2C196 /* SavingModel.swift in Sources */,
+				953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */,
 				77196A9D23FACC52007C8C84 /* BoolStorage.swift in Sources */,
+				953B143924504E9400D609B0 /* AppearingViewAnimation.swift in Sources */,
 				77CF6F3524066FB3000A5082 /* BarButtonItems.swift in Sources */,
 				777426B824051ABF008E5810 /* NibRepresentable.swift in Sources */,
 				7757BC472404E5CC0063ACBD /* Color.swift in Sources */,
@@ -1703,6 +1770,7 @@
 				777426C1240523B5008E5810 /* NibLoadable.swift in Sources */,
 				77196A9923FACB58007C8C84 /* KeychainStorage.swift in Sources */,
 				77AAE4362417B5CB0012A9D9 /* PageViewController.swift in Sources */,
+				953B144124507BCE00D609B0 /* HotActionView.swift in Sources */,
 				77C8B0FD2418D29D00B2EB3D /* PartnetListService.swift in Sources */,
 				958BD2D9243223CB00543642 /* ViewControllerTranstionAnimator.swift in Sources */,
 				955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */,
