@@ -8,7 +8,20 @@
 
 import UIKit
 
+enum MainProductListConstants {
+
+    // Animation
+    /// Длительность полной анимации появления экрана.
+    static let fullAppearingDuration = 1.0
+    /// Длительность полной анимации одного элемента. Должно быть меньше, чем fullAppearingDuration
+    static let oneItemAppearingDuration = 0.5
+}
+
 final class MainProductListViewController: PageViewController {
+    
+    // MARK: - Private Properties
+    
+    var scrollablePageViewController: ScrollablePageViewController!
     
     // MARK: - Initialization
     
@@ -35,12 +48,23 @@ final class MainProductListViewController: PageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scrollablePageViewController = ScrollablePageViewController()
+        scrollablePageViewController = ScrollablePageViewController()
         scrollablePageViewController.title = title
         addChildViewController(scrollablePageViewController, to: view)
-        
-        let controller = ProductListViewController()
+
+        addHotActions()
+        addProductList()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func addHotActions() {
+        let controller = HotActionListViewController()
         scrollablePageViewController.addArrangedChild(controller)
     }
 
+    private func addProductList() {
+        let controller = ProductListViewController()
+        scrollablePageViewController.addArrangedChild(controller)
+    }
 }

@@ -23,6 +23,10 @@ final class ProductListViewController: UIViewController {
     // MARK: - Private Properties
     
     private var productTypes: [String] = ["Deposit cards", "Bank Accouts"]
+    private var animator: AppearingViewAnimator!
+    
+    // TODO: Есть вероятность что это можно сделать лучше.
+    var wasPresenter = false
     
     private var products: [String: [UserProduct]] = [
         "Deposit cards": [
@@ -46,7 +50,20 @@ final class ProductListViewController: UIViewController {
         super.viewDidLoad()
         
         addSections()
+        addAppearingAnimation()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !wasPresenter {
+            animateAppearing()
+            
+            wasPresenter = true
+        }
+    }
+    
+    // MARK: - Private Methods
     
     private func addSections() {
         for i in 0..<productTypes.count {
@@ -103,10 +120,26 @@ final class ProductListViewController: UIViewController {
     private func addFooter() {
         let view = UIView()
         view.backgroundColor = .scrollViewBackground
-        
         tableStackView.addArrangedSubview(view)
-        
         view.heightAnchor.constraint(equalToConstant: Constants.sectionFooterHeight).isActive = true
+    }
+    
+    private func addAppearingAnimation() {
+        let fullDuration = MainProductListConstants.fullAppearingDuration
+        let oneItemDuration = MainProductListConstants.oneItemAppearingDuration
+        
+        let delay = (fullDuration - oneItemDuration) / Double(tableStackView.arrangedSubviews.count) 
+        let animation = AppearingViewAnimator.makeMove(
+            startOrigin: CGPoint(x: 0, y: tableStackView.frame.height),
+            duration: oneItemDuration,
+            delay: delay)
+        animator = AppearingViewAnimator(animation: animation)
+    }
+    
+    private func animateAppearing() {
+        for (i, view) in tableStackView.arrangedSubviews.enumerated() {
+            animator.animate(cell: view, index: i)
+        }
     }
     
     private func didProductTapped(_ product: UserProduct) {
