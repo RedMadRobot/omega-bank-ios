@@ -8,87 +8,66 @@
 
 import UIKit
 
-final class ProductListViewController: UIViewController {
+final class ProductListViewController: StackedViewController {
     
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let sectionFooterHeight: CGFloat = 10
-    }
-    
-    // MARK: - IBOutlets
-    
-    @IBOutlet var tableStackView: UIStackView!
+    // MARK: - Public Properties
+
+    let productType: ProductType
     
     // MARK: - Private Properties
     
-    private var productTypes: [String] = ["Deposit cards", "Bank Accouts"]
-    private var animator: AppearingViewAnimator!
+    private var header: ProductHeader!
+    private var products: [UserProduct] = []
+    private weak var delegate: ProductTypeDelegate?
+
+    // MARK: - Initializaiton
     
-    // TODO: Есть вероятность что это можно сделать лучше.
-    var wasPresenter = false
+    init(productType: ProductType,
+         products: [UserProduct],
+         delegate: ProductTypeDelegate?) {
+        self.productType = productType
+        self.products = products
+        self.delegate = delegate
+
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    private var products: [String: [UserProduct]] = [
-        "Deposit cards": [
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 12", value: 30234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 13", value: 12976)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234))
-        ],
-        
-        "Bank Accouts": [
-            .deposit(Deposit(name: "Bank accout", number: "NDSL RA01 203 4455 01", value: 1233)),
-            .deposit(Deposit(name: "Bank accout", number: "NDSL RA01 203 4455 02", value: 5234)),
-            .deposit(Deposit(name: "Bank accout", number: "NDSL RA01 203 4455 03", value: 6225)),
-            .deposit(Deposit(name: "Bank accout", number: "NDSL RA01 203 4455 03", value: 6225))
-        ]
-    ]
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - ProductListViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSections()
-        addAppearingAnimation()
+        addHeader(productType)
+        addCells(productType)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if !wasPresenter {
-            animateAppearing()
-            
-            wasPresenter = true
-        }
+    // MARK: - StackedViewController
+    
+    override func didToggle() {
+        header.isCollapsed.toggle()
     }
     
     // MARK: - Private Methods
     
-    private func addSections() {
-        for i in 0..<productTypes.count {
-            let isLast = i == productTypes.count - 1
-            addSection(productTypes[i], isLast: isLast)
-        }
-    }
-    
-    private func addSection(_ productType: String, isLast: Bool) {
-        addHeader(productType)
-        addCells(productType)
+    private func addHeader(_ productType: ProductType) {
+        header = ProductHeader.make(
+            title: productType.title,
+            onTap: { [unowned self] in
+                self.isCollapsed.toggle()
+            },
+            onPlusTap: { [unowned self, productType] in
+                self.addProductTapped(productType)
+            }
+        )
         
-        if !isLast {
-            // Т.к. футер используется как разделитель, то в последней секции мы его не ставим.
-            addFooter()
-        }
+        addArrangedSubview(header)
     }
     
-    private func addHeader(_ productType: String) {
-        let header = ProductHeader.make(title: productType)
-        tableStackView.addArrangedSubview(header)
-    }
-    
-    private func addCells(_ productType: String) {
-        guard let products = products[productType] else { return }
+    private func addCells(_ productType: ProductType) {
         for i in 0..<products.count {
             addCell(products[i])
             
@@ -100,51 +79,58 @@ final class ProductListViewController: UIViewController {
         }
     }
     
-    private func addCell(_ product: UserProduct) {
-        let cell = ProductCell.make(
+    private func makeCell(_ product: Product) -> ProductCell {
+        ProductCell.make(
             viewModel: ProductViewModel.make(product),
             onTap: { [unowned self] in
                 self.didProductTapped(product)
             },
             image: #imageLiteral(resourceName: "credit_card")
         )
+    }
+    
+    private func addCell(_ product: Product) {
+        let cell = makeCell(product)
         
-        tableStackView.addArrangedSubview(cell)
+        addArrangedSubview(cell)
+    }
+    
+    func addNewCell(_ product: Product) {
+        let separator = SeparatorView.loadFromNib()
+        let cell = makeCell(product)
+        
+        insertArrangedSubview(separator, at: 1) // т.к. по 0 индексу - хедер
+        insertArrangedSubview(cell, at: 1) // т.к. по 0 индексу - хедер
+
+        toggleAnimator.animate(cell: cell)
+        toggleAnimator.animate(cell: separator, index: 1)
     }
     
     private func addSeparator() {
         let separator = SeparatorView.loadFromNib()
-        tableStackView.addArrangedSubview(separator)
+        addArrangedSubview(separator)
     }
-    
-    private func addFooter() {
-        let view = UIView()
-        view.backgroundColor = .scrollViewBackground
-        tableStackView.addArrangedSubview(view)
-        view.heightAnchor.constraint(equalToConstant: Constants.sectionFooterHeight).isActive = true
-    }
-    
-    private func addAppearingAnimation() {
-        let fullDuration = MainProductListConstants.fullAppearingDuration
-        let oneItemDuration = MainProductListConstants.oneItemAppearingDuration
-        
-        let delay = (fullDuration - oneItemDuration) / Double(tableStackView.arrangedSubviews.count) 
-        let animation = AppearingViewAnimator.makeMove(
-            startOrigin: CGPoint(x: 0, y: tableStackView.frame.height),
-            duration: oneItemDuration,
-            delay: delay)
-        animator = AppearingViewAnimator(animation: animation)
-    }
-    
-    private func animateAppearing() {
-        for (i, view) in tableStackView.arrangedSubviews.enumerated() {
-            animator.animate(cell: view, index: i)
-        }
-    }
-    
-    private func didProductTapped(_ product: UserProduct) {
+
+    private func didProductTapped(_ product: Product) {
         let vc = MainTransactionHistoryViewController.make()
         present(vc, animated: true)
     }
     
+    private func addProductTapped(_ productType: ProductType) {
+        let vc = MainAddCardViewController.make(delegate: self)
+        present(vc, animated: true)
+    }
+
+}
+
+extension ProductListViewController: UserProductDelegate {
+    
+    func didShowNewProduct(_ product: Product) {
+        addNewCell(product)
+    }
+
+    func didTapNewProduct() {
+        delegate?.didAddProduct(productType: productType)
+    }
+
 }

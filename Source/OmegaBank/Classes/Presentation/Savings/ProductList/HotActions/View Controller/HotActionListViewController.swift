@@ -31,14 +31,13 @@ final class HotActionListViewController: UIViewController {
         super.viewDidLoad()
 
         addActionButtons()
-        createAnimatior()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if animator == nil {
-            createAnimatior()
+            createAnimator()
             animateAppearing()
         }
     }
@@ -59,17 +58,11 @@ final class HotActionListViewController: UIViewController {
         view.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func createAnimatior() {
-        let fullDuration = MainProductListConstants.fullAppearingDuration
-        let oneItemDuration = MainProductListConstants.oneItemAppearingDuration
-        
-        let delay = (fullDuration - oneItemDuration) / Double(stackView.arrangedSubviews.count) 
-        
+    private func createAnimator() {
         let animation = AppearingViewAnimator.makeMove(
             startOrigin: CGPoint(x: stackView.frame.width, y: 0),
-            duration: MainProductListConstants.oneItemAppearingDuration,
-            delay: delay)
-        
+            count: stackView.arrangedSubviews.count)
+
         animator = AppearingViewAnimator(animation: animation)
     }
     

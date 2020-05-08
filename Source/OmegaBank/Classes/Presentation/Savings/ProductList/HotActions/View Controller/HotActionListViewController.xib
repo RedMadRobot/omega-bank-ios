@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-xz-YEH">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="852" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-63-hS8">
-                            <rect key="frame" x="15" y="0.0" width="414" height="852"/>
+                            <rect key="frame" x="15" y="0.0" width="414" height="896"/>
                         </stackView>
                     </subviews>
                     <constraints>
@@ -40,9 +40,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gvN-xz-YEH" secondAttribute="bottom" id="0XR-G7-zvP"/>
-                <constraint firstItem="gvN-xz-YEH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Xr6-F7-iaJ"/>
-                <constraint firstItem="gvN-xz-YEH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lFn-Ex-cf9"/>
-                <constraint firstItem="gvN-xz-YEH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="n1j-74-GS9"/>
+                <constraint firstItem="gvN-xz-YEH" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Xr6-F7-iaJ"/>
+                <constraint firstItem="gvN-xz-YEH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lFn-Ex-cf9"/>
+                <constraint firstItem="gvN-xz-YEH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="n1j-74-GS9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>

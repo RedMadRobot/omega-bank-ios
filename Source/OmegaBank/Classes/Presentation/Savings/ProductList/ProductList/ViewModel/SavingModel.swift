@@ -14,7 +14,7 @@ struct ProductViewModel {
     let value: String
     var isNegative: Bool = false
     
-    static func make(_ product: UserProduct) -> ProductViewModel {
+    static func make(_ product: Product) -> ProductViewModel {
         ProductViewModel(
             name: product.name,
             datailed: product.number,

@@ -21,12 +21,16 @@ final class HotActionView: UIView, NibLoadable {
     // MARK: - Initializers
     
     static func make() -> HotActionView {
-        HotActionView.loadFromNib()
+        let view = HotActionView.loadFromNib()
+        view.layer.cornerRadius = 3
+        
+        return view
     }
     
     // MARK: - Public Methods
     
     func setup(title: String, for index: Int) {
+        alpha = 0 // выставляем 1 в анимации
         actionLabel.text = title
         backgroundColor = UIColor.palette[index % UIColor.palette.count]
     }

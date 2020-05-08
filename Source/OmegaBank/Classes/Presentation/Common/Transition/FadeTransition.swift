@@ -10,6 +10,7 @@ import UIKit
 
 /// Переход с затуханием.
 final class FadeTranstion: NSObject, UIViewControllerTransitioningDelegate {
+    
     private enum Constants {
         static let duration: TimeInterval = 0.5
     }

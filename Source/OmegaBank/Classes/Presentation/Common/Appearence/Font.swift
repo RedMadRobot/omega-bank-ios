@@ -29,4 +29,8 @@ extension UIFont {
     static var tableSectionHeader: UIFont {
         UIFont.systemFont(ofSize: 15)
     }
+    
+    static var buttonTitle: UIFont {
+        UIFont.systemFont(ofSize: 17.0)
+    }
 }

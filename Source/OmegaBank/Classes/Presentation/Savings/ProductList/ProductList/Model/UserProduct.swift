@@ -26,6 +26,20 @@ struct Deposit: Product {
     var value: Double
 }
 
+enum ProductType: CaseIterable {
+    case card
+    case deposit
+    
+    var title: String {
+        switch self {
+        case .card:
+            return "Deposit cards"
+        case .deposit:
+            return "Bank Accouts"
+        }
+    }
+}
+
 enum UserProduct: Product {
     case card(Card)
     case deposit(Deposit)

@@ -8,20 +8,40 @@
 
 import UIKit
 
-enum MainProductListConstants {
+protocol ProductTypeDelegate: AnyObject {
+    func didAddProduct(productType: ProductType)
+}
 
-    // Animation
-    /// Длительность полной анимации появления экрана.
-    static let fullAppearingDuration = 1.0
-    /// Длительность полной анимации одного элемента. Должно быть меньше, чем fullAppearingDuration
-    static let oneItemAppearingDuration = 0.5
+extension MainProductListViewController: ProductTypeDelegate {
+    
+    func didAddProduct(productType: ProductType) {
+        
+        // текущий контроллер экспандим
+        productListViewControllers
+            .first(where: { $0.productType == productType })?
+            .isCollapsed = false
+        
+        // остальные коллапсим
+        productListViewControllers
+            .filter { $0.productType != productType }
+            .forEach { $0.isCollapsed = true }
+        
+    }
 }
 
 final class MainProductListViewController: PageViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let sectionFooterHeight: CGFloat = 10
+    }
+    
     // MARK: - Private Properties
     
-    var scrollablePageViewController: ScrollablePageViewController!
+    private var scrollablePageViewController: ScrollablePageViewController!
+    
+    private var productListViewControllers: [ProductListViewController] = []
     
     // MARK: - Initialization
     
@@ -51,9 +71,29 @@ final class MainProductListViewController: PageViewController {
         scrollablePageViewController = ScrollablePageViewController()
         scrollablePageViewController.title = title
         addChildViewController(scrollablePageViewController, to: view)
-
+        
         addHotActions()
-        addProductList()
+        addSeparator(with: .defaultBackground)
+        addSeparator()
+
+        let cards: [UserProduct] = [
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 12", value: 30234)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 13", value: 12976)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234))
+        ]
+        
+        addProductList(productType: .card, products: cards)
+        addSeparator()
+        
+        let deposits: [UserProduct] = [
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 12", value: 30234)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 13", value: 12976)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234)),
+            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234))
+        ]
+
+        addProductList(productType: .deposit, products: deposits)
     }
     
     // MARK: - Private Methods
@@ -63,8 +103,21 @@ final class MainProductListViewController: PageViewController {
         scrollablePageViewController.addArrangedChild(controller)
     }
 
-    private func addProductList() {
-        let controller = ProductListViewController()
+    private func addProductList(productType: ProductType, products: [UserProduct]) {
+        let controller = ProductListViewController(
+            productType: productType,
+            products: products,
+            delegate: self)
         scrollablePageViewController.addArrangedChild(controller)
+        
+        productListViewControllers.append(controller)
+    }
+    
+    private func addSeparator(with color: UIColor = .scrollViewBackground) {
+        let view = UIView()
+        
+        view.backgroundColor = color
+        scrollablePageViewController.addArrangedSubview(view)
+        view.heightAnchor.constraint(equalToConstant: Constants.sectionFooterHeight).isActive = true
     }
 }

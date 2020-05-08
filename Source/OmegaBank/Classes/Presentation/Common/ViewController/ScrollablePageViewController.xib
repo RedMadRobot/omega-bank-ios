@@ -42,15 +42,15 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jux-cR-AzD">
                     <rect key="frame" x="0.0" y="214" width="414" height="648"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="568" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-CP-Elz">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="568"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="10" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-CP-Elz">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
                         </stackView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="4fQ-CP-Elz" secondAttribute="trailing" id="Av3-b3-Jh0"/>
-                        <constraint firstAttribute="bottom" secondItem="4fQ-CP-Elz" secondAttribute="bottom" id="EOU-l9-5dp"/>
                         <constraint firstItem="4fQ-CP-Elz" firstAttribute="top" secondItem="jux-cR-AzD" secondAttribute="top" id="KVN-5r-aoX"/>
-                        <constraint firstItem="4fQ-CP-Elz" firstAttribute="centerX" secondItem="jux-cR-AzD" secondAttribute="centerX" id="mws-Ho-npy"/>
+                        <constraint firstItem="4fQ-CP-Elz" firstAttribute="centerX" secondItem="jux-cR-AzD" secondAttribute="centerX" id="hOH-Jl-8h8"/>
+                        <constraint firstAttribute="bottom" secondItem="4fQ-CP-Elz" secondAttribute="bottom" id="llL-5D-k0D"/>
                         <constraint firstItem="4fQ-CP-Elz" firstAttribute="leading" secondItem="jux-cR-AzD" secondAttribute="leading" id="zaU-Ch-a2l"/>
                     </constraints>
                 </scrollView>

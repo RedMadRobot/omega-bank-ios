@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +21,26 @@
                     <color key="textColor" name="ph3"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlW-Yd-uRo">
+                    <rect key="frame" x="475" y="30" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="FlW-Yd-uRo" secondAttribute="height" id="05I-Pn-aCy"/>
+                        <constraint firstAttribute="width" constant="20" id="sBS-of-f2g"/>
+                    </constraints>
+                    <color key="tintColor" name="ph3"/>
+                    <state key="normal" title="Button" image="add"/>
+                    <connections>
+                        <action selector="addButtonPressed:" destination="stO-bC-ljH" eventType="touchUpInside" id="3xM-JE-4vx"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="85k-9k-kzO">
+                    <rect key="frame" x="81" y="35" width="10" height="10"/>
+                    <color key="tintColor" name="ph3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="7Av-ZK-pcp"/>
+                        <constraint firstAttribute="width" secondItem="85k-9k-kzO" secondAttribute="height" id="DmP-i0-hdq"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" name="textPrimary"/>
             <accessibility key="accessibilityConfiguration">
@@ -28,19 +48,26 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <constraints>
+                <constraint firstItem="85k-9k-kzO" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="5x5-70-H9N"/>
+                <constraint firstItem="FlW-Yd-uRo" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="9yE-BT-EWR"/>
+                <constraint firstItem="85k-9k-kzO" firstAttribute="leading" secondItem="Whf-5U-a0b" secondAttribute="trailing" constant="10" id="NOr-zC-0BP"/>
                 <constraint firstItem="Whf-5U-a0b" firstAttribute="leading" secondItem="OCM-b1-kl5" secondAttribute="leading" constant="15" id="YDV-nt-osQ"/>
+                <constraint firstItem="OCM-b1-kl5" firstAttribute="trailing" secondItem="FlW-Yd-uRo" secondAttribute="trailing" constant="15" id="e9d-6l-me4"/>
                 <constraint firstItem="Whf-5U-a0b" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="mgr-fr-Vg4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
             <viewLayoutGuide key="safeArea" id="OCM-b1-kl5"/>
             <connections>
+                <outlet property="collapedIndicatorImageView" destination="85k-9k-kzO" id="J0A-2r-tGt"/>
                 <outlet property="titleLabel" destination="Whf-5U-a0b" id="58A-3h-SQv"/>
             </connections>
-            <point key="canvasLocation" x="-307" y="-206"/>
+            <point key="canvasLocation" x="-307.24637681159425" y="-206.25"/>
         </view>
     </objects>
     <resources>
+        <image name="add" width="50" height="50"/>
+        <image name="arrowDown" width="51" height="30"/>
         <namedColor name="ph3">
             <color red="0.64399999380111694" green="0.63599997758865356" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
