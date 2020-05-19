@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct OmegaBankAPI.Card
 
 protocol UserProductDelegate: AnyObject {
     func didTapNewProduct()

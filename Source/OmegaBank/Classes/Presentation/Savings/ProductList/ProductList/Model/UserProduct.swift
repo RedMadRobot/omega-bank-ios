@@ -1,46 +1,17 @@
 //
 //  UserProduct.swift
-//  OmegaBank
+//  OmegaBankTests
 //
-//  Created by Nikolay Zhukov on 4/7/20.
+//  Created by Nikolay Zhukov on 5/14/20.
 //  Copyright © 2020 RedMadRobot. All rights reserved.
 //
 
 import Foundation
-
-protocol Product {
-    var name: String { get }
-    var number: String { get }
-    var value: Double { get }
-}
-
-struct Card: Product {
-    var name: String
-    var number: String
-    var value: Double
-}
-
-struct Deposit: Product {
-    var name: String
-    var number: String
-    var value: Double
-}
-
-enum ProductType: CaseIterable {
-    case card
-    case deposit
-    
-    var title: String {
-        switch self {
-        case .card:
-            return "Deposit cards"
-        case .deposit:
-            return "Bank Accouts"
-        }
-    }
-}
+import struct OmegaBankAPI.Card
+import struct OmegaBankAPI.Deposit
 
 enum UserProduct: Product {
+
     case card(Card)
     case deposit(Deposit)
     
@@ -70,4 +41,5 @@ enum UserProduct: Product {
             return deposit.value
         }
     }
+
 }

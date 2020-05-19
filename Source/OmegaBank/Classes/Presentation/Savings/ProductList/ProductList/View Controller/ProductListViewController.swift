@@ -6,25 +6,29 @@
 //  Copyright © 2020 RedMadRobot. All rights reserved.
 //
 
+import OmegaBankAPI
 import UIKit
 
-final class ProductListViewController: StackedViewController {
-    
-    // MARK: - Public Properties
+final class ProductListViewController<T>: StackedViewController where T: Product {
 
-    let productType: ProductType
+    // MARK: - Public Properties
     
+    var addProductTapped: (() -> Void)?
+
     // MARK: - Private Properties
     
     private var header: ProductHeader!
     private var products: [UserProduct] = []
     private weak var delegate: ProductTypeDelegate?
+    private let productType: ProductType
 
     // MARK: - Initializaiton
     
-    init(productType: ProductType,
-         products: [UserProduct],
-         delegate: ProductTypeDelegate?) {
+    init(
+        productType: ProductType,
+        products: [UserProduct],
+        delegate: ProductTypeDelegate?) {
+        
         self.productType = productType
         self.products = products
         self.delegate = delegate
@@ -41,10 +45,10 @@ final class ProductListViewController: StackedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addHeader(productType)
-        addCells(productType)
+        addHeader()
+        addCells()
     }
-    
+
     // MARK: - StackedViewController
     
     override func didToggle() {
@@ -52,22 +56,22 @@ final class ProductListViewController: StackedViewController {
     }
     
     // MARK: - Private Methods
-    
-    private func addHeader(_ productType: ProductType) {
+
+    private func addHeader() {
         header = ProductHeader.make(
             title: productType.title,
             onTap: { [unowned self] in
                 self.isCollapsed.toggle()
             },
-            onPlusTap: { [unowned self, productType] in
-                self.addProductTapped(productType)
+            onPlusTap: { [unowned self] in
+                self.addProductTapped?()
             }
         )
         
         addArrangedSubview(header)
     }
     
-    private func addCells(_ productType: ProductType) {
+    private func addCells() {
         for i in 0..<products.count {
             addCell(products[i])
             
@@ -115,12 +119,6 @@ final class ProductListViewController: StackedViewController {
         let vc = MainTransactionHistoryViewController.make()
         present(vc, animated: true)
     }
-    
-    private func addProductTapped(_ productType: ProductType) {
-        let vc = MainAddCardViewController.make(delegate: self)
-        present(vc, animated: true)
-    }
-
 }
 
 extension ProductListViewController: UserProductDelegate {

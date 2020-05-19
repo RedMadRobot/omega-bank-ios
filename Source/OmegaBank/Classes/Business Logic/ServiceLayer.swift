@@ -58,7 +58,13 @@ final class ServiceLayer {
         baseURL: baseURL.fetch)
 
     /// Сервис партнеров
-    private(set) lazy var partnerListService = PartnerListServiceImplementation(apiClient: apiClient)
+    private(set) lazy var partnerListService = PartnerListServiceImpl(apiClient: apiClient)
+    
+    /// Сервис работы с картами
+    private(set) lazy var cardListService = CardListServiceImpl(apiClient: apiClient)
+    
+    /// Сервис работы с депозитами
+    private(set) lazy var depositListService = DepositListImpl(apiClient: apiClient)
 
     private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(

@@ -1,0 +1,43 @@
+//
+//  MockSavingsService.swift
+//  OmegaBankTests
+//
+//  Created by Nikolay Zhukov on 5/14/20.
+//  Copyright © 2020 RedMadRobot. All rights reserved.
+//
+
+import Foundation
+@testable import OmegaBank
+import struct OmegaBankAPI.Card
+import struct OmegaBankAPI.Deposit
+
+final class MockCardListService: CardListService, SavingMock {
+
+    private(set) var cardListHandler: CardListHandler?
+    private(set) var cardHandler: CardHandler?
+    private(set) var typesHandler: TypesHandler?
+    
+    private(set) var card: Card?
+    
+    let progress = Progress()
+    
+    // MARK: - SavingListService
+
+    func load(completion: @escaping CardListHandler) -> Progress {
+        cardListHandler = completion
+        return progress
+    }
+    
+    func apply(with type: String, completion: @escaping CardHandler) -> Progress {
+        card = makeCard()
+        cardHandler = completion
+        
+        return progress
+    }
+    
+    func loadTypes(completion: @escaping TypesHandler) -> Progress {
+        typesHandler = completion
+        return progress
+    }
+
+}

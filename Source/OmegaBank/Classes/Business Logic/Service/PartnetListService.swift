@@ -18,7 +18,7 @@ protocol PartnerListService {
     func load(completion: @escaping PartnerListHandler) -> Progress
 }
 
-final class PartnerListServiceImplementation: APIService, PartnerListService {
+final class PartnerListServiceImpl: APIService, PartnerListService {
 
     func load(completion: @escaping PartnerListHandler) -> Progress {
         apiClient.request(PartnersEndpoint(), completionHandler: completion)

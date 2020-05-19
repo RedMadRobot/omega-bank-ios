@@ -1,6 +1,6 @@
 //
 //  CheckPhoneEndpoint.swift
-//  OmegaBank
+//  OmegaBankAPI
 //
 //  Created by Nikolai Zhukov on 18.02.2020.
 //  Copyright © 2020 RedMadRobot. All rights reserved.

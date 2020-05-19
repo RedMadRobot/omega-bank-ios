@@ -6,6 +6,7 @@
 //  Copyright © 2020 RedMadRobot. All rights reserved.
 //
 
+import OmegaBankAPI
 import UIKit
 
 protocol ProductTypeDelegate: AnyObject {
@@ -15,18 +16,9 @@ protocol ProductTypeDelegate: AnyObject {
 extension MainProductListViewController: ProductTypeDelegate {
     
     func didAddProduct(productType: ProductType) {
-        
-        // текущий контроллер экспандим
-        productListViewControllers
-            .first(where: { $0.productType == productType })?
-            .isCollapsed = false
-        
-        // остальные коллапсим
-        productListViewControllers
-            .filter { $0.productType != productType }
-            .forEach { $0.isCollapsed = true }
-        
+        productListViewControllers.forEach { $0.isCollapsed = $0.productType != productType }
     }
+
 }
 
 final class MainProductListViewController: PageViewController {
@@ -41,8 +33,10 @@ final class MainProductListViewController: PageViewController {
     
     private var scrollablePageViewController: ScrollablePageViewController!
     
-    private var productListViewControllers: [ProductListViewController] = []
-    
+    /// Массив всех продуктовых контроллеров. Используем для переключения  (cхлопывания)
+    /// на активную группу при добавлении нового продукта.
+    private var productListViewControllers: [ProductListPresentable] = []
+
     // MARK: - Initialization
     
     static func make(delegate: ProfileViewControllerDelegate?) -> UIViewController {
@@ -75,42 +69,30 @@ final class MainProductListViewController: PageViewController {
         addHotActions()
         addSeparator(with: .defaultBackground)
         addSeparator()
-
-        let cards: [UserProduct] = [
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 12", value: 30234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 13", value: 12976)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234))
-        ]
         
-        addProductList(productType: .card, products: cards)
+        addCardList()
         addSeparator()
-        
-        let deposits: [UserProduct] = [
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 12", value: 30234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 13", value: 12976)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234)),
-            .card(Card(name: "Deposit card", number: "NDSL RA01 203 4455 14", value: 51234))
-        ]
+        addDepositList()
 
-        addProductList(productType: .deposit, products: deposits)
     }
     
     // MARK: - Private Methods
-    
+
     private func addHotActions() {
         let controller = HotActionListViewController()
         scrollablePageViewController.addArrangedChild(controller)
     }
-
-    private func addProductList(productType: ProductType, products: [UserProduct]) {
-        let controller = ProductListViewController(
-            productType: productType,
-            products: products,
-            delegate: self)
-        scrollablePageViewController.addArrangedChild(controller)
-        
-        productListViewControllers.append(controller)
+    
+    private func addCardList() {
+        let vc = CardListViewController(delegate: self)
+        scrollablePageViewController.addArrangedChild(vc)
+        productListViewControllers.append(vc)
+    }
+    
+    private func addDepositList() {
+        let vc = DepositListViewController(delegate: self)
+        scrollablePageViewController.addArrangedChild(vc)
+        productListViewControllers.append(vc)
     }
     
     private func addSeparator(with color: UIColor = .scrollViewBackground) {

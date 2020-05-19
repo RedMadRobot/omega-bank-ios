@@ -100,7 +100,7 @@ class StackedViewController: UIViewController {
     
     private func animateToggle() {
         didToggle()
-        for (i, view) in stackView.arrangedSubviews.dropFirst().enumerated() {
+        for (i, view) in stackView.arrangedSubviews.enumerated().dropFirst() {
             toggleAnimator.animate(cell: view, index: i)
         }
     }
