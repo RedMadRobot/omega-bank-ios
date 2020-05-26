@@ -17,8 +17,8 @@ protocol DepositListService {
     /// Обработчик ответа на регистрацию счета
     typealias DepositHandler = ResultHandler<Deposit>
     
-    /// Обработчик ответа на загрузку типов карт / счетов
-    typealias TypesHandler = ResultHandler<[String]>
+    /// Обработчик ответа на загрузку типов счетов
+    typealias DepositTypesHandler = ResultHandler<[DepositInfo]>
     
     /// Загрузка списка счетов
     @discardableResult
@@ -32,7 +32,7 @@ protocol DepositListService {
     
     /// Получение всех типов счетов
     @discardableResult
-    func loadTypes(completion: @escaping TypesHandler) -> Progress
+    func loadTypes(completion: @escaping DepositTypesHandler) -> Progress
  
 }
 
@@ -52,7 +52,7 @@ final class DepositListImpl: APIService, DepositListService {
     }
     
     @discardableResult
-    func loadTypes(completion: @escaping TypesHandler) -> Progress {
+    func loadTypes(completion: @escaping DepositTypesHandler) -> Progress {
         apiClient.request(DepositTypesEndpoint(), completionHandler: completion)
     }
 

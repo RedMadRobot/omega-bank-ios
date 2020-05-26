@@ -99,6 +99,10 @@
 		954BD42D242C967F00DDF91A /* PartnerLimitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BD42C242C967F00DDF91A /* PartnerLimitViewModel.swift */; };
 		954BD433242CB47700DDF91A /* PartnerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BD432242CB47700DDF91A /* PartnerDescriptionView.swift */; };
 		954BD435242CB90F00DDF91A /* PartnerDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954BD434242CB90F00DDF91A /* PartnerDescriptionView.xib */; };
+		954BE14B247BF229007DEA64 /* DepositInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE14A247BF229007DEA64 /* DepositInfo.swift */; };
+		954BE14C247BF29B007DEA64 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE144247BE6D3007DEA64 /* CardInfo.swift */; };
+		954BE14D247BF6F5007DEA64 /* DepositTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE148247BE81C007DEA64 /* DepositTypesEndpoint.swift */; };
+		954BE14E247BF6FA007DEA64 /* CardTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE146247BE74F007DEA64 /* CardTypesEndpoint.swift */; };
 		954C524B243F01C80032C0A0 /* ScrollablePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C5249243F01C70032C0A0 /* ScrollablePageViewController.swift */; };
 		954DAFF5243F4E2D009C6B73 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */; };
 		955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955169B6243C78360072F8AB /* ProductListViewController.swift */; };
@@ -119,8 +123,6 @@
 		956F17A9243F456B0045D2BC /* ScrollablePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956F17A8243F456B0045D2BC /* ScrollablePageViewController.xib */; };
 		9574E462244313DA0020128E /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9574E460244313DA0020128E /* SeparatorView.swift */; };
 		9574E463244313DA0020128E /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9574E461244313DA0020128E /* SeparatorView.xib */; };
-		95770A29246BDA2A00FE058F /* CardTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95770A27246BD9D800FE058F /* CardTypesEndpoint.swift */; };
-		95770A2B246BDA5B00FE058F /* DepositTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95770A2A246BDA5B00FE058F /* DepositTypesEndpoint.swift */; };
 		95770A39246BE20B00FE058F /* CardsEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95770A38246BE20B00FE058F /* CardsEndpointTest.swift */; };
 		95770A3B246BE21B00FE058F /* DepositsEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95770A3A246BE21B00FE058F /* DepositsEndpointTest.swift */; };
 		95770A3C246BE22200FE058F /* DepositTypesEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95770A36246BE1F300FE058F /* DepositTypesEndpointTest.swift */; };
@@ -323,6 +325,10 @@
 		954BD42C242C967F00DDF91A /* PartnerLimitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitViewModel.swift; sourceTree = "<group>"; };
 		954BD432242CB47700DDF91A /* PartnerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerDescriptionView.swift; sourceTree = "<group>"; };
 		954BD434242CB90F00DDF91A /* PartnerDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnerDescriptionView.xib; sourceTree = "<group>"; };
+		954BE144247BE6D3007DEA64 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
+		954BE146247BE74F007DEA64 /* CardTypesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypesEndpoint.swift; sourceTree = "<group>"; };
+		954BE148247BE81C007DEA64 /* DepositTypesEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositTypesEndpoint.swift; sourceTree = "<group>"; };
+		954BE14A247BF229007DEA64 /* DepositInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositInfo.swift; sourceTree = "<group>"; };
 		954C5249243F01C70032C0A0 /* ScrollablePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollablePageViewController.swift; sourceTree = "<group>"; };
 		954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		955169B6243C78360072F8AB /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -344,8 +350,6 @@
 		956F17A8243F456B0045D2BC /* ScrollablePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollablePageViewController.xib; sourceTree = "<group>"; };
 		9574E460244313DA0020128E /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		9574E461244313DA0020128E /* SeparatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorView.xib; sourceTree = "<group>"; };
-		95770A27246BD9D800FE058F /* CardTypesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypesEndpoint.swift; sourceTree = "<group>"; };
-		95770A2A246BDA5B00FE058F /* DepositTypesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositTypesEndpoint.swift; sourceTree = "<group>"; };
 		95770A30246BE16B00FE058F /* ApplyCardEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCardEndpointTest.swift; sourceTree = "<group>"; };
 		95770A34246BE1BF00FE058F /* CardTypesEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypesEndpointTest.swift; sourceTree = "<group>"; };
 		95770A36246BE1F300FE058F /* DepositTypesEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositTypesEndpointTest.swift; sourceTree = "<group>"; };
@@ -643,6 +647,8 @@
 				7700FD53241262DE00210AD3 /* Partner.swift */,
 				95541B24246AC9A800F1CD48 /* Card.swift */,
 				95541B26246AC9B800F1CD48 /* Deposit.swift */,
+				954BE144247BE6D3007DEA64 /* CardInfo.swift */,
+				954BE14A247BF229007DEA64 /* DepositInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1110,8 +1116,8 @@
 				95EB186B246C39E4000D53F4 /* ApplyDepositEndpoint.swift */,
 				95541B1F246AC93900F1CD48 /* CardsEndpoint.swift */,
 				95EB1868246C36CC000D53F4 /* DepositsEndpoint.swift */,
-				95770A27246BD9D800FE058F /* CardTypesEndpoint.swift */,
-				95770A2A246BDA5B00FE058F /* DepositTypesEndpoint.swift */,
+				954BE146247BE74F007DEA64 /* CardTypesEndpoint.swift */,
+				954BE148247BE81C007DEA64 /* DepositTypesEndpoint.swift */,
 			);
 			path = Savings;
 			sourceTree = "<group>";
@@ -2050,10 +2056,12 @@
 				95541B20246AC93900F1CD48 /* CardsEndpoint.swift in Sources */,
 				77196A8423FAB991007C8C84 /* JsonEndpoint.swift in Sources */,
 				77196AAC23FBCFAA007C8C84 /* SendPhoneEndpoint.swift in Sources */,
+				954BE14C247BF29B007DEA64 /* CardInfo.swift in Sources */,
+				954BE14E247BF6FA007DEA64 /* CardTypesEndpoint.swift in Sources */,
 				95EB186A246C376C000D53F4 /* DepositsEndpoint.swift in Sources */,
 				77196AAB23FBCF3A007C8C84 /* EmptyEndpoint.swift in Sources */,
+				954BE14D247BF6F5007DEA64 /* DepositTypesEndpoint.swift in Sources */,
 				7700FD552412637000210AD3 /* Partner.swift in Sources */,
-				95770A29246BDA2A00FE058F /* CardTypesEndpoint.swift in Sources */,
 				7700FD52241260AC00210AD3 /* PartnersEndpoint.swift in Sources */,
 				95541B21246AC94300F1CD48 /* ApplyCardEndpoint.swift in Sources */,
 				77196A8F23FAC747007C8C84 /* ResponseValidator.swift in Sources */,
@@ -2064,9 +2072,9 @@
 				77196A8B23FAC636007C8C84 /* AuthData.swift in Sources */,
 				77196A8623FABAB7007C8C84 /* Codable.swift in Sources */,
 				95541B25246AC9A800F1CD48 /* Card.swift in Sources */,
-				95770A2B246BDA5B00FE058F /* DepositTypesEndpoint.swift in Sources */,
 				95EB186C246C39E4000D53F4 /* ApplyDepositEndpoint.swift in Sources */,
 				77196A7723FA9800007C8C84 /* Client.swift in Sources */,
+				954BE14B247BF229007DEA64 /* DepositInfo.swift in Sources */,
 				77196A8D23FAC6B4007C8C84 /* URLRequest+HTTP.swift in Sources */,
 				77196AA923FBCD11007C8C84 /* CheckSmsCodeEndpoint.swift in Sources */,
 			);

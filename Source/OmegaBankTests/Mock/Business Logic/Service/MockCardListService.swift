@@ -15,7 +15,7 @@ final class MockCardListService: CardListService, SavingMock {
 
     private(set) var cardListHandler: CardListHandler?
     private(set) var cardHandler: CardHandler?
-    private(set) var typesHandler: TypesHandler?
+    private(set) var typesHandler: CardTypesHandler?
     
     private(set) var card: Card?
     
@@ -35,7 +35,7 @@ final class MockCardListService: CardListService, SavingMock {
         return progress
     }
     
-    func loadTypes(completion: @escaping TypesHandler) -> Progress {
+    func loadTypes(completion: @escaping CardTypesHandler) -> Progress {
         typesHandler = completion
         return progress
     }

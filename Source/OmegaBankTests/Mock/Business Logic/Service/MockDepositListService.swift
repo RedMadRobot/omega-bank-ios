@@ -15,7 +15,7 @@ final class MockDepositListService: DepositListService, SavingMock {
 
     private(set) var depositListHandler: DepositListHandler?
     private(set) var depositHandler: DepositHandler?
-    private(set) var typesHandler: TypesHandler?
+    private(set) var typesHandler: DepositTypesHandler?
     
     private(set) var deposit: Deposit?
     
@@ -35,7 +35,7 @@ final class MockDepositListService: DepositListService, SavingMock {
         return progress
     }
     
-    func loadTypes(completion: @escaping TypesHandler) -> Progress {
+    func loadTypes(completion: @escaping DepositTypesHandler) -> Progress {
         typesHandler = completion
         return progress
     }

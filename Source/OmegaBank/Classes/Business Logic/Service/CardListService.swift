@@ -17,8 +17,9 @@ protocol CardListService {
     /// Обработчик ответа на регистрацию карты
     typealias CardHandler = ResultHandler<Card>
     
-    /// Обработчик ответа на загрузку типов карт / счетов
-    typealias TypesHandler = ResultHandler<[String]>
+    /// Обработчик ответа на загрузку типов карт
+    // TODO: После мерджа убрать приставку "OmegaBankAPI"
+    typealias CardTypesHandler = ResultHandler<[OmegaBankAPI.CardInfo]>
 
     /// Загрузка списка карт
     @discardableResult
@@ -32,7 +33,7 @@ protocol CardListService {
     
     /// Получение всех типов карт
     @discardableResult
-    func loadTypes(completion: @escaping TypesHandler) -> Progress
+    func loadTypes(completion: @escaping CardTypesHandler) -> Progress
  
 }
 
@@ -47,12 +48,11 @@ final class CardListServiceImpl: APIService, CardListService {
     func apply(
         with type: String,
         completion: @escaping CardHandler) -> Progress {
-
         apiClient.request(ApplyCardEndpoint(type: type), completionHandler: completion)
     }
 
     @discardableResult
-    func loadTypes(completion: @escaping TypesHandler) -> Progress {
+    func loadTypes(completion: @escaping CardTypesHandler) -> Progress {
         apiClient.request(CardTypesEndpoint(), completionHandler: completion)
     }
 
