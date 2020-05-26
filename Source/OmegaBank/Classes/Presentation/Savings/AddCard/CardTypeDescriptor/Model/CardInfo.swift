@@ -9,6 +9,12 @@
 import Foundation
 
 struct CardInfo {
-    let title: String
-    let description: String
+    
+    struct CardParam {
+        let key: String
+        let value: String
+    }
+    
+    let name: String
+    let parameters: [CardParam]?
 }

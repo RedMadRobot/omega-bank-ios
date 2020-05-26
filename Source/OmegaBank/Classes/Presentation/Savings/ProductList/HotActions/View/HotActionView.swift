@@ -16,7 +16,7 @@ final class HotActionView: UIView, NibLoadable {
     
     // MARK: - HotActionView
     
-    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: 50) }
+    override var intrinsicContentSize: CGSize { CGSize(width: 100, height: 50) }
     
     // MARK: - Initializers
     

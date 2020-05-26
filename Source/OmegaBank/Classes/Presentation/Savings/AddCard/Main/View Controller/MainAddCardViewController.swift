@@ -16,9 +16,44 @@ protocol UserProductDelegate: AnyObject {
 
 final class MainAddCardViewController: ViewController {
     
+    // MARK: - Types
+    
+    typealias CardParam = CardInfo.CardParam
+    
     // MARK: - Private Properties
     
     private weak var delegate: UserProductDelegate?
+    
+    private var containerViewController: ScrollablePageViewController!
+    private var selectorViewController: CardTypeSelectorViewController!
+    private var descriptorViewController: CardTypeDescriptorViewController!
+
+    private let cardTypes = [
+        CardInfo(
+            name: "classic",
+            parameters: [
+                CardParam(key: "INTRO PURCHASE APR", value: "N/A"),
+                CardParam(key: "REGULAR PURCHASE APR", value: "15.99%-22.99% Variable"),
+                CardParam(key: "INTRO BALANCE TRANSFER APR", value: "N/A"),
+                CardParam(key: "ANNUAL FEE", value: "$0-$99")
+        ]),
+        CardInfo(
+            name: "gold",
+            parameters: [
+                CardParam(key: "INTRO PURCHASE APR", value: "N/A"),
+                CardParam(key: "REGULAR PURCHASE APR", value: "15.99%-22.99% Variable"),
+                CardParam(key: "INTRO BALANCE TRANSFER APR", value: "N/A"),
+                CardParam(key: "ANNUAL FEE", value: "$0-$199")
+        ]),
+        CardInfo(
+            name: "platinum",
+            parameters: [
+                CardParam(key: "INTRO PURCHASE APR", value: "N/A"),
+                CardParam(key: "REGULAR PURCHASE APR", value: "15.99%-22.99% Variable"),
+                CardParam(key: "INTRO BALANCE TRANSFER APR", value: "N/A"),
+                CardParam(key: "ANNUAL FEE", value: "$0-$299")
+        ])
+    ]
     
     // MARK: - Nested Properties
     
@@ -49,15 +84,42 @@ final class MainAddCardViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let containerViewController = ScrollablePageViewController()
-        containerViewController.title = title
-        addChildViewController(containerViewController, to: view)
-        
-        let addCardViewController = AddCardViewController()
-        containerViewController.addArrangedChild(addCardViewController)
-        
+        addContainerViewController()
+        addSelectorViewController()
+        addSeparator()
+        addDescriptorViewController()
         addApplyButton()
     }
+    
+    private func addContainerViewController() {
+        containerViewController = ScrollablePageViewController()
+        containerViewController.title = title
+        addChildViewController(containerViewController, to: view)
+    }
+    
+    private func addSelectorViewController() {
+        let horizontalContainerViewController = HorizonalScrollableViewController()
+        containerViewController.addArrangedChild(horizontalContainerViewController)
+        
+        selectorViewController = CardTypeSelectorViewController(cardTypes: cardTypes)
+        
+        horizontalContainerViewController.delegate = self
+        horizontalContainerViewController.addArrangedChild(selectorViewController)
+        horizontalContainerViewController.pager = selectorViewController.pager
+    }
+    
+    private func addSeparator() {
+        containerViewController.addSeparator(with: .defaultBackground)
+        containerViewController.addSeparator()
+        containerViewController.addSeparator(with: .defaultBackground)
+    }
+    
+    private func addDescriptorViewController() {
+        descriptorViewController = CardTypeDescriptorViewController()
+        containerViewController.addArrangedChild(descriptorViewController)
+    }
+    
+    // MARK: - Private Methods
     
     private func addApplyButton() {
         let applyButton = UIButton()
@@ -88,4 +150,13 @@ final class MainAddCardViewController: ViewController {
             self?.delegate?.didShowNewProduct(card)
         }
     }
+}
+
+extension MainAddCardViewController: ScrollViewPagerDelegate {
+    
+    func didChangePage(page: Int) {
+        let cardInfo = cardTypes[page]
+        descriptorViewController.cardInfo = cardInfo
+    }
+
 }

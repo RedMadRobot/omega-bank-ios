@@ -8,22 +8,21 @@
 
 import UIKit
 
-final class HotActionListViewController: UIViewController {
+final class HotActionListViewController: StackedViewController {
+
+    // MARK: - Public Properties
     
-    // MARK: - IBOutlets
-    
-    @IBOutlet private var stackView: UIStackView!
+    override var axis: NSLayoutConstraint.Axis { .horizontal }
     
     // MARK: - Private Properties
     
-    private let actions = ["Action 1",
-                           "Action 2",
-                           "Action 3",
-                           "Action 4",
-                           "Action 5",
-                           "Action 6"]
-    
-    private var animator: AppearingViewAnimator?
+    private let actions = [
+        "Action 1",
+        "Action 2",
+        "Action 3",
+        "Action 4",
+        "Action 5",
+        "Action 6"]
 
     // MARK: - HotActionListViewController
 
@@ -31,17 +30,10 @@ final class HotActionListViewController: UIViewController {
         super.viewDidLoad()
 
         addActionButtons()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if animator == nil {
-            createAnimator()
-            animateAppearing()
-        }
+        stackView.spacing = 10
     }
-    
+
     // MARK: - Private Methods
     
     private func addActionButtons() {
@@ -54,21 +46,7 @@ final class HotActionListViewController: UIViewController {
         let view = HotActionView.make()
         view.setup(title: title, for: position)
 
-        stackView.addArrangedSubview(view)
-        view.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        addArrangedSubview(view)
     }
     
-    private func createAnimator() {
-        let animation = AppearingViewAnimator.makeMove(
-            startOrigin: CGPoint(x: stackView.frame.width, y: 0),
-            count: stackView.arrangedSubviews.count)
-
-        animator = AppearingViewAnimator(animation: animation)
-    }
-    
-    private func animateAppearing() {
-        for (i, view) in stackView.arrangedSubviews.enumerated() {
-            animator?.animate(cell: view, index: i)
-        }
-    }
 }

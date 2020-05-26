@@ -8,12 +8,12 @@
 
 import UIKit
 
-/// ViewController со StackView в корне. С распахивающейся анимацией при начальной загрузке.
+/// ViewController со StackView в корне. С высыпающейся анимацией при начальной загрузке.
 class StackedViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var arrangedSubviewCount: Int { stackView.arrangedSubviews.count }
+    var axis: NSLayoutConstraint.Axis { .vertical }
     
     var isCollapsed = false {
         willSet {
@@ -23,11 +23,12 @@ class StackedViewController: UIViewController {
         }
     }
     
-    var toggleAnimator: AppearingViewAnimator!
+    var toggleAnimator: AppearingViewAnimator?
+    let stackView = UIStackView()
     
     // MARK: - Private Properties
     
-    private var stackView = UIStackView()
+    private var didAppearOnce = false
     private var animator: AppearingViewAnimator?
 
     // MARK: - StackedViewController
@@ -41,24 +42,42 @@ class StackedViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if animator == nil {
+        if !didAppearOnce {
             createAnimator()
-            animateAppearing()
-        }
-        
-        if toggleAnimator == nil {
             createToggleAnimator()
+            
+            animateAppearing()
+            didAppearOnce = true
         }
     }
     
     // MARK: - Public Methods
     
+    func addSeparator() {
+        let separator = SeparatorView.loadFromNib()
+        separator.alpha = didAppearOnce ? 1 : 0
+        addArrangedSubview(separator)
+    }
+    
     /// Эвент, показывающий переключение состояния isCollapsed
     func didToggle() { }
     
+    private func setAlpha(_ view: UIView) {
+        // Альфу выставим в 1 после, в анимации
+        // или же сразу в 1 если анимация уже была
+        view.alpha = didAppearOnce ? 1 : 0
+    }
+    
     func addArrangedSubview(_ view: UIView) {
-        view.alpha = 0 // Альфу выставим в 1 после, в анимации
+        setAlpha(view)
         stackView.addArrangedSubview(view)
+    }
+    
+    func addArrangedChild(_ child: UIViewController) {
+        setAlpha(child.view)
+        addChild(child)
+        stackView.addArrangedSubview(child.view)
+        child.didMove(toParent: self)
     }
     
     func insertArrangedSubview(_ view: UIView, at: Int) {
@@ -67,13 +86,16 @@ class StackedViewController: UIViewController {
         stackView.insertArrangedSubview(view, at: at)
     }
     
+    func clearArrangedSubviews() {
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    }
+    
     // MARK: - Private Methods
     
     private func addStackView() {
         stackView.distribution = .fill
         stackView.spacing = 0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
+        stackView.axis = axis
         
         view.addSubview(stackView, with: view)
     }
@@ -81,14 +103,13 @@ class StackedViewController: UIViewController {
     // MARK: - Animation
     
     private func createAnimator() {
-        let animation = AppearingViewAnimator.makeMove(
-            startOrigin: CGPoint(x: 0, y: stackView.frame.height),
-            count: arrangedSubviewCount)
+        let animationType = AppearingViewAnimator.animationType(axis: axis)
+        let animation = animationType.animation(count: stackView.arrangedSubviews.count, size: stackView.frame.size)
         animator = AppearingViewAnimator(animation: animation)
     }
     
     private func createToggleAnimator() {
-        let animation = AppearingViewAnimator.makeHide(count: arrangedSubviewCount)
+        let animation = AppearingViewAnimator.makeHide(count: stackView.arrangedSubviews.count)
         toggleAnimator = AppearingViewAnimator(animation: animation)
     }
     
@@ -101,8 +122,8 @@ class StackedViewController: UIViewController {
     private func animateToggle() {
         didToggle()
         for (i, view) in stackView.arrangedSubviews.enumerated().dropFirst() {
-            toggleAnimator.animate(cell: view, index: i)
+            toggleAnimator?.animate(cell: view, index: i)
         }
     }
-
+    
 }

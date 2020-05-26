@@ -8,13 +8,35 @@
 
 import UIKit
 
-final class ScrollablePageViewController: PageViewController {
+protocol StackViewPresentable where Self: UIViewController {
+    var stackView: UIStackView? { get }
+}
+
+extension StackViewPresentable {
+    func addArrangedSubview(_ view: UIView) {
+        stackView?.addArrangedSubview(view)
+    }
+    
+    func addArrangedChild(_ child: UIViewController) {
+        addChild(child)
+        stackView?.addArrangedSubview(child.view)
+        child.didMove(toParent: self)
+    }
+}
+
+final class ScrollablePageViewController: PageViewController, StackViewPresentable {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let sectionFooterHeight: CGFloat = 10
+    }
 
     // MARK: - IBOutlets
 
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var titledCurvedView: TitledCurvedView!
-    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet var stackView: UIStackView?
 
     // MARK: - ScrollablePageViewController
     
@@ -24,16 +46,14 @@ final class ScrollablePageViewController: PageViewController {
         titledCurvedView.setup(with: title ?? "")
     }
     
-    // MARK: - Public methods
+    // MARK: - Public Methods
     
-    func addArrangedSubview(_ view: UIView) {
-        stackView.addArrangedSubview(view)
-    }
-    
-    func addArrangedChild(_ child: UIViewController) {
-        addChild(child)
-        stackView.addArrangedSubview(child.view)
-        child.didMove(toParent: self)
+    func addSeparator(with color: UIColor = .scrollViewBackground) {
+        let view = UIView()
+        
+        view.backgroundColor = color
+        addArrangedSubview(view)
+        view.heightAnchor.constraint(equalToConstant: Constants.sectionFooterHeight).isActive = true
     }
 
 }

@@ -71,9 +71,13 @@
 		951032CD246E9D1F005902ED /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032CC246E9D1F005902ED /* ProductType.swift */; };
 		951032CF246E9D3E005902ED /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032CE246E9D3E005902ED /* Product.swift */; };
 		951032D1246EB872005902ED /* MockDepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032D0246EB872005902ED /* MockDepositListService.swift */; };
+		951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F873B24753C8100785552 /* ScrollViewPager.swift */; };
+		951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */; };
+		951F87482475626300785552 /* CardTypeDescriptorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F87472475626300785552 /* CardTypeDescriptorViewController.swift */; };
+		9539569B2476A4FF00B0331E /* HorizonalScrollableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9539569A2476A4FF00B0331E /* HorizonalScrollableViewController.xib */; };
+		9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */; };
 		953B143924504E9400D609B0 /* AppearingViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143824504E9400D609B0 /* AppearingViewAnimator.swift */; };
 		953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143A2450758F00D609B0 /* HotActionListViewController.swift */; };
-		953B143D2450758F00D609B0 /* HotActionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143B2450758F00D609B0 /* HotActionListViewController.xib */; };
 		953B144024507BCE00D609B0 /* HotActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143E24507BCE00D609B0 /* HotActionView.xib */; };
 		953B144124507BCE00D609B0 /* HotActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143F24507BCE00D609B0 /* HotActionView.swift */; };
 		9540C34A244731DA00F46687 /* SendPhoneMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C349244731DA00F46687 /* SendPhoneMock.swift */; };
@@ -154,7 +158,6 @@
 		95CB3E132459BB7800C6F5C6 /* SubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */; };
 		95CF5E98243CABF300BD94A8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CF5E96243CABF300BD94A8 /* ProductCell.swift */; };
 		95CF5E99243CABF300BD94A8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CF5E97243CABF300BD94A8 /* ProductCell.xib */; };
-		95DB7FD92459630000538755 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB7FD72459630000538755 /* AddCardViewController.swift */; };
 		95DB7FE024598CF800538755 /* MainAddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB7FDF24598CF800538755 /* MainAddCardViewController.swift */; };
 		95E08ECB2446EC410048DCDB /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E08ECA2446EC410048DCDB /* BaseScreen.swift */; };
 		95E08ECD2446ECA10048DCDB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E08ECC2446ECA10048DCDB /* LoginScreen.swift */; };
@@ -292,9 +295,13 @@
 		951032CC246E9D1F005902ED /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		951032CE246E9D3E005902ED /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		951032D0246EB872005902ED /* MockDepositListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDepositListService.swift; sourceTree = "<group>"; };
+		951F873B24753C8100785552 /* ScrollViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPager.swift; sourceTree = "<group>"; };
+		951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSelectorViewController.swift; sourceTree = "<group>"; };
+		951F87472475626300785552 /* CardTypeDescriptorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeDescriptorViewController.swift; sourceTree = "<group>"; };
+		9539569A2476A4FF00B0331E /* HorizonalScrollableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizonalScrollableViewController.xib; sourceTree = "<group>"; };
+		9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonalScrollableViewController.swift; sourceTree = "<group>"; };
 		953B143824504E9400D609B0 /* AppearingViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearingViewAnimator.swift; sourceTree = "<group>"; };
 		953B143A2450758F00D609B0 /* HotActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotActionListViewController.swift; sourceTree = "<group>"; };
-		953B143B2450758F00D609B0 /* HotActionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotActionListViewController.xib; sourceTree = "<group>"; };
 		953B143E24507BCE00D609B0 /* HotActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotActionView.xib; sourceTree = "<group>"; };
 		953B143F24507BCE00D609B0 /* HotActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotActionView.swift; sourceTree = "<group>"; };
 		9540C349244731DA00F46687 /* SendPhoneMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneMock.swift; sourceTree = "<group>"; };
@@ -376,7 +383,6 @@
 		95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtitleView.xib; sourceTree = "<group>"; };
 		95CF5E96243CABF300BD94A8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		95CF5E97243CABF300BD94A8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
-		95DB7FD72459630000538755 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		95DB7FDF24598CF800538755 /* MainAddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddCardViewController.swift; sourceTree = "<group>"; };
 		95E08EBD2446E7E40048DCDB /* OmegaBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmegaBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E08EC12446E7E40048DCDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -731,6 +737,8 @@
 				954C5249243F01C70032C0A0 /* ScrollablePageViewController.swift */,
 				956F17A8243F456B0045D2BC /* ScrollablePageViewController.xib */,
 				9542410D24445A6E00E2C196 /* ViewController.swift */,
+				9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */,
+				9539569A2476A4FF00B0331E /* HorizonalScrollableViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -765,6 +773,7 @@
 				777426C0240523B5008E5810 /* NibLoadable.swift */,
 				77CF6F3424066FB3000A5082 /* BarButtonItems.swift */,
 				9599A4C724289165000411EC /* ViewCorners.swift */,
+				951F873B24753C8100785552 /* ScrollViewPager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -847,6 +856,40 @@
 				6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		951F873F24754BB200785552 /* CardTypeSelector */ = {
+			isa = PBXGroup;
+			children = (
+				951F874024754BBE00785552 /* View Controller */,
+			);
+			path = CardTypeSelector;
+			sourceTree = "<group>";
+		};
+		951F874024754BBE00785552 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		951F87452475621300785552 /* CardTypeDescriptor */ = {
+			isa = PBXGroup;
+			children = (
+				95674965245AB53100773B1F /* Model */,
+				9582A08B24599D5300BA4440 /* View */,
+				951F87462475623E00785552 /* View Controller */,
+			);
+			path = CardTypeDescriptor;
+			sourceTree = "<group>";
+		};
+		951F87462475623E00785552 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				951F87472475626300785552 /* CardTypeDescriptorViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		9540C348244731C900F46687 /* Mock */ = {
@@ -1122,14 +1165,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		9582A08A24599D3900BA4440 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				95DB7FD72459630000538755 /* AddCardViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		9582A08B24599D5300BA4440 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1361,7 +1396,6 @@
 			isa = PBXGroup;
 			children = (
 				953B143A2450758F00D609B0 /* HotActionListViewController.swift */,
-				953B143B2450758F00D609B0 /* HotActionListViewController.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1393,7 +1427,8 @@
 			isa = PBXGroup;
 			children = (
 				95DB7FDE24598C6900538755 /* Main */,
-				95DB7FDD24598C5D00538755 /* AddCard */,
+				951F873F24754BB200785552 /* CardTypeSelector */,
+				951F87452475621300785552 /* CardTypeDescriptor */,
 			);
 			path = AddCard;
 			sourceTree = "<group>";
@@ -1413,16 +1448,6 @@
 				954241012444421400E2C196 /* View Controller */,
 			);
 			path = "Transaction History";
-			sourceTree = "<group>";
-		};
-		95DB7FDD24598C5D00538755 /* AddCard */ = {
-			isa = PBXGroup;
-			children = (
-				95674965245AB53100773B1F /* Model */,
-				9582A08B24599D5300BA4440 /* View */,
-				9582A08A24599D3900BA4440 /* ViewController */,
-			);
-			path = AddCard;
 			sourceTree = "<group>";
 		};
 		95DB7FDE24598C6900538755 /* Main */ = {
@@ -1753,7 +1778,6 @@
 				9574E463244313DA0020128E /* SeparatorView.xib in Resources */,
 				77196AA423FBC2CE007C8C84 /* LoginViewController.xib in Resources */,
 				95CF5E99243CABF300BD94A8 /* ProductCell.xib in Resources */,
-				953B143D2450758F00D609B0 /* HotActionListViewController.xib in Resources */,
 				9599A4D0242893CB000411EC /* PartnterCell.xib in Resources */,
 				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
 				777961BA240E62B70066762B /* PartnerListViewController.xib in Resources */,
@@ -1765,6 +1789,7 @@
 				80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */,
 				95CB3E132459BB7800C6F5C6 /* SubtitleView.xib in Resources */,
 				956F17A9243F456B0045D2BC /* ScrollablePageViewController.xib in Resources */,
+				9539569B2476A4FF00B0331E /* HorizonalScrollableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1940,6 +1965,7 @@
 				95A744562445C1BC00BD6779 /* ProductHeader.swift in Sources */,
 				958BD2D72432239400543642 /* FadeTransition.swift in Sources */,
 				951032CA246E9448005902ED /* DepositListViewController.swift in Sources */,
+				9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */,
 				9599A4D42428AB0C000411EC /* UIImageView+Download.swift in Sources */,
 				95428192245EA3D500716676 /* StackedViewController.swift in Sources */,
 				777426B42405197B008E5810 /* TableViewCell.swift in Sources */,
@@ -1954,10 +1980,12 @@
 				9599A4C6242890BE000411EC /* ShadowView.swift in Sources */,
 				9542410A244445AA00E2C196 /* Transaction.swift in Sources */,
 				9599A4CF242893CB000411EC /* PartnterCell.swift in Sources */,
+				951F87482475626300785552 /* CardTypeDescriptorViewController.swift in Sources */,
 				7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */,
 				954AA79024459B3900425D5E /* TransactionHistoryViewController.swift in Sources */,
 				951032CB246E9CC2005902ED /* UserProduct.swift in Sources */,
 				7757BC492404E5D50063ACBD /* Font.swift in Sources */,
+				951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */,
 				9599A4DF2428D341000411EC /* CAGradientLayer.swift in Sources */,
 				7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */,
 				954241072444432A00E2C196 /* MainTransactionHistoryViewController.swift in Sources */,
@@ -1969,6 +1997,7 @@
 				954C524B243F01C80032C0A0 /* ScrollablePageViewController.swift in Sources */,
 				9599A4DC2428C38C000411EC /* String+Html.swift in Sources */,
 				9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */,
+				951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */,
 				6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */,
 				777961B9240E62B70066762B /* PartnerListViewController.swift in Sources */,
 				9542411124445CC800E2C196 /* SavingModel.swift in Sources */,
@@ -2002,7 +2031,6 @@
 				951032CD246E9D1F005902ED /* ProductType.swift in Sources */,
 				95674967245AB54000773B1F /* CardInfo.swift in Sources */,
 				77196A9723FACA6C007C8C84 /* AccessTokenStorage.swift in Sources */,
-				95DB7FD92459630000538755 /* AddCardViewController.swift in Sources */,
 				A831740758724667D902F5D4 /* AppDelegate.swift in Sources */,
 				95770A41246BEB0900FE058F /* CardListService.swift in Sources */,
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,

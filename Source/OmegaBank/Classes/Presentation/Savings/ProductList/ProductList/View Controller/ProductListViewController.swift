@@ -106,13 +106,8 @@ final class ProductListViewController<T>: StackedViewController where T: Product
         insertArrangedSubview(separator, at: 1) // т.к. по 0 индексу - хедер
         insertArrangedSubview(cell, at: 1) // т.к. по 0 индексу - хедер
 
-        toggleAnimator.animate(cell: cell)
-        toggleAnimator.animate(cell: separator, index: 1)
-    }
-    
-    private func addSeparator() {
-        let separator = SeparatorView.loadFromNib()
-        addArrangedSubview(separator)
+        toggleAnimator?.animate(cell: cell)
+        toggleAnimator?.animate(cell: separator, index: 1)
     }
 
     private func didProductTapped(_ product: Product) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,9 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotActionListViewController" customModule="OmegaBank" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HorizonalScrollableViewController" customModule="OmegaBank" customModuleProvider="target">
             <connections>
-                <outlet property="stackView" destination="SCA-63-hS8" id="9bF-7A-AKC"/>
+                <outlet property="leadingConstraint" destination="fWJ-eR-rP3" id="CEQ-bZ-mTO"/>
+                <outlet property="scrollView" destination="gvN-xz-YEH" id="bDa-qc-RoQ"/>
+                <outlet property="stackView" destination="SCA-63-hS8" id="UiM-mt-qPA"/>
+                <outlet property="trailingConstraint" destination="Mjz-Ug-QXi" id="A3k-ct-a9A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +25,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-xz-YEH">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="852" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-63-hS8">
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="852" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-63-hS8">
                             <rect key="frame" x="15" y="0.0" width="414" height="896"/>
                         </stackView>
                     </subviews>

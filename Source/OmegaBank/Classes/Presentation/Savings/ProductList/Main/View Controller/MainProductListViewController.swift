@@ -22,13 +22,7 @@ extension MainProductListViewController: ProductTypeDelegate {
 }
 
 final class MainProductListViewController: PageViewController {
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let sectionFooterHeight: CGFloat = 10
-    }
-    
+
     // MARK: - Private Properties
     
     private var scrollablePageViewController: ScrollablePageViewController!
@@ -67,11 +61,11 @@ final class MainProductListViewController: PageViewController {
         addChildViewController(scrollablePageViewController, to: view)
         
         addHotActions()
-        addSeparator(with: .defaultBackground)
-        addSeparator()
+        scrollablePageViewController.addSeparator(with: .defaultBackground)
+        scrollablePageViewController.addSeparator()
         
         addCardList()
-        addSeparator()
+        scrollablePageViewController.addSeparator()
         addDepositList()
 
     }
@@ -79,8 +73,12 @@ final class MainProductListViewController: PageViewController {
     // MARK: - Private Methods
 
     private func addHotActions() {
+        let container = HorizonalScrollableViewController()
         let controller = HotActionListViewController()
-        scrollablePageViewController.addArrangedChild(controller)
+        
+        scrollablePageViewController.addArrangedChild(container)
+        container.addArrangedChild(controller)
+        
     }
     
     private func addCardList() {
@@ -95,11 +93,4 @@ final class MainProductListViewController: PageViewController {
         productListViewControllers.append(vc)
     }
     
-    private func addSeparator(with color: UIColor = .scrollViewBackground) {
-        let view = UIView()
-        
-        view.backgroundColor = color
-        scrollablePageViewController.addArrangedSubview(view)
-        view.heightAnchor.constraint(equalToConstant: Constants.sectionFooterHeight).isActive = true
-    }
 }

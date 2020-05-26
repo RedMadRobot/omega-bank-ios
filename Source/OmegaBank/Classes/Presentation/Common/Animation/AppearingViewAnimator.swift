@@ -14,6 +14,26 @@ final class AppearingViewAnimator {
     
     typealias Animation = (_ view: UIView, _ index: Int, _ delay: Double?) -> Void
     
+    enum AnimationType {
+        case rightToLeft
+        case downToUp
+        
+        func animation(count: Int, size: CGSize) -> Animation {
+            switch self {
+            case .downToUp:
+                return AppearingViewAnimator.makeMove(
+                    startOrigin: CGPoint(x: .zero, y: size.height),
+                    count: count)
+
+            case .rightToLeft:
+                return AppearingViewAnimator.makeMove(
+                    startOrigin: CGPoint(x: size.width, y: .zero),
+                    count: count)
+            }
+        }
+
+    }
+    
     // MARK: - Constants
     
     private enum Constants {
@@ -37,6 +57,10 @@ final class AppearingViewAnimator {
     
     // MARK: - Public Methods
     
+    static func animationType(axis: NSLayoutConstraint.Axis) -> AnimationType {
+        axis == .horizontal ? .rightToLeft : .downToUp
+    }
+    
     static func makeMove(startOrigin: CGPoint, count: Int) -> Animation {
         return { view, index, delay in
             
@@ -49,7 +73,7 @@ final class AppearingViewAnimator {
                 delay: itemDelay * Double(index) + (delay ?? 0.0),
                 usingSpringWithDamping: 1,
                 initialSpringVelocity: 0.1,
-                options: .curveEaseInOut,
+                options: [.curveEaseInOut, .allowUserInteraction],
                 animations: {
                     view.transform = CGAffineTransform(translationX: 0, y: 0)
                     view.alpha = 1
@@ -60,13 +84,13 @@ final class AppearingViewAnimator {
     static func makeHide(count: Int) -> Animation {
         return { view, index, delay in
             let itemDelay = oneItemDelay(count: count)
-            
+
             UIView.animate(
                 withDuration: Constants.oneItemAppearingDuration,
                 delay: itemDelay * Double(index) + (delay ?? 0.0),
                 usingSpringWithDamping: 1,
                 initialSpringVelocity: 1,
-                options: .curveEaseInOut,
+                options: [.curveEaseInOut, .allowUserInteraction],
                 animations: {
                     toggleAlpha(view)
                     view.isHidden.toggle()
