@@ -68,7 +68,7 @@ extension PartnerListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-final class PartnerListViewController: PageViewController {
+final class PartnerListViewController: PageViewController, ErrorHandler {
 
     // MARK: - IBOutlets
 
@@ -120,13 +120,17 @@ final class PartnerListViewController: PageViewController {
 
         collectionView.collectionViewLayout = layout
         collectionView.accessibilityIdentifier = "collection view"
+        
+        loadPartners()
+    }
 
+    // MARK: - Private methods
+    
+    private func loadPartners() {
         progress = partnerListService.load { [weak self] result in
             self?.loadDidFinish(result)
         }
     }
-
-    // MARK: - Private methods
 
     private func setupCollectionView() {
         collectionView.registerCellNib(PartnterCell.self)
@@ -135,28 +139,14 @@ final class PartnerListViewController: PageViewController {
     private func loadDidFinish(_ result: Result<[Partner]>) {
         switch result {
         case .success(let list) where list.isEmpty:
-            showError(.empty)
+            showError(.emptyPartners)
         case .success(let list):
             showPartner(list)
         case .failure(let error):
-            showError(.error(error))
+            self.showError(.error(error, onAction: { [weak self] in
+                self?.loadPartners()
+            }))
         }
-    }
-
-    private func showError(_ item: ErrorItem) {
-        var message = "Что-то пошло не так"
-        
-        switch item {
-        case .error(let error):
-            message = error.localizedDescription
-        case .empty:
-            message = "В данный момент нет доступных партнеров банка"
-        }
-
-        let alert = UIAlertController(
-            title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 
     private func showPartner(_ list: [Partner]) {

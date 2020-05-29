@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  OmegaBank
+
+  Created by Nikolay Zhukov on 5/27/20.
+  Copyright © 2020 RedMadRobot. All rights reserved.
+*/
+
+"NoData" = "Пока данных нет";
+"NoPartners" = "Пока нет доступных партнеров";
+"Repeat" = "Повторить";
+"NoInternetConnection" = "Нет соединения с интернетом";
+"FailedToLoadData" = "Не удалось загрузить данные";
+"ServerIsUnreachable" = "Сервер не отвечает, попробуйте\nзайти чуть позже";

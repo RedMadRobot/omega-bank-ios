@@ -28,7 +28,7 @@ final class MockDepositListService: DepositListService, SavingMock {
         return progress
     }
     
-    func apply(with type: String, completion: @escaping DepositHandler) -> Progress {
+    func applyNewDeposit(with type: String, completion: @escaping DepositHandler) -> Progress {
         deposit = makeDeposit()
         depositHandler = completion
         

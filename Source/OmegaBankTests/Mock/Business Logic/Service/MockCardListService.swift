@@ -28,7 +28,7 @@ final class MockCardListService: CardListService, SavingMock {
         return progress
     }
     
-    func apply(with type: String, completion: @escaping CardHandler) -> Progress {
+    func applyNewCard(with type: String, completion: @escaping CardHandler) -> Progress {
         card = makeCard()
         cardHandler = completion
         

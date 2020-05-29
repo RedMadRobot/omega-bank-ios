@@ -21,15 +21,15 @@ final class HorizonalScrollableViewController: UIViewController {
     
     weak var delegate: ScrollViewPagerDelegate?
     weak var pager: ScrollViewPager?
+
+    // MARK: - Private Properties
     
-    var horizontalInset: CGFloat = 15 {
+    private var horizontalInset: CGFloat = 15 {
         willSet {
             leadingConstraint.constant = newValue
             trailingConstraint.constant = newValue
         }
     }
-    
-    // MARK: - Private Properties
     
     private var didAppearOnce = false
     

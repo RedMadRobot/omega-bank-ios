@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  OmegaBank
+
+  Created by Nikolay Zhukov on 5/27/20.
+  Copyright © 2020 RedMadRobot. All rights reserved.
+*/
+
+"NoData" = "There are no data available";
+"NoPartners" = "There are no parnters available";
+"Repeat" = "Repeat";
+"NoInternetConnection" = "There is no internet connection";
+"FailedToLoadData" = "Failed to load data";
+"ServerIsUnreachable" = "Server is unreachable,\nplease try again later";

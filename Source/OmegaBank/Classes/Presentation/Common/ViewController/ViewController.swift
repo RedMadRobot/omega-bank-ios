@@ -12,14 +12,14 @@ class ViewController: UIViewController {
     
     // MARK: - Nested Properties
     
-    var hasDissmissedButton: Bool { false }
+    var hasDismissedButton: Bool { false }
     
     // MARK: - ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if hasDissmissedButton { setupNavigationButtons() }
+        if hasDismissedButton { setupNavigationButtons() }
     }
     
     // MARK: - Private Methods

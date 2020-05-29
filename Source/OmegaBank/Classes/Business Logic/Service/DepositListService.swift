@@ -26,7 +26,7 @@ protocol DepositListService {
     
     /// Регистрация нового счета
     @discardableResult
-    func apply(
+    func applyNewDeposit(
         with type: String,
         completion: @escaping DepositHandler) -> Progress
     
@@ -44,7 +44,7 @@ final class DepositListImpl: APIService, DepositListService {
     }
 
     @discardableResult
-    func apply(
+    func applyNewDeposit(
         with type: String,
         completion: @escaping DepositHandler) -> Progress {
 

@@ -9,8 +9,8 @@
 import Foundation
 
 public struct DepositInfo: Decodable {
-    let code: String
-    let name: String
-    let descriptoin: String?
-    let about: [ProductInfo]?
+    public let code: String
+    public let name: String
+    public let description: String?
+    public let about: [ProductDescriptor]?
 }

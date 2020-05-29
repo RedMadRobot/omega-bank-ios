@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct ProductInfo: Decodable {
-    let caption: String
-    let value: String
+public struct ProductDescriptor: Decodable {
+    public let caption: String
+    public let value: String
 }
 
 public struct CardInfo: Decodable {
-    let code: String
-    let name: String
-    let about: [ProductInfo]?
+    public let code: String
+    public let name: String
+    public let about: [ProductDescriptor]?
 }

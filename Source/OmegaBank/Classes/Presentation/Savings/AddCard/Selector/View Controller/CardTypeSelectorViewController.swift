@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import struct OmegaBankAPI.CardInfo
 
 final class CardTypeSelectorViewController: StackedViewController {
     

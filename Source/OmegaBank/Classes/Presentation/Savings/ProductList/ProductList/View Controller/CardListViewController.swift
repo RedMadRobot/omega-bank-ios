@@ -14,7 +14,7 @@ protocol ProductListPresentable: AnyObject {
     var isCollapsed: Bool { get set }
 }
 
-final class CardListViewController: UIViewController, ProductListPresentable {
+final class CardListViewController: UIViewController, ProductListPresentable, ErrorHandler {
 
     // MARK: - ProductBehaviour
     
@@ -63,9 +63,9 @@ final class CardListViewController: UIViewController, ProductListPresentable {
     // MARK: - Private Methods
     
     private func loadProducts() {
-        progress = cardListService.load(completion: { [weak self] result in
+        progress = cardListService.load { [weak self] result in
             self?.loadDidFinish(result)
-        })
+        }
     }
 
     private func loadDidFinish(_ result: Result<[Card]>) {
@@ -73,7 +73,9 @@ final class CardListViewController: UIViewController, ProductListPresentable {
         case .success(let cards):
             showProducts(cards)
         case .failure(let error):
-            showError(.error(error))
+            self.showError(.error(error, onAction: { [weak self] in
+                self?.loadProducts()
+            }))
         }
     }
     
@@ -91,21 +93,5 @@ final class CardListViewController: UIViewController, ProductListPresentable {
         
         addChildViewController(vc, to: view)
         productListViewController = vc
-    }
-    
-    private func showError(_ item: ErrorItem) {
-        var message = "Что-то пошло не так"
-        
-        switch item {
-        case .error(let error):
-            message = error.localizedDescription
-        case .empty:
-            message = "В данный момент нет доступных банковских продуктов"
-        }
-
-        let alert = UIAlertController(
-            title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }

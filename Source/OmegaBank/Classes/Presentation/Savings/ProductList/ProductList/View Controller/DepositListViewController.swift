@@ -9,7 +9,7 @@
 import UIKit
 import struct OmegaBankAPI.Deposit
 
-final class DepositListViewController: UIViewController, ProductListPresentable {
+final class DepositListViewController: UIViewController, ProductListPresentable, ErrorHandler {
     
     // MARK: - ProductBehaviour
     
@@ -58,9 +58,9 @@ final class DepositListViewController: UIViewController, ProductListPresentable 
     // MARK: - Private Methods
     
     private func loadProducts() {
-        progress = depositListService.load(completion: { [weak self] result in
+        progress = depositListService.load { [weak self] result in
             self?.loadDidFinish(result)
-        })
+        }
     }
 
     private func loadDidFinish(_ result: Result<[Deposit]>) {
@@ -68,7 +68,9 @@ final class DepositListViewController: UIViewController, ProductListPresentable 
         case .success(let cards):
             showProducts(cards)
         case .failure(let error):
-            showError(.error(error))
+            showError(.error(error, onAction: { [weak self] in
+                self?.loadProducts()
+            }))
         }
     }
     
@@ -80,7 +82,7 @@ final class DepositListViewController: UIViewController, ProductListPresentable 
             delegate: delegate)
         
         vc.addProductTapped = { [unowned self] in
-            let vc = MainAddCardViewController.make(delegate: vc)
+            let vc = MainAddDepositViewController.make(delegate: vc)
             self.present(vc, animated: true)
         }
         
@@ -88,19 +90,4 @@ final class DepositListViewController: UIViewController, ProductListPresentable 
         productListViewController = vc
     }
     
-    private func showError(_ item: ErrorItem) {
-        var message = "Что-то пошло не так"
-        
-        switch item {
-        case .error(let error):
-            message = error.localizedDescription
-        case .empty:
-            message = "В данный момент нет доступных банковских продуктов"
-        }
-
-        let alert = UIAlertController(
-            title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
 }

@@ -1,5 +1,5 @@
 //
-//  MainAddCardViewController.swift
+//  MainAddDepositViewController.swift
 //  OmegaBank
 //
 //  Created by Nikolay Zhukov on 4/29/20.
@@ -7,31 +7,26 @@
 //
 
 import UIKit
-import struct OmegaBankAPI.Card
-import struct OmegaBankAPI.CardInfo
+import struct OmegaBankAPI.Deposit
+import struct OmegaBankAPI.DepositInfo
 
-protocol UserProductDelegate: AnyObject {
-    func didTapNewProduct()
-    func didShowNewProduct(_ product: Product)
-}
-
-final class MainAddCardViewController: ViewController, ErrorHandler {
+final class MainAddDepositViewController: ViewController, ErrorHandler {
     
     // MARK: - Constants
     
     private let applyButtonInsets = UIEdgeInsets(top: .zero, left: 20, bottom: -20, right: -20)
-    
+
     // MARK: - Private Properties
     
     private weak var delegate: UserProductDelegate?
     
     private var containerViewController: ScrollablePageViewController!
-    private var selectorViewController: CardTypeSelectorViewController!
-    private var descriptorViewController: ProductTypeDescriptorViewController<CardInfo>!
+    private var selectorViewController: DepositTypeSelectorViewController!
+    private var descriptorViewController: ProductTypeDescriptorViewController<DepositInfo>!
 
-    private var currentCardType: CardInfo?
-    private var cardTypes: [CardInfo] = []
-    private let cardListService: CardListService
+    private var currentDepositType: DepositInfo?
+    private var depositTypes: [DepositInfo] = []
+    private let listService: DepositListService
     private var progress: Progress?
     
     // MARK: - Nested Properties
@@ -41,18 +36,18 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
     // MARK: - Initialization
     
     static func make(delegate: UserProductDelegate?) -> UIViewController {
-        let vc = MainAddCardViewController()
+        let vc = MainAddDepositViewController()
         vc.delegate = delegate
         
         return NavigationController(rootViewController: vc)
     }
 
-    init(cardListService: CardListService = ServiceLayer.shared.cardListService) {
-        self.cardListService = cardListService
+    init(listService: DepositListService = ServiceLayer.shared.depositListService) {
+        self.listService = listService
         
         super.init(nibName: nil, bundle: nil)
 
-        title = "Card Applying"
+        title = "Deposit Applying"
         navigationItem.title = nil
     }
 
@@ -70,28 +65,28 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
         super.viewDidLoad()
         
         addContainerViewController()
-        loadCardTypes()
+        loadDepositTypes()
     }
     
     // MARK: - Private Methods
     
-    private func loadCardTypes() {
-        progress = cardListService.loadTypes { [weak self] result in
+    private func loadDepositTypes() {
+        progress = listService.loadTypes { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let cards):
-                self.cardTypes = cards
-                self.showCardTypes()
+                self.depositTypes = cards
+                self.showDepositTypes()
             case .failure(let error):
                 self.showError(.error(error, onAction: { [weak self] in
-                    self?.loadCardTypes()
+                    self?.loadDepositTypes()
                 }))
             }
         }
     }
     
-    private func showCardTypes() {
+    private func showDepositTypes() {
         addSelectorViewController()
         addSeparator()
         addDescriptorViewController()
@@ -108,7 +103,7 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
         let horizontalContainerViewController = HorizonalScrollableViewController()
         containerViewController.addArrangedChild(horizontalContainerViewController)
         
-        selectorViewController = CardTypeSelectorViewController(cardTypes: cardTypes)
+        selectorViewController = DepositTypeSelectorViewController(depositTypes: depositTypes)
         
         horizontalContainerViewController.delegate = self
         horizontalContainerViewController.addArrangedChild(selectorViewController)
@@ -122,17 +117,17 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
     }
     
     private func addDescriptorViewController() {
-        descriptorViewController = ProductTypeDescriptorViewController<CardInfo>()
+        descriptorViewController = ProductTypeDescriptorViewController<DepositInfo>()
         containerViewController.addArrangedChild(descriptorViewController)
     }
     
     // MARK: - Private Methods
-    
+
     private func addApplyButton() {
         let submitButton = SubmitButton()
         submitButton.setTitle("Apply", for: .normal)
         submitButton.onTap = { [unowned self] in
-            self.applyNewCard()
+            self.applyNewDeposit()
         }
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -151,10 +146,10 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
         ])
     }
     
-    private func applyNewCard() {
-        guard let cardType = currentCardType else { return }
+    private func applyNewDeposit() {
+        guard let depositType = currentDepositType else { return }
         
-        progress = cardListService.applyNewCard(with: cardType.code) { [weak self] result in
+        progress = listService.applyNewDeposit(with: depositType.code) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -165,19 +160,19 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
                 }
             case .failure(let error):
                 self.showError(.error(error, onAction: { [weak self] in
-                    self?.applyNewCard()
+                    self?.applyNewDeposit()
                 }))
             }
         }
     }
 }
 
-extension MainAddCardViewController: ScrollViewPagerDelegate {
+extension MainAddDepositViewController: ScrollViewPagerDelegate {
     
     func didChangePage(page: Int) {
-        let cardInfo = cardTypes[page]
-        currentCardType = cardInfo
-        descriptorViewController.productInfo = cardInfo
+        let depositInfo = depositTypes[page]
+        currentDepositType = depositInfo
+        descriptorViewController.productInfo = depositInfo
     }
 
 }

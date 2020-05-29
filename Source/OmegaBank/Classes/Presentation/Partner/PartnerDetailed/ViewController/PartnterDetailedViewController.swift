@@ -28,7 +28,7 @@ final class PartnterDetailedViewController: ViewController {
     
     // MARK: - Nested Properties
     
-    override var hasDissmissedButton: Bool { true }
+    override var hasDismissedButton: Bool { true }
     
     // MARK: - Private Properties
     

@@ -12,7 +12,7 @@ final class MainTransactionHistoryViewController: ViewController {
     
     // MARK: - Nested Properties
     
-    override var hasDissmissedButton: Bool { true }
+    override var hasDismissedButton: Bool { true }
     
     // MARK: - Initialization
     

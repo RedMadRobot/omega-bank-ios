@@ -73,7 +73,6 @@
 		951032D1246EB872005902ED /* MockDepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032D0246EB872005902ED /* MockDepositListService.swift */; };
 		951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F873B24753C8100785552 /* ScrollViewPager.swift */; };
 		951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */; };
-		951F87482475626300785552 /* CardTypeDescriptorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F87472475626300785552 /* CardTypeDescriptorViewController.swift */; };
 		9539569B2476A4FF00B0331E /* HorizonalScrollableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9539569A2476A4FF00B0331E /* HorizonalScrollableViewController.xib */; };
 		9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */; };
 		953B143924504E9400D609B0 /* AppearingViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143824504E9400D609B0 /* AppearingViewAnimator.swift */; };
@@ -105,6 +104,7 @@
 		954BE14E247BF6FA007DEA64 /* CardTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE146247BE74F007DEA64 /* CardTypesEndpoint.swift */; };
 		954C524B243F01C80032C0A0 /* ScrollablePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C5249243F01C70032C0A0 /* ScrollablePageViewController.swift */; };
 		954DAFF5243F4E2D009C6B73 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */; };
+		954F0A98247E3E7D0022A0F5 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F0A97247E3E7D0022A0F5 /* ProductInfo.swift */; };
 		955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955169B6243C78360072F8AB /* ProductListViewController.swift */; };
 		955383A52449BDA400DAD89B /* ProductsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955383A42449BDA400DAD89B /* ProductsScreen.swift */; };
 		955383A72449C52000DAD89B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955383A62449C52000DAD89B /* Environment.swift */; };
@@ -119,7 +119,7 @@
 		95595792246D32A000F65BC3 /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595791246D32A000F65BC3 /* ProductListViewControllerTests.swift */; };
 		955BF9D4243B3145004621BB /* PartnerDetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */; };
 		955EECF9242DEB1B0096DE38 /* PartnerSerapatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */; };
-		95674967245AB54000773B1F /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95674966245AB54000773B1F /* CardInfo.swift */; };
+		956A47C5247E78BF002052C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 956A47C7247E78BF002052C5 /* Localizable.strings */; };
 		956F17A9243F456B0045D2BC /* ScrollablePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956F17A8243F456B0045D2BC /* ScrollablePageViewController.xib */; };
 		9574E462244313DA0020128E /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9574E460244313DA0020128E /* SeparatorView.swift */; };
 		9574E463244313DA0020128E /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9574E461244313DA0020128E /* SeparatorView.xib */; };
@@ -138,6 +138,11 @@
 		958BD2D72432239400543642 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D62432239400543642 /* FadeTransition.swift */; };
 		958BD2D9243223CB00543642 /* ViewControllerTranstionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D8243223CB00543642 /* ViewControllerTranstionAnimator.swift */; };
 		958D83A1244DF54000F75E31 /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D83A0244DF54000F75E31 /* Timeout.swift */; };
+		958F146A247D1D4D0052F9EF /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F1469247D1D4D0052F9EF /* Button.swift */; };
+		958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F146B247D1D9E0052F9EF /* SubmitButton.swift */; };
+		958F147E247D2E510052F9EF /* DepositTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F1474247D2E510052F9EF /* DepositTypeSelectorViewController.swift */; };
+		958F1481247D2E510052F9EF /* ProductTypeDescriptorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F147A247D2E510052F9EF /* ProductTypeDescriptorViewController.swift */; };
+		958F1486247D30440052F9EF /* MainAddDepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F1485247D30440052F9EF /* MainAddDepositViewController.swift */; };
 		9598C3F524498289004DC2C1 /* SendSmsCodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9598C3F424498289004DC2C1 /* SendSmsCodeMock.swift */; };
 		9598C3FB24498CA3004DC2C1 /* Mocks in Resources */ = {isa = PBXBuildFile; fileRef = 9598C3FA24498CA3004DC2C1 /* Mocks */; };
 		9599A4C6242890BE000411EC /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4C5242890BE000411EC /* ShadowView.swift */; };
@@ -156,6 +161,8 @@
 		95A5588024338FAC003ED9A2 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */; };
 		95A744562445C1BC00BD6779 /* ProductHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A744552445C1BC00BD6779 /* ProductHeader.swift */; };
 		95A744582445C1DD00BD6779 /* ProductHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95A744572445C1DD00BD6779 /* ProductHeader.xib */; };
+		95B34CC3247D485A008080DD /* DepositTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B34CC2247D485A008080DD /* DepositTypeView.swift */; };
+		95B34CC5247D48C5008080DD /* DepositTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B34CC4247D48C5008080DD /* DepositTypeView.xib */; };
 		95CB3E122459BB7800C6F5C6 /* SubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB3E102459BB7800C6F5C6 /* SubtitleView.swift */; };
 		95CB3E132459BB7800C6F5C6 /* SubtitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */; };
 		95CF5E98243CABF300BD94A8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CF5E96243CABF300BD94A8 /* ProductCell.swift */; };
@@ -299,7 +306,6 @@
 		951032D0246EB872005902ED /* MockDepositListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDepositListService.swift; sourceTree = "<group>"; };
 		951F873B24753C8100785552 /* ScrollViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPager.swift; sourceTree = "<group>"; };
 		951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSelectorViewController.swift; sourceTree = "<group>"; };
-		951F87472475626300785552 /* CardTypeDescriptorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeDescriptorViewController.swift; sourceTree = "<group>"; };
 		9539569A2476A4FF00B0331E /* HorizonalScrollableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizonalScrollableViewController.xib; sourceTree = "<group>"; };
 		9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonalScrollableViewController.swift; sourceTree = "<group>"; };
 		953B143824504E9400D609B0 /* AppearingViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearingViewAnimator.swift; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 		954BE14A247BF229007DEA64 /* DepositInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositInfo.swift; sourceTree = "<group>"; };
 		954C5249243F01C70032C0A0 /* ScrollablePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollablePageViewController.swift; sourceTree = "<group>"; };
 		954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		954F0A97247E3E7D0022A0F5 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		955169B6243C78360072F8AB /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		955383A42449BDA400DAD89B /* ProductsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsScreen.swift; sourceTree = "<group>"; };
 		955383A62449C52000DAD89B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -346,7 +353,8 @@
 		95595793246D47CD00F65BC3 /* UserProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProduct.swift; sourceTree = "<group>"; };
 		955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerDetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerSerapatorView.swift; sourceTree = "<group>"; };
-		95674966245AB54000773B1F /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
+		956A47C6247E78BF002052C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		956A47C8247E78CC002052C5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		956F17A8243F456B0045D2BC /* ScrollablePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollablePageViewController.xib; sourceTree = "<group>"; };
 		9574E460244313DA0020128E /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		9574E461244313DA0020128E /* SeparatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorView.xib; sourceTree = "<group>"; };
@@ -365,6 +373,11 @@
 		958BD2D62432239400543642 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		958BD2D8243223CB00543642 /* ViewControllerTranstionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTranstionAnimator.swift; sourceTree = "<group>"; };
 		958D83A0244DF54000F75E31 /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
+		958F1469247D1D4D0052F9EF /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		958F146B247D1D9E0052F9EF /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		958F1474247D2E510052F9EF /* DepositTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositTypeSelectorViewController.swift; sourceTree = "<group>"; };
+		958F147A247D2E510052F9EF /* ProductTypeDescriptorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTypeDescriptorViewController.swift; sourceTree = "<group>"; };
+		958F1485247D30440052F9EF /* MainAddDepositViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAddDepositViewController.swift; sourceTree = "<group>"; };
 		9598C3F424498289004DC2C1 /* SendSmsCodeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsCodeMock.swift; sourceTree = "<group>"; };
 		9598C3FA24498CA3004DC2C1 /* Mocks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mocks; sourceTree = "<group>"; };
 		9599A4C5242890BE000411EC /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -383,6 +396,8 @@
 		95A5587F24338FAC003ED9A2 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		95A744552445C1BC00BD6779 /* ProductHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHeader.swift; sourceTree = "<group>"; };
 		95A744572445C1DD00BD6779 /* ProductHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductHeader.xib; sourceTree = "<group>"; };
+		95B34CC2247D485A008080DD /* DepositTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositTypeView.swift; sourceTree = "<group>"; };
+		95B34CC4247D48C5008080DD /* DepositTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepositTypeView.xib; sourceTree = "<group>"; };
 		95CB3E102459BB7800C6F5C6 /* SubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtitleView.xib; sourceTree = "<group>"; };
 		95CF5E96243CABF300BD94A8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -462,6 +477,7 @@
 				06A0982154C7F786F7BC8967 /* Info.plist */,
 				77196AAF23FD162C007C8C84 /* OmegaBank.entitlements */,
 				9547E153244EDDCB00E2E8AE /* ExportOptions.plist */,
+				956A47C7247E78BF002052C5 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -761,6 +777,7 @@
 		777426B224051967008E5810 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				958F1468247D1CF10052F9EF /* Button */,
 				777426B624051AA6008E5810 /* Helper */,
 				9599A4D12428AADF000411EC /* Image */,
 				77C74930240CE41000A109A0 /* Cell */,
@@ -864,36 +881,18 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		951F873F24754BB200785552 /* CardTypeSelector */ = {
+		951F873F24754BB200785552 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
 				951F874024754BBE00785552 /* View Controller */,
 			);
-			path = CardTypeSelector;
+			path = Selector;
 			sourceTree = "<group>";
 		};
 		951F874024754BBE00785552 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */,
-			);
-			path = "View Controller";
-			sourceTree = "<group>";
-		};
-		951F87452475621300785552 /* CardTypeDescriptor */ = {
-			isa = PBXGroup;
-			children = (
-				95674965245AB53100773B1F /* Model */,
-				9582A08B24599D5300BA4440 /* View */,
-				951F87462475623E00785552 /* View Controller */,
-			);
-			path = CardTypeDescriptor;
-			sourceTree = "<group>";
-		};
-		951F87462475623E00785552 /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				951F87472475626300785552 /* CardTypeDescriptorViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1022,11 +1021,39 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		954F0A94247E3E230022A0F5 /* AddProduct */ = {
+			isa = PBXGroup;
+			children = (
+				958F1483247D2F090052F9EF /* Common */,
+				954F0A95247E3E610022A0F5 /* Descriptor */,
+			);
+			path = AddProduct;
+			sourceTree = "<group>";
+		};
+		954F0A95247E3E610022A0F5 /* Descriptor */ = {
+			isa = PBXGroup;
+			children = (
+				954F0A96247E3E6D0022A0F5 /* Model */,
+				958F1479247D2E510052F9EF /* View Controller */,
+			);
+			path = Descriptor;
+			sourceTree = "<group>";
+		};
+		954F0A96247E3E6D0022A0F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				954F0A97247E3E7D0022A0F5 /* ProductInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		955169B2243C77BF0072F8AB /* Savings */ = {
 			isa = PBXGroup;
 			children = (
 				955169B3243C77D40072F8AB /* ProductList */,
+				954F0A94247E3E230022A0F5 /* AddProduct */,
 				95DB7FD6245962D700538755 /* AddCard */,
+				958F1471247D2E510052F9EF /* AddDeposit */,
 				95424100244441FC00E2C196 /* TransactionHistory */,
 			);
 			path = Savings;
@@ -1101,14 +1128,6 @@
 			path = Partner;
 			sourceTree = "<group>";
 		};
-		95674965245AB53100773B1F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				95674966245AB54000773B1F /* CardInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		95770A2C246BDB4100FE058F /* Savings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1171,15 +1190,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		9582A08B24599D5300BA4440 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				95CB3E102459BB7800C6F5C6 /* SubtitleView.swift */,
-				95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		958BD2D52432237D00543642 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,6 +1213,82 @@
 				958D83A0244DF54000F75E31 /* Timeout.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		958F1468247D1CF10052F9EF /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				958F1469247D1D4D0052F9EF /* Button.swift */,
+				958F146B247D1D9E0052F9EF /* SubmitButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		958F1471247D2E510052F9EF /* AddDeposit */ = {
+			isa = PBXGroup;
+			children = (
+				958F147B247D2E510052F9EF /* Main */,
+				958F1472247D2E510052F9EF /* Selector */,
+			);
+			path = AddDeposit;
+			sourceTree = "<group>";
+		};
+		958F1472247D2E510052F9EF /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				95B34CC1247D4848008080DD /* View */,
+				958F1473247D2E510052F9EF /* View Controller */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
+		958F1473247D2E510052F9EF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				958F1474247D2E510052F9EF /* DepositTypeSelectorViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		958F1479247D2E510052F9EF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				958F147A247D2E510052F9EF /* ProductTypeDescriptorViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		958F147B247D2E510052F9EF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				958F147C247D2E510052F9EF /* View Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		958F147C247D2E510052F9EF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				958F1485247D30440052F9EF /* MainAddDepositViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		958F1483247D2F090052F9EF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				958F1484247D2F100052F9EF /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		958F1484247D2F100052F9EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95CB3E102459BB7800C6F5C6 /* SubtitleView.swift */,
+				95CB3E112459BB7800C6F5C6 /* SubtitleView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9599A4C9242892B4000411EC /* View */ = {
@@ -1361,6 +1447,15 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		95B34CC1247D4848008080DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95B34CC2247D485A008080DD /* DepositTypeView.swift */,
+				95B34CC4247D48C5008080DD /* DepositTypeView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		95BD979D245039670034D40A /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1433,8 +1528,7 @@
 			isa = PBXGroup;
 			children = (
 				95DB7FDE24598C6900538755 /* Main */,
-				951F873F24754BB200785552 /* CardTypeSelector */,
-				951F87452475621300785552 /* CardTypeDescriptor */,
+				951F873F24754BB200785552 /* Selector */,
 			);
 			path = AddCard;
 			sourceTree = "<group>";
@@ -1612,7 +1706,6 @@
 				4D47B14A7F1FFB12E16E658B /* SwiftLint */,
 				5A99F0724B51FD218DF7FCDA /* Sources */,
 				A57BB72FA754E1D574F3D67A /* Resources */,
-				2C9F440BEDC9520B8CD203A5 /* Fabric */,
 				1C586945A718D70FAC6D2079 /* Frameworks */,
 				77196A6823FA915E007C8C84 /* Embed Frameworks */,
 				5634543CE8101A8988B149B5 /* [CP] Embed Pods Frameworks */,
@@ -1738,6 +1831,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ru,
 			);
 			mainGroup = F169C3A7E19F841DC793E691;
 			productRefGroup = 49A7CD2B1300A9481E1B5BA8 /* Products */;
@@ -1792,6 +1886,8 @@
 				9547F8C4242A384800EC42A0 /* PartnerLimitCell.xib in Resources */,
 				9547E154244EDDCB00E2E8AE /* ExportOptions.plist in Resources */,
 				954BD435242CB90F00DDF91A /* PartnerDescriptionView.xib in Resources */,
+				95B34CC5247D48C5008080DD /* DepositTypeView.xib in Resources */,
+				956A47C5247E78BF002052C5 /* Localizable.strings in Resources */,
 				80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */,
 				95CB3E132459BB7800C6F5C6 /* SubtitleView.xib in Resources */,
 				956F17A9243F456B0045D2BC /* ScrollablePageViewController.xib in Resources */,
@@ -1823,24 +1919,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		2C9F440BEDC9520B8CD203A5 /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Uncomment next line after adding GoogleService-Info.plist to the project\n# \"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		3125D4FA1B8647DD5E07F1CD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1880,7 +1958,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		5634543CE8101A8988B149B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1980,17 +2058,20 @@
 				95CB3E122459BB7800C6F5C6 /* SubtitleView.swift in Sources */,
 				958BD2D42432005900543642 /* LayoutGuide.swift in Sources */,
 				958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */,
+				958F1481247D2E510052F9EF /* ProductTypeDescriptorViewController.swift in Sources */,
 				9599A4C824289165000411EC /* ViewCorners.swift in Sources */,
 				774B93E524249F41008237BF /* AnimatedCollectionViewLayout.swift in Sources */,
 				9542410E24445A6E00E2C196 /* ViewController.swift in Sources */,
 				9599A4C6242890BE000411EC /* ShadowView.swift in Sources */,
 				9542410A244445AA00E2C196 /* Transaction.swift in Sources */,
 				9599A4CF242893CB000411EC /* PartnterCell.swift in Sources */,
-				951F87482475626300785552 /* CardTypeDescriptorViewController.swift in Sources */,
 				7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */,
+				958F146A247D1D4D0052F9EF /* Button.swift in Sources */,
 				954AA79024459B3900425D5E /* TransactionHistoryViewController.swift in Sources */,
+				958F147E247D2E510052F9EF /* DepositTypeSelectorViewController.swift in Sources */,
 				951032CB246E9CC2005902ED /* UserProduct.swift in Sources */,
 				7757BC492404E5D50063ACBD /* Font.swift in Sources */,
+				95B34CC3247D485A008080DD /* DepositTypeView.swift in Sources */,
 				951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */,
 				9599A4DF2428D341000411EC /* CAGradientLayer.swift in Sources */,
 				7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */,
@@ -2009,6 +2090,7 @@
 				9542411124445CC800E2C196 /* SavingModel.swift in Sources */,
 				953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */,
 				951032C8246E942A005902ED /* CardListViewController.swift in Sources */,
+				954F0A98247E3E7D0022A0F5 /* ProductInfo.swift in Sources */,
 				77196A9D23FACC52007C8C84 /* BoolStorage.swift in Sources */,
 				953B143924504E9400D609B0 /* AppearingViewAnimator.swift in Sources */,
 				77CF6F3524066FB3000A5082 /* BarButtonItems.swift in Sources */,
@@ -2026,6 +2108,7 @@
 				955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */,
 				777426BF24052364008E5810 /* UITableView+Nib.swift in Sources */,
 				95CF5E98243CABF300BD94A8 /* ProductCell.swift in Sources */,
+				958F1486247D30440052F9EF /* MainAddDepositViewController.swift in Sources */,
 				959ED9A2243DE72F00C3F4D9 /* TitledCurvedView.swift in Sources */,
 				954BA2872429E67F009CA09F /* PartnterDetailedViewController.swift in Sources */,
 				954DAFF5243F4E2D009C6B73 /* UIViewController+Child.swift in Sources */,
@@ -2035,11 +2118,11 @@
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
 				951032CD246E9D1F005902ED /* ProductType.swift in Sources */,
-				95674967245AB54000773B1F /* CardInfo.swift in Sources */,
 				77196A9723FACA6C007C8C84 /* AccessTokenStorage.swift in Sources */,
 				A831740758724667D902F5D4 /* AppDelegate.swift in Sources */,
 				95770A41246BEB0900FE058F /* CardListService.swift in Sources */,
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
+				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
 				926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */,
 				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
@@ -2166,6 +2249,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		956A47C7247E78BF002052C5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				956A47C6247E78BF002052C5 /* en */,
+				956A47C8247E78CC002052C5 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		0A622499D248F7EBB3D5BAE4 /* QA */ = {
 			isa = XCBuildConfiguration;
@@ -2173,6 +2268,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL = "";
 				APP_BUNDLE_IDENTIFIER = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2230,6 +2326,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL = "https://omegabank.mock-object.redmadserver.com/api/v1/";
 				APP_BUNDLE_IDENTIFIER = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2365,6 +2462,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL = "";
 				APP_BUNDLE_IDENTIFIER = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
