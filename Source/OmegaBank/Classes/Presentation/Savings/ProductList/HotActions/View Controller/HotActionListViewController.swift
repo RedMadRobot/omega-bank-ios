@@ -10,9 +10,10 @@ import UIKit
 
 final class HotActionListViewController: StackedViewController {
 
-    // MARK: - Public Properties
+    // MARK: - StackedViewController
     
     override var axis: NSLayoutConstraint.Axis { .horizontal }
+    override var animator: AppearingViewAnimator? { AppearingViewAnimator.makeRightToLeft(stackView: stackView) }
     
     // MARK: - Private Properties
     
@@ -23,6 +24,8 @@ final class HotActionListViewController: StackedViewController {
         "Action 4",
         "Action 5",
         "Action 6"]
+    
+    private var didAppearOnce = false
 
     // MARK: - HotActionListViewController
 
@@ -32,6 +35,16 @@ final class HotActionListViewController: StackedViewController {
         addActionButtons()
         
         stackView.spacing = 10
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !didAppearOnce {
+            didAppearOnce = true
+            animateAppearing()
+        }
+        
     }
 
     // MARK: - Private Methods

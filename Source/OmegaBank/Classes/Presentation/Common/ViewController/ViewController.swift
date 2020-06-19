@@ -10,9 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Nested Properties
-    
-    var hasDismissedButton: Bool { false }
+    // MARK: - Public Properties
+    var hasDismissedButton = false
     
     // MARK: - ViewController
     
@@ -21,7 +20,7 @@ class ViewController: UIViewController {
 
         if hasDismissedButton { setupNavigationButtons() }
     }
-    
+
     // MARK: - Private Methods
     
     @objc private func dismissView() {

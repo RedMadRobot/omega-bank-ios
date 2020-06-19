@@ -6,4 +6,4 @@ DIR="$( cd .. && cd .. && pwd )"
 cd "$DIR"
 
 # запускаем сборку на CI
-bundle exec fastlane prepare_for_ci qa:true
+bundle exec fastlane ci

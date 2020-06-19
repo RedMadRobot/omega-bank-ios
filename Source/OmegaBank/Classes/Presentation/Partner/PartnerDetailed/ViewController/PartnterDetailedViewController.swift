@@ -9,7 +9,7 @@
 import UIKit
 import struct OmegaBankAPI.Partner
 
-final class PartnterDetailedViewController: ViewController {
+final class PartnterDetailedViewController: VerticalScrollableViewController {
     
     // MARK: - Types
     
@@ -26,22 +26,17 @@ final class PartnterDetailedViewController: ViewController {
         static let description = "Description"
     }
     
-    // MARK: - Nested Properties
-    
-    override var hasDismissedButton: Bool { true }
-    
     // MARK: - Private Properties
     
     private let partner: Partner
-    private var scrollablePageViewController: ScrollablePageViewController!
-
+    
     // MARK: - Initialization
     
     init(partner: Partner) {
         self.partner = partner
 
         super.init(nibName: nil, bundle: nil)
-        
+
         title = partner.name
         navigationItem.title = nil
     }
@@ -54,11 +49,7 @@ final class PartnterDetailedViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scrollablePageViewController = ScrollablePageViewController()
-        scrollablePageViewController.title = title
-        addChildViewController(scrollablePageViewController, to: view)
-        
+
         let limits = partner.limits.map { PartnerDescriptionViewModel(limit: $0) }
         let dailyLimits = partner.dailyLimits.map { PartnerDescriptionViewModel(limit: $0) }
         
@@ -85,7 +76,7 @@ final class PartnterDetailedViewController: ViewController {
         let limitationView = PartnerDescriptionView.make()
         let viewModel = PartnerDescriptionViewModel(header: header, description: description)
         limitationView.setup(with: viewModel)
-        scrollablePageViewController.addArrangedSubview(limitationView)
+        addArrangedSubview(limitationView)
     }
     
     private func addCollectionViewItem(
@@ -97,11 +88,11 @@ final class PartnterDetailedViewController: ViewController {
         label.font = .caption1
         label.text = title
         label.textAlignment = .center
-        scrollablePageViewController.addArrangedSubview(label)
+        addArrangedSubview(label)
         label.heightAnchor.constraint(equalToConstant: Size.collectionViewTitleHeight).isActive = true
         
         let collectionViewController = PartnerLimitCollectionViewController(viewModels: viewModels)
-        scrollablePageViewController.addArrangedChild(collectionViewController)
+        addArrangedChild(collectionViewController)
         collectionViewController.view.heightAnchor.constraint(
             equalToConstant: Size.collectionViewHeight).isActive = true
         collectionViewController.collectionView.accessibilityIdentifier = accessibilityIdentifier
@@ -109,7 +100,7 @@ final class PartnterDetailedViewController: ViewController {
     
     private func addSerapator() {
         let separator = PartnerSerapatorView(frame: .zero)
-        scrollablePageViewController.addArrangedSubview(separator)
+        addArrangedSubview(separator)
     }
 
 }

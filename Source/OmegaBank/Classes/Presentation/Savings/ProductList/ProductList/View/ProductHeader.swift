@@ -14,12 +14,27 @@ final class ProductHeader: UIControl, NibLoadable {
 
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var collapedIndicatorImageView: UIImageView!
+    @IBOutlet private var addNewProductButton: UIButton!
+    @IBOutlet private var addNewProductImage: UIImageView!
+    
+    // MARK: - Private Properties
+    
+    private var activityIndicator: UIActivityIndicatorView?
     
     // MARK: - Public Properties
     
     var isCollapsed = false {
         willSet {
             collapedIndicatorImageView.image = newValue ? #imageLiteral(resourceName: "arrowRight") : #imageLiteral(resourceName: "arrowDown")
+        }
+    }
+    
+    var isAnimated = false {
+        willSet {
+            newValue ? activityIndicator?.startAnimating() : activityIndicator?.stopAnimating()
+            collapedIndicatorImageView.isHidden = newValue
+            addNewProductButton.isHidden = newValue
+            addNewProductImage.isHidden = newValue
         }
     }
     
@@ -38,8 +53,8 @@ final class ProductHeader: UIControl, NibLoadable {
         super.awakeFromNib()
         
         titleLabel.font = .tableSectionHeader
-        
-        commonInit()
+        addTarget(self, action: #selector(onTapAction), for: .touchUpInside)
+        addActivityIndicator()
     }
     
     // MARK: - Initialization
@@ -60,15 +75,31 @@ final class ProductHeader: UIControl, NibLoadable {
     
     // MARK: - Private Methods
     
+    private func addActivityIndicator() {
+        let ai: UIActivityIndicatorView
+        if #available(iOS 13.0, *) {
+            ai = UIActivityIndicatorView(style: .medium)
+        } else {
+            ai = UIActivityIndicatorView(style: .gray)
+        }
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        ai.startAnimating()
+        
+        addSubview(ai, activate: [
+            ai.centerXAnchor.constraint(equalTo: addNewProductImage.centerXAnchor),
+            ai.centerYAnchor.constraint(equalTo: addNewProductImage.centerYAnchor)])
+        
+        activityIndicator = ai
+    }
+    
     @IBAction private func addButtonPressed(_ sender: Any) {
         onPlusTap?()
     }
-        
-    private func commonInit() {
-        addTarget(self, action: #selector(onTapAction), for: .touchUpInside)
-    }
 
     @objc private func onTapAction() {
+        guard !isAnimated else { return }
+        
+        isCollapsed.toggle()
         onTap?()
     }
 

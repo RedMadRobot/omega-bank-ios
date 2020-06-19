@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="OmegaBank" customModuleProvider="target">
+            <connections>
+                <outlet property="repeatButton" destination="r9t-vi-XhQ" id="DxW-kS-d9r"/>
+                <outlet property="subtitleLabel" destination="ro8-OF-O67" id="nZH-Lb-SMt"/>
+                <outlet property="titleLabel" destination="lDz-fH-ggs" id="fjh-Pb-6GR"/>
+                <outlet property="view" destination="2O0-LA-yaG" id="fcB-XN-m6p"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2O0-LA-yaG">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="517"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-d0-vkb">
+                    <rect key="frame" x="20.666666666666657" y="63.666666666666686" width="360" height="390"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ω" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbJ-Kd-SVB">
+                            <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="tBQ-7q-3ok"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="300"/>
+                            <color key="textColor" name="bar2"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDz-fH-ggs">
+                            <rect key="frame" x="0.0" y="300" width="360" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkw-Q0-ngE">
+                            <rect key="frame" x="0.0" y="300" width="360" height="20"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="51R-DG-cO8"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-OF-O67">
+                            <rect key="frame" x="0.0" y="320" width="360" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5EK-Gy-4Tr">
+                            <rect key="frame" x="0.0" y="320" width="360" height="40"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="hpf-tO-Lw8"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9t-vi-XhQ" customClass="SubmitButton" customModule="OmegaBank" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="360" width="360" height="30"/>
+                            <state key="normal" title="Repeat"/>
+                            <connections>
+                                <action selector="repeat:" destination="-1" eventType="touchUpInside" id="qIU-hU-LiP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="360" id="xUS-32-POA"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="qZh-d0-vkb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2O0-LA-yaG" secondAttribute="leadingMargin" id="C5U-ZD-FhR"/>
+                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="qZh-d0-vkb" secondAttribute="trailing" id="Mj2-t1-jFd"/>
+                <constraint firstItem="qZh-d0-vkb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4NR-0Q-Djy" secondAttribute="top" id="SaK-cq-dBZ"/>
+                <constraint firstItem="4NR-0Q-Djy" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qZh-d0-vkb" secondAttribute="bottom" id="Xq2-LL-lKu"/>
+                <constraint firstItem="qZh-d0-vkb" firstAttribute="centerX" secondItem="4NR-0Q-Djy" secondAttribute="centerX" id="ohl-Os-jkz"/>
+                <constraint firstItem="qZh-d0-vkb" firstAttribute="centerY" secondItem="4NR-0Q-Djy" secondAttribute="centerY" id="ovZ-nM-hIu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="4NR-0Q-Djy"/>
+            <point key="canvasLocation" x="518.1159420289855" y="1383.0163043478262"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="bar2">
+            <color red="0.38899999856948853" green="0.11900000274181366" blue="0.61900001764297485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

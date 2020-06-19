@@ -13,14 +13,16 @@ final class SubmitButton: Button {
     override var intrinsicContentSize: CGSize { CGSize(width: View.noIntrinsicMetric, height: 50) }
     
     // MARK: - Button
-    
+
     override func commonInit() {
         super.commonInit()
         
         titleLabel?.font = .buttonTitle
-        titleLabel?.textColor = .textPrimary
-        backgroundColor = .ph1
+        backgroundColor =  .ph1
         layer.cornerRadius = 3
+        
+        setTitleColor(.textPrimary, for: .normal)
+        setTitleColor(.textPrimary, for: .highlighted)
     }
     
 }

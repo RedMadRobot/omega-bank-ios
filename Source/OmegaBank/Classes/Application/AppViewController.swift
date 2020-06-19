@@ -55,9 +55,9 @@ final class AppViewController: UITabBarController {
         show([nc], animated: animated)
     }
 
-    private func showMain(animated: Bool = true) {
-        let productList = MainProductListViewController.make(delegate: self)
-        let partnerList = PartnerListViewController.make(delegate: self)
+    private func showMain(animated: Bool = true) {        
+        let productList = MainProductListContainerViewController.make(delegate: self)
+        let partnerList = PartnerListContainerViewController.make(delegate: self)
 
         let tabBarViewControllers = [
             productList,

@@ -30,11 +30,11 @@ final class ProductTypeDescriptorViewController<T>: StackedViewController where 
 
         for (i, product) in parameters.enumerated() {
             let subtitleView = SubtitleView.make(title: product.caption, value: product.value)
-            addArrangedSubview(subtitleView)
+            addArrangedSubview(subtitleView, isAnimated: false)
 
             let isLast = i == parameters.count - 1
             if !isLast {
-                addSeparator()
+                addSeparator(isAnimated: false)
             }
         }
     }

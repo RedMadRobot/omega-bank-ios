@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,31 +16,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whf-5U-a0b">
-                    <rect key="frame" x="15" y="29.5" width="56" height="21"/>
+                    <rect key="frame" x="15" y="24.5" width="56" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="ph3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlW-Yd-uRo">
-                    <rect key="frame" x="475" y="30" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="FlW-Yd-uRo" secondAttribute="height" id="05I-Pn-aCy"/>
-                        <constraint firstAttribute="width" constant="20" id="sBS-of-f2g"/>
-                    </constraints>
-                    <color key="tintColor" name="ph3"/>
-                    <state key="normal" title="Button" image="add"/>
-                    <connections>
-                        <action selector="addButtonPressed:" destination="stO-bC-ljH" eventType="touchUpInside" id="3xM-JE-4vx"/>
-                    </connections>
-                </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="85k-9k-kzO">
-                    <rect key="frame" x="81" y="35" width="10" height="10"/>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="85k-9k-kzO">
+                    <rect key="frame" x="81" y="30" width="10" height="10"/>
                     <color key="tintColor" name="ph3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="10" id="7Av-ZK-pcp"/>
                         <constraint firstAttribute="width" secondItem="85k-9k-kzO" secondAttribute="height" id="DmP-i0-hdq"/>
                     </constraints>
                 </imageView>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-pg-5Qq">
+                    <rect key="frame" x="475" y="25" width="20" height="20"/>
+                    <color key="tintColor" name="ph3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="4tJ-VH-Wgf"/>
+                        <constraint firstAttribute="width" secondItem="1Hj-pg-5Qq" secondAttribute="height" multiplier="1:1" id="SXU-cI-rca"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dl-cO-yG4">
+                    <rect key="frame" x="460" y="0.0" width="50" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="cQb-M6-Ywf"/>
+                    </constraints>
+                    <connections>
+                        <action selector="addButtonPressed:" destination="stO-bC-ljH" eventType="touchUpInside" id="M0u-qg-VZO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" name="textPrimary"/>
             <accessibility key="accessibilityConfiguration">
@@ -48,17 +53,22 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="85k-9k-kzO" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="5x5-70-H9N"/>
-                <constraint firstItem="FlW-Yd-uRo" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="9yE-BT-EWR"/>
+                <constraint firstItem="85k-9k-kzO" firstAttribute="centerY" secondItem="stO-bC-ljH" secondAttribute="centerY" id="5x5-70-H9N"/>
+                <constraint firstItem="1Hj-pg-5Qq" firstAttribute="centerX" secondItem="4dl-cO-yG4" secondAttribute="centerX" id="Dyg-ue-5AL"/>
+                <constraint firstItem="4dl-cO-yG4" firstAttribute="trailing" secondItem="stO-bC-ljH" secondAttribute="trailing" id="Jyr-ay-rjd"/>
                 <constraint firstItem="85k-9k-kzO" firstAttribute="leading" secondItem="Whf-5U-a0b" secondAttribute="trailing" constant="10" id="NOr-zC-0BP"/>
-                <constraint firstItem="Whf-5U-a0b" firstAttribute="leading" secondItem="OCM-b1-kl5" secondAttribute="leading" constant="15" id="YDV-nt-osQ"/>
-                <constraint firstItem="OCM-b1-kl5" firstAttribute="trailing" secondItem="FlW-Yd-uRo" secondAttribute="trailing" constant="15" id="e9d-6l-me4"/>
-                <constraint firstItem="Whf-5U-a0b" firstAttribute="centerY" secondItem="OCM-b1-kl5" secondAttribute="centerY" id="mgr-fr-Vg4"/>
+                <constraint firstItem="4dl-cO-yG4" firstAttribute="top" secondItem="stO-bC-ljH" secondAttribute="top" id="S2O-AM-d2s"/>
+                <constraint firstItem="Whf-5U-a0b" firstAttribute="leading" secondItem="stO-bC-ljH" secondAttribute="leading" constant="15" id="YDV-nt-osQ"/>
+                <constraint firstItem="1Hj-pg-5Qq" firstAttribute="centerY" secondItem="4dl-cO-yG4" secondAttribute="centerY" id="bu1-hQ-coS"/>
+                <constraint firstItem="Whf-5U-a0b" firstAttribute="centerY" secondItem="stO-bC-ljH" secondAttribute="centerY" id="mgr-fr-Vg4"/>
+                <constraint firstAttribute="bottom" secondItem="4dl-cO-yG4" secondAttribute="bottom" id="nEX-mm-sxi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
             <viewLayoutGuide key="safeArea" id="OCM-b1-kl5"/>
             <connections>
+                <outlet property="addNewProductButton" destination="4dl-cO-yG4" id="Bwi-bg-qNa"/>
+                <outlet property="addNewProductImage" destination="1Hj-pg-5Qq" id="zf0-vo-RcA"/>
                 <outlet property="collapedIndicatorImageView" destination="85k-9k-kzO" id="J0A-2r-tGt"/>
                 <outlet property="titleLabel" destination="Whf-5U-a0b" id="58A-3h-SQv"/>
             </connections>

@@ -15,7 +15,7 @@ protocol UserProductDelegate: AnyObject {
     func didShowNewProduct(_ product: Product)
 }
 
-final class MainAddCardViewController: ViewController, ErrorHandler {
+final class MainAddCardViewController: VerticalScrollableViewController {
     
     // MARK: - Constants
     
@@ -25,7 +25,6 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
     
     private weak var delegate: UserProductDelegate?
     
-    private var containerViewController: ScrollablePageViewController!
     private var selectorViewController: CardTypeSelectorViewController!
     private var descriptorViewController: ProductTypeDescriptorViewController<CardInfo>!
 
@@ -33,27 +32,26 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
     private var cardTypes: [CardInfo] = []
     private let cardListService: CardListService
     private var progress: Progress?
-    
-    // MARK: - Nested Properties
-    
-    override var hasDismissedButton: Bool { true }
+    private var errorViewController: ErrorViewController?
+    private var submitButton: SubmitButton?
     
     // MARK: - Initialization
     
     static func make(delegate: UserProductDelegate?) -> UIViewController {
         let vc = MainAddCardViewController()
         vc.delegate = delegate
+        let ti = TitledPageViewController(
+            title: "Card Applying",
+            embeddedViewController: vc,
+            hasDismissedButton: true)
         
-        return NavigationController(rootViewController: vc)
+        return NavigationController(rootViewController: ti)
     }
 
     init(cardListService: CardListService = ServiceLayer.shared.cardListService) {
         self.cardListService = cardListService
         
         super.init(nibName: nil, bundle: nil)
-
-        title = "Card Applying"
-        navigationItem.title = nil
     }
 
     required init?(coder: NSCoder) {
@@ -69,7 +67,6 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addContainerViewController()
         loadCardTypes()
     }
     
@@ -84,71 +81,12 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
                 self.cardTypes = cards
                 self.showCardTypes()
             case .failure(let error):
-                self.showError(.error(error, onAction: { [weak self] in
-                    self?.loadCardTypes()
-                }))
+                self.showError(.error(error), onAction: { [unowned self] in
+                    self.removeError()
+                    self.loadCardTypes()
+                })
             }
         }
-    }
-    
-    private func showCardTypes() {
-        addSelectorViewController()
-        addSeparator()
-        addDescriptorViewController()
-        addApplyButton()
-    }
-    
-    private func addContainerViewController() {
-        containerViewController = ScrollablePageViewController()
-        containerViewController.title = title
-        addChildViewController(containerViewController, to: view)
-    }
-    
-    private func addSelectorViewController() {
-        let horizontalContainerViewController = HorizonalScrollableViewController()
-        containerViewController.addArrangedChild(horizontalContainerViewController)
-        
-        selectorViewController = CardTypeSelectorViewController(cardTypes: cardTypes)
-        
-        horizontalContainerViewController.delegate = self
-        horizontalContainerViewController.addArrangedChild(selectorViewController)
-        horizontalContainerViewController.pager = selectorViewController.pager
-    }
-    
-    private func addSeparator() {
-        containerViewController.addSeparator(with: .defaultBackground)
-        containerViewController.addSeparator()
-        containerViewController.addSeparator(with: .defaultBackground)
-    }
-    
-    private func addDescriptorViewController() {
-        descriptorViewController = ProductTypeDescriptorViewController<CardInfo>()
-        containerViewController.addArrangedChild(descriptorViewController)
-    }
-    
-    // MARK: - Private Methods
-    
-    private func addApplyButton() {
-        let submitButton = SubmitButton()
-        submitButton.setTitle("Apply", for: .normal)
-        submitButton.onTap = { [unowned self] in
-            self.applyNewCard()
-        }
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(submitButton)
-
-        NSLayoutConstraint.activate([
-            submitButton.bottomAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                constant: applyButtonInsets.bottom),
-            submitButton.leadingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-                constant: applyButtonInsets.left),
-            submitButton.trailingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                constant: applyButtonInsets.right)
-        ])
     }
     
     private func applyNewCard() {
@@ -164,12 +102,80 @@ final class MainAddCardViewController: ViewController, ErrorHandler {
                     self?.delegate?.didShowNewProduct(card)
                 }
             case .failure(let error):
-                self.showError(.error(error, onAction: { [weak self] in
-                    self?.applyNewCard()
-                }))
+                self.showError(.error(error), onAction: { [unowned self] in
+                    self.removeError()
+                    self.applyNewCard()
+                })
             }
         }
     }
+    
+    private func showError(_ item: ErrorItem, onAction: (() -> Void)?) {
+        submitButton = nil
+        let vc = ErrorViewController(item, onAction: onAction)
+        addArrangedChild(vc)
+        errorViewController = vc
+    }
+    
+    private func removeError() {
+        errorViewController?.removeFromParent()
+        errorViewController = nil
+    }
+
+    private func showCardTypes() {
+        addSelectorViewController()
+        addSpecificSeparator()
+        addDescriptorViewController()
+        addApplyButton()
+    }
+    
+    private func addSelectorViewController() {
+        let horizontalContainerViewController = HorizonalScrollableViewController()
+        addArrangedChild(horizontalContainerViewController)
+        
+        selectorViewController = CardTypeSelectorViewController(cardTypes: cardTypes)
+        
+        horizontalContainerViewController.delegate = self
+        horizontalContainerViewController.addArrangedChild(selectorViewController)
+        horizontalContainerViewController.pager = selectorViewController.pager
+    }
+    
+    private func addSpecificSeparator() {
+        addSeparator(with: .defaultBackground)
+        addSeparator()
+        addSeparator(with: .defaultBackground)
+    }
+    
+    private func addDescriptorViewController() {
+        descriptorViewController = ProductTypeDescriptorViewController<CardInfo>()
+        addArrangedChild(descriptorViewController)
+    }
+    
+    private func addApplyButton() {
+        let button = SubmitButton()
+        button.setTitle("Apply", for: .normal)
+        button.onTap = { [unowned self] in
+            self.applyNewCard()
+        }
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: applyButtonInsets.bottom),
+            button.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                constant: applyButtonInsets.left),
+            button.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: applyButtonInsets.right)
+        ])
+        
+        submitButton = button
+    }
+    
 }
 
 extension MainAddCardViewController: ScrollViewPagerDelegate {

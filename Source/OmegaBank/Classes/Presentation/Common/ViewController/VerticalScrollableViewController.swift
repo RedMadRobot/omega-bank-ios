@@ -1,8 +1,8 @@
 //
-//  ScrollablePageViewController.swift
+//  VerticalScrollableViewController.swift
 //  OmegaBank
 //
-//  Created by Nikolay Zhukov on 4/7/20.
+//  Created by Nikolay Zhukov on 6/6/20.
 //  Copyright © 2020 RedMadRobot. All rights reserved.
 //
 
@@ -24,26 +24,43 @@ extension StackViewPresentable {
     }
 }
 
-final class ScrollablePageViewController: PageViewController, StackViewPresentable {
+class VerticalScrollableViewController: ViewController, StackViewPresentable {
     
     // MARK: - Constants
     
     private enum Constants {
         static let sectionFooterHeight: CGFloat = 10
     }
+    
+    // MARK: - StackViewPresentable
 
-    // MARK: - IBOutlets
-
-    @IBOutlet private var scrollView: UIScrollView!
-    @IBOutlet private var titledCurvedView: TitledCurvedView!
-    @IBOutlet var stackView: UIStackView?
-
-    // MARK: - ScrollablePageViewController
+    var stackView: UIStackView?
+    
+    // MARK: - Private Properties
+    
+    var scrollView: UIScrollView!
+    
+    // MARK: - VerticalScrollableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titledCurvedView.setup(with: title ?? "")
+        addScrollView()
+        addStackView()
+    }
+    
+    private func addScrollView() {
+        let scroll = UIScrollView()
+        view.addSubview(scroll, with: view)
+        scrollView = scroll
+    }
+    
+    private func addStackView() {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        scrollView.addSubview(stack, with: scrollView)
+        scrollView.centerXAnchor.constraint(equalTo: stack.centerXAnchor).isActive = true
+        stackView = stack
     }
     
     // MARK: - Public Methods

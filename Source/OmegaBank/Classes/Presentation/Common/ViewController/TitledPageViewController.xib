@@ -9,10 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollablePageViewController" customModule="OmegaBank" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledPageViewController" customModule="OmegaBank" customModuleProvider="target">
             <connections>
-                <outlet property="scrollView" destination="jux-cR-AzD" id="omY-Kk-3g6"/>
-                <outlet property="stackView" destination="4fQ-CP-Elz" id="IHb-f2-ML2"/>
+                <outlet property="contentView" destination="rCp-Kt-i5b" id="vW7-gl-zGx"/>
                 <outlet property="titledCurvedView" destination="Hku-AA-1gc" id="PdC-Ik-u5h"/>
                 <outlet property="view" destination="LXF-7P-h2H" id="Km1-QA-DzI"/>
             </connections>
@@ -39,30 +38,19 @@
                         <constraint firstItem="U0x-Kk-TrP" firstAttribute="top" secondItem="Hku-AA-1gc" secondAttribute="top" constant="5" id="PhT-Gs-yO2"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jux-cR-AzD">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCp-Kt-i5b">
                     <rect key="frame" x="0.0" y="214" width="414" height="648"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="10" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-CP-Elz">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
-                        </stackView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="4fQ-CP-Elz" secondAttribute="trailing" id="Av3-b3-Jh0"/>
-                        <constraint firstItem="4fQ-CP-Elz" firstAttribute="top" secondItem="jux-cR-AzD" secondAttribute="top" id="KVN-5r-aoX"/>
-                        <constraint firstItem="4fQ-CP-Elz" firstAttribute="centerX" secondItem="jux-cR-AzD" secondAttribute="centerX" id="hOH-Jl-8h8"/>
-                        <constraint firstAttribute="bottom" secondItem="4fQ-CP-Elz" secondAttribute="bottom" id="llL-5D-k0D"/>
-                        <constraint firstItem="4fQ-CP-Elz" firstAttribute="leading" secondItem="jux-cR-AzD" secondAttribute="leading" id="zaU-Ch-a2l"/>
-                    </constraints>
-                </scrollView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Hku-AA-1gc" firstAttribute="top" secondItem="L0w-8W-vCA" secondAttribute="top" id="6fs-0q-hEU"/>
+                <constraint firstItem="rCp-Kt-i5b" firstAttribute="bottom" secondItem="L0w-8W-vCA" secondAttribute="bottom" id="7i5-Sj-P2n"/>
+                <constraint firstItem="rCp-Kt-i5b" firstAttribute="trailing" secondItem="L0w-8W-vCA" secondAttribute="trailing" id="BVO-Bv-DHu"/>
+                <constraint firstItem="rCp-Kt-i5b" firstAttribute="leading" secondItem="L0w-8W-vCA" secondAttribute="leading" id="Nry-dK-S0j"/>
                 <constraint firstItem="Hku-AA-1gc" firstAttribute="trailing" secondItem="L0w-8W-vCA" secondAttribute="trailing" id="R4R-wh-YeH"/>
-                <constraint firstItem="jux-cR-AzD" firstAttribute="bottom" secondItem="L0w-8W-vCA" secondAttribute="bottom" id="aHE-Io-m8m"/>
-                <constraint firstItem="jux-cR-AzD" firstAttribute="leading" secondItem="L0w-8W-vCA" secondAttribute="leading" id="eZK-07-hpW"/>
-                <constraint firstItem="jux-cR-AzD" firstAttribute="top" secondItem="Hku-AA-1gc" secondAttribute="bottom" id="gpA-B2-L4g"/>
-                <constraint firstItem="jux-cR-AzD" firstAttribute="trailing" secondItem="L0w-8W-vCA" secondAttribute="trailing" id="ouy-Mr-pVD"/>
+                <constraint firstItem="rCp-Kt-i5b" firstAttribute="top" secondItem="Hku-AA-1gc" secondAttribute="bottom" id="pOW-rp-ix5"/>
                 <constraint firstItem="Hku-AA-1gc" firstAttribute="leading" secondItem="L0w-8W-vCA" secondAttribute="leading" id="y2A-1l-MeQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="L0w-8W-vCA"/>

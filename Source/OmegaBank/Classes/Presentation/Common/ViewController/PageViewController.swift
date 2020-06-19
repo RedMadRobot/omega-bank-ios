@@ -19,7 +19,19 @@ class PageViewController: UIViewController {
     // MARK: - Public properties
 
     weak var delegate: ProfileViewControllerDelegate?
-
+    
+    init(title: String, tabBarImage: UIImage) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.title = title
+        tabBarItem.image = tabBarImage
+        navigationItem.title = nil
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - ViewController
 
     override func viewDidLoad() {

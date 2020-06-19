@@ -10,7 +10,7 @@ import UIKit
 import struct OmegaBankAPI.Deposit
 import struct OmegaBankAPI.DepositInfo
 
-final class MainAddDepositViewController: ViewController, ErrorHandler {
+final class MainAddDepositViewController: VerticalScrollableViewController {
     
     // MARK: - Constants
     
@@ -20,7 +20,6 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
     
     private weak var delegate: UserProductDelegate?
     
-    private var containerViewController: ScrollablePageViewController!
     private var selectorViewController: DepositTypeSelectorViewController!
     private var descriptorViewController: ProductTypeDescriptorViewController<DepositInfo>!
 
@@ -28,10 +27,8 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
     private var depositTypes: [DepositInfo] = []
     private let listService: DepositListService
     private var progress: Progress?
-    
-    // MARK: - Nested Properties
-    
-    override var hasDismissedButton: Bool { true }
+    private var errorViewController: ErrorViewController?
+    private var submitButton: SubmitButton?
     
     // MARK: - Initialization
     
@@ -39,7 +36,12 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
         let vc = MainAddDepositViewController()
         vc.delegate = delegate
         
-        return NavigationController(rootViewController: vc)
+        let ti = TitledPageViewController(
+            title: "Card Applying",
+            embeddedViewController: vc,
+            hasDismissedButton: true)
+
+        return NavigationController(rootViewController: ti)
     }
 
     init(listService: DepositListService = ServiceLayer.shared.depositListService) {
@@ -64,7 +66,6 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addContainerViewController()
         loadDepositTypes()
     }
     
@@ -78,30 +79,60 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
             case .success(let cards):
                 self.depositTypes = cards
                 self.showDepositTypes()
+                
             case .failure(let error):
-                self.showError(.error(error, onAction: { [weak self] in
-                    self?.loadDepositTypes()
-                }))
+                self.showError(.error(error), onAction: { [unowned self] in
+                    self.removeError()
+                    self.loadDepositTypes()
+                })
             }
         }
     }
     
+    private func applyNewDeposit() {
+        guard let depositType = currentDepositType else { return }
+        
+        progress = listService.applyNewDeposit(with: depositType.code) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let card):
+                self.delegate?.didTapNewProduct()
+                self.dismiss(animated: true) { [weak self] in
+                    self?.delegate?.didShowNewProduct(card)
+                }
+                
+            case .failure(let error):
+                self.showError(.error(error), onAction: { [unowned self] in
+                    self.removeError()
+                    self.applyNewDeposit()
+                })
+            }
+        }
+    }
+    
+    private func showError(_ item: ErrorItem, onAction: (() -> Void)?) {
+        submitButton = nil
+        let vc = ErrorViewController(item, onAction: onAction)
+        addArrangedChild(vc)
+        errorViewController = vc
+    }
+    
+    private func removeError() {
+        errorViewController?.removeFromParent()
+        errorViewController = nil
+    }
+    
     private func showDepositTypes() {
         addSelectorViewController()
-        addSeparator()
+        addSpecificSeparator()
         addDescriptorViewController()
         addApplyButton()
     }
     
-    private func addContainerViewController() {
-        containerViewController = ScrollablePageViewController()
-        containerViewController.title = title
-        addChildViewController(containerViewController, to: view)
-    }
-    
     private func addSelectorViewController() {
         let horizontalContainerViewController = HorizonalScrollableViewController()
-        containerViewController.addArrangedChild(horizontalContainerViewController)
+        addArrangedChild(horizontalContainerViewController)
         
         selectorViewController = DepositTypeSelectorViewController(depositTypes: depositTypes)
         
@@ -110,19 +141,17 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
         horizontalContainerViewController.pager = selectorViewController.pager
     }
     
-    private func addSeparator() {
-        containerViewController.addSeparator(with: .defaultBackground)
-        containerViewController.addSeparator()
-        containerViewController.addSeparator(with: .defaultBackground)
+    private func addSpecificSeparator() {
+        addSeparator(with: .defaultBackground)
+        addSeparator()
+        addSeparator(with: .defaultBackground)
     }
     
     private func addDescriptorViewController() {
         descriptorViewController = ProductTypeDescriptorViewController<DepositInfo>()
-        containerViewController.addArrangedChild(descriptorViewController)
+        addArrangedChild(descriptorViewController)
     }
     
-    // MARK: - Private Methods
-
     private func addApplyButton() {
         let submitButton = SubmitButton()
         submitButton.setTitle("Apply", for: .normal)
@@ -144,26 +173,6 @@ final class MainAddDepositViewController: ViewController, ErrorHandler {
                 equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                 constant: applyButtonInsets.right)
         ])
-    }
-    
-    private func applyNewDeposit() {
-        guard let depositType = currentDepositType else { return }
-        
-        progress = listService.applyNewDeposit(with: depositType.code) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let card):
-                self.delegate?.didTapNewProduct()
-                self.dismiss(animated: true) { [weak self] in
-                    self?.delegate?.didShowNewProduct(card)
-                }
-            case .failure(let error):
-                self.showError(.error(error, onAction: { [weak self] in
-                    self?.applyNewDeposit()
-                }))
-            }
-        }
     }
 }
 

@@ -11,18 +11,15 @@ import UIKit
 struct ErrorItem {
     let title: String
     let subtitle: String?
-    let action: String?
-    let onAction: (() -> Void)?
+    let actionTitle: String?
 
     init(title: String,
          subtitle: String? = nil,
-         action: String? = nil,
-         onAction: (() -> Void)? = nil) {
+         action: String? = nil) {
         
         self.title = title
         self.subtitle = subtitle
-        self.action = action
-        self.onAction = onAction
+        self.actionTitle = action
     }
         
 }
@@ -39,49 +36,33 @@ extension ErrorItem {
     
     // MARK: - Public Methods
     
-    static func error(
-        _ error: Error,
-        onAction: (() -> Void)? = nil) -> ErrorItem {
+    static func error(_ error: Error) -> ErrorItem {
+        let urlErrorCodes: [URLError.Code] = [.notConnectedToInternet, .networkConnectionLost]
         
-        return error is URLError ? urlError(onAction) : commonError(onAction)
+        guard
+            let error = error as? URLError,
+            urlErrorCodes.contains(error.code)
+
+        else { return commonError() }
+                
+        return urlError()
     }
     
     // MARK: - Private Methods
     
-    private static func urlError(
-        _ onAction: (() -> Void)? = nil) -> ErrorItem {
+    private static func urlError() -> ErrorItem {
         ErrorItem(
             title: NSLocalizedString("NoInternetConnection", comment: ""),
-            action: NSLocalizedString("Repeat", comment: ""),
-            onAction: onAction
+            action: NSLocalizedString("Repeat", comment: "")
         )
     }
     
-    private static func commonError(
-        _ onAction: (() -> Void)? = nil) -> ErrorItem {
+    private static func commonError() -> ErrorItem {
         ErrorItem(
             title: NSLocalizedString("FailedToLoadData", comment: ""),
             subtitle: NSLocalizedString("ServerIsUnreachable", comment: ""),
-            action: NSLocalizedString("Repeat", comment: ""),
-            onAction: onAction
+            action: NSLocalizedString("Repeat", comment: "")
         )
     }
 
-}
-
-protocol ErrorHandler where Self: UIViewController { }
-
-extension ErrorHandler {
-
-    func showError(_ item: ErrorItem) {
-        
-        let alert = UIAlertController(
-            title: item.title, message: item.subtitle, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: item.action ?? "Ok", style: .default, handler: { _ in
-            item.onAction?()
-        }))
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
 }

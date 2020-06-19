@@ -8,12 +8,8 @@
 
 import UIKit
 
-final class TransactionHistoryViewController: UIViewController {
+final class TransactionHistoryViewController: VerticalScrollableViewController {
 
-    // MARK: - IBOutlets
-
-    @IBOutlet private var tableStackView: UIStackView!
-    
     // MARK: - Private Properties
     
     private var transactions = [
@@ -58,12 +54,12 @@ final class TransactionHistoryViewController: UIViewController {
             viewModel: ProductViewModel.make(transaction),
             image: #imageLiteral(resourceName: "credit_card"))
         
-        tableStackView.addArrangedSubview(productCell)
+        addArrangedSubview(productCell)
     }
     
     private func addSeparator() {
         let separator = SeparatorView.loadFromNib()
-        tableStackView.addArrangedSubview(separator)
+        addArrangedSubview(separator)
     }
 
 }

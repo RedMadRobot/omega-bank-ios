@@ -14,11 +14,14 @@ final class DepositTypeSelectorViewController: StackedViewController {
     // MARK: - Public Properties
     
     override var axis: NSLayoutConstraint.Axis { .horizontal }
+    override var animator: AppearingViewAnimator? { AppearingViewAnimator.makeRightToLeft(stackView: stackView) }
+
     var pager: ScrollViewPager?
     
     // MARK: - Private Properties
     
     private let depositTypes: [DepositInfo]
+    private var didAppearOnce = false
     
     // MARK: - Initialization
 
@@ -43,6 +46,15 @@ final class DepositTypeSelectorViewController: StackedViewController {
             pageWidth: DepositTypeView.size.width,
             count: depositTypes.count,
             pageSpacing: stackView.spacing)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !didAppearOnce {
+            animateAppearing()
+            didAppearOnce = true
+        }
     }
 
     // MARK: - Private Methods
