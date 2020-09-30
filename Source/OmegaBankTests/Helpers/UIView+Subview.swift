@@ -13,30 +13,28 @@ import XCTest
 extension UIView {
 
     func subview<T>(_ type: T.Type, by accessibilityIdentifier: String? = nil) -> T? where T: UIView {
-        for subview in subviews {
-            guard let view = subview as? T else { continue }
-            guard let id = accessibilityIdentifier else {
-                return view
-            }
-            if view.accessibilityIdentifier == id {
-                return view
-            }
+        let typedSubviews = subviews.compactMap { $0 as? T }
+        
+        guard let id = accessibilityIdentifier else { return typedSubviews.first }
+        guard let typedSubview = typedSubviews.first(where: { $0.accessibilityIdentifier == id }) else {
+            return subviews
+                .compactMap { $0.subview(type, by: accessibilityIdentifier) }
+                .first
         }
-        for subview in subviews {
-            if let view = subview.subview(type, by: accessibilityIdentifier) {
-                return view
-            }
-        }
-        return nil
+        
+        return typedSubview
     }
-
-    func allSubviews<T>(_ type: T.Type, by accessibilityIdentifier: String) -> [T] where T: UIView {
+    
+    func allSubviews<T>(_ type: T.Type, by accessibilityIdentifier: String? = nil) -> [T] where T: UIView {
         var result = [T]()
         var nodeQueue = subviews
         while nodeQueue.isEmpty == false {
             let node = nodeQueue.remove(at: 0)
-            if let view = node as? T, view.accessibilityIdentifier == accessibilityIdentifier {
-                result.append(view)
+            if let view = node as? T {
+                if let ident = accessibilityIdentifier, view.accessibilityIdentifier == ident
+                    || accessibilityIdentifier == nil {
+                    result.append(view)
+                }
             } else {
                 if node.subviews.isEmpty == false {
                     nodeQueue.append(contentsOf: node.subviews)
@@ -56,6 +54,18 @@ extension UIView {
         let button = subview(UIButton.self, by: accessibilityIdentifier)
         XCTAssertNotNil(button, "\(accessibilityIdentifier) button not found", file: file, line: line)
         return button
+    }
+    
+    func textField(by accessibilityIdentifier: String, file: StaticString = #file, line: UInt = #line) -> UITextField? {
+        let textField = subview(UITextField.self, by: accessibilityIdentifier)
+        XCTAssertNotNil(textField, "\(accessibilityIdentifier) textField not found", file: file, line: line)
+        return textField
+    }
+    
+    func textView(by accessibilityIdentifier: String, file: StaticString = #file, line: UInt = #line) -> UITextView? {
+        let textView = subview(UITextView.self, by: accessibilityIdentifier)
+        XCTAssertNotNil(textView, "\(accessibilityIdentifier) textView not found", file: file, line: line)
+        return textView
     }
 
     /// Получение доступа к `subview`.

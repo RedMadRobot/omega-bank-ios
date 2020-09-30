@@ -25,18 +25,27 @@ final class MockCardListService: CardListService, SavingMock {
 
     func load(completion: @escaping CardListHandler) -> Progress {
         cardListHandler = completion
+        
         return progress
     }
     
+    @discardableResult
     func applyNewCard(with type: String, completion: @escaping CardHandler) -> Progress {
         card = makeCard()
         cardHandler = completion
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.cardHandler?(.success(self.makeCard()))
+        }
         
         return progress
     }
     
     func loadTypes(completion: @escaping CardTypesHandler) -> Progress {
         typesHandler = completion
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.typesHandler?(.success([self.makeCardInfo()]))
+        }
+        
         return progress
     }
 

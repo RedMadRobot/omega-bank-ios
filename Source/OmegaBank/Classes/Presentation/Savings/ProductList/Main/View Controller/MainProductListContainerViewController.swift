@@ -18,6 +18,7 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
     
     /// Массив всех продуктовых контроллеров. Используем для переключения  (cхлопывания)
     /// на активную группу при добавлении нового продукта.
+    
     private var cardListViewController: ProductListViewController<Card>!
     private var depositListViewController: ProductListViewController<Deposit>!
     
@@ -168,7 +169,9 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
     
     private func addHeader<T>(
         productListViewController: ProductListViewController<T>,
-        onPlusTap: @escaping (() -> Void)) -> ProductHeader {
+        onPlusTap: @escaping (() -> Void),
+        accessibilityIdentifier: String? = nil,
+        addNewAccessibilityIdentifier: String? = nil) -> ProductHeader {
         
         let header = ProductHeader.make(
             title: productListViewController.productType.title,
@@ -177,7 +180,9 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
             },
             onPlusTap: {
                 onPlusTap()
-            }
+            },
+            accessibilityIdentifier: accessibilityIdentifier,
+            addNewProductAccessibilityIdentifier: addNewAccessibilityIdentifier
         )
         
         addArrangedSubview(header)
@@ -193,7 +198,9 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
             onPlusTap: { [unowned self] in
                 let vc = MainAddCardViewController.make(delegate: self.cardListViewController)
                 self.navigationController?.present(vc, animated: true)
-            })
+            },
+            accessibilityIdentifier: "card header",
+            addNewAccessibilityIdentifier: "add card")
         addArrangedChild(cardListViewController)
     }
     
@@ -204,7 +211,9 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
             onPlusTap: { [unowned self] in
                 let vc = MainAddDepositViewController.make(delegate: self.depositListViewController)
                 self.navigationController?.present(vc, animated: true)
-            })
+            },
+            accessibilityIdentifier: "deposit header",
+            addNewAccessibilityIdentifier: "add deposit")
         addArrangedChild(depositListViewController)
     }
 

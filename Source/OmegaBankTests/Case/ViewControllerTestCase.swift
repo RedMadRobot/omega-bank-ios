@@ -45,8 +45,13 @@ class ViewControllerTestCase: XCTestCase {
         }
     }
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        
+        // Показать и сделать окно ключевым, если оно ещё не такое.
+        if !window.isKeyWindow {
+            window.makeKeyAndVisible()
+        }
     }
 
     override func tearDown() {
@@ -54,70 +59,16 @@ class ViewControllerTestCase: XCTestCase {
         XCTAssertNil(weekViewController, "Утечка памяти, контроллер не уничтожился")
         super.tearDown()
     }
+    
+    // MARK: - Animation
 
-    // MARK: - Push
-
-    func waitTransition(
-        from fromController: UIViewController,
-        to toController: UIViewController,
-        file: StaticString = #file,
-        line: UInt = #line) {
-
-        guard let transition = fromController.transitionCoordinator else {
-            XCTFail("No Transition Coordinator for \(fromController)", file: file, line: line); return
-        }
-        let from = transition.viewController(forKey: .from)
-        guard from == fromController else {
-            XCTFail("Invalid transition from \(String(describing: from))", file: file, line: line); return
-        }
-        let to = transition.viewController(forKey: .to)
-        guard to == toController else {
-            XCTFail("Invalid transition to \(String(describing: to))", file: file, line: line); return
-        }
-        let expectation = self.expectation(description: "wait presenting")
-        transition.animate(alongsideTransition: nil) { _ in expectation.fulfill() }
-        waitForExpectations(timeout: 2, handler: nil)
+    func waitAnimation(timeout: TimeInterval, animation: () -> Void) {
+        let expectaion = expectation(description: "wait animation end")
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(expectaion.fulfill)
+        animation()
+        CATransaction.commit()
+        waitForExpectations(timeout: timeout, handler: nil)
     }
 
-    // MARK: - Presentation
-
-    func waitPresenting(_ viewController: UIViewController, file: StaticString = #file, line: UInt = #line) {
-        guard let transition = viewController.transitionCoordinator else {
-            XCTFail("No Transition Coordinator for \(viewController)", file: file, line: line); return
-        }
-
-        let from = transition.viewController(forKey: .from)
-        guard from == viewController.presentingViewController else {
-            XCTFail("Invalid transition from \(String(describing: from))", file: file, line: line); return
-        }
-
-        let to = transition.viewController(forKey: .to)
-        guard to == viewController else {
-            XCTFail("Invalid transition to \(String(describing: to))", file: file, line: line); return
-        }
-
-        let expectation = self.expectation(description: "wait presenting")
-        transition.animate(alongsideTransition: nil) { _ in expectation.fulfill() }
-        waitForExpectations(timeout: 2, handler: nil)
-    }
-
-    func waitDismissing(_ viewController: UIViewController, file: StaticString = #file, line: UInt = #line) {
-        guard let transition = viewController.transitionCoordinator else {
-            XCTFail("No Transition Coordinator for \(viewController)"); return
-        }
-
-        let from = transition.viewController(forKey: .from)
-        guard from == viewController else {
-            XCTFail("Invalid transition from \(String(describing: from))", file: file, line: line); return
-        }
-
-        let to = transition.viewController(forKey: .to)
-        guard to == viewController.presentingViewController else {
-            XCTFail("Invalid transition to \(String(describing: to))", file: file, line: line); return
-        }
-
-        let expectation = self.expectation(description: "wait dismissing")
-        transition.animate(alongsideTransition: nil) { _ in expectation.fulfill() }
-        waitForExpectations(timeout: 2, handler: nil)
-    }
 }

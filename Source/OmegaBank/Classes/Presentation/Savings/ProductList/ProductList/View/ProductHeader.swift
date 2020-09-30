@@ -20,6 +20,7 @@ final class ProductHeader: UIControl, NibLoadable {
     // MARK: - Private Properties
     
     private var activityIndicator: UIActivityIndicatorView?
+    private var addNewProductAccessibilityIdentifier: String?
     
     // MARK: - Public Properties
     
@@ -59,12 +60,19 @@ final class ProductHeader: UIControl, NibLoadable {
     
     // MARK: - Initialization
     
-    static func make(title: String, onTap: @escaping () -> Void, onPlusTap: @escaping () -> Void) -> ProductHeader {
+    static func make(
+        title: String,
+        onTap: @escaping () -> Void,
+        onPlusTap: @escaping () -> Void,
+        accessibilityIdentifier: String? = nil,
+        addNewProductAccessibilityIdentifier: String? = nil) -> ProductHeader {
         let view = ProductHeader.loadFromNib()
         
         view.titleLabel.text = title
         view.onTap = onTap
         view.onPlusTap = onPlusTap
+        view.accessibilityIdentifier = accessibilityIdentifier
+        view.addNewProductButton.accessibilityIdentifier = addNewProductAccessibilityIdentifier
         
         return view
     }

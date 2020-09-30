@@ -72,7 +72,7 @@ final class LoginViewControllerTests: ViewControllerTestCase {
             file: file,
             line: line)
 
-        if let phoneTextField = view.assertSubview(UITextField.self, by: "phone") {
+        if let phoneTextField = view.textField(by: "phone") {
             phoneTextField.userInput(phone)
             // Нам нужно дать InputMask понять что текст изменился и нужно валидировать ввод.
             viewController.textField(phoneTextField, didFillMandatoryCharacters: true, didExtractValue: phone)
@@ -104,7 +104,7 @@ final class LoginViewControllerTests: ViewControllerTestCase {
             file: file,
             line: line)
         
-        view.assertSubview(UITextField.self, by: "sms code")?.userInput(smsCode)
+        view.textField(by: "sms code")?.userInput(smsCode)
         
         XCTAssertTrue(
             nextButton.isEnabled,
@@ -117,14 +117,7 @@ final class LoginViewControllerTests: ViewControllerTestCase {
         XCTAssertNotNil(loginService.completionHandler?(error))
         XCTAssertEqual(loginService.smsCode, smsCode, "Смс код не отправлен", file: file, line: line)
     }
-    
-    private func makeApiError(
-        _ code: APIError.Code,
-        title: String? = nil,
-        description: String? = nil,
-        retryAfter: TimeInterval? = nil) -> APIError {
-        APIError(code: code, title: title, description: description, retryAfter: retryAfter)
-    }
+
 }
 
 extension LoginViewControllerTests: LoginViewControllerDelegate {

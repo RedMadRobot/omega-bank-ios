@@ -73,6 +73,7 @@ final class CardTypeSelectorViewController: StackedViewController {
     private func addCardType(_ cardInfo: CardInfo) {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "card"))
         let containerView = UIView()
+        containerView.accessibilityIdentifier = "card"
         containerView.addSubview(imageView, with: containerView)
         
         let typeLabel = UILabel()
@@ -80,6 +81,7 @@ final class CardTypeSelectorViewController: StackedViewController {
         typeLabel.textColor = .textPrimary
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.text = cardInfo.name
+        typeLabel.accessibilityIdentifier = "name"
         
         containerView.addSubview(typeLabel)
         

@@ -28,15 +28,23 @@ final class MockDepositListService: DepositListService, SavingMock {
         return progress
     }
     
+    @discardableResult
     func applyNewDeposit(with type: String, completion: @escaping DepositHandler) -> Progress {
         deposit = makeDeposit()
         depositHandler = completion
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.depositHandler?(.success(self.makeDeposit()))
+        }
         
         return progress
     }
     
     func loadTypes(completion: @escaping DepositTypesHandler) -> Progress {
         typesHandler = completion
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.typesHandler?(.success([self.makeDepositInfo()]))
+        }
+        
         return progress
     }
 

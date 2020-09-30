@@ -84,6 +84,7 @@
 		9542410E24445A6E00E2C196 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542410D24445A6E00E2C196 /* ViewController.swift */; };
 		9542411124445CC800E2C196 /* SavingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542411024445CC800E2C196 /* SavingModel.swift */; };
 		95428192245EA3D500716676 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428191245EA3D500716676 /* StackedViewController.swift */; };
+		954462D624F2706F00B55809 /* MainAddDepositViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954462D524F2706F00B55809 /* MainAddDepositViewControllerTests.swift */; };
 		9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544F9ED242A1E7900127693 /* CurvedView.swift */; };
 		95466BFA248B9F4400FAE6EE /* VerticalScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95466BF8248B9F4400FAE6EE /* VerticalScrollableViewController.swift */; };
 		9547B2D3243750540057C4D1 /* PartnerListContainerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547B2D2243750540057C4D1 /* PartnerListContainerViewControllerTests.swift */; };
@@ -101,6 +102,10 @@
 		954BE14D247BF6F5007DEA64 /* DepositTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE148247BE81C007DEA64 /* DepositTypesEndpoint.swift */; };
 		954BE14E247BF6FA007DEA64 /* CardTypesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BE146247BE74F007DEA64 /* CardTypesEndpoint.swift */; };
 		954C524B243F01C80032C0A0 /* TitledPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C5249243F01C70032C0A0 /* TitledPageViewController.swift */; };
+		954CC195251F61FD005AED74 /* ProductTypeDescriptorViewControllerCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CC194251F61FD005AED74 /* ProductTypeDescriptorViewControllerCardTests.swift */; };
+		954CC19B251F6511005AED74 /* ProductTypeDescriptorViewControllerDepositTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CC19A251F6511005AED74 /* ProductTypeDescriptorViewControllerDepositTests.swift */; };
+		954CC1A1251F65B4005AED74 /* CardTypeSelectorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CC1A0251F65B4005AED74 /* CardTypeSelectorViewControllerTests.swift */; };
+		954CC1A7251F679C005AED74 /* DepositTypeSelectorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CC1A6251F679C005AED74 /* DepositTypeSelectorViewControllerTests.swift */; };
 		954DAFF5243F4E2D009C6B73 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */; };
 		954F0A98247E3E7D0022A0F5 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F0A97247E3E7D0022A0F5 /* ProductInfo.swift */; };
 		955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955169B6243C78360072F8AB /* ProductListViewController.swift */; };
@@ -113,7 +118,7 @@
 		95595788246D216700F65BC3 /* PartnerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595787246D216700F65BC3 /* PartnerMock.swift */; };
 		9559578A246D21B800F65BC3 /* MockCardListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595789246D21B800F65BC3 /* MockCardListService.swift */; };
 		9559578C246D26F100F65BC3 /* SavingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559578B246D26F100F65BC3 /* SavingMock.swift */; };
-		95595792246D32A000F65BC3 /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595791246D32A000F65BC3 /* ProductListViewControllerTests.swift */; };
+		95595792246D32A000F65BC3 /* MainProductListContainerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595791246D32A000F65BC3 /* MainProductListContainerViewControllerTests.swift */; };
 		955BF9D4243B3145004621BB /* PartnerDetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */; };
 		955EECF9242DEB1B0096DE38 /* PartnerSerapatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */; };
 		955F49DC248B7C4B000750EA /* MainProductListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955F49DB248B7C4B000750EA /* MainProductListContainerViewController.swift */; };
@@ -131,6 +136,7 @@
 		95796CEA24346634000CD182 /* UIView+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CE924346634000CD182 /* UIView+Subview.swift */; };
 		95796CEC24346697000CD182 /* UIControl+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CEB24346697000CD182 /* UIControl+User.swift */; };
 		95796CF024346C18000CD182 /* UIViewController+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */; };
+		958A117424F1394F00AA96A8 /* MainAddCardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958A117324F1394F00AA96A8 /* MainAddCardViewControllerTests.swift */; };
 		958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */; };
 		958BD2D42432005900543642 /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D32432005900543642 /* LayoutGuide.swift */; };
 		958BD2D72432239400543642 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D62432239400543642 /* FadeTransition.swift */; };
@@ -174,6 +180,7 @@
 		95EB186A246C376C000D53F4 /* DepositsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB1868246C36CC000D53F4 /* DepositsEndpoint.swift */; };
 		95EB186C246C39E4000D53F4 /* ApplyDepositEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB186B246C39E4000D53F4 /* ApplyDepositEndpoint.swift */; };
 		95EB186F246C3D1B000D53F4 /* ApplyDepositEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB186D246C3CA9000D53F4 /* ApplyDepositEndpointTest.swift */; };
+		95EFE3BE24ED4C44007C78D4 /* UIStackView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EFE3BD24ED4C44007C78D4 /* UIStackView+Subviews.swift */; };
 		9BA3854966982881FF5B4A25 /* Pods_OmegaBankAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012B1146DCCBAB350E6C6FFD /* Pods_OmegaBankAPITests.framework */; };
 		A831740758724667D902F5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -316,6 +323,7 @@
 		9542410D24445A6E00E2C196 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9542411024445CC800E2C196 /* SavingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingModel.swift; sourceTree = "<group>"; };
 		95428191245EA3D500716676 /* StackedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedViewController.swift; sourceTree = "<group>"; };
+		954462D524F2706F00B55809 /* MainAddDepositViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddDepositViewControllerTests.swift; sourceTree = "<group>"; };
 		9544F9ED242A1E7900127693 /* CurvedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		95466BF8248B9F4400FAE6EE /* VerticalScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollableViewController.swift; sourceTree = "<group>"; };
 		9547B2D2243750540057C4D1 /* PartnerListContainerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerListContainerViewControllerTests.swift; sourceTree = "<group>"; };
@@ -333,6 +341,10 @@
 		954BE148247BE81C007DEA64 /* DepositTypesEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositTypesEndpoint.swift; sourceTree = "<group>"; };
 		954BE14A247BF229007DEA64 /* DepositInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositInfo.swift; sourceTree = "<group>"; };
 		954C5249243F01C70032C0A0 /* TitledPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledPageViewController.swift; sourceTree = "<group>"; };
+		954CC194251F61FD005AED74 /* ProductTypeDescriptorViewControllerCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTypeDescriptorViewControllerCardTests.swift; sourceTree = "<group>"; };
+		954CC19A251F6511005AED74 /* ProductTypeDescriptorViewControllerDepositTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTypeDescriptorViewControllerDepositTests.swift; sourceTree = "<group>"; };
+		954CC1A0251F65B4005AED74 /* CardTypeSelectorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSelectorViewControllerTests.swift; sourceTree = "<group>"; };
+		954CC1A6251F679C005AED74 /* DepositTypeSelectorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositTypeSelectorViewControllerTests.swift; sourceTree = "<group>"; };
 		954DAFF4243F4E2D009C6B73 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		954F0A97247E3E7D0022A0F5 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		955169B6243C78360072F8AB /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -345,7 +357,7 @@
 		95595787246D216700F65BC3 /* PartnerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerMock.swift; sourceTree = "<group>"; };
 		95595789246D21B800F65BC3 /* MockCardListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCardListService.swift; sourceTree = "<group>"; };
 		9559578B246D26F100F65BC3 /* SavingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMock.swift; sourceTree = "<group>"; };
-		95595791246D32A000F65BC3 /* ProductListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerTests.swift; sourceTree = "<group>"; };
+		95595791246D32A000F65BC3 /* MainProductListContainerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProductListContainerViewControllerTests.swift; sourceTree = "<group>"; };
 		95595793246D47CD00F65BC3 /* UserProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProduct.swift; sourceTree = "<group>"; };
 		955BF9D3243B3145004621BB /* PartnerDetailedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerDetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		955EECF8242DEB1B0096DE38 /* PartnerSerapatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerSerapatorView.swift; sourceTree = "<group>"; };
@@ -365,6 +377,7 @@
 		95796CE924346634000CD182 /* UIView+Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subview.swift"; sourceTree = "<group>"; };
 		95796CEB24346697000CD182 /* UIControl+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+User.swift"; sourceTree = "<group>"; };
 		95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIBarButtonItem.swift"; sourceTree = "<group>"; };
+		958A117324F1394F00AA96A8 /* MainAddCardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddCardViewControllerTests.swift; sourceTree = "<group>"; };
 		958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitCollectionViewController.swift; sourceTree = "<group>"; };
 		958BD2D32432005900543642 /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		958BD2D62432239400543642 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
@@ -410,12 +423,12 @@
 		95EB1868246C36CC000D53F4 /* DepositsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositsEndpoint.swift; sourceTree = "<group>"; };
 		95EB186B246C39E4000D53F4 /* ApplyDepositEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyDepositEndpoint.swift; sourceTree = "<group>"; };
 		95EB186D246C3CA9000D53F4 /* ApplyDepositEndpointTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyDepositEndpointTest.swift; sourceTree = "<group>"; };
+		95EFE3BD24ED4C44007C78D4 /* UIStackView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Subviews.swift"; sourceTree = "<group>"; };
 		A5401470BFB663925E2CEA6E /* OmegaBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmegaBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CCA46F7A338FEA9569BC87 /* Pods-OmegaBankAPI.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.app-store.xcconfig"; sourceTree = "<group>"; };
 		A8B33C0F2873D23A021D58D9 /* Pods-OmegaBankAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		AF6ECF2217AA27A9F38C4167 /* Pods-OmegaBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.qa.xcconfig"; sourceTree = "<group>"; };
-		C4AFAFE259F9C1B9DAE51644 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -529,7 +542,6 @@
 			children = (
 				77196A9423FACA48007C8C84 /* Helper */,
 				192ADA30B0326B78BC60E29B /* Constants */,
-				97D4E80384A708717CB3ACE1 /* Model */,
 				22368E87F95CD228FAD9808D /* Service */,
 				6B3764A850A4D197A1767543 /* ServiceLayer.swift */,
 			);
@@ -1111,17 +1123,23 @@
 		9559578F246D319500F65BC3 /* Savings */ = {
 			isa = PBXGroup;
 			children = (
-				95595790246D323700F65BC3 /* Voew Controller */,
+				95595790246D323700F65BC3 /* View Controller */,
 			);
 			path = Savings;
 			sourceTree = "<group>";
 		};
-		95595790246D323700F65BC3 /* Voew Controller */ = {
+		95595790246D323700F65BC3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95595791246D32A000F65BC3 /* ProductListViewControllerTests.swift */,
+				95595791246D32A000F65BC3 /* MainProductListContainerViewControllerTests.swift */,
+				958A117324F1394F00AA96A8 /* MainAddCardViewControllerTests.swift */,
+				954462D524F2706F00B55809 /* MainAddDepositViewControllerTests.swift */,
+				954CC194251F61FD005AED74 /* ProductTypeDescriptorViewControllerCardTests.swift */,
+				954CC19A251F6511005AED74 /* ProductTypeDescriptorViewControllerDepositTests.swift */,
+				954CC1A0251F65B4005AED74 /* CardTypeSelectorViewControllerTests.swift */,
+				954CC1A6251F679C005AED74 /* DepositTypeSelectorViewControllerTests.swift */,
 			);
-			path = "Voew Controller";
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		955BF9D2243B30E5004621BB /* Partner */ = {
@@ -1190,6 +1208,7 @@
 			isa = PBXGroup;
 			children = (
 				95796CE924346634000CD182 /* UIView+Subview.swift */,
+				95EFE3BD24ED4C44007C78D4 /* UIStackView+Subviews.swift */,
 				95796CEB24346697000CD182 /* UIControl+User.swift */,
 				95796CEF24346C18000CD182 /* UIViewController+UIBarButtonItem.swift */,
 			);
@@ -1593,14 +1612,6 @@
 				95E08ED12446F08A0048DCDB /* TestBase.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		97D4E80384A708717CB3ACE1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C4AFAFE259F9C1B9DAE51644 /* .gitkeep */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9BCD388ED1D3671CF771E22C /* OmegaBank */ = {
@@ -2195,14 +2206,21 @@
 				95796CF024346C18000CD182 /* UIViewController+UIBarButtonItem.swift in Sources */,
 				9559578C246D26F100F65BC3 /* SavingMock.swift in Sources */,
 				951032D1246EB872005902ED /* MockDepositListService.swift in Sources */,
+				954CC195251F61FD005AED74 /* ProductTypeDescriptorViewControllerCardTests.swift in Sources */,
+				958A117424F1394F00AA96A8 /* MainAddCardViewControllerTests.swift in Sources */,
 				9559578A246D21B800F65BC3 /* MockCardListService.swift in Sources */,
-				95595792246D32A000F65BC3 /* ProductListViewControllerTests.swift in Sources */,
+				95595792246D32A000F65BC3 /* MainProductListContainerViewControllerTests.swift in Sources */,
+				954CC1A7251F679C005AED74 /* DepositTypeSelectorViewControllerTests.swift in Sources */,
 				95A5587124335855003ED9A2 /* MockClient.swift in Sources */,
 				95796CE7243464C8000CD182 /* ViewControllerTestCase.swift in Sources */,
+				954CC1A1251F65B4005AED74 /* CardTypeSelectorViewControllerTests.swift in Sources */,
+				954462D624F2706F00B55809 /* MainAddDepositViewControllerTests.swift in Sources */,
 				95796CEC24346697000CD182 /* UIControl+User.swift in Sources */,
 				9547B2D3243750540057C4D1 /* PartnerListContainerViewControllerTests.swift in Sources */,
 				95A5586D2433572B003ED9A2 /* MockLoginService.swift in Sources */,
+				95EFE3BE24ED4C44007C78D4 /* UIStackView+Subviews.swift in Sources */,
 				95595788246D216700F65BC3 /* PartnerMock.swift in Sources */,
+				954CC19B251F6511005AED74 /* ProductTypeDescriptorViewControllerDepositTests.swift in Sources */,
 				95A5586F2433574C003ED9A2 /* MockPartnerListService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2687,7 +2705,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OmegaBankFrameworks/OmegaBankAPITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2716,7 +2734,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OmegaBankFrameworks/OmegaBankAPITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2781,7 +2799,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = OmegaBankFrameworks/OmegaBankAPITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2813,7 +2831,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "OmegaBankUITests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2842,7 +2860,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "OmegaBankUITests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2906,7 +2924,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "OmegaBankUITests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

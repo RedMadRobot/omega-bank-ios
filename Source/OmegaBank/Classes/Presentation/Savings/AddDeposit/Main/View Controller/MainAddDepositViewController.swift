@@ -15,10 +15,12 @@ final class MainAddDepositViewController: VerticalScrollableViewController {
     // MARK: - Constants
     
     private let applyButtonInsets = UIEdgeInsets(top: .zero, left: 20, bottom: -20, right: -20)
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: UserProductDelegate?
 
     // MARK: - Private Properties
-    
-    private weak var delegate: UserProductDelegate?
     
     private var selectorViewController: DepositTypeSelectorViewController!
     private var descriptorViewController: ProductTypeDescriptorViewController<DepositInfo>!
@@ -155,6 +157,7 @@ final class MainAddDepositViewController: VerticalScrollableViewController {
     private func addApplyButton() {
         let submitButton = SubmitButton()
         submitButton.setTitle("Apply", for: .normal)
+        submitButton.accessibilityIdentifier = "apply"
         submitButton.onTap = { [unowned self] in
             self.applyNewDeposit()
         }
@@ -182,6 +185,7 @@ extension MainAddDepositViewController: ScrollViewPagerDelegate {
         let depositInfo = depositTypes[page]
         currentDepositType = depositInfo
         descriptorViewController.productInfo = depositInfo
+        delegate?.didChangeProductType()
     }
 
 }

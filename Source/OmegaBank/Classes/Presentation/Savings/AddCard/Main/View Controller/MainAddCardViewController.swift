@@ -13,6 +13,11 @@ import struct OmegaBankAPI.CardInfo
 protocol UserProductDelegate: AnyObject {
     func didTapNewProduct()
     func didShowNewProduct(_ product: Product)
+    func didChangeProductType()
+}
+
+extension UserProductDelegate {
+    func didChangeProductType() { }
 }
 
 final class MainAddCardViewController: VerticalScrollableViewController {
@@ -21,10 +26,12 @@ final class MainAddCardViewController: VerticalScrollableViewController {
     
     private let applyButtonInsets = UIEdgeInsets(top: .zero, left: 20, bottom: -20, right: -20)
     
+    // MARK: - Public Properties
+    
+    weak var delegate: UserProductDelegate?
+    
     // MARK: - Private Properties
-    
-    private weak var delegate: UserProductDelegate?
-    
+
     private var selectorViewController: CardTypeSelectorViewController!
     private var descriptorViewController: ProductTypeDescriptorViewController<CardInfo>!
 
@@ -154,6 +161,7 @@ final class MainAddCardViewController: VerticalScrollableViewController {
     private func addApplyButton() {
         let button = SubmitButton()
         button.setTitle("Apply", for: .normal)
+        button.accessibilityIdentifier = "apply"
         button.onTap = { [unowned self] in
             self.applyNewCard()
         }
@@ -184,6 +192,7 @@ extension MainAddCardViewController: ScrollViewPagerDelegate {
         let cardInfo = cardTypes[page]
         currentCardType = cardInfo
         descriptorViewController.productInfo = cardInfo
+        delegate?.didChangeProductType()
     }
 
 }

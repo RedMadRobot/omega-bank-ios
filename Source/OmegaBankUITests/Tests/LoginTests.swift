@@ -32,12 +32,12 @@ final class LoginTests: TestBase {
         
         let phone = try XCTUnwrap(auth.phoneField.value as? String)
         
-        XCTAssert(auth.nextButton.isEnabled)
+        XCTAssertTrue(auth.nextButton.isEnabled)
         XCTAssertEqual("(888) 888-88-88", phone)
         auth.nextButton.tap()
         XCTAssertFalse(auth.nextButton.isEnabled)
         auth.inputSmsCode()
-        XCTAssert(auth.nextButton.isEnabled)
+        XCTAssertTrue(auth.nextButton.isEnabled)
         auth.nextButton.tap()
 
         XCTAssertTrue(productListScreen.title.waitForExistence(timeout: Timeout.minimum.timeInterval))
@@ -48,7 +48,7 @@ final class LoginTests: TestBase {
 
         XCTAssertFalse(auth.nextButton.isEnabled)
         auth.inputPhone()
-        XCTAssert(auth.nextButton.isEnabled)
+        XCTAssertTrue(auth.nextButton.isEnabled)
         auth.nextButton.tap()
         auth.inputSmsCode()
         auth.backButton.tap()
