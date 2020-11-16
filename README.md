@@ -1,31 +1,38 @@
 # OmegaBank
 
-## Repository:
+## Репозиторий:
 ```
 https://git.redmadrobot.com/n.zhukov/omegabank
 ```
-### Branches:
+### Ветки:
 ```
-master - release branch
-develop - base branch for development
+master - release ветка
+develop - основная ветка для разработки
 ```
 ### Backend endpoint:
 ```
 https://omegabank.mock-object.redmadserver.com/api/v1/
 ```
-### Backend Repository:
+### Backend repository:
 ```
 https://git.redmadrobot.com/a.glezman/omegabank-mock
 ```
-## Schemas:
+## Схемы проекта:
 ```
-Debug - development scheme
-QA - quality assurance scheme
-Release - release scheme
+Debug - development схема
+QA - схема для QA
+Release - release схема
 ```
-## Build assembly:
+## Сборка проекта:
 ### QA
 ```
 bundle exec fastlane ci
 ```
-You can do this by the script running `fastlane/ci build commands/qa_build.command`
+Вы можете запустить этот процесс с помощью скрипта `fastlane/ci build commands/qa_build.command`
+
+# Документация
+
+1. [Структура проекта](Documentation/structure.md)
+1. [Разделение на модули/таргеты](Documentation/modules.md)
+1. [Сервис-ориентированная архитектура на уровне бизнес логики](Documentation/architecture.md)
+1. [MVC - как подход с дочерними контроллерами, за что отвечают родительские контроллеры](Documentation/mvc.md)
