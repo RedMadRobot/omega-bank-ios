@@ -12,19 +12,19 @@ class CurvedView: View {
     
     // MARK: - Initialization
     
-    override func commonInit() {
-        super.commonInit()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
         let step: CGFloat = frame.width / 2
         // - step потому что 3 цвета в коллекции
         let bounds = CGRect(
-            origin: CGPoint.zero,
+            origin: .zero,
             size: CGSize(width: frame.size.width - step, height: frame.size.height))
         
         let palette: [UIColor] = [
             .curve1,
             .curve2,
-            UIColor.makeGradient(
+            .makeGradient(
                 from: .bar1,
                 to: .bar2,
                 on: bounds)]
