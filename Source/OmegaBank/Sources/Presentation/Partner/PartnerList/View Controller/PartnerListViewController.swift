@@ -52,7 +52,7 @@ final class PartnerListViewController: UIViewController {
     // MARK: - Private Methods
 
     private func setupCollectionView() {
-        collectionView.registerCellNib(PartnterCell.self)
+        collectionView.registerCellNib(PartnerCell.self)
     }
 }
 
@@ -66,7 +66,7 @@ extension PartnerListViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(PartnterCell.self, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(PartnerCell.self, for: indexPath)
         cell.setup(with: partners[indexPath.row], for: indexPath.row)
         
         return cell

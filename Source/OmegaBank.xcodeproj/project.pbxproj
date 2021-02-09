@@ -11,7 +11,6 @@
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
 		60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3764A850A4D197A1767543 /* ServiceLayer.swift */; };
-		6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */; };
 		7700FD52241260AC00210AD3 /* PartnersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FD502412609E00210AD3 /* PartnersEndpoint.swift */; };
 		7700FD552412637000210AD3 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FD53241262DE00210AD3 /* Partner.swift */; };
 		7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FD5624126F3700210AD3 /* AppViewController.swift */; };
@@ -63,7 +62,6 @@
 		77CF6F3524066FB3000A5082 /* BarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF6F3424066FB3000A5082 /* BarButtonItems.swift */; };
 		80D8B5D3C407B38B80F273F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */; };
 		8F317A3D218558E99167066F /* Pods_OmegaBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */; };
-		926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */; };
 		951032C6246E90B4005902ED /* DepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032C5246E90B4005902ED /* DepositListService.swift */; };
 		951032CB246E9CC2005902ED /* UserProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595793246D47CD00F65BC3 /* UserProduct.swift */; };
 		951032CD246E9D1F005902ED /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032CC246E9D1F005902ED /* ProductType.swift */; };
@@ -150,7 +148,7 @@
 		9598C3F524498289004DC2C1 /* SendSmsCodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9598C3F424498289004DC2C1 /* SendSmsCodeMock.swift */; };
 		9598C3FB24498CA3004DC2C1 /* Mocks in Resources */ = {isa = PBXBuildFile; fileRef = 9598C3FA24498CA3004DC2C1 /* Mocks */; };
 		9599A4C824289165000411EC /* ViewCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4C724289165000411EC /* ViewCorners.swift */; };
-		9599A4CF242893CB000411EC /* PartnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4CD242893CB000411EC /* PartnterCell.swift */; };
+		9599A4CF242893CB000411EC /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4CD242893CB000411EC /* PartnerCell.swift */; };
 		9599A4D0242893CB000411EC /* PartnterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9599A4CE242893CB000411EC /* PartnterCell.xib */; };
 		9599A4D42428AB0C000411EC /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4D32428AB0C000411EC /* UIImageView+Download.swift */; };
 		9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */; };
@@ -245,7 +243,6 @@
 		12F800949B545DDDA78E87E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1EB4F9E0D9D47A973F654243 /* Pods-OmegaBankUITests.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.app-store.xcconfig"; sourceTree = "<group>"; };
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
-		53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		658DAB702A03CEE79F4968D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -391,7 +388,7 @@
 		9598C3F424498289004DC2C1 /* SendSmsCodeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsCodeMock.swift; sourceTree = "<group>"; };
 		9598C3FA24498CA3004DC2C1 /* Mocks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mocks; sourceTree = "<group>"; };
 		9599A4C724289165000411EC /* ViewCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCorners.swift; sourceTree = "<group>"; };
-		9599A4CD242893CB000411EC /* PartnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnterCell.swift; sourceTree = "<group>"; };
+		9599A4CD242893CB000411EC /* PartnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
 		9599A4CE242893CB000411EC /* PartnterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartnterCell.xib; sourceTree = "<group>"; };
 		9599A4D32428AB0C000411EC /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Nib.swift"; sourceTree = "<group>"; };
@@ -429,7 +426,6 @@
 		A8B33C0F2873D23A021D58D9 /* Pods-OmegaBankAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		AF6ECF2217AA27A9F38C4167 /* Pods-OmegaBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.qa.xcconfig"; sourceTree = "<group>"; };
-		D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		D7FD97D25CBF0A00A46E7A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmegaBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E9DC4585A7041B83A48D18 /* Pods-OmegaBankAPITests.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.qa.xcconfig"; sourceTree = "<group>"; };
@@ -505,15 +501,6 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		192ADA30B0326B78BC60E29B /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				D09FFEE72A0FC8C20BA4CE3B /* ApiConstants.swift */,
-				53BDDBE8E4A9A24DEE719E60 /* ApplicationConstants.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		22368E87F95CD228FAD9808D /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				77196A9423FACA48007C8C84 /* Helper */,
-				192ADA30B0326B78BC60E29B /* Constants */,
 				22368E87F95CD228FAD9808D /* Service */,
 				6B3764A850A4D197A1767543 /* ServiceLayer.swift */,
 			);
@@ -748,17 +734,17 @@
 			isa = PBXGroup;
 			children = (
 				95A6D03E24517C1C0016811E /* Animation */,
-				958BD2D52432237D00543642 /* Transition */,
-				9599A4DA2428C36C000411EC /* Helper */,
-				774B93E82424A8DE008237BF /* CollectionViewController */,
-				777426B224051967008E5810 /* View */,
 				7757BC452404E5B40063ACBD /* Appearence */,
-				7757BC422404E4860063ACBD /* ViewController */,
+				774B93E82424A8DE008237BF /* CollectionViewController */,
+				9599A4DA2428C36C000411EC /* Helper */,
+				958BD2D52432237D00543642 /* Transition */,
+				777426B224051967008E5810 /* View */,
+				7757BC422404E4860063ACBD /* View Controller */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		7757BC422404E4860063ACBD /* ViewController */ = {
+		7757BC422404E4860063ACBD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				954DAFF3243F4E12009C6B73 /* Helper */,
@@ -772,7 +758,7 @@
 				95466BF8248B9F4400FAE6EE /* VerticalScrollableViewController.swift */,
 				9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */,
 			);
-			path = ViewController;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		7757BC452404E5B40063ACBD /* Appearence */ = {
@@ -968,12 +954,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9542410F24445C9A00E2C196 /* ViewModel */ = {
+		9542410F24445C9A00E2C196 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				9542411024445CC800E2C196 /* SavingModel.swift */,
 			);
-			path = ViewModel;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		9547B2D0243750190057C4D1 /* Partners */ = {
@@ -1145,9 +1131,9 @@
 		955BF9D2243B30E5004621BB /* Partner */ = {
 			isa = PBXGroup;
 			children = (
-				953A2EE624961EA700A9B6DE /* PartnerListContainer */,
-				777961B1240E62210066762B /* PartnerList */,
 				9547F8BD242A37E300EC42A0 /* PartnerDetailed */,
+				777961B1240E62210066762B /* PartnerList */,
+				953A2EE624961EA700A9B6DE /* PartnerListContainer */,
 			);
 			path = Partner;
 			sourceTree = "<group>";
@@ -1327,7 +1313,7 @@
 		9599A4CA242892BA000411EC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9599A4CD242893CB000411EC /* PartnterCell.swift */,
+				9599A4CD242893CB000411EC /* PartnerCell.swift */,
 				9599A4CE242893CB000411EC /* PartnterCell.xib */,
 			);
 			path = Cell;
@@ -1492,10 +1478,10 @@
 		95BD979E2450398A0034D40A /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				95CF5E91243CA46200BD94A8 /* View */,
 				95CF5E9A243CBD5000BD94A8 /* Model */,
-				9542410F24445C9A00E2C196 /* ViewModel */,
+				95CF5E91243CA46200BD94A8 /* View */,
 				955169B4243C77E10072F8AB /* View Controller */,
+				9542410F24445C9A00E2C196 /* View Model */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -1617,7 +1603,7 @@
 		9BCD388ED1D3671CF771E22C /* OmegaBank */ = {
 			isa = PBXGroup;
 			children = (
-				D71718D22A2970D059BB6E40 /* Classes */,
+				D71718D22A2970D059BB6E40 /* Sources */,
 				D90746AE75F4CC2CB3A82FBD /* Resources */,
 				0456EC851FAE5D627EFD2E37 /* Supporting Files */,
 			);
@@ -1636,14 +1622,14 @@
 			path = OmegaBankTests;
 			sourceTree = "<group>";
 		};
-		D71718D22A2970D059BB6E40 /* Classes */ = {
+		D71718D22A2970D059BB6E40 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				EB77C1EF7A96F267D3B590DF /* Application */,
 				68507F20657486F6C872BB56 /* Business Logic */,
 				0FC2005DF7280A5FEE7A4853 /* Presentation */,
 			);
-			path = Classes;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		D90746AE75F4CC2CB3A82FBD /* Resources */ = {
@@ -2062,7 +2048,7 @@
 				774B93E524249F41008237BF /* AnimatedCollectionViewLayout.swift in Sources */,
 				9542410E24445A6E00E2C196 /* ViewController.swift in Sources */,
 				9542410A244445AA00E2C196 /* Transaction.swift in Sources */,
-				9599A4CF242893CB000411EC /* PartnterCell.swift in Sources */,
+				9599A4CF242893CB000411EC /* PartnerCell.swift in Sources */,
 				7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */,
 				958F146A247D1D4D0052F9EF /* Button.swift in Sources */,
 				954AA79024459B3900425D5E /* TransactionHistoryViewController.swift in Sources */,
@@ -2085,7 +2071,6 @@
 				9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */,
 				95466BFA248B9F4400FAE6EE /* VerticalScrollableViewController.swift in Sources */,
 				951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */,
-				6F9652531F8C7A429C2B43B3 /* ApiConstants.swift in Sources */,
 				777961B9240E62B70066762B /* PartnerListViewController.swift in Sources */,
 				9542411124445CC800E2C196 /* SavingModel.swift in Sources */,
 				953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */,
@@ -2123,7 +2108,6 @@
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
-				926B9B493F14FF5395D0880B /* ApplicationConstants.swift in Sources */,
 				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
 				774B93E724249FB3008237BF /* LayoutAttributesAnimator.swift in Sources */,
 			);
@@ -2415,7 +2399,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 670B4953E269E99CC82A52AF /* Pods-OmegaBank.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APP_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank2;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "OmegaBank/Supporting Files/OmegaBank.entitlements";
@@ -2441,7 +2424,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0282662B6DEF0C953141AB3 /* Pods-OmegaBank.qa.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://omegabank.mock-object.redmadserver.com/api/v1/";
 				APP_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2969,7 +2951,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE5FD665DF2DA830858C8539 /* Pods-OmegaBank.app-store.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://omegabank.mock-object.redmadserver.com/api/v1/";
 				APP_BUNDLE_IDENTIFIER = com.redmadrobot.OmegaBank;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

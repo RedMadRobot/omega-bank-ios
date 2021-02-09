@@ -25,7 +25,7 @@ Presentation
 │   │   │
 │   │   └── View
 │   │
-│   └── ViewController
+│   └── View Controller
 │
 ├── Auth
 │

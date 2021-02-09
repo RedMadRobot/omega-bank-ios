@@ -12,38 +12,44 @@
 ├── README.md
 │   ...
 │
-├── Source
+├── OmegaBank
 │   │
-│   ├── AppDelegate.swift
+│   ├──Sources
+│   │   │
+│   │   └── Application
+│   │   │   │
+│   │   │   └── AppDelegate.swift
+│   │   │
+│   │   ├── Business Logic
+│   │   │
+│   │   ├── Models
+│   │   │
+│   │   ├── Presentation
+│   │   │
+│   │   └── Utility
 │   │
-│   ├── Models
+│   ├── Supporting Files
+│   │   │
+│   │   ├── Info.plist
+│   │   │
+│   │   └── OmegaBank.entitlements
+│   │   ...
 │   │
-│   ├── Business Logic
-│   │
-│   └── Presentation
-│
-├── Supporting Files
-│   │
-│   ├── Info.plist
-│   │
-│   └── OmegaBank.entitlements
-│   ...
-│
-├── Resources
-│   │
-│   └── Assets.xcassets
-│   ...
+│   └── Resources
+│       │
+│       └── Assets.xcassets
+│       ...
 │
 ├── OmegaBankTests
 │
 ├── OmegaBankUITests
-│
+│ 
 ├── OmegaBankFrameworks
 │   │ 
 │   ├── OmegaBankAPI
 │   │ 
 │   └── OmegaBankAPITests
-│
+│ 
 ├── Pods
-│
+│ 
 └── fastlane

@@ -9,7 +9,7 @@
 import UIKit
 import struct OmegaBankAPI.Partner
 
-final class PartnterCell: UICollectionViewCell, NibRepresentable {
+final class PartnerCell: UICollectionViewCell, NibRepresentable {
     
     // MARK: - Outlets
     
