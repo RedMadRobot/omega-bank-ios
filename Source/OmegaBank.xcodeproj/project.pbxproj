@@ -76,7 +76,7 @@
 		953B144024507BCE00D609B0 /* HotActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143E24507BCE00D609B0 /* HotActionView.xib */; };
 		953B144124507BCE00D609B0 /* HotActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143F24507BCE00D609B0 /* HotActionView.swift */; };
 		9540C34A244731DA00F46687 /* SendPhoneMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C349244731DA00F46687 /* SendPhoneMock.swift */; };
-		9540C34D244733DF00F46687 /* RequestBagConvertible+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C34C244733DF00F46687 /* RequestBagConvertible+Json.swift */; };
+		9540C34D244733DF00F46687 /* CatbirdMockConvertible+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C34C244733DF00F46687 /* CatbirdMockConvertible+Json.swift */; };
 		9541336A2487D190006FC083 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954133692487D190006FC083 /* ShadowView.swift */; };
 		9542410A244445AA00E2C196 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95424109244445AA00E2C196 /* Transaction.swift */; };
 		9542410E24445A6E00E2C196 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542410D24445A6E00E2C196 /* ViewController.swift */; };
@@ -314,7 +314,7 @@
 		953B143E24507BCE00D609B0 /* HotActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotActionView.xib; sourceTree = "<group>"; };
 		953B143F24507BCE00D609B0 /* HotActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotActionView.swift; sourceTree = "<group>"; };
 		9540C349244731DA00F46687 /* SendPhoneMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneMock.swift; sourceTree = "<group>"; };
-		9540C34C244733DF00F46687 /* RequestBagConvertible+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestBagConvertible+Json.swift"; sourceTree = "<group>"; };
+		9540C34C244733DF00F46687 /* CatbirdMockConvertible+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatbirdMockConvertible+Json.swift"; sourceTree = "<group>"; };
 		954133692487D190006FC083 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		95424109244445AA00E2C196 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9542410D24445A6E00E2C196 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -924,7 +924,7 @@
 		9540C34B244733C600F46687 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				9540C34C244733DF00F46687 /* RequestBagConvertible+Json.swift */,
+				9540C34C244733DF00F46687 /* CatbirdMockConvertible+Json.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2167,7 +2167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9540C34D244733DF00F46687 /* RequestBagConvertible+Json.swift in Sources */,
+				9540C34D244733DF00F46687 /* CatbirdMockConvertible+Json.swift in Sources */,
 				9540C34A244731DA00F46687 /* SendPhoneMock.swift in Sources */,
 				95E08ED22446F08A0048DCDB /* TestBase.swift in Sources */,
 				955383A52449BDA400DAD89B /* ProductsScreen.swift in Sources */,

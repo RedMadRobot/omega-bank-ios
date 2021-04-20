@@ -1,5 +1,5 @@
 //
-//  RequestBagConvertible+Json.swift
+//  CatbirdMockConvertible+Json.swift
 //  OmegaBankUITests
 //
 //  Created by Nikolay Zhukov on 4/15/20.
@@ -9,7 +9,7 @@
 import Catbird
 import Foundation
 
-extension RequestBagConvertible {
+extension CatbirdMockConvertible {
 
     /// Берем json из папки.
     

@@ -9,18 +9,18 @@
 import Catbird
 import Foundation
 
-enum SendSmsCodeMock: String, RequestBagConvertible {
+enum SendSmsCodeMock: String, CatbirdMockConvertible {
     
     case smsCode
     
     var url: URL { URL(string: "/auth/sms/check-code")! }
     
     var pattern: RequestPattern {
-        RequestPattern.post(url)
+        RequestPattern(method: .POST, url: url)
     }
     
-    var responseData: ResponseData {
-        ResponseData(body: try? json("\(url.path)/\(rawValue)"))
+    var response: ResponseMock {
+        ResponseMock(body: try? json("\(url.path)/\(rawValue)"))
     }
     
 }

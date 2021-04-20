@@ -69,16 +69,16 @@ class TestBase: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        XCTAssertNoThrow(try server.send(.clear))
+        XCTAssertNoThrow(try server.send(.removeAll))
     }
     
     // MARK: - Public Methods
     
-    func addMock(_ mock: RequestBagConvertible, file: StaticString = #file, line: UInt = #line) {
+    func addMock(_ mock: CatbirdMockConvertible, file: StaticString = #file, line: UInt = #line) {
         XCTAssertNoThrow(try server.send(.add(mock)), file: file, line: line)
     }
     
-    func removeMock(_ mock: RequestBagConvertible, file: StaticString = #file, line: UInt = #line) {
+    func removeMock(_ mock: CatbirdMockConvertible, file: StaticString = #file, line: UInt = #line) {
         XCTAssertNoThrow(try server.send(.remove(mock)), file: file, line: line)
     }
     
