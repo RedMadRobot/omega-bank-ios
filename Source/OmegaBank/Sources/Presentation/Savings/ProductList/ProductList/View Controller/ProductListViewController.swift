@@ -16,7 +16,6 @@ final class ProductListViewController<T>: StackedViewController where T: Product
     var products: [UserProduct] = [] {
         didSet {
             addCells()
-            animateAppearing()
         }
     }
     
@@ -68,8 +67,8 @@ final class ProductListViewController<T>: StackedViewController where T: Product
     
     private func addCell(_ product: Product) {
         let cell = makeCell(product)
-        
-        addArrangedSubview(cell)
+
+        stackView.addArrangedSubview(cell)
     }
     
     func addNewCell(_ product: Product) {
@@ -78,11 +77,6 @@ final class ProductListViewController<T>: StackedViewController where T: Product
         
         insertArrangedSubview(separator, at: 0)
         insertArrangedSubview(cell, at: 0)
-        
-        guard let animator = animator else { return }
-
-        animator.animate(view: cell, isCollapsed: isCollapsed)
-        animator.animate(view: separator, isCollapsed: isCollapsed, index: 1)
     }
 
     private func didProductTapped(_ product: Product) {

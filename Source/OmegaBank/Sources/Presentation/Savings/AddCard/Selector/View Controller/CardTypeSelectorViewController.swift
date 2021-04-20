@@ -19,14 +19,11 @@ final class CardTypeSelectorViewController: StackedViewController {
     
     override var axis: NSLayoutConstraint.Axis { .horizontal }
     
-    override var animator: AppearingViewAnimator? { AppearingViewAnimator.makeRightToLeft(stackView: stackView) }
-    
     var pager: ScrollViewPager?
     
     // MARK: - Private Properties
     
     private let cardTypes: [CardInfo]
-    private var didAppearOnce = false
     
     // MARK: - Initialization
 
@@ -51,15 +48,6 @@ final class CardTypeSelectorViewController: StackedViewController {
             pageWidth: #imageLiteral(resourceName: "card").size.width,
             count: cardTypes.count,
             pageSpacing: stackView.spacing)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if !didAppearOnce {
-            animateAppearing()
-            didAppearOnce = true
-        }
     }
 
     // MARK: - Private Methods
@@ -93,7 +81,7 @@ final class CardTypeSelectorViewController: StackedViewController {
             typeLabel.topAnchor.constraint(
                 equalTo: containerView.topAnchor,
                 constant: cardLabelOrigin.y)])
-        
-        addArrangedSubview(containerView)
+
+        stackView.addArrangedSubview(containerView)
     }
 }

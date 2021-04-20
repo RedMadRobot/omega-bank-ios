@@ -30,7 +30,6 @@ final class HotActionView: UIView, NibLoadable {
     // MARK: - Public Methods
     
     func setup(title: String, for index: Int) {
-        alpha = 0 // выставляем 1 в анимации
         actionLabel.text = title
         backgroundColor = UIColor.palette[index % UIColor.palette.count]
     }

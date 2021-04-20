@@ -12,13 +12,14 @@ import UIKit
 final class FadeTranstion: NSObject, UIViewControllerTransitioningDelegate {
     
     private enum Constants {
-        static let duration: TimeInterval = 0.5
+        static let duration: TimeInterval = 0.3
     }
 
     func animationController(
         forPresented presented: UIViewController,
         presenting: UIViewController,
         source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
         FadePresentingAnimator(duration: Constants.duration)
     }
 

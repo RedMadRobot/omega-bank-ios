@@ -207,8 +207,10 @@ final class MainProductListContainerViewControllerTests: ViewControllerTestCase,
     func testCardListCardAddedUncollapsed() throws {
         cardListService.cardListHandler?(.success(cards))
         depositListService.depositListHandler?(.success(deposits))
-        
-        containerViewController.didAddProduct(productType: .card)
+
+        waitAnimation(timeout: 2) {
+            containerViewController.didAddProduct(productType: .card)
+        }
         
         XCTAssertFalse(isCardListCollapsed)
         XCTAssertTrue(isDepositListCollapsed)
@@ -217,8 +219,10 @@ final class MainProductListContainerViewControllerTests: ViewControllerTestCase,
     func testDepositListDepositAddedUncollapsed() throws {
         cardListService.cardListHandler?(.success(cards))
         depositListService.depositListHandler?(.success(deposits))
-        
-        containerViewController.didAddProduct(productType: .deposit)
+
+        waitAnimation(timeout: 2) {
+            containerViewController.didAddProduct(productType: .deposit)
+        }
         
         XCTAssertTrue(isCardListCollapsed)
         XCTAssertFalse(isDepositListCollapsed)
