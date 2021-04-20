@@ -3,7 +3,7 @@
 На сервисном уровне мы придерживаемся принципов [SOA](https://ru.wikipedia.org/wiki/Сервис-ориентированная_архитектура).
 Сервисы - объекты которые работают с бизнес-сущностями. Каждый сервис работает как правило с одним типом сущности. 
 
-```
+```swift
 final class ServiceLayer {
     static let shared = ServiceLayer()
 
@@ -20,7 +20,7 @@ final class ServiceLayer {
 
 ## Реализация скрыта протоколом
 
-```
+```swift
 protocol CardListService {
     
     /// Обработчик ответа на загрузку списка карт
@@ -35,7 +35,7 @@ protocol CardListService {
 
 ## Собственно реализация
 
-```
+```swift
 final class CardListServiceImpl: APIService, CardListService {
     
     @discardableResult
