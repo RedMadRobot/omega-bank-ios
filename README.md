@@ -2,7 +2,7 @@
 
 ## Репозиторий:
 ```
-https://git.redmadrobot.com/n.zhukov/omegabank
+https://github.com/RedMadRobot/omega-bank-ios
 ```
 ### Backend endpoint:
 ```
@@ -10,7 +10,7 @@ https://omegabank.mock-object.redmadserver.com/api/v1/
 ```
 ### Backend repository:
 ```
-https://git.redmadrobot.com/a.glezman/omegabank-mock
+https://github.com/RedMadRobot/omega-bank-mock
 ```
 ## Схемы проекта:
 ```
