@@ -104,7 +104,7 @@ Savings
 * `View Model` - это не модель, которую нам представляет APIClient или локальная база(Core Data, Realm), а подготовленный отдельный объект, который необходим для отображения
 * `View Controller` - содержит `UIViewController` swift и xib-файлы.
 
-`Model` - модель безнес логики, необходимая для функционирования экрана. Находится в каталоге `OmegaBank.Sources.Models` [вне](./structure.md#структура_на_примере_omegabank) каталога экрана.
+`Model` - модель бизнес логики, необходимая для функционирования экрана. Находится в каталоге `OmegaBank.Sources.Models` [вне](./structure.md#структура_на_примере_omegabank) каталога экрана.
 
 ## Container Controller
 
