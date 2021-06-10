@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private lazy var appViewController = AppViewController()
+//    private lazy var appViewController = AppViewController()
+    private lazy var appViewController = PinCodeCreateViewController()
 
     func application(
         _ application: UIApplication,

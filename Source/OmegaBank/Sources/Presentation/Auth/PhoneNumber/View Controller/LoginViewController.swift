@@ -23,7 +23,7 @@ final class LoginViewController: UIViewController {
 
     weak var delegate: LoginViewControllerDelegate?
     
-    /// Внутренние контсанты.
+    /// Внутренние константы.
     private enum Constants {
         static let transitionTime: Double = 0.5
     }
@@ -189,6 +189,7 @@ final class LoginViewController: UIViewController {
         delegate?.loginViewControllerDidAuth(self)
     }
     
+    // or
     /// Отображаем ошибку.
     private func showErrorMessage(_ message: String) {
         let alert = UIAlertController(

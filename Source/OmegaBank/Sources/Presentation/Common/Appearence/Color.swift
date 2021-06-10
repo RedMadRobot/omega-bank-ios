@@ -29,6 +29,9 @@ extension UIColor {
     static var ph2: UIColor { UIColor(named: #function)! }
     static var ph3: UIColor { UIColor(named: #function)! }
     
+    // MARK: - View Colors
+    static var cellBorder: UIColor { UIColor(named: #function)! }
+    
     // MARK: - Backgound Colors
     
     static var backgroundPrimaryPressed: UIColor { UIColor(named: #function)! }

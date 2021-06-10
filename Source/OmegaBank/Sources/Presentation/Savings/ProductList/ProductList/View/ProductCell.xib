@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +31,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Kma-l9-cf2" secondAttribute="trailing" constant="5" id="68g-7C-YXO"/>
                                 <constraint firstAttribute="width" secondItem="aP5-yd-Qas" secondAttribute="height" id="74S-AR-NLm"/>
@@ -46,14 +47,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="401" height="25.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bank account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEb-Ie-MDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="111.5" height="25.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="111" height="25.5"/>
                                             <accessibility key="accessibilityConfiguration" identifier="type"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$30,255" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqu-HZ-9qb">
-                                            <rect key="frame" x="114.5" y="0.0" width="286.5" height="25.5"/>
+                                            <rect key="frame" x="114" y="0.0" width="287" height="25.5"/>
                                             <accessibility key="accessibilityConfiguration" identifier="value"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" name="bar1"/>
@@ -73,6 +74,7 @@
                     </subviews>
                 </stackView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="OCM-b1-kl5"/>
             <color key="backgroundColor" name="defaultBackground"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" button="YES"/>
@@ -86,7 +88,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
-            <viewLayoutGuide key="safeArea" id="OCM-b1-kl5"/>
             <connections>
                 <outlet property="numberLabel" destination="sIr-mM-Bhp" id="Vda-2U-P5V"/>
                 <outlet property="typeImageView" destination="Kma-l9-cf2" id="npS-6T-ITO"/>
@@ -99,13 +100,16 @@
     <resources>
         <image name="credit_card" width="512" height="512"/>
         <namedColor name="bar1">
-            <color red="0.20800000429153442" green="0.15399999916553497" blue="0.68400001525878906" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.20800000429153442" green="0.15299999713897705" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="defaultBackground">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="ph3">
-            <color red="0.64399999380111694" green="0.63599997758865356" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.64300000667572021" green="0.63499999046325684" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
