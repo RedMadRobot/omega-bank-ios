@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PinCodeCreateViewController: PinCodeViewController {
+final class PinCodeCreateViewController: PinCodeController {
     
     // MARK: - Types
     

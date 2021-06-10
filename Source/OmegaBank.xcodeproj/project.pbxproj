@@ -15,8 +15,9 @@
 		5CB8E42A266F927C00A689D5 /* PinCodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
 		5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */; };
+		5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */; };
 		5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */; };
-		5CF23317266F878100B99879 /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23316266F878100B99879 /* PinCodeViewController.swift */; };
+		5CF23317266F878100B99879 /* PinCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23316266F878100B99879 /* PinCodeController.swift */; };
 		5CF23319266F888800B99879 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23318266F888800B99879 /* PinCodeView.swift */; };
 		5CF23321266F8BC800B99879 /* PinCodeKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF23320266F8BC800B99879 /* PinCodeKeyboardView.xib */; };
 		5CF23323266F8BE800B99879 /* PinCodeIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF23322266F8BE800B99879 /* PinCodeIndicatorView.xib */; };
@@ -258,8 +259,9 @@
 		5CB8E429266F927C00A689D5 /* PinCodeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
 		5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeIndicatorView.swift; sourceTree = "<group>"; };
+		5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeEntryViewController.swift; sourceTree = "<group>"; };
 		5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCreateViewController.swift; sourceTree = "<group>"; };
-		5CF23316266F878100B99879 /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
+		5CF23316266F878100B99879 /* PinCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeController.swift; sourceTree = "<group>"; };
 		5CF23318266F888800B99879 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
 		5CF23320266F8BC800B99879 /* PinCodeKeyboardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeKeyboardView.xib; sourceTree = "<group>"; };
 		5CF23322266F8BE800B99879 /* PinCodeIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeIndicatorView.xib; sourceTree = "<group>"; };
@@ -563,8 +565,9 @@
 		5CF2331C266F898600B99879 /* View Contorller */ = {
 			isa = PBXGroup;
 			children = (
-				5CF23316266F878100B99879 /* PinCodeViewController.swift */,
+				5CF23316266F878100B99879 /* PinCodeController.swift */,
 				5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */,
+				5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */,
 			);
 			path = "View Contorller";
 			sourceTree = "<group>";
@@ -2103,6 +2106,7 @@
 				7757BC492404E5D50063ACBD /* Font.swift in Sources */,
 				95B34CC3247D485A008080DD /* DepositTypeView.swift in Sources */,
 				951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */,
+				5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */,
 				953A2EE824961ECB00A9B6DE /* PartnerListContainerViewController.swift in Sources */,
 				9599A4DF2428D341000411EC /* CAGradientLayer.swift in Sources */,
 				7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */,
@@ -2138,7 +2142,7 @@
 				958BD2D9243223CB00543642 /* ViewControllerTranstionAnimator.swift in Sources */,
 				955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */,
 				777426BF24052364008E5810 /* UITableView+Nib.swift in Sources */,
-				5CF23317266F878100B99879 /* PinCodeViewController.swift in Sources */,
+				5CF23317266F878100B99879 /* PinCodeController.swift in Sources */,
 				5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */,
 				5CF23319266F888800B99879 /* PinCodeView.swift in Sources */,
 				95D8F86124853EC0005B1934 /* ErrorViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PinCodeViewController: UIViewController {
+class PinCodeController: UIViewController {
     
     // MARK: - Public Properties
     
@@ -117,7 +117,7 @@ class PinCodeViewController: UIViewController {
     
 }
 
-extension PinCodeViewController: PinCodeKeyBoardViewDelegate {
+extension PinCodeController: PinCodeKeyBoardViewDelegate {
     @objc func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String) {
         updatePinCode(number: number)
         updateRightButton()
