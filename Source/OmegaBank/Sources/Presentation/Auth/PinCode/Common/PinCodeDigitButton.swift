@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class PinCodeDigitButton: PinCodeButton {
+final class PinCodeDigitButton: PinCodeBaseButton {
     
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? UIColor.bar2 : UIColor.white
+            backgroundColor = isHighlighted ? .bar2 : .white
         }
     }
     
@@ -30,7 +30,7 @@ final class PinCodeDigitButton: PinCodeButton {
         layer.cornerRadius = 36
         backgroundColor = .white
         
-        setTitleColor(UIColor.ph3, for: .normal)
+        setTitleColor(.ph3, for: .normal)
     }
     
 }

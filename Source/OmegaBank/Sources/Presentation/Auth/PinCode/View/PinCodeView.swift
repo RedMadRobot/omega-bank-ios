@@ -27,15 +27,15 @@ final class PinCodeView: UIView {
         }
     }
     
-    var isHiddenAvatarImage: Bool = true {
+    var isAvatarImageHidden: Bool = true {
         didSet {
-            imageView.isHidden = isHiddenAvatarImage
+            imageView.isHidden = isAvatarImageHidden
         }
     }
     
-    var isHiddenExitButton: Bool = true {
+    var isExitButtonHidden: Bool = true {
         didSet {
-            if isHiddenExitButton {
+            if isExitButtonHidden {
                 keyboardView.setLeftButton(name: nil)
             } else {
                 keyboardView.setLeftButton(name: "Выход")
@@ -52,7 +52,7 @@ final class PinCodeView: UIView {
             }
         }
     }
-
+    
     var isEnableKeyboard: Bool = true {
         didSet {
             keyboardView.isEnabled = isEnableKeyboard
@@ -86,14 +86,14 @@ final class PinCodeView: UIView {
     }()
     private let titleLabel: UILabel = {
         var label = UILabel()
-        label.textColor = UIColor.ph3
+        label.textColor = .ph3
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.medium)
         label.textAlignment = .center
         return label
     }()
     private let errorLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.isHidden = true
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -104,10 +104,10 @@ final class PinCodeView: UIView {
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage.background
-        image.frame.size = CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 3))
+        image.frame.size = CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height / 3))
         return image
     }()
-
+    
     private let topGuide = UILayoutGuide()
     private let bottomGuide = UILayoutGuide()
     
@@ -170,7 +170,9 @@ final class PinCodeView: UIView {
         
         NSLayoutConstraint.activate([
             backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor)
+            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     

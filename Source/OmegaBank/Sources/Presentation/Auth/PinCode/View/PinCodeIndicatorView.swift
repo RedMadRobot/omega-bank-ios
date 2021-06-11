@@ -22,7 +22,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     var value: Int = 0 {
         didSet {
             for (index, view) in indicatorViews.enumerated() {
-                view.backgroundColor = index < value ? UIColor.bar2 : UIColor.cellBorder
+                view.backgroundColor = index < value ? .bar2 : .cellBorder
             }
         }
     }
@@ -33,7 +33,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     
     // MARK: - Public methods
     
-    func showError() { indicatorViews.forEach { $0.backgroundColor = UIColor.red } }
+    func showError() { indicatorViews.forEach { $0.backgroundColor = .red } }
     
     func clear(with animation: ClearAnimation, completion: (() -> Void)?) {
         switch animation {
@@ -46,7 +46,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     
     // MARK: - Private methods
     
-    private func clear() { indicatorViews.forEach { $0.backgroundColor = UIColor.cellBorder } }
+    private func clear() { indicatorViews.forEach { $0.backgroundColor = .cellBorder } }
     
     private func clear(completion: (() -> Void)?) {
         let width = frame.width

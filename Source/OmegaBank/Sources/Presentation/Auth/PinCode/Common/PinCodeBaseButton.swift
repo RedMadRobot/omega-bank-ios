@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PinCodeButton: UIButton {
+/// Базовая кнопка для пин-код клавиатуры
+class PinCodeBaseButton: UIButton {
     override var intrinsicContentSize: CGSize {
         CGSize(width: 72, height: 72)
     }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PinCodeController: UIViewController {
+/// Базовый ViewController для ввода пин-кода
+class PinCodeBaseViewController: UIViewController {
     
     // MARK: - Public Properties
     
@@ -22,15 +23,15 @@ class PinCodeController: UIViewController {
         }
     }
     
-    var isHiddenExitButton: Bool = false {
+    var isExitButtonHidden: Bool = false {
         didSet {
-            pinView.isHiddenExitButton = isHiddenExitButton
+            pinView.isExitButtonHidden = isExitButtonHidden
         }
     }
     
     var isHiddenAvatarImage: Bool = false {
         didSet {
-            pinView.isHiddenAvatarImage = isHiddenAvatarImage
+            pinView.isAvatarImageHidden = isHiddenAvatarImage
         }
     }
     
@@ -38,15 +39,17 @@ class PinCodeController: UIViewController {
         pinCode.count == 4
     }
     
-    var isEnabledKeyboard: Bool = true {
+    var isKeyboardEnabled: Bool = true {
         didSet {
-            pinView.isEnableKeyboard = isEnabledKeyboard
+            pinView.isEnableKeyboard = isKeyboardEnabled
         }
     }
     
     // MARK: - Private Properties
     
     private let pinView = PinCodeView()
+    
+    // MARK: - View Controller
     
     override func loadView() {
         view = pinView
@@ -95,7 +98,7 @@ class PinCodeController: UIViewController {
     
     func verifyPinCode(completion: @escaping () -> Void) {
         guard isPinCodeCompleted else { return }
-        isEnabledKeyboard = false
+        isKeyboardEnabled = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             guard self != nil else { return }
@@ -103,7 +106,7 @@ class PinCodeController: UIViewController {
         }
     }
     
-    func removeLastNumber() {
+    func removeLastDigit() {
         if !pinCode.isEmpty {
             pinCode.removeLast()
             pinView.indicatorValue -= 1
@@ -117,7 +120,7 @@ class PinCodeController: UIViewController {
     
 }
 
-extension PinCodeController: PinCodeKeyBoardViewDelegate {
+extension PinCodeBaseViewController: PinCodeKeyBoardViewDelegate {
     @objc func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String) {
         updatePinCode(number: number)
         updateRightButton()
@@ -126,7 +129,7 @@ extension PinCodeController: PinCodeKeyBoardViewDelegate {
     @objc func pinCodeKeyboardViewDidSelectLeftButton(_ keyboard: PinCodeKeyboardView) {}
     
     @objc func pinCodeKeyboardViewDidSelectRightButton(_ keyboard: PinCodeKeyboardView) {
-        removeLastNumber()
+        removeLastDigit()
         updateRightButton()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PinCodeCreateViewController: PinCodeController {
+final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     // MARK: - Types
     
@@ -45,7 +45,7 @@ final class PinCodeCreateViewController: PinCodeController {
             titleText = "Повторите \nваш пин-код"
             clearInput(with: .push)
         case .confirm(let pinCode) where newPinCode == pinCode:
-            isEnabledKeyboard = true
+            isKeyboardEnabled = true
             updateRightButton()
 //            savePinCode()
         case .confirm:

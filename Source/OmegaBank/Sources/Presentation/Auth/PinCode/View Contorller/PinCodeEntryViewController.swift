@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PinCodeEntryViewController: PinCodeController {
+final class PinCodeEntryViewController: PinCodeBaseViewController {
     
     // MARK: - Public properties
     
@@ -20,7 +20,7 @@ final class PinCodeEntryViewController: PinCodeController {
     
     // MARK: - Private properties
     
-    private var wrongInputAttempts = 3
+    private var maxInputAttempts = 3
     
     // MARK: - VC
     
@@ -71,7 +71,7 @@ final class PinCodeEntryViewController: PinCodeController {
         super.pinCodeKeyboardViewDidSelectRightButton(keyboard)
         
         if !pinCode.isEmpty {
-            removeLastNumber()
+            removeLastDigit()
             updateRightButton()
         } else {
             entryBiometry()

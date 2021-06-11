@@ -41,7 +41,7 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
         if image != nil {
             rightButton.isEnabled = true
             rightButton.setImage(image, for: .normal)
-            rightButton.tintColor = UIColor.ph3
+            rightButton.tintColor = .ph3
         } else {
             rightButton.isEnabled = false
             rightButton.setImage(nil, for: .normal)
