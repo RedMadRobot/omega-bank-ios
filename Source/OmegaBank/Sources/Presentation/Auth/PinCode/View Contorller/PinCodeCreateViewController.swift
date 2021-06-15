@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PinCodeCreateViewControllerDelegate: AnyObject {
+    func pinCodeCreateViewControllerDidMake(_ controller: PinCodeCreateViewController)
+}
+
 final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     // MARK: - Types
@@ -19,7 +23,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     // MARK: - Public Properties
     
-    var pinCodeCreated: (() -> Void)?
+    weak var delegate: PinCodeCreateViewControllerDelegate?
     
     // MARK: - Private Properties
     
@@ -31,6 +35,8 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Sign In"
         
         titleText = "Придумайте пин-код для быстрого входа"
         isHiddenAvatarImage = true
@@ -47,7 +53,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         case .confirm(let pinCode) where newPinCode == pinCode:
             isKeyboardEnabled = true
             updateRightButton()
-//            savePinCode()
+            savePinCode()
         case .confirm:
             state = .create
             titleText = "Придумайте пин-код для быстрого входа"
@@ -63,6 +69,10 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         state = .create
     }
     
+    private func savePinCode() {
+        delegate?.pinCodeCreateViewControllerDidMake(self)
+    }
+    
     // Метод сохранения пин-кода
     private func save() {
         
@@ -73,8 +83,8 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         
     }
     
-    @objc override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String) {
-        super.pinCodeKeyboardView(keyboard, didSelect: number)
+    @objc override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String) {
+        super.pinCodeKeyboardView(keyboard, didSelect: digit)
         
         verifyPinCode { [weak self] in
             guard let self = self else { return }

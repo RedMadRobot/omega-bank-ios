@@ -1,5 +1,5 @@
 //
-//  ViewControllerTranstionAnimator.swift
+//  ViewControllerTransitionAnimator.swift
 //  OmegaBank
 //
 //  Created by Nikolay Zhukov on 3/30/20.
@@ -9,12 +9,12 @@
 import UIKit
 
 /// Базовый аниматор переходов между `UIViewController`.
-class ViewControllerTranstionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class ViewControllerTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     /// Продолжительность анимации.
     private let duration: TimeInterval
 
-    /// Создать новго аниматора переходов.
+    /// Создать нового аниматора переходов.
     ///
     /// - Parameter duration: Продолжительность анимации.
     init(duration: TimeInterval) {

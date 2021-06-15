@@ -10,7 +10,7 @@ import UIKit
 
 protocol PinCodeKeyBoardViewDelegate: AnyObject {
     
-    func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String)
+    func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String)
     
     func pinCodeKeyboardViewDidSelectLeftButton(_ keyboard: PinCodeKeyboardView)
     
@@ -32,8 +32,8 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
     
     // MARK: - IBOutlet
     
-    @IBOutlet var leftButton: UIButton!
-    @IBOutlet var rightButton: UIButton!
+    @IBOutlet private var leftButton: UIButton!
+    @IBOutlet private var rightButton: UIButton!
     
     // MARK: - Public methods
     
@@ -60,9 +60,9 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
     
     // MARK: - IBAction
     
-    @IBAction private func numberButtonPressed(_ sender: UIButton) {
-        guard let number = sender.titleLabel?.text else { return }
-        delegate?.pinCodeKeyboardView(self, didSelect: number)
+    @IBAction private func digitButtonPressed(_ sender: UIButton) {
+        guard let digit = sender.titleLabel?.text else { return }
+        delegate?.pinCodeKeyboardView(self, didSelect: digit)
     }
     
     @IBAction private func leftButtonPressed() {

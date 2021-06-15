@@ -15,7 +15,7 @@
         <view contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="PinCodeIndicatorView" customModule="OmegaBank" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-qh-c86">
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-qh-c86">
                     <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44d-h3-7gP">
@@ -77,6 +77,8 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="width" constant="112" id="OR4-qW-mrE"/>
+                <constraint firstItem="Lro-qh-c86" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xA7-yH-nib"/>
+                <constraint firstItem="Lro-qh-c86" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xtc-fY-yH4"/>
                 <constraint firstAttribute="height" constant="16" id="yCv-RP-RrQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -149,7 +149,7 @@
 		958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */; };
 		958BD2D42432005900543642 /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D32432005900543642 /* LayoutGuide.swift */; };
 		958BD2D72432239400543642 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D62432239400543642 /* FadeTransition.swift */; };
-		958BD2D9243223CB00543642 /* ViewControllerTranstionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D8243223CB00543642 /* ViewControllerTranstionAnimator.swift */; };
+		958BD2D9243223CB00543642 /* ViewControllerTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BD2D8243223CB00543642 /* ViewControllerTransitionAnimator.swift */; };
 		958D83A1244DF54000F75E31 /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D83A0244DF54000F75E31 /* Timeout.swift */; };
 		958F146A247D1D4D0052F9EF /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F1469247D1D4D0052F9EF /* Button.swift */; };
 		958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958F146B247D1D9E0052F9EF /* SubmitButton.swift */; };
@@ -399,7 +399,7 @@
 		958BD2CD2431FCC600543642 /* PartnerLimitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerLimitCollectionViewController.swift; sourceTree = "<group>"; };
 		958BD2D32432005900543642 /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		958BD2D62432239400543642 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		958BD2D8243223CB00543642 /* ViewControllerTranstionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTranstionAnimator.swift; sourceTree = "<group>"; };
+		958BD2D8243223CB00543642 /* ViewControllerTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTransitionAnimator.swift; sourceTree = "<group>"; };
 		958D83A0244DF54000F75E31 /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
 		958F1469247D1D4D0052F9EF /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		958F146B247D1D9E0052F9EF /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
@@ -1274,7 +1274,7 @@
 			isa = PBXGroup;
 			children = (
 				958BD2D62432239400543642 /* FadeTransition.swift */,
-				958BD2D8243223CB00543642 /* ViewControllerTranstionAnimator.swift */,
+				958BD2D8243223CB00543642 /* ViewControllerTransitionAnimator.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -2147,7 +2147,7 @@
 				77AAE4362417B5CB0012A9D9 /* PageViewController.swift in Sources */,
 				953B144124507BCE00D609B0 /* HotActionView.swift in Sources */,
 				77C8B0FD2418D29D00B2EB3D /* PartnetListService.swift in Sources */,
-				958BD2D9243223CB00543642 /* ViewControllerTranstionAnimator.swift in Sources */,
+				958BD2D9243223CB00543642 /* ViewControllerTransitionAnimator.swift in Sources */,
 				955169B8243C78360072F8AB /* ProductListViewController.swift in Sources */,
 				777426BF24052364008E5810 /* UITableView+Nib.swift in Sources */,
 				5CF23317266F878100B99879 /* PinCodeBaseViewController.swift in Sources */,

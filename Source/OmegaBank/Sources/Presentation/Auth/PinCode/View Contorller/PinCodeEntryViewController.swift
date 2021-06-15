@@ -52,8 +52,8 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
     }
     
     // Ввод пин-кода
-    override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String) {
-        super.pinCodeKeyboardView(keyboard, didSelect: number)
+    override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String) {
+        super.pinCodeKeyboardView(keyboard, didSelect: digit)
         
         verifyPinCode { [weak self] in
             self?.authoriseByPinCode()

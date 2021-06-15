@@ -48,6 +48,8 @@ final class AppViewController: UITabBarController {
     }
 
     private func showLogin(animated: Bool = true) {
+        tabBar.isHidden = true
+        
         let controller = LoginViewController(loginService: loginService)
         let nc = NavigationController(rootViewController: controller)
         controller.delegate = self
@@ -55,7 +57,11 @@ final class AppViewController: UITabBarController {
         show([nc], animated: animated)
     }
 
-    private func showMain(animated: Bool = true) {        
+    private func showMain(animated: Bool = true) {
+        if tabBar.isHidden {
+            tabBar.isHidden = false
+        }
+        
         let productList = MainProductListContainerViewController.make(delegate: self)
         let partnerList = PartnerListContainerViewController.make(delegate: self)
 
@@ -65,6 +71,16 @@ final class AppViewController: UITabBarController {
         ]
 
         show(tabBarViewControllers, animated: animated)
+    }
+    
+    private func showCreatePinCode() {
+        tabBar.isHidden = true
+        
+        let controller = PinCodeCreateViewController()
+        let nc = NavigationController(rootViewController: controller)
+        controller.delegate = self
+        
+        show([nc], animated: true)
     }
 
     private func showContent(animated: Bool = true) {
@@ -81,6 +97,14 @@ final class AppViewController: UITabBarController {
 extension AppViewController: LoginViewControllerDelegate {
 
     func loginViewControllerDidAuth(_ controller: LoginViewController) {
+        showCreatePinCode()
+    }
+}
+
+// MARK: - PinCodeCreateViewControllerDelegate
+extension AppViewController: PinCodeCreateViewControllerDelegate {
+    
+    func pinCodeCreateViewControllerDidMake(_ controller: PinCodeCreateViewController) {
         showMain(animated: true)
     }
 }
@@ -103,7 +127,7 @@ extension AppViewController: UITabBarControllerDelegate {
         animationControllerForTransitionFrom fromVC: UIViewController,
         to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-        FadeTranstion.makeAnimator()
+        FadeTransition.makeAnimator()
     }
 
 }

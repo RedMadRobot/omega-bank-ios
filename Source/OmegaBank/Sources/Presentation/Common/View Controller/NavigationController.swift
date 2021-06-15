@@ -29,7 +29,7 @@ final class NavigationController: UINavigationController {
         .lightContent
     }
     
-    private let transition = FadeTranstion()
+    private let transition = FadeTransition()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -113,16 +113,16 @@ class PinCodeBaseViewController: UIViewController {
         }
     }
     
-    func updatePinCode(number: String) {
-        pinCode.append(number)
+    func updatePinCode(digit: String) {
+        pinCode.append(digit)
         pinView.indicatorValue = pinCode.count
     }
     
 }
 
 extension PinCodeBaseViewController: PinCodeKeyBoardViewDelegate {
-    @objc func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect number: String) {
-        updatePinCode(number: number)
+    @objc func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String) {
+        updatePinCode(digit: digit)
         updateRightButton()
     }
     

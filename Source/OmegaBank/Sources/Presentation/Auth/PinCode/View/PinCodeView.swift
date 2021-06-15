@@ -103,8 +103,8 @@ final class PinCodeView: UIView {
     }()
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFit
         image.image = UIImage.background
-        image.frame.size = CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height / 3))
         return image
     }()
     
@@ -169,10 +169,10 @@ final class PinCodeView: UIView {
         addSubview(backgroundImage)
         
         NSLayoutConstraint.activate([
-            backgroundImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor)
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.widthAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 375 / 228)
         ])
     }
     
