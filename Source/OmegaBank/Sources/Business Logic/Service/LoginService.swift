@@ -5,17 +5,26 @@
 //  Created by Nikolai Zhukov on 17.02.2020.
 //
 
-import Foundation
+import LocalAuthentication
 import OmegaBankAPI
 
 typealias AuthCompletionHandler = (Error?) -> Void
 
 /// Сервис авторизации.
 protocol LoginService {
-
+    
     /// Авторизован ли пользователь.
     var isAuthorized: Bool { get }
-
+    
+    /// Отображался ли системный алерт биометрии
+    var hasBiometricPermission: Bool { get }
+    
+    /// Есть ли вход по биометрии
+    var hasBiometricEntry: Bool { get }
+    
+    /// Типы биометрии на устройстве
+    var biometricType: LABiometryType { get }
+    
     /// Обновить статус авторизации и параметры подключения.
     func restore()
     
@@ -24,43 +33,98 @@ protocol LoginService {
     
     /// Проверка sms кода, получение access_token и refresh_token.
     func checkSmsCode(smsCode: String, completionHandler: @escaping AuthCompletionHandler) -> Progress
-
+    
+    /// Сохранение токена
+    func setToken(by pinCode: String) throws 
+    
+    /// Сохранение токена по биометрии
+    func setTokenWithBiometry(by pinCode: String) throws
+    
+    /// Вход по пин-коду
+    func authorise(by pinCode: String) throws
+    
+    /// Вход по биометрии
+    func authoriseWithBiometry(completion: @escaping () -> Void) throws
+    
+    /// Вызов метода биометрии evaluateAccessControl
+    func evaluateBiometry(reason: String, completion: @escaping (Swift.Result<LAContext, Error>) -> Void)
+    
+    /// Запись флага на отображение системного алерта
+    func set(biometricSystemPermission: Bool) throws
+    
+    /// Деавторизация
+    func logOut()
 }
 
 /// Сервис авторизации.
 final class AuthService {
-
+    
+    // MARK: - Public Properties
+    
+    var tokenInvalidHandler: (() -> Void)?
+    
+    // MARK: - Private Properties
+    
+    private let biometricService: BiometricService
+    
     private var apiClient: ApiClient
     private let accessTokenStorage: AccessTokenStorage
     private let baseURL: () -> URL
-
-    var tokenInvalidHandler: (() -> Void)?
     
-    init(apiClient: ApiClient, accessTokenStorage: AccessTokenStorage, baseURL: @escaping () -> URL) {
-
+    private var token: String?
+    
+    init(
+        biometricService: BiometricService,
+        apiClient: ApiClient,
+        accessTokenStorage: AccessTokenStorage,
+        baseURL: @escaping () -> URL) {
+        
+        self.biometricService = biometricService
+        
         self.apiClient = apiClient
         self.accessTokenStorage = accessTokenStorage
-        self.apiClient.accessToken = accessTokenStorage.accessToken
         self.baseURL = baseURL
-
+        
         self.apiClient.tokenInvalidHandler = { [weak self] in
-            try? self?.setToken(nil)
+            self?.logOut()
             self?.tokenInvalidHandler?()
         }
     }
-
+    
     // MARK: - Private
 
-    private func setToken(_ token: String?) throws {
-        try accessTokenStorage.setAccessToken(token)
-        apiClient.accessToken = token
+    /// Передача token доступа в Api сервис после создания пин-кода/ входа по пин-коду
+    private func refreshApiToken() {
+        self.apiClient.accessToken = token
     }
 }
 
 // MARK: - LoginService
 
 extension AuthService: LoginService {
-
+    
+    /// Авторизован ли пользователь.
+    var isAuthorized: Bool {
+        accessTokenStorage.hasUserPinCode
+    }
+    
+    /// Отображался ли системный алерт биометрии
+    var hasBiometricPermission: Bool {
+        guard biometricService.biometricState == .available else {
+            return false }
+        return accessTokenStorage.hasBiometricSystemMessage
+    }
+    
+    // Есть ли вход по биометрии
+    var hasBiometricEntry: Bool {
+        accessTokenStorage.hasUserBiometricEntry
+    }
+    
+    /// Тип биометрии на ус-ве
+    var biometricType: LABiometryType {
+        biometricService.checkBiometricType()
+    }
+    
     /// Регистрация пользователя по номеру телефона.
     @discardableResult
     func sendPhoneNumber(phone: String, completionHandler: @escaping AuthCompletionHandler) -> Progress {
@@ -82,21 +146,79 @@ extension AuthService: LoginService {
         let endpoint = CheckSmsCodeEndpoint(smsCode: smsCode)
         
         return apiClient.request(endpoint) { [weak self] result in
+            guard let self = self else { return }
+            
             do {
                 let token = try result.get().accessToken
-                try self?.setToken(token)
+                self.token = token
                 completionHandler(nil)
             } catch {
                 completionHandler(error)
             }
         }
     }
-
-    /// Авторизован ли пользователь.
-    var isAuthorized: Bool {
-        accessTokenStorage.accessToken != nil
+    
+    /// Сохранение токена по пин-коду и добавление его в ApiClient
+    func setToken(by pinCode: String) throws {
+        do {
+            if let token = token {
+                try accessTokenStorage.set(token: token, by: pinCode)
+                refreshApiToken()
+            }
+        } catch {
+            throw error
+        }
     }
-
+    
+    /// Сохранение токена и пин-кода для биометрии
+    func setTokenWithBiometry(by pinCode: String) throws {
+        try setToken(by: pinCode)
+        try accessTokenStorage.set(pinCode: pinCode)
+    }
+    
+    /// Авторизация по пин-коду
+    func authorise(by pinCode: String) throws {
+        token = try accessTokenStorage.getToken(pinCode)
+        refreshApiToken()
+    }
+    
+    /// Авторизация по биометрии
+    func authoriseWithBiometry(completion: @escaping () -> Void) throws {
+        biometricService.evaluateContextWithBiometryAccess(
+            reason: "Предоставить доступ к биометрии"
+        ) { [weak self] result in
+            guard let self = self else { return }
+            
+            try? self.set(biometricSystemPermission: true)
+            
+            switch result {
+            case .success(let context):
+                if let pinCode = try self.accessTokenStorage.getPinCode(withBiometry: context) {
+                    try self.authorise(by: pinCode)
+                    completion()
+                }
+                
+            case .failure(let error):
+                throw error
+            }
+        }
+    }
+    
+    /// Запуск метода биометрии evaluateAccessControl
+    func evaluateBiometry(reason: String, completion: @escaping (Swift.Result<LAContext, Error>) -> Void) {
+        biometricService.evaluateContextWithBiometryAccess(reason: reason, completion: completion)
+    }
+    
+    /// Запись флага на отображение системного алерта
+    func set(biometricSystemPermission flag: Bool) throws {
+        try accessTokenStorage.set(biometricSystemPermission: flag)
+    }
+    
+    /// Деавторизация
+    func logOut() {
+        accessTokenStorage.cleanStorage()
+    }
+    
     /// Обновить статус авторизации и параметры подключения.
     func restore() {
         apiClient.accessToken = accessTokenStorage.accessToken

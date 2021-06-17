@@ -53,9 +53,13 @@ final class ServiceLayer {
     
     /// Сервис авторизации.
     private(set) lazy var loginService = AuthService(
+        biometricService: biometricService,
         apiClient: apiClient,
         accessTokenStorage: keychainStorage,
         baseURL: baseURL.fetch)
+    
+    /// Сервис биометрии
+    private(set) lazy var biometricService = BiometricServiceImpl()
 
     /// Сервис партнеров
     private(set) lazy var partnerListService = PartnerListServiceImpl(apiClient: apiClient)
