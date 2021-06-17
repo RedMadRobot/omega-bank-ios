@@ -29,14 +29,25 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     private var state = State.create
     
+    private var loginService: LoginService
+    
     // MARK: - Init
+    init(loginService: LoginService) {
+        self.loginService = loginService
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - VC
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Sign In"
+        title = "Sign Up"
         
         titleText = "Придумайте пин-код для быстрого входа"
         isHiddenAvatarImage = true
@@ -53,7 +64,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         case .confirm(let pinCode) where newPinCode == pinCode:
             isKeyboardEnabled = true
             updateRightButton()
-            savePinCode()
+            save()
         case .confirm:
             state = .create
             titleText = "Придумайте пин-код для быстрого входа"
@@ -62,25 +73,57 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         }
     }
     
-    // Сброс состояния создания пин-кода
+    /// Сброс состояния создания пин-кода
     private func resetState() {
         titleText = "Придумайте пин-код для быстрого входа"
         showError(message: "Произошла ошибка")
         state = .create
     }
     
-    private func savePinCode() {
-        delegate?.pinCodeCreateViewControllerDidMake(self)
-    }
-    
-    // Метод сохранения пин-кода
+    /// Сохранение токена по пин-коду
     private func save() {
-        
+        do {
+            try saveToken(by: pinCode)
+        } catch {
+            resetState()
+        }
     }
     
-    // Метод сохранения биометрии
-    private func saveWithBiometry() {
-        
+    /// Сохранение пин-кода с предложением использовать биометрию
+    private func saveToken(by pinCode: String) throws {
+        switch loginService.hasBiometricPermission {
+        case false:
+            try? saveTokenWithBiometry(by: pinCode)
+        case true:
+            showAuthenticationAlert { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case true:
+                    try? self.saveTokenWithBiometry(by: pinCode)
+                case false:
+                    try? self.loginService.setToken(by: pinCode)
+                    self.delegate?.pinCodeCreateViewControllerDidMake(self)
+                }
+            }
+        }
+    }
+    
+    /// Сохранение пин-кода через биометрию
+    private func saveTokenWithBiometry(by pinCode: String) throws {
+        loginService.evaluateBiometry(reason: "Предоставить доступ к биометрии?") { [weak self] result in
+            guard let self = self else { return }
+            
+            try? self.loginService.set(biometricSystemPermission: true)
+            
+            switch result {
+            case .success:
+                try? self.loginService.setTokenWithBiometry(by: pinCode)
+            case .failure:
+                try? self.loginService.setToken(by: pinCode)
+            }
+            self.delegate?.pinCodeCreateViewControllerDidMake(self)
+        }
     }
     
     @objc override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String) {
