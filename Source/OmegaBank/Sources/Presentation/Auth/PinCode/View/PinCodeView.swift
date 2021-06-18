@@ -9,15 +9,58 @@
 import UIKit
 
 // MARK: - Types
-// Состояния правой кнопки
+
+/// Состояния правой кнопки
 enum RightButtonItem {
     case delete
     case nothing
     case touchID
     case faceID
+    
+    var image: UIImage? {
+        switch self {
+        
+        case .delete:
+            return .backspace
+        case .nothing:
+            return nil
+        case .touchID:
+            return .touchid
+        case .faceID:
+            return .faceid
+        }
+    }
 }
 
 final class PinCodeView: UIView {
+    
+    // MARK: - Private Types
+    
+    enum Constants {
+        static let imageCornerRadius: CGFloat = 36
+        
+        static let pinViewShadowRadius: CGFloat = 10
+        static let pinViewShadowOpacity: Float = 0.2
+        
+        static let textNumberLines = 2
+        
+        static let backgroundImageHeight: CGFloat = 228
+        static let backgroundImageWeight: CGFloat = 375
+        
+        static let backgroundImageMultiplier = backgroundImageWeight / backgroundImageHeight
+        
+        static let keyboardBottomConstraint: CGFloat = -51
+        
+        static let viewLeadingConstraint: CGFloat = 24
+        static let viewTrailingConstraint: CGFloat = -24
+        
+        static let customSpacingAfterImageView: CGFloat = 15
+        static let customSpacingAfterTitleLabel: CGFloat = 25
+        
+        static let errorBottomConstraint: CGFloat = 16
+        
+        static let stackViewSpacing: CGFloat = 0
+    }
     
     // MARK: - Public Properties
     
@@ -35,11 +78,8 @@ final class PinCodeView: UIView {
     
     var isExitButtonHidden: Bool = true {
         didSet {
-            if isExitButtonHidden {
-                keyboardView.setLeftButton(name: nil)
-            } else {
-                keyboardView.setLeftButton(name: "Выход")
-            }
+            let name = isExitButtonHidden ? nil : "Выход"
+            keyboardView.setLeftButton(name: name)
         }
     }
     
@@ -55,7 +95,7 @@ final class PinCodeView: UIView {
     
     var isEnableKeyboard: Bool = true {
         didSet {
-            keyboardView.isEnabled = isEnableKeyboard
+            keyboardView.isUserInteractionEnabled = isEnableKeyboard
         }
     }
     
@@ -74,31 +114,30 @@ final class PinCodeView: UIView {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 0
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     private let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage.defaultUser
-        image.layer.cornerRadius = 36
-        image.frame.size = CGSize(width: 72, height: 72)
+        image.image = .defaultUser
+        image.layer.cornerRadius = Constants.imageCornerRadius
         return image
     }()
     private let titleLabel: UILabel = {
         var label = UILabel()
         label.textColor = .ph3
-        label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.medium)
+        label.numberOfLines = Constants.textNumberLines
+        label.font = .authTitle
         label.textAlignment = .center
         return label
     }()
     private let errorLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
-        label.numberOfLines = 2
+        label.numberOfLines = Constants.textNumberLines
         label.textAlignment = .center
         label.textColor = .red
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.font = .authError
         return label
     }()
     private let backgroundImage: UIImageView = {
@@ -126,16 +165,7 @@ final class PinCodeView: UIView {
     // MARK: - Public methods
     
     func setRightButton(rightButtonItem: RightButtonItem) {
-        switch rightButtonItem {
-        case .delete:
-            keyboardView.setRightButton(image: UIImage.backspace)
-        case .nothing:
-            keyboardView.setRightButton(image: nil)
-        case .touchID:
-            keyboardView.setRightButton(image: UIImage.touchid)
-        case .faceID:
-            keyboardView.setRightButton(image: UIImage.faceid)
-        }
+        keyboardView.setRightButton(image: rightButtonItem.image)
     }
     
     func showError(errorMessage: String) {
@@ -172,7 +202,9 @@ final class PinCodeView: UIView {
             backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundImage.widthAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 375 / 228)
+            backgroundImage.widthAnchor.constraint(
+                equalTo: backgroundImage.heightAnchor,
+                multiplier: Constants.backgroundImageMultiplier)
         ])
     }
     
@@ -183,15 +215,17 @@ final class PinCodeView: UIView {
         
         NSLayoutConstraint.activate([
             keyboardView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            keyboardView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -51)
+            keyboardView.bottomAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.bottomAnchor,
+                constant: Constants.keyboardBottomConstraint)
         ])
     }
     
     private func setupShadowView() {
         keyboardView.layer.shadowColor = UIColor.black.cgColor
-        keyboardView.layer.shadowOpacity = 0.2
+        keyboardView.layer.shadowOpacity = Constants.pinViewShadowOpacity
         keyboardView.layer.shadowPath = UIBezierPath(rect: keyboardView.bounds).cgPath
-        keyboardView.layer.shadowRadius = 10
+        keyboardView.layer.shadowRadius = Constants.pinViewShadowRadius
         keyboardView.layer.shadowOffset = .zero
     }
     
@@ -210,39 +244,32 @@ final class PinCodeView: UIView {
     }
     
     private func setupStackView() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
+        addSubview(stackView, activate: [
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.viewLeadingConstraint),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.viewTrailingConstraint)
         ])
     }
     
     private func setupImageLabel() {
         stackView.addArrangedSubview(imageView)
-        stackView.setCustomSpacing(15.0, after: imageView)
+        stackView.setCustomSpacing(Constants.customSpacingAfterImageView, after: imageView)
     }
     
     private func setupTitleLabel() {
         stackView.addArrangedSubview(titleLabel)
-        stackView.setCustomSpacing(25.0, after: titleLabel)
+        stackView.setCustomSpacing(Constants.customSpacingAfterTitleLabel, after: titleLabel)
     }
     
     private func setupIndicatorView() {
         stackView.addArrangedSubview(indicatorView)
-        stackView.setCustomSpacing(15.0, after: imageView)
     }
     
     private func setupErrorLabel() {
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(errorLabel)
-        
-        NSLayoutConstraint.activate([
+        addSubview(errorLabel, activate: [
             errorLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            errorLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16)
+            errorLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Constants.errorBottomConstraint)
         ])
     }
     

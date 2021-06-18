@@ -12,25 +12,8 @@ final class PinCodeDigitButton: PinCodeBaseButton {
     
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? .bar2 : .white
+            backgroundColor = isHighlighted ? .bar2 : .defaultBackground
         }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        layer.cornerRadius = 36
-        backgroundColor = .white
-        
-        setTitleColor(.ph3, for: .normal)
     }
     
 }

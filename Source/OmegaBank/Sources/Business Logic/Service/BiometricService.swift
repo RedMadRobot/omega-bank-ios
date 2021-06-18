@@ -63,6 +63,7 @@ final class BiometricServiceImpl: BiometricService {
         reason: String,
         completion: @escaping (Swift.Result<LAContext, Error>
         ) throws -> Void) {
+        
         let context = LAContext()
         
         let accessControl: SecAccessControl
@@ -76,8 +77,7 @@ final class BiometricServiceImpl: BiometricService {
         context.evaluateAccessControl(
             accessControl,
             operation: .useItem,
-            localizedReason: reason) { [weak self] success, error in
-            guard self != nil else { return }
+            localizedReason: reason) { success, error in
             
             DispatchQueue.main.async {
                 if success {

@@ -32,6 +32,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     private var loginService: LoginService
     
     // MARK: - Init
+    
     init(loginService: LoginService) {
         self.loginService = loginService
         
@@ -42,7 +43,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - VC
+    // MARK: - ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +126,8 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
             self.delegate?.pinCodeCreateViewControllerDidMake(self)
         }
     }
+    
+    // MARK: - PinCodeCreateViewControllerDelegate
     
     @objc override func pinCodeKeyboardView(_ keyboard: PinCodeKeyboardView, didSelect digit: String) {
         super.pinCodeKeyboardView(keyboard, didSelect: digit)

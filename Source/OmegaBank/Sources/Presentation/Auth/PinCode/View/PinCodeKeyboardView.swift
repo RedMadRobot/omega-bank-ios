@@ -22,12 +22,6 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
     
     // MARK: - Public Properties
     
-    var isEnabled: Bool = true {
-        didSet {
-            isUserInteractionEnabled = isEnabled
-        }
-    }
-    
     weak var delegate: PinCodeKeyBoardViewDelegate?
     
     // MARK: - IBOutlet
@@ -38,25 +32,20 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
     // MARK: - Public methods
     
     func setRightButton(image: UIImage?) {
-        if image != nil {
-            rightButton.isEnabled = true
-            rightButton.setImage(image, for: .normal)
-            rightButton.tintColor = .ph3
-        } else {
+        if image == nil {
             rightButton.isEnabled = false
             rightButton.setImage(nil, for: .normal)
+        } else {
+            rightButton.isEnabled = true
+            rightButton.setImage(image, for: .normal)
+            
         }
     }
     
     func setLeftButton(name: String?) {
-        if let name = name {
-            leftButton.isEnabled = true
+            leftButton.isEnabled = name != nil
             leftButton.setTitle(name, for: .normal)
-        } else {
-            leftButton.isEnabled = false
-            leftButton.setTitle(nil, for: .normal)
         }
-    }
     
     // MARK: - IBAction
     

@@ -32,7 +32,7 @@ extension UIColor {
     // MARK: - View Colors
     static var cellBorder: UIColor { UIColor(named: #function)! }
     
-    // MARK: - Backgound Colors
+    // MARK: - Background Colors
     
     static var backgroundPrimaryPressed: UIColor { UIColor(named: #function)! }
     static var scrollViewBackground: UIColor { UIColor(named: #function)! }

@@ -11,6 +11,10 @@ import UIKit
 /// Базовый ViewController для ввода пин-кода
 class PinCodeBaseViewController: UIViewController {
     
+    enum Constants {
+        static let delay = 0.2
+    }
+    
     // MARK: - Public Properties
     
     var pinCode = ""
@@ -57,19 +61,21 @@ class PinCodeBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .defaultBackground
+        UIView.appearance().isExclusiveTouch = true
         
         pinView.delegate = self
     }
     
     // MARK: - Public methods
-    // Отображение ошибки ввода пин-кода
+    
+    /// Отображение ошибки ввода пин-кода
     func showError(message: String) {
         pinView.showError(errorMessage: message)
         clearInput(with: .shakeAndPop)
     }
     
-    // Сброс ввода пин-кода
+    /// Сброс ввода пин-кода
     func clearInput(with animation: ClearAnimation) {
         pinCode = ""
         pinView.clearInput(animation: animation) { [weak self] in
@@ -78,32 +84,17 @@ class PinCodeBaseViewController: UIViewController {
         }
     }
     
-    // Обновление правой нижней кнопки в клавиатуре ввода пин-кода
+    /// Обновление правой нижней кнопки в клавиатуре ввода пин-кода
     func updateRightButton() {
-        if pinCode.isEmpty {
-            switch rightButtonItem {
-            case .nothing:
-                pinView.setRightButton(rightButtonItem: .nothing)
-            case .touchID:
-                pinView.setRightButton(rightButtonItem: .touchID)
-            case .faceID:
-                pinView.setRightButton(rightButtonItem: .faceID)
-            default:
-                break
-            }
-        } else {
-            pinView.setRightButton(rightButtonItem: .delete)
-        }
+        pinCode.isEmpty ? pinView.setRightButton(rightButtonItem: rightButtonItem)
+            : pinView.setRightButton(rightButtonItem: .delete)
     }
     
     func verifyPinCode(completion: @escaping VoidClosure) {
         guard isPinCodeCompleted else { return }
         isKeyboardEnabled = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-            guard self != nil else { return }
-            completion()
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { completion() }
     }
     
     func removeLastDigit() {
