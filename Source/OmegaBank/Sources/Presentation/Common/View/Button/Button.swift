@@ -11,7 +11,7 @@ import UIKit
 /// Базовая кнопка.
 class Button: UIButton {
 
-    var onTap: (() -> Void)?
+    var onTap: VoidClosure?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

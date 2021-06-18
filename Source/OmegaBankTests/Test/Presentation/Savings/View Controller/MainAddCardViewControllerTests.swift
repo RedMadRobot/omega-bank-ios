@@ -91,9 +91,9 @@ final class MainAddCardViewControllerTests: ViewControllerTestCase, SavingMock {
 
 final class UserProductDelegateMock: UserProductDelegate {
 
-    var didProductChanged: (() -> Void)?
-    var didProductTapped: (() -> Void)?
-    var didNewProductShown: (() -> Void)?
+    var didProductChanged: VoidClosure?
+    var didProductTapped: VoidClosure?
+    var didNewProductShown: VoidClosure?
     
     func didChangeProductType() {
         didProductChanged?()

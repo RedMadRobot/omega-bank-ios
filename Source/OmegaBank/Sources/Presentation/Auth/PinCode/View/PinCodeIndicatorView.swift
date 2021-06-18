@@ -35,7 +35,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     
     func showError() { indicatorViews.forEach { $0.backgroundColor = .red } }
     
-    func clear(with animation: ClearAnimation, completion: (() -> Void)?) {
+    func clear(with animation: ClearAnimation, completion: VoidClosure?) {
         switch animation {
         case .push:
             clear(completion: completion)
@@ -48,7 +48,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     
     private func clear() { indicatorViews.forEach { $0.backgroundColor = .cellBorder } }
     
-    private func clear(completion: (() -> Void)?) {
+    private func clear(_ completion: VoidClosure?) {
         let width = frame.width
         UIView.animate(withDuration: 0.2, animations: {
             self.transform = self.transform.translatedBy(x: width, y: 0)
@@ -62,7 +62,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
         })
     }
     
-    private func clearWithShake(_ completion: (() -> Void)?) {
+    private func clearWithShake(_ completion: VoidClosure?) {
         transform = CGAffineTransform(translationX: 40, y: 0)
         UIView.animate(
             withDuration: 0.4,

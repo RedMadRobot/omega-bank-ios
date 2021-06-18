@@ -96,7 +96,7 @@ class PinCodeBaseViewController: UIViewController {
         }
     }
     
-    func verifyPinCode(completion: @escaping () -> Void) {
+    func verifyPinCode(completion: @escaping VoidClosure) {
         guard isPinCodeCompleted else { return }
         isKeyboardEnabled = false
         

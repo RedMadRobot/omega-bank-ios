@@ -44,7 +44,7 @@ protocol LoginService {
     func authorise(by pinCode: String) throws
     
     /// Вход по биометрии
-    func authoriseWithBiometry(completion: @escaping () -> Void) throws
+    func authoriseWithBiometry(completion: @escaping VoidClosure) throws
     
     /// Вызов метода биометрии evaluateAccessControl
     func evaluateBiometry(reason: String, completion: @escaping (Swift.Result<LAContext, Error>) -> Void)
@@ -61,7 +61,7 @@ final class AuthService {
     
     // MARK: - Public Properties
     
-    var tokenInvalidHandler: (() -> Void)?
+    var tokenInvalidHandler: VoidClosure?
     
     // MARK: - Private Properties
     
@@ -183,7 +183,7 @@ extension AuthService: LoginService {
     }
     
     /// Авторизация по биометрии
-    func authoriseWithBiometry(completion: @escaping () -> Void) throws {
+    func authoriseWithBiometry(completion: @escaping VoidClosure) throws {
         biometricService.evaluateContextWithBiometryAccess(
             reason: "Предоставить доступ к биометрии"
         ) { [weak self] result in

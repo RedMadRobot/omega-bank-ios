@@ -41,8 +41,8 @@ final class ProductHeader: UIControl, NibLoadable {
     
     // MARK: - Private Properties
     
-    private var onTap: (() -> Void)?
-    private var onPlusTap: (() -> Void)?
+    private var onTap: VoidClosure?
+    private var onPlusTap: VoidClosure?
 
     // MARK: - ProductHeader
     
@@ -62,8 +62,8 @@ final class ProductHeader: UIControl, NibLoadable {
     
     static func make(
         title: String,
-        onTap: @escaping () -> Void,
-        onPlusTap: @escaping () -> Void,
+        onTap: @escaping VoidClosure,
+        onPlusTap: @escaping VoidClosure,
         accessibilityIdentifier: String? = nil,
         addNewProductAccessibilityIdentifier: String? = nil) -> ProductHeader {
         let view = ProductHeader.loadFromNib()

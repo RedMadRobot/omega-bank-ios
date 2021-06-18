@@ -145,7 +145,7 @@ final class PinCodeView: UIView {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
     
-    func clearInput(animation: ClearAnimation, completion: (() -> Void)?) {
+    func clearInput(animation: ClearAnimation, completion: VoidClosure?) {
         indicatorView.clear(with: animation, completion: completion)
     }
     

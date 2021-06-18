@@ -10,6 +10,7 @@
 		14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658DAB702A03CEE79F4968D4 /* Assets.xcassets */; };
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
+		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
 		5C96BB3D2670D5A000430EC9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96BB3C2670D5A000430EC9 /* Image.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
@@ -256,6 +257,7 @@
 		1EB4F9E0D9D47A973F654243 /* Pods-OmegaBankUITests.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.app-store.xcconfig"; sourceTree = "<group>"; };
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 		5C96BB3C2670D5A000430EC9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
@@ -877,6 +879,7 @@
 			isa = PBXGroup;
 			children = (
 				777426B724051ABF008E5810 /* NibRepresentable.swift */,
+				5C147C29267C90310006F261 /* Typealias.swift */,
 				958BD2D32432005900543642 /* LayoutGuide.swift */,
 				777426BE24052364008E5810 /* UITableView+Nib.swift */,
 				9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */,
@@ -2184,6 +2187,7 @@
 				954BA2872429E67F009CA09F /* PartnterDetailedViewController.swift in Sources */,
 				954DAFF5243F4E2D009C6B73 /* UIViewController+Child.swift in Sources */,
 				774B93EC2424A9EB008237BF /* CardAttributesAnimator.swift in Sources */,
+				5C147C2A267C90310006F261 /* Typealias.swift in Sources */,
 				954BD42D242C967F00DDF91A /* PartnerLimitViewModel.swift in Sources */,
 				955383A72449C52000DAD89B /* Environment.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,

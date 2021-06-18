@@ -169,7 +169,7 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
     
     private func addHeader<T>(
         productListViewController: ProductListViewController<T>,
-        onPlusTap: @escaping (() -> Void),
+        onPlusTap: @escaping (VoidClosure),
         accessibilityIdentifier: String? = nil,
         addNewAccessibilityIdentifier: String? = nil) -> ProductHeader {
         
