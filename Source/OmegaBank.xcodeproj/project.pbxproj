@@ -11,6 +11,7 @@
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
+		5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C2B26808ADA0006F261 /* AlertPresentable.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
 		5C96BB3D2670D5A000430EC9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96BB3C2670D5A000430EC9 /* Image.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
@@ -23,7 +24,6 @@
 		5CF23319266F888800B99879 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23318266F888800B99879 /* PinCodeView.swift */; };
 		5CF23321266F8BC800B99879 /* PinCodeKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF23320266F8BC800B99879 /* PinCodeKeyboardView.xib */; };
 		5CF23323266F8BE800B99879 /* PinCodeIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF23322266F8BE800B99879 /* PinCodeIndicatorView.xib */; };
-		5CF76448267A125C005FB986 /* UIViewController+AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF76447267A125C005FB986 /* UIViewController+AlertExtension.swift */; };
 		60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3764A850A4D197A1767543 /* ServiceLayer.swift */; };
 		7700FD52241260AC00210AD3 /* PartnersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FD502412609E00210AD3 /* PartnersEndpoint.swift */; };
 		7700FD552412637000210AD3 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FD53241262DE00210AD3 /* Partner.swift */; };
@@ -258,6 +258,7 @@
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 		5C96BB3C2670D5A000430EC9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
@@ -270,7 +271,6 @@
 		5CF23318266F888800B99879 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
 		5CF23320266F8BC800B99879 /* PinCodeKeyboardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeKeyboardView.xib; sourceTree = "<group>"; };
 		5CF23322266F8BE800B99879 /* PinCodeIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeIndicatorView.xib; sourceTree = "<group>"; };
-		5CF76447267A125C005FB986 /* UIViewController+AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertExtension.swift"; sourceTree = "<group>"; };
 		658DAB702A03CEE79F4968D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6670A9E959007FCDBC52FF99 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		670B4953E269E99CC82A52AF /* Pods-OmegaBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBank.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBank/Pods-OmegaBank.debug.xcconfig"; sourceTree = "<group>"; };
@@ -613,7 +613,6 @@
 		5CF7644A267A126F005FB986 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				5CF76447267A125C005FB986 /* UIViewController+AlertExtension.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -887,6 +886,7 @@
 				77CF6F3424066FB3000A5082 /* BarButtonItems.swift */,
 				9599A4C724289165000411EC /* ViewCorners.swift */,
 				951F873B24753C8100785552 /* ScrollViewPager.swift */,
+				5C147C2B26808ADA0006F261 /* AlertPresentable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2126,7 +2126,6 @@
 				95CB3E122459BB7800C6F5C6 /* SubtitleView.swift in Sources */,
 				958BD2D42432005900543642 /* LayoutGuide.swift in Sources */,
 				958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */,
-				5CF76448267A125C005FB986 /* UIViewController+AlertExtension.swift in Sources */,
 				958F1481247D2E510052F9EF /* ProductTypeDescriptorViewController.swift in Sources */,
 				9599A4C824289165000411EC /* ViewCorners.swift in Sources */,
 				5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */,
@@ -2147,6 +2146,7 @@
 				7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */,
 				95DB7FE024598CF800538755 /* MainAddCardViewController.swift in Sources */,
 				954BD433242CB47700DDF91A /* PartnerDescriptionView.swift in Sources */,
+				5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */,
 				9541336A2487D190006FC083 /* ShadowView.swift in Sources */,
 				951032CF246E9D3E005902ED /* Product.swift in Sources */,
 				9574E462244313DA0020128E /* SeparatorView.swift in Sources */,

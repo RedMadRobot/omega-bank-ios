@@ -36,6 +36,7 @@ class PinCodeBaseButton: UIButton {
     private func commonInit() {
         layer.cornerRadius = Constants.cornerRadius
         backgroundColor = .defaultBackground
+        isExclusiveTouch = true
         
         setTitleColor(.ph3, for: .normal)
         tintColor = .ph3

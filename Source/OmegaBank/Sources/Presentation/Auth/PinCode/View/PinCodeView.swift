@@ -54,7 +54,6 @@ final class PinCodeView: UIView {
         static let viewLeadingConstraint: CGFloat = 24
         static let viewTrailingConstraint: CGFloat = -24
         
-        static let customSpacingAfterImageView: CGFloat = 15
         static let customSpacingAfterTitleLabel: CGFloat = 25
         
         static let errorBottomConstraint: CGFloat = 16
@@ -78,7 +77,7 @@ final class PinCodeView: UIView {
     
     var isExitButtonHidden: Bool = true {
         didSet {
-            let name = isExitButtonHidden ? nil : "Выход"
+            let name = isExitButtonHidden ? nil : "Exit"
             keyboardView.setLeftButton(name: name)
         }
     }
@@ -112,6 +111,7 @@ final class PinCodeView: UIView {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 15
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = Constants.stackViewSpacing
@@ -194,11 +194,7 @@ final class PinCodeView: UIView {
     }
     
     private func setupBackgroundImage() {
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(backgroundImage)
-        
-        NSLayoutConstraint.activate([
+        addSubview(backgroundImage, activate: [
             backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -209,11 +205,7 @@ final class PinCodeView: UIView {
     }
     
     private func setupKeyboardView() {
-        keyboardView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(keyboardView)
-        
-        NSLayoutConstraint.activate([
+        addSubview(keyboardView, activate: [
             keyboardView.centerXAnchor.constraint(equalTo: centerXAnchor),
             keyboardView.bottomAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.bottomAnchor,
@@ -253,7 +245,6 @@ final class PinCodeView: UIView {
     
     private func setupImageLabel() {
         stackView.addArrangedSubview(imageView)
-        stackView.setCustomSpacing(Constants.customSpacingAfterImageView, after: imageView)
     }
     
     private func setupTitleLabel() {

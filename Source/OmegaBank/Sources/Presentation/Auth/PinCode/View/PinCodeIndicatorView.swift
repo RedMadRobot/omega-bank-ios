@@ -32,9 +32,7 @@ final class PinCodeIndicatorView: UIView, NibLoadable {
     
     var value: Int = 0 {
         didSet {
-            for (index, view) in indicatorViews.enumerated() {
-                view.backgroundColor = index < value ? .bar2 : .cellBorder
-            }
+            for view in indicatorViews { view.backgroundColor = view.tag < value ? .bar2 : .cellBorder }
         }
     }
     

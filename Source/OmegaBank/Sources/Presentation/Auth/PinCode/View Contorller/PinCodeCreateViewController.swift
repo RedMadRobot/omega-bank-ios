@@ -12,9 +12,28 @@ protocol PinCodeCreateViewControllerDelegate: AnyObject {
     func pinCodeCreateViewControllerDidMake(_ controller: PinCodeCreateViewController)
 }
 
-final class PinCodeCreateViewController: PinCodeBaseViewController {
+final class PinCodeCreateViewController: PinCodeBaseViewController, AlertPresentable {
     
-    // MARK: - Types
+    // MARK: - Private Types
+    
+    private enum Constants {
+        static let titleVC = "Sign Up"
+        
+        static let titleCreate = "Create PIN"
+        static let titleRepeat = "Repeat PIN"
+        
+        static let titleErrorPin = "PIN incorrect"
+        static let titleErrorSave = "Error"
+        
+        static let titleAlertAuth = "Do you want to allow the App to use biometric credential?"
+        static let textAlertAuth = "This will help you log in faster"
+        static let titleOkButton = "Allow"
+        static let titleCancelButton = "Don't allow"
+        
+        static let biometricReason = "Please authenticate yourself"
+        
+        static let transitionTime = 0.5
+    }
     
     private enum State: Equatable {
         case create
@@ -48,9 +67,9 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Sign Up"
+        title = Constants.titleVC
         
-        titleText = "Придумайте пин-код для быстрого входа"
+        titleText = Constants.titleCreate
         isHiddenAvatarImage = true
     }
     
@@ -60,7 +79,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         switch state {
         case .create:
             state = .confirm(newPinCode)
-            titleText = "Повторите \nваш пин-код"
+            titleText = Constants.titleRepeat
             clearInput(with: .push)
         case .confirm(let pinCode) where newPinCode == pinCode:
             isKeyboardEnabled = true
@@ -68,16 +87,16 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
             save()
         case .confirm:
             state = .create
-            titleText = "Придумайте пин-код для быстрого входа"
-            showError(message: "Пин-коды не совпадают")
+            titleText = Constants.titleCreate
+            showError(message: Constants.titleErrorPin)
             clearInput(with: .shakeAndPop)
         }
     }
     
     /// Сброс состояния создания пин-кода
     private func resetState() {
-        titleText = "Придумайте пин-код для быстрого входа"
-        showError(message: "Произошла ошибка")
+        titleText = Constants.titleCreate
+        showError(message: Constants.titleErrorSave)
         state = .create
     }
     
@@ -96,7 +115,11 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
         case false:
             try? saveTokenWithBiometry(by: pinCode)
         case true:
-            showAuthenticationAlert { [weak self] result in
+            showAlert(
+                title: Constants.titleAlertAuth,
+                text: Constants.textAlertAuth,
+                okTitleAction: Constants.titleOkButton,
+                cancelTitleAction: Constants.titleCancelButton) { [weak self] result in
                 guard let self = self else { return }
                 
                 switch result {
@@ -112,7 +135,7 @@ final class PinCodeCreateViewController: PinCodeBaseViewController {
     
     /// Сохранение пин-кода через биометрию
     private func saveTokenWithBiometry(by pinCode: String) throws {
-        loginService.evaluateBiometry(reason: "Предоставить доступ к биометрии?") { [weak self] result in
+        loginService.evaluateBiometry(reason: Constants.biometricReason) { [weak self] result in
             guard let self = self else { return }
             
             try? self.loginService.set(biometricSystemPermission: true)

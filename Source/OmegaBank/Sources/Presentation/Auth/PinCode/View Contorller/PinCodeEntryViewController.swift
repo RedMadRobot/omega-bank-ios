@@ -18,6 +18,13 @@ protocol PinCodeEntryViewControllerDelegate: AnyObject {
 
 final class PinCodeEntryViewController: PinCodeBaseViewController {
     
+    // MARK: - Private Types
+    
+    enum TextConstants {
+        static let titleVC = "Sign In"
+        static let errorPin = "Incorrect PIN \n Remaining attempts — "
+    }
+    
     // MARK: - Public properties
     
     weak var delegate: PinCodeEntryViewControllerDelegate?
@@ -45,7 +52,7 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Sign In"
+        title = TextConstants.titleVC
         isHiddenAvatarImage = false
         isExitButtonHidden = false
         setRightButtonBiometricType()
@@ -54,7 +61,7 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
     // MARK: - Private methods
     
     private func showError(with wrongInputAttempts: Int) {
-        showError(message: "Не правильный пинкод \n Кол-во оставшихся попыток — \(wrongInputAttempts)")
+        showError(message: TextConstants.errorPin + String(wrongInputAttempts))
     }
     
     // Вход по пин-коду
@@ -70,7 +77,6 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
             maxInputAttempts -= 1
             showError(with: maxInputAttempts)
         }
-
     }
     
     // Вход по биометрии
@@ -87,7 +93,8 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
         guard loginService.hasBiometricEntry else {
             rightButtonItem = .nothing
             updateRightButton()
-            return }
+            return
+        }
         
         switch loginService.biometricType {
         case .faceID:

@@ -62,7 +62,6 @@ class PinCodeBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .defaultBackground
-        UIView.appearance().isExclusiveTouch = true
         
         pinView.delegate = self
     }

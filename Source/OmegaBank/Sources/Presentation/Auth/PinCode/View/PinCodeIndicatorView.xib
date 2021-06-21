@@ -31,7 +31,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEZ-ge-1hj">
+                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEZ-ge-1hj">
                             <rect key="frame" x="32" y="0.0" width="16" height="16"/>
                             <color key="backgroundColor" name="cellBorder"/>
                             <constraints>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2J-lL-kfm">
+                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2J-lL-kfm">
                             <rect key="frame" x="64" y="0.0" width="16" height="16"/>
                             <color key="backgroundColor" name="cellBorder"/>
                             <constraints>
@@ -57,7 +57,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-IL-AOB">
+                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-IL-AOB">
                             <rect key="frame" x="96" y="0.0" width="16" height="16"/>
                             <color key="backgroundColor" name="cellBorder"/>
                             <constraints>
@@ -84,9 +84,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="indicatorViews" destination="44d-h3-7gP" collectionClass="NSMutableArray" id="Uaf-bj-KrB"/>
-                <outletCollection property="indicatorViews" destination="NEZ-ge-1hj" collectionClass="NSMutableArray" id="Ycb-gc-mFh"/>
                 <outletCollection property="indicatorViews" destination="c2J-lL-kfm" collectionClass="NSMutableArray" id="zCO-uh-qfx"/>
                 <outletCollection property="indicatorViews" destination="3cM-IL-AOB" collectionClass="NSMutableArray" id="99c-WD-tri"/>
+                <outletCollection property="indicatorViews" destination="NEZ-ge-1hj" collectionClass="NSMutableArray" id="7tS-Wr-4Gq"/>
             </connections>
             <point key="canvasLocation" x="-92.799999999999997" y="122.33883058470765"/>
         </view>

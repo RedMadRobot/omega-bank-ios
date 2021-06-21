@@ -62,7 +62,7 @@ final class LoginViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
 
-        title = "Sign In"
+        title = "Sign Up"
         navigationItem.title = nil
         tabBarItem.image = #imageLiteral(resourceName: "signin")
     }

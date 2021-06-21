@@ -185,7 +185,7 @@ extension AuthService: LoginService {
     /// Авторизация по биометрии
     func authoriseWithBiometry(completion: @escaping VoidClosure) throws {
         biometricService.evaluateContextWithBiometryAccess(
-            reason: "Предоставить доступ к биометрии"
+            reason: "Please authenticate yourself"
         ) { [weak self] result in
             guard let self = self else { return }
             
