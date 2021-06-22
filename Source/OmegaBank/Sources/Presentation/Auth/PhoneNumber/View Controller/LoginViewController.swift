@@ -137,7 +137,8 @@ final class LoginViewController: UIViewController {
 
             headerTransition(title: "Your Phone", options: [.transitionFlipFromTop], animated: animated)
             inputViewTransition(from: smsInputView, to: phoneInputView, animated: animated)
-
+            
+            phoneTextField.becomeFirstResponder()
         case .sms:
             navigationItem.leftBarButtonItem = UIBarButtonItem.back(target: self, action: #selector(goPhoneStage))
             navigationItem.leftBarButtonItem?.accessibilityLabel = "back"
@@ -147,6 +148,8 @@ final class LoginViewController: UIViewController {
 
             headerTransition(title: "Enter Code", options: [.transitionFlipFromBottom], animated: animated)
             inputViewTransition(from: phoneInputView, to: smsInputView, animated: animated)
+            
+            smsCodeTextField.becomeFirstResponder()
         }
     }
 

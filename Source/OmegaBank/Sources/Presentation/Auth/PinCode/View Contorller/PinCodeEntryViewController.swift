@@ -59,6 +59,11 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
         setRightButtonBiometricType()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        authoriseBiometry()
+    }
+    
     // MARK: - Private methods
     
     private func showPinError(with wrongInputAttempts: Int) {
