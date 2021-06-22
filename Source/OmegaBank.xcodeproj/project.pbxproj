@@ -767,6 +767,7 @@
 				77196AAD23FCFB37007C8C84 /* Results.swift */,
 				5C147C29267C90310006F261 /* Typealias.swift */,
 				955383A62449C52000DAD89B /* Environment.swift */,
+				5C65C924268222AF00FB3EEB /* WorkScheduler.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2174,6 +2175,7 @@
 				951032CF246E9D3E005902ED /* Product.swift in Sources */,
 				9574E462244313DA0020128E /* SeparatorView.swift in Sources */,
 				9547F8C3242A384800EC42A0 /* PartnerLimitCell.swift in Sources */,
+				5C65C925268222AF00FB3EEB /* WorkScheduler.swift in Sources */,
 				954C524B243F01C80032C0A0 /* TitledPageViewController.swift in Sources */,
 				9599A4DC2428C38C000411EC /* String+Html.swift in Sources */,
 				9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */,
