@@ -22,6 +22,7 @@ extension Bundle {
 }
 
 final class ServiceLayer {
+    
     static let shared = ServiceLayer()
     
     // MARK: - Private Properties
@@ -34,16 +35,6 @@ final class ServiceLayer {
         let storage = KeychainStorage(
             service: "ru.rt.omegabank",
             flagStorage: self.userDefaults)
-        
-        #if DEBUG        
-        if Environment.isUnitTesting {
-            if Environment.shouldSkipAuth {
-                try? storage.setAccessToken("123")
-            } else {
-                try? storage.setAccessToken(nil)
-            }
-        }
-        #endif
         
         return storage
     }()
