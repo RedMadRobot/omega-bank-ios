@@ -33,7 +33,7 @@ final class ServiceLayer {
 
     private lazy var keychainStorage: KeychainStorage = {
         let storage = KeychainStorage(
-            service: "ru.rt.omegabank",
+            service: "com.redmadrobot.omegabank",
             flagStorage: self.userDefaults)
         
         return storage

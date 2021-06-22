@@ -13,7 +13,7 @@ import LocalAuthentication
 /// Хранилище данных в `Keychain`.
 final class KeychainStorage {
 
-    private static let keychainCleaned = "ru.rt.omegabank.key.isKeychainCleaned"
+    private static let keychainCleaned = "com.redmadrobot.omegabank.key.isKeychainCleaned"
 
     private let keychain: Keychain
     

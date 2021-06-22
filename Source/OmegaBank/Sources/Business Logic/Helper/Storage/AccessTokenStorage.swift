@@ -8,10 +8,10 @@
 import LocalAuthentication
 
 enum AccessTokenStorageProperties {
-    static let accessTokenKey = "ru.rt.omegabank.accessToken"
-    static let pinCode = "ru.rt.omegabank.pinCode"
-    static let pinCodeFlag = "ru.rt.omegabank.pinCodeFlag"
-    static let biometricSystemPermission = "ru.rt.omegabank.biometricSystemPermission"
+    static let accessTokenKey = "com.redmadrobot.omegabank.accessToken"
+    static let pinCode = "com.redmadrobot.omegabank.pinCode"
+    static let pinCodeFlag = "com.redmadrobot.omegabank.pinCodeFlag"
+    static let biometricSystemPermission = "com.redmadrobot.omegabank.biometricSystemPermission"
 }
 
 /// Хранилище токена доступа.
