@@ -33,7 +33,6 @@ final class ServiceLayer {
     private lazy var keychainStorage: KeychainStorage = {
         let storage = KeychainStorage(
             service: "ru.rt.omegabank",
-            accessGroup: "\(self.bundle.appIdentifierPrefix).ru.rt.key.keychain_sharing",
             flagStorage: self.userDefaults)
         
         #if DEBUG        

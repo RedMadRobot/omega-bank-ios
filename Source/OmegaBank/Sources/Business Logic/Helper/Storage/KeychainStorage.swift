@@ -19,8 +19,8 @@ final class KeychainStorage {
     
     private var token: String?
 
-    init(service: String, accessGroup: String, flagStorage: BoolStorage) {
-        keychain = Keychain(service: service, accessGroup: accessGroup)
+    init(service: String, flagStorage: BoolStorage) {
+        keychain = Keychain(service: service)
 
         // При удалении приложения Keychain сбрасывается не сразу. Чистим принудительно
         if !flagStorage.bool(forKey: KeychainStorage.keychainCleaned) {
