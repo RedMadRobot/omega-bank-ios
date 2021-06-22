@@ -854,6 +854,7 @@
 				9542410D24445A6E00E2C196 /* ViewController.swift */,
 				95466BF8248B9F4400FAE6EE /* VerticalScrollableViewController.swift */,
 				9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */,
+				5C65C928268244BD00FB3EEB /* PrivacyProtectionViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -2165,6 +2166,7 @@
 				951032CB246E9CC2005902ED /* UserProduct.swift in Sources */,
 				7757BC492404E5D50063ACBD /* Font.swift in Sources */,
 				95B34CC3247D485A008080DD /* DepositTypeView.swift in Sources */,
+				5C65C929268244BD00FB3EEB /* PrivacyProtectionViewController.swift in Sources */,
 				951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */,
 				5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */,
 				953A2EE824961ECB00A9B6DE /* PartnerListContainerViewController.swift in Sources */,
