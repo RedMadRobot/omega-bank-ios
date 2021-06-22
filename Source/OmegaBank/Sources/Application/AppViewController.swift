@@ -13,6 +13,7 @@ final class AppViewController: UITabBarController {
 
     private let loginService: LoginService
     private var isAuthorized: Bool { loginService.isAuthorized }
+    private var isAuthenticationCompleted = false
 
     init(
         loginService: LoginService = ServiceLayer.shared.loginService) {
@@ -35,7 +36,16 @@ final class AppViewController: UITabBarController {
         showContent()
         delegate = self
     }
-
+    
+    // MARK: - Public Methods
+    
+    func showPinCode() {
+        guard isAuthenticationCompleted else { return }
+        isAuthenticationCompleted = false
+        
+        showEntryPinCode()
+    }
+    
     // MARK: - Private Methods
     
     private func setupTabBar() {
@@ -49,6 +59,8 @@ final class AppViewController: UITabBarController {
     }
 
     private func showLogin(animated: Bool = true) {
+        isAuthenticationCompleted = false
+        
         tabBar.isHidden = true
         
         let controller = LoginViewController(loginService: loginService)
@@ -59,6 +71,8 @@ final class AppViewController: UITabBarController {
     }
 
     private func showMain(animated: Bool = true) {
+        isAuthenticationCompleted = true
+        
         tabBar.isHidden = false
         
         let productList = MainProductListContainerViewController.make(delegate: self)
@@ -83,6 +97,7 @@ final class AppViewController: UITabBarController {
     }
     
     private func showEntryPinCode(animated: Bool = true) {
+        tabBar.isHidden = true
         
         let controller = PinCodeEntryViewController(loginService: loginService)
         let nc = NavigationController(rootViewController: controller)
@@ -98,6 +113,12 @@ final class AppViewController: UITabBarController {
         } else {
             showLogin(animated: animated)
         }
+    }
+    
+    private func logOut() {
+        loginService.logOut()
+        showLogin(animated: true)
+        isAuthenticationCompleted = false
     }
 }
 
@@ -128,8 +149,7 @@ extension AppViewController: PinCodeEntryViewControllerDelegate {
     }
     
     func pinCodeEntryViewControllerDidLogout(_ controller: PinCodeEntryViewController) {
-        loginService.logOut()
-        showLogin(animated: true)
+        logOut()
     }
     
 }
@@ -139,8 +159,7 @@ extension AppViewController: PinCodeEntryViewControllerDelegate {
 extension AppViewController: ProfileViewControllerDelegate {
 
     func mainViewControllerDidLogout() {
-        loginService.logOut()
-        showLogin(animated: true)
+        logOut()
     }
 }
 
