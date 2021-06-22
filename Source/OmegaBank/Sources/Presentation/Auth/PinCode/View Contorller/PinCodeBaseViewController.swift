@@ -58,7 +58,7 @@ class PinCodeBaseViewController: UIViewController {
     override func loadView() {
         view = pinView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .defaultBackground

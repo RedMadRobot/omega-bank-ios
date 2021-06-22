@@ -23,6 +23,7 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
     enum TextConstants {
         static let titleVC = "Sign In"
         static let errorPin = "Incorrect PIN \n Remaining attempts — "
+        static let errorBio = "Incorrect bio"
     }
     
     // MARK: - Public properties
@@ -60,8 +61,12 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
     
     // MARK: - Private methods
     
-    private func showError(with wrongInputAttempts: Int) {
+    private func showPinError(with wrongInputAttempts: Int) {
         showError(message: TextConstants.errorPin + String(wrongInputAttempts))
+    }
+    
+    private func showBioError() {
+        showError(message: TextConstants.errorBio)
     }
     
     // Вход по пин-коду
@@ -75,16 +80,21 @@ final class PinCodeEntryViewController: PinCodeBaseViewController {
                 return
             }
             maxInputAttempts -= 1
-            showError(with: maxInputAttempts)
+            showPinError(with: maxInputAttempts)
         }
     }
     
     // Вход по биометрии
     private func authoriseBiometry() {
         guard loginService.hasBiometricEntry else { return }
-        try? loginService.authoriseWithBiometry { [weak self] in
+        loginService.authoriseWithBiometry { [weak self] result in
             guard let self = self else { return }
-            self.delegate?.pinCodeEntryViewControllerEntered(self)
+            switch result {
+            case .success:
+                self.delegate?.pinCodeEntryViewControllerEntered(self)
+            case .failure:
+                self.showBioError()
+            }
         }
     }
     

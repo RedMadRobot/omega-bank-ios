@@ -44,10 +44,10 @@ protocol LoginService {
     func authorise(by pinCode: String) throws
     
     /// Вход по биометрии
-    func authoriseWithBiometry(completion: @escaping VoidClosure) throws
+    func authoriseWithBiometry(completion: @escaping BiometricHandler)
     
     /// Вызов метода биометрии evaluateAccessControl
-    func evaluateBiometry(reason: String, completion: @escaping (Swift.Result<LAContext, Error>) -> Void)
+    func evaluateBiometry(reason: String, completion: @escaping BiometricHandler)
     
     /// Запись флага на отображение системного алерта
     func set(biometricSystemPermission: Bool) throws
@@ -92,7 +92,7 @@ final class AuthService {
     }
     
     // MARK: - Private
-
+    
     /// Передача token доступа в Api сервис после создания пин-кода/ входа по пин-коду
     private func refreshApiToken() {
         self.apiClient.accessToken = token
@@ -183,7 +183,7 @@ extension AuthService: LoginService {
     }
     
     /// Авторизация по биометрии
-    func authoriseWithBiometry(completion: @escaping VoidClosure) throws {
+    func authoriseWithBiometry(completion: @escaping BiometricHandler) {
         biometricService.evaluateContextWithBiometryAccess(
             reason: "Please authenticate yourself"
         ) { [weak self] result in
@@ -193,19 +193,22 @@ extension AuthService: LoginService {
             
             switch result {
             case .success(let context):
-                if let pinCode = try self.accessTokenStorage.getPinCode(withBiometry: context) {
-                    try self.authorise(by: pinCode)
-                    completion()
+                do {
+                    if let pinCode = try self.accessTokenStorage.getPinCode(withBiometry: context) {
+                        try self.authorise(by: pinCode)
+                        completion(.success(context))
+                    }
+                } catch let error {
+                    completion(.failure(error))
                 }
-                
             case .failure(let error):
-                throw error
+                completion(.failure(error))
             }
         }
     }
     
     /// Запуск метода биометрии evaluateAccessControl
-    func evaluateBiometry(reason: String, completion: @escaping (Swift.Result<LAContext, Error>) -> Void) {
+    func evaluateBiometry(reason: String, completion: @escaping BiometricHandler) {
         biometricService.evaluateContextWithBiometryAccess(reason: reason, completion: completion)
     }
     

@@ -763,6 +763,7 @@
 			children = (
 				77196A9523FACA4E007C8C84 /* Storage */,
 				77196AAD23FCFB37007C8C84 /* Results.swift */,
+				5C147C29267C90310006F261 /* Typealias.swift */,
 				955383A62449C52000DAD89B /* Environment.swift */,
 			);
 			path = Helper;
@@ -878,7 +879,6 @@
 			isa = PBXGroup;
 			children = (
 				777426B724051ABF008E5810 /* NibRepresentable.swift */,
-				5C147C29267C90310006F261 /* Typealias.swift */,
 				958BD2D32432005900543642 /* LayoutGuide.swift */,
 				777426BE24052364008E5810 /* UITableView+Nib.swift */,
 				9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */,

@@ -31,8 +31,6 @@ final class PinCodeCreateViewController: PinCodeBaseViewController, AlertPresent
         static let titleCancelButton = "Don't allow"
         
         static let biometricReason = "Please authenticate yourself"
-        
-        static let transitionTime = 0.5
     }
     
     private enum State: Equatable {
@@ -160,5 +158,5 @@ final class PinCodeCreateViewController: PinCodeBaseViewController, AlertPresent
             self.updateState(with: self.pinCode)
         }
     }
-
+    
 }

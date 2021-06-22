@@ -8,6 +8,8 @@
 
 import LocalAuthentication
 
+typealias BiometricHandler = ResultHandler<LAContext>
+
 protocol BiometricService {
     
     /// Доступ к биометрии: Доступна/Нет доступа/Запрещена
@@ -17,10 +19,7 @@ protocol BiometricService {
     func checkBiometricType() -> LABiometryType
     
     /// Выполняет проверку биометрии и получается context для доступа в Keychain
-    func evaluateContextWithBiometryAccess(
-        reason: String,
-        completion: @escaping (Swift.Result<LAContext, Error>
-        ) throws -> Void)
+    func evaluateContextWithBiometryAccess(reason: String, completion: @escaping BiometricHandler)
 }
 
 enum BiometricState {
@@ -59,10 +58,7 @@ final class BiometricServiceImpl: BiometricService {
         }
     }
     
-    func evaluateContextWithBiometryAccess(
-        reason: String,
-        completion: @escaping (Swift.Result<LAContext, Error>
-        ) throws -> Void) {
+    func evaluateContextWithBiometryAccess(reason: String, completion: @escaping BiometricHandler) {
         
         let context = LAContext()
         
@@ -70,7 +66,7 @@ final class BiometricServiceImpl: BiometricService {
         do {
             accessControl = try getBiometrySecAccessControl()
         } catch {
-            try? completion(.failure(error))
+            completion(.failure(error))
             return
         }
         
@@ -81,10 +77,10 @@ final class BiometricServiceImpl: BiometricService {
             
             DispatchQueue.main.async {
                 if success {
-                    try? completion(.success(context))
+                    completion(.success(context))
                 }
                 if let error = error {
-                    try? completion(.failure(error))
+                    completion(.failure(error))
                 }
             }
         }

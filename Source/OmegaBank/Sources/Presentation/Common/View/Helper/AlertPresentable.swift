@@ -19,6 +19,13 @@ protocol AlertPresentable: AnyObject {
 
 extension AlertPresentable where Self: UIViewController {
     
+    /// Классический алерт, с двумя кнопками действия
+    /// - Parameters:
+    ///   - title: Заголовок
+    ///   - text: Описание
+    ///   - okTitleAction: Заголовок кнопки согласия
+    ///   - cancelTitleAction: Заголовок кнопки отмены
+    ///   - completion: Результат нажатия на кнопки, true – согласие, false – отказ
     func showAlert(
         title: String?,
         text: String?,
@@ -32,7 +39,7 @@ extension AlertPresentable where Self: UIViewController {
         alert.addAction(UIAlertAction(title: okTitleAction, style: .default) { _ in
             completion(true)
         })
-        alert.addAction(UIAlertAction(title: cancelTitleAction, style: .cancel) { _ in
+        alert.addAction(UIAlertAction(title: cancelTitleAction, style: .default) { _ in
             completion(false)
         })
         present(alert, animated: true)
