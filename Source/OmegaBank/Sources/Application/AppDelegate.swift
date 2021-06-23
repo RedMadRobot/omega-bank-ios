@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private lazy var appViewController = AppViewController()
-    private lazy var logoutScheduler: WorkScheduler = WorkDispathScheduler()
+    private lazy var logoutScheduler: WorkScheduler = DispatсhWorkScheduler()
     
     func application(
         _ application: UIApplication,
