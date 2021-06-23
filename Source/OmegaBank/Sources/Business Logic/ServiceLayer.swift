@@ -22,6 +22,7 @@ extension Bundle {
 }
 
 final class ServiceLayer {
+    
     static let shared = ServiceLayer()
     
     // MARK: - Private Properties
@@ -32,19 +33,8 @@ final class ServiceLayer {
 
     private lazy var keychainStorage: KeychainStorage = {
         let storage = KeychainStorage(
-            service: "ru.rt.omegabank",
-            accessGroup: "\(self.bundle.appIdentifierPrefix).ru.rt.key.keychain_sharing",
+            service: "com.redmadrobot.omegabank",
             flagStorage: self.userDefaults)
-        
-        #if DEBUG        
-        if Environment.isUnitTesting {
-            if Environment.shouldSkipAuth {
-                try? storage.setAccessToken("123")
-            } else {
-                try? storage.setAccessToken(nil)
-            }
-        }
-        #endif
         
         return storage
     }()
@@ -53,9 +43,13 @@ final class ServiceLayer {
     
     /// Сервис авторизации.
     private(set) lazy var loginService = AuthService(
+        biometricService: biometricService,
         apiClient: apiClient,
         accessTokenStorage: keychainStorage,
         baseURL: baseURL.fetch)
+    
+    /// Сервис биометрии
+    private(set) lazy var biometricService = BiometricServiceImpl()
 
     /// Сервис партнеров
     private(set) lazy var partnerListService = PartnerListServiceImpl(apiClient: apiClient)

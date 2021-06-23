@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private lazy var appViewController = AppViewController()
-
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions

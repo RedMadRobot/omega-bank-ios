@@ -19,12 +19,11 @@ final class ErrorViewController: UIViewController {
     // MARK: - Private Properties
     
     private let item: ErrorItem
-    private let onAction: (() -> Void)?
+    private let onAction: VoidClosure?
 
     // MARK: - Initialization
 
-    init(_ item: ErrorItem,
-         onAction: (() -> Void)? = nil) {
+    init(_ item: ErrorItem, onAction: VoidClosure? = nil) {
         self.item = item
         self.onAction = onAction
         

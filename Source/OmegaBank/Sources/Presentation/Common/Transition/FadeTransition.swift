@@ -9,7 +9,7 @@
 import UIKit
 
 /// Переход с затуханием.
-final class FadeTranstion: NSObject, UIViewControllerTransitioningDelegate {
+final class FadeTransition: NSObject, UIViewControllerTransitioningDelegate {
     
     private enum Constants {
         static let duration: TimeInterval = 0.3
@@ -24,15 +24,15 @@ final class FadeTranstion: NSObject, UIViewControllerTransitioningDelegate {
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        FadeDismisingAnimator(duration: Constants.duration)
+        FadeDismissingAnimator(duration: Constants.duration)
     }
     
-    static func makeAnimator() -> ViewControllerTranstionAnimator {
+    static func makeAnimator() -> ViewControllerTransitionAnimator {
         FadePresentingAnimator(duration: Constants.duration)
     }
 }
 
-private final class FadePresentingAnimator: ViewControllerTranstionAnimator {
+private final class FadePresentingAnimator: ViewControllerTransitionAnimator {
 
     override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let toView = transitionContext.view(forKey: .to) else { return }
@@ -58,7 +58,7 @@ private final class FadePresentingAnimator: ViewControllerTranstionAnimator {
     }
 }
 
-private final class FadeDismisingAnimator: ViewControllerTranstionAnimator {
+private final class FadeDismissingAnimator: ViewControllerTransitionAnimator {
 
     override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromView = transitionContext.view(forKey: .from) else { return }

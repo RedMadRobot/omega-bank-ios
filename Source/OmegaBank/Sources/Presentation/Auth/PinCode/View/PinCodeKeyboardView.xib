@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" placeholderIntrinsicWidth="284" placeholderIntrinsicHeight="332" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="PinCodeKeyboardView" customModule="OmegaBank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="284" height="332"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="312" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Der-Oi-0sb">
+                    <rect key="frame" x="10" y="10" width="264" height="312"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="165" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CFT-5C-S7f">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="312"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjZ-d7-e98" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="1">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fcw-nt-G2u"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slv-cx-U7O" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="80" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="4">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="e5g-1y-48k"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSK-xM-6ic" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="160" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="7">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="hSA-nm-MJN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6Y-4y-3qq" userLabel="leftButton" customClass="PinCodeBaseButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="240" width="72" height="72"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="leftButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="pGA-KA-5OB"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="165" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oID-nG-0ZN">
+                            <rect key="frame" x="96" y="0.0" width="72" height="312"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tig-WH-N6D" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="2">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="5wV-qG-v8Y"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uC-Eg-ZHs" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="80" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="5">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="i4m-eD-437"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jer-8s-T9w" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="160" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="8">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="jgc-AY-ezs"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PE-7Y-B9j" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="240" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="0">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ckg-fY-lR9"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="165" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uhU-3W-ZXS">
+                            <rect key="frame" x="192" y="0.0" width="72" height="312"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVU-5F-aXI" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="3">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="UsV-MQ-eBZ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1p-0t-xZG" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="80" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="6">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="YQT-t0-ukR"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-ok-H35" customClass="PinCodeDigitButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="160" width="72" height="72"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal" title="9">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="digitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="bMu-Hr-tRT"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="72" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zt8-Jg-omy" userLabel="rightButton" customClass="PinCodeBaseButton" customModule="OmegaBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="240" width="72" height="72"/>
+                                    <color key="tintColor" name="ph3"/>
+                                    <state key="normal">
+                                        <color key="titleColor" name="ph3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="rightButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="Yet-J5-qmq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Der-Oi-0sb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="62k-JT-fcK"/>
+                <constraint firstAttribute="width" constant="284" id="6yT-SR-Xpy"/>
+                <constraint firstItem="Der-Oi-0sb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Odc-Pt-dvg"/>
+                <constraint firstAttribute="height" constant="332" id="a7J-tv-WoY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftButton" destination="T6Y-4y-3qq" id="kLv-uF-CMx"/>
+                <outlet property="rightButton" destination="zt8-Jg-omy" id="qli-KF-bZS"/>
+            </connections>
+            <point key="canvasLocation" x="146.37681159420291" y="-62.771739130434788"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="ph3">
+            <color red="0.64300000667572021" green="0.63499999046325684" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

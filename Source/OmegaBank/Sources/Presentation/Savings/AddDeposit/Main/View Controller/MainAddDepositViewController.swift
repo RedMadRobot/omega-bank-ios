@@ -113,7 +113,7 @@ final class MainAddDepositViewController: VerticalScrollableViewController {
         }
     }
     
-    private func showError(_ item: ErrorItem, onAction: (() -> Void)?) {
+    private func showError(_ item: ErrorItem, onAction: VoidClosure?) {
         submitButton = nil
         let vc = ErrorViewController(item, onAction: onAction)
         addArrangedChild(vc)

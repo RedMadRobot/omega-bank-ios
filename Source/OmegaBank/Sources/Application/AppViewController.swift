@@ -41,6 +41,7 @@ final class AppViewController: UITabBarController {
     private func setupTabBar() {
         tabBar.barTintColor = .makeGradient(from: .bar1, to: .bar2, on: tabBar.bounds)
         tabBar.tintColor = .textPrimary
+        tabBar.isHidden = true
     }
 
     private func show(_ viewControllers: [UIViewController], animated: Bool = true) {
@@ -48,6 +49,8 @@ final class AppViewController: UITabBarController {
     }
 
     private func showLogin(animated: Bool = true) {
+        tabBar.isHidden = true
+        
         let controller = LoginViewController(loginService: loginService)
         let nc = NavigationController(rootViewController: controller)
         controller.delegate = self
@@ -55,7 +58,9 @@ final class AppViewController: UITabBarController {
         show([nc], animated: animated)
     }
 
-    private func showMain(animated: Bool = true) {        
+    private func showMain(animated: Bool = true) {
+        tabBar.isHidden = false
+        
         let productList = MainProductListContainerViewController.make(delegate: self)
         let partnerList = PartnerListContainerViewController.make(delegate: self)
 
@@ -66,10 +71,30 @@ final class AppViewController: UITabBarController {
 
         show(tabBarViewControllers, animated: animated)
     }
+    
+    private func showCreatePinCode(animated: Bool = true) {
+        tabBar.isHidden = true
+        
+        let controller = PinCodeCreateViewController(loginService: loginService)
+        let nc = NavigationController(rootViewController: controller)
+        controller.delegate = self
+        
+        show([nc], animated: animated)
+    }
+    
+    private func showEntryPinCode(animated: Bool = true) {
+        
+        let controller = PinCodeEntryViewController(loginService: loginService)
+        let nc = NavigationController(rootViewController: controller)
+        
+        controller.delegate = self
+        
+        show([nc], animated: animated)
+    }
 
     private func showContent(animated: Bool = true) {
         if isAuthorized {
-            showMain(animated: animated)
+            showEntryPinCode(animated: false)
         } else {
             showLogin(animated: animated)
         }
@@ -79,10 +104,34 @@ final class AppViewController: UITabBarController {
 // MARK: - LoginViewControllerDelegate
 
 extension AppViewController: LoginViewControllerDelegate {
-
+    
     func loginViewControllerDidAuth(_ controller: LoginViewController) {
+        showCreatePinCode(animated: true)
+    }
+}
+
+// MARK: - PinCodeCreateViewControllerDelegate
+
+extension AppViewController: PinCodeCreateViewControllerDelegate {
+    
+    func pinCodeCreateViewControllerDidMake(_ controller: PinCodeCreateViewController) {
         showMain(animated: true)
     }
+}
+
+// MARK: - PinCodeEntryViewControllerDelegate
+
+extension AppViewController: PinCodeEntryViewControllerDelegate {
+    
+    func pinCodeEntryViewControllerEntered(_ controller: PinCodeEntryViewController) {
+        showMain(animated: true)
+    }
+    
+    func pinCodeEntryViewControllerDidLogout(_ controller: PinCodeEntryViewController) {
+        loginService.logOut()
+        showLogin(animated: true)
+    }
+    
 }
 
 // MARK: - ProfileViewControllerDelegate
@@ -90,6 +139,7 @@ extension AppViewController: LoginViewControllerDelegate {
 extension AppViewController: ProfileViewControllerDelegate {
 
     func mainViewControllerDidLogout() {
+        loginService.logOut()
         showLogin(animated: true)
     }
 }
@@ -103,7 +153,6 @@ extension AppViewController: UITabBarControllerDelegate {
         animationControllerForTransitionFrom fromVC: UIViewController,
         to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-        FadeTranstion.makeAnimator()
+        FadeTransition.makeAnimator()
     }
-
 }

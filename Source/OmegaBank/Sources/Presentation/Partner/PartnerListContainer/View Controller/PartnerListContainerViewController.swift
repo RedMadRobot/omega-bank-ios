@@ -77,7 +77,7 @@ final class PartnerListContainerViewController: PageViewController {
         addChildViewController(vc, to: view)
     }
     
-    private func showError(_ item: ErrorItem, onAction: (() -> Void)? = nil) {
+    private func showError(_ item: ErrorItem, onAction: VoidClosure? = nil) {
         let vc = ErrorViewController(item, onAction: onAction)
         addChildViewController(vc, to: view)
         errorViewController = vc

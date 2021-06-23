@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -43,7 +44,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="RLz-I9-Tzx" secondAttribute="trailing" id="1v9-yH-Ooo"/>
                         <constraint firstItem="RLz-I9-Tzx" firstAttribute="leading" secondItem="gvm-Bn-WZd" secondAttribute="leading" id="376-yG-0ND"/>
@@ -74,7 +75,7 @@
                                     <color key="backgroundColor" name="cellBorder"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="jzq-Aa-Q72" firstAttribute="top" secondItem="f2I-SH-Zbu" secondAttribute="top" id="84G-eR-m43"/>
                                 <constraint firstAttribute="bottom" secondItem="jlB-L7-At1" secondAttribute="bottom" id="8KF-FG-hGk"/>
@@ -130,7 +131,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="dVO-TO-wBp" firstAttribute="top" secondItem="1PT-vn-4uN" secondAttribute="top" id="43y-Ab-VOh"/>
                                 <constraint firstAttribute="trailing" secondItem="dVO-TO-wBp" secondAttribute="trailing" id="Y8G-3m-Glk"/>
@@ -139,7 +140,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="f2I-SH-Zbu" secondAttribute="trailing" id="2cw-Yq-xsc"/>
                         <constraint firstAttribute="bottom" secondItem="f2I-SH-Zbu" secondAttribute="bottom" id="8Le-NF-vvC"/>
@@ -154,13 +155,14 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muR-GC-Pnx" customClass="TitledCurvedView" customModule="OmegaBank" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="170"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="170" id="DNl-eX-Vlz"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Gba-66-TbZ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="20f-wW-EAT"/>
                 <constraint firstItem="iDb-ep-Lr4" firstAttribute="height" secondItem="jlB-L7-At1" secondAttribute="height" id="9dg-GV-OAY"/>
@@ -175,7 +177,6 @@
                 <constraint firstItem="Gba-66-TbZ" firstAttribute="top" secondItem="gvm-Bn-WZd" secondAttribute="bottom" id="v3D-iv-NPB"/>
                 <constraint firstItem="gvm-Bn-WZd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yTc-vN-GLm"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-210.1449275362319" y="-31.473214285714285"/>
         </view>
         <customObject id="zoO-B1-wqR" customClass="MaskedTextFieldDelegate" customModule="InputMask">
@@ -188,5 +189,11 @@
         <namedColor name="cellBorder">
             <color red="0.77999997138977051" green="0.77999997138977051" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

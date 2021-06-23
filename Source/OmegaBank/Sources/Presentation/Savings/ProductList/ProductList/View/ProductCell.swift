@@ -19,13 +19,13 @@ final class ProductCell: UIControl, NibLoadable {
     
     // MARK: - Private Properties
     
-    private var onTap: (() -> Void)?
+    private var onTap: VoidClosure?
     
     // MARK: - Initialization
     
     static func make(
         viewModel: ProductViewModel,
-        onTap: (() -> Void)? = nil,
+        onTap: VoidClosure? = nil,
         image: UIImage? = nil) -> ProductCell {
         
         let view = ProductCell.loadFromNib()

@@ -33,4 +33,12 @@ extension UIFont {
     static var buttonTitle: UIFont {
         UIFont.systemFont(ofSize: 17.0)
     }
+    
+    static var authTitle: UIFont {
+        UIFont.systemFont(ofSize: 24, weight: .medium)
+    }
+    
+    static var authError: UIFont {
+        UIFont.systemFont(ofSize: 16, weight: .medium)
+    }
 }
