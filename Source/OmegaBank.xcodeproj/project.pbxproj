@@ -10,10 +10,10 @@
 		14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658DAB702A03CEE79F4968D4 /* Assets.xcassets */; };
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
+		5C12B0DB2683A847003AEEE6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12B0DA2683A847003AEEE6 /* Assets.swift */; };
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
 		5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C2B26808ADA0006F261 /* AlertPresentable.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
-		5C96BB3D2670D5A000430EC9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96BB3C2670D5A000430EC9 /* Image.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -257,10 +257,10 @@
 		1EB4F9E0D9D47A973F654243 /* Pods-OmegaBankUITests.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.app-store.xcconfig"; sourceTree = "<group>"; };
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C12B0DA2683A847003AEEE6 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
-		5C96BB3C2670D5A000430EC9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -857,7 +857,6 @@
 			isa = PBXGroup;
 			children = (
 				7757BC462404E5CC0063ACBD /* Color.swift */,
-				5C96BB3C2670D5A000430EC9 /* Image.swift */,
 				7757BC482404E5D50063ACBD /* Font.swift */,
 			);
 			path = Appearence;
@@ -1715,6 +1714,7 @@
 			isa = PBXGroup;
 			children = (
 				658DAB702A03CEE79F4968D4 /* Assets.xcassets */,
+				5C12B0DA2683A847003AEEE6 /* Assets.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1768,6 +1768,7 @@
 			buildConfigurationList = FCC4AC414AC9D154B3FD69DE /* Build configuration list for PBXNativeTarget "OmegaBank" */;
 			buildPhases = (
 				F67E67FFAFEEA913DCFB2CDE /* [CP] Check Pods Manifest.lock */,
+				5C65C92E26834E5800FB3EEB /* SwiftGen */,
 				4D47B14A7F1FFB12E16E658B /* SwiftLint */,
 				5A99F0724B51FD218DF7FCDA /* Sources */,
 				A57BB72FA754E1D574F3D67A /* Resources */,
@@ -2024,7 +2025,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		5634543CE8101A8988B149B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2059,6 +2060,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5C65C92E26834E5800FB3EEB /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen\n";
 		};
 		73B7651D64DEAC576CE5DEED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2115,7 +2134,6 @@
 				95A744562445C1BC00BD6779 /* ProductHeader.swift in Sources */,
 				958BD2D72432239400543642 /* FadeTransition.swift in Sources */,
 				5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */,
-				5C96BB3D2670D5A000430EC9 /* Image.swift in Sources */,
 				955F49DC248B7C4B000750EA /* MainProductListContainerViewController.swift in Sources */,
 				9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */,
 				9599A4D42428AB0C000411EC /* UIImageView+Download.swift in Sources */,
@@ -2181,6 +2199,7 @@
 				5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */,
 				5CF23319266F888800B99879 /* PinCodeView.swift in Sources */,
 				95D8F86124853EC0005B1934 /* ErrorViewController.swift in Sources */,
+				5C12B0DB2683A847003AEEE6 /* Assets.swift in Sources */,
 				95CF5E98243CABF300BD94A8 /* ProductCell.swift in Sources */,
 				958F1486247D30440052F9EF /* MainAddDepositViewController.swift in Sources */,
 				959ED9A2243DE72F00C3F4D9 /* TitledCurvedView.swift in Sources */,

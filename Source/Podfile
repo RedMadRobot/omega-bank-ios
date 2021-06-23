@@ -8,6 +8,7 @@ def main_pods
   pod 'InputMask'
   pod 'KeychainAccess'
   pod 'SwiftLint'
+  pod 'SwiftGen'
 end
 
 target 'OmegaBank' do
