@@ -194,10 +194,11 @@ extension AuthService: LoginService {
             switch result {
             case .success(let context):
                 do {
-                    if let pinCode = try self.accessTokenStorage.getPinCode(withBiometry: context) {
-                        try self.authorise(by: pinCode)
-                        completion(.success(context))
+                    guard let pinCode = try self.accessTokenStorage.getPinCode(withBiometry: context) else {
+                        return
                     }
+                    try self.authorise(by: pinCode)
+                    completion(.success(context))
                 } catch let error {
                     completion(.failure(error))
                 }
