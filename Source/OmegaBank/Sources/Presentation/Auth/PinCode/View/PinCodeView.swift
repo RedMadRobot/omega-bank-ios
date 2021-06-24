@@ -21,13 +21,13 @@ enum RightButtonItem {
         switch self {
         
         case .delete:
-            return .backspace
+            return Asset.backspace.image
         case .nothing:
             return nil
         case .touchID:
-            return .touchid
+            return Asset.touchid.image
         case .faceID:
-            return .faceid
+            return Asset.faceid.image
         }
     }
 }
@@ -119,7 +119,7 @@ final class PinCodeView: UIView {
     }()
     private let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = .defaultUser
+        image.image = Asset.defaultUser.image
         image.layer.cornerRadius = Constants.imageCornerRadius
         return image
     }()
@@ -143,7 +143,7 @@ final class PinCodeView: UIView {
     private let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = UIImage.background
+        image.image = Asset.background.image
         return image
     }()
     

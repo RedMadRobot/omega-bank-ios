@@ -5,6 +5,7 @@ PODS:
   - Catbird (0.8.1)
   - InputMask (6.1.0)
   - KeychainAccess (4.2.2)
+  - SwiftGen (6.4.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - Catbird
   - InputMask
   - KeychainAccess
+  - SwiftGen
   - SwiftLint
 
 SPEC REPOS:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Catbird
     - InputMask
     - KeychainAccess
+    - SwiftGen
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -30,8 +33,9 @@ SPEC CHECKSUMS:
   Catbird: b803e24c630c02928f5b126c3b7ab08de0cad458
   InputMask: 71d291dc54d2deaeac6512afb6ec2304228c0bb7
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: a200b2556b9eaf63e2f0e7c7a50e627d99d5aaea
+PODFILE CHECKSUM: 9b6957e314f085cca60d255c4477f3e5fc8fbe1b
 
 COCOAPODS: 1.10.1
