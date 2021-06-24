@@ -2,7 +2,7 @@ xcassets:
   inputs:
     - OmegaBank/Resources/Assets.xcassets
   outputs:
-    - templatePath: ./swift5.stencil
+    - templateName: swift5
       output: OmegaBank/Resources/Assets.swift
       params:
           publicAccess: true
