@@ -9,16 +9,16 @@ import Foundation
 
 /// Маркер работы для отмены.
 final class WorkToken {
-    private let cancelationHanlder: VoidClosure
+    private let cancelationHandler: VoidClosure
     
     private let logoutScheduler: WorkScheduler = DispatсhWorkScheduler()
     
-    init(_ cancelationHanlder: @escaping VoidClosure) {
-        self.cancelationHanlder = cancelationHanlder
+    init(_ cancelationHandler: @escaping VoidClosure) {
+        self.cancelationHandler = cancelationHandler
     }
     
     func cancel() {
-        cancelationHanlder()
+        cancelationHandler()
     }
 }
 
