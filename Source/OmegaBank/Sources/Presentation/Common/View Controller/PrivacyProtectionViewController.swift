@@ -19,11 +19,6 @@ final class PrivacyProtectionViewController: UIViewController {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
-        view.addSubview(blurEffectView, activate: [
-            view.topAnchor.constraint(equalTo: blurEffectView.topAnchor),
-            view.trailingAnchor.constraint(equalTo: blurEffectView.trailingAnchor),
-            view.leadingAnchor.constraint(equalTo: blurEffectView.leadingAnchor),
-            view.bottomAnchor.constraint(equalTo: blurEffectView.bottomAnchor)
-        ])
+        view.addSubview(blurEffectView, with: view)
     }
 }

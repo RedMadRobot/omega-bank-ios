@@ -11,7 +11,11 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Public properties
+    
     var window: UIWindow?
+    
+    // MARK: - Private properties
     
     private lazy var appViewController = AppViewController()
     private lazy var logoutScheduler: WorkScheduler = DispatсhWorkScheduler()
@@ -28,20 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    // MARK: - Private
-
-    private func setupWindow() {
-        window = UIWindow(frame: UIScreen.main.bounds)
-
-        window?.rootViewController = appViewController
-        window?.makeKeyAndVisible()
-    }
+    // MARK: - UIApplicationDelegate
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         showPrivacyProtectionWindow()
-        logoutScheduler.async(after: 10, execute: { [weak self] in
+        logoutScheduler.async(after: 10) { [weak self] in
             self?.appViewController.showPinCode()
-        })
+        }
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -56,7 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         privacyProtectionWindow?.makeKeyAndVisible()
     }
     
-    func hidePrivacyProtectionWindow() {
+    // MARK: - Private methods
+
+    private func setupWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        window?.rootViewController = appViewController
+        window?.makeKeyAndVisible()
+    }
+    
+    private func hidePrivacyProtectionWindow() {
         privacyProtectionWindow?.isHidden = true
         privacyProtectionWindow = nil
     }
