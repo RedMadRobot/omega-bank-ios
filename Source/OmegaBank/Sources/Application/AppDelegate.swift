@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private lazy var appViewController = AppViewController()
+    private lazy var logoutScheduler: WorkScheduler = DispatсhWorkScheduler()
     
     func application(
         _ application: UIApplication,
@@ -32,5 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = appViewController
         window?.makeKeyAndVisible()
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        logoutScheduler.async(after: 10, execute: { [weak self] in
+            self?.appViewController.showPinCode()
+        })
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        logoutScheduler.cancel()
     }
 }

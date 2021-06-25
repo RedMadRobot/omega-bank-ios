@@ -19,6 +19,7 @@
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
 		5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */; };
+		5CCAAB042684DD8000B52F8C /* WorkScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */; };
 		5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */; };
 		5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */; };
 		5CF23317266F878100B99879 /* PinCodeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */; };
@@ -267,6 +268,7 @@
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
 		5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeIndicatorView.swift; sourceTree = "<group>"; };
+		5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkScheduler.swift; sourceTree = "<group>"; };
 		5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeEntryViewController.swift; sourceTree = "<group>"; };
 		5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCreateViewController.swift; sourceTree = "<group>"; };
 		5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseViewController.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 				77196A9523FACA4E007C8C84 /* Storage */,
 				77196AAD23FCFB37007C8C84 /* Results.swift */,
 				5C147C29267C90310006F261 /* Typealias.swift */,
+				5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */,
 				955383A62449C52000DAD89B /* Environment.swift */,
 			);
 			path = Helper;
@@ -2174,6 +2177,7 @@
 				951032CF246E9D3E005902ED /* Product.swift in Sources */,
 				9574E462244313DA0020128E /* SeparatorView.swift in Sources */,
 				9547F8C3242A384800EC42A0 /* PartnerLimitCell.swift in Sources */,
+				5CCAAB042684DD8000B52F8C /* WorkScheduler.swift in Sources */,
 				954C524B243F01C80032C0A0 /* TitledPageViewController.swift in Sources */,
 				9599A4DC2428C38C000411EC /* String+Html.swift in Sources */,
 				9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */,
