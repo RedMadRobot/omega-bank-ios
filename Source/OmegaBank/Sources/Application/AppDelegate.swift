@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var privacyProtectionWindow: UIWindow?
     
+    // MARK: - UIApplicationDelegate
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions
@@ -31,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    // MARK: - UIApplicationDelegate
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         showPrivacyProtectionWindow()
@@ -46,14 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logoutScheduler.cancel()
     }
     
-    func showPrivacyProtectionWindow() {
+    // MARK: - Private methods
+    
+    private func showPrivacyProtectionWindow() {
         privacyProtectionWindow = UIWindow(frame: UIScreen.main.bounds)
         privacyProtectionWindow?.rootViewController = PrivacyProtectionViewController()
         privacyProtectionWindow?.windowLevel = .alert + 1
         privacyProtectionWindow?.makeKeyAndVisible()
     }
-    
-    // MARK: - Private methods
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
