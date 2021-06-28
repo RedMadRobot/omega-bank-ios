@@ -77,10 +77,12 @@ final class AppViewController: UITabBarController {
         
         let productList = MainProductListContainerViewController.make(delegate: self)
         let partnerList = PartnerListContainerViewController.make(delegate: self)
+        let map = MapViewController.make(delegate: self)
 
         let tabBarViewControllers = [
             productList,
-            partnerList
+            partnerList,
+            map
         ]
 
         show(tabBarViewControllers, animated: animated)

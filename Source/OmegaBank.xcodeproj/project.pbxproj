@@ -21,6 +21,8 @@
 		5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */; };
 		5CCAAB042684DD8000B52F8C /* WorkScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */; };
 		5CCAAB062685225800B52F8C /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */; };
+		5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB142689F2DB00B52F8C /* MapViewController.swift */; };
+		5CCAAB172689F2DB00B52F8C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCAAB152689F2DB00B52F8C /* MapViewController.xib */; };
 		5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */; };
 		5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */; };
 		5CF23317266F878100B99879 /* PinCodeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */; };
@@ -271,6 +273,8 @@
 		5CB8E42D266FC83600A689D5 /* PinCodeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeIndicatorView.swift; sourceTree = "<group>"; };
 		5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkScheduler.swift; sourceTree = "<group>"; };
 		5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionViewController.swift; sourceTree = "<group>"; };
+		5CCAAB142689F2DB00B52F8C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5CCAAB152689F2DB00B52F8C /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeEntryViewController.swift; sourceTree = "<group>"; };
 		5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCreateViewController.swift; sourceTree = "<group>"; };
 		5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseViewController.swift; sourceTree = "<group>"; };
@@ -524,6 +528,7 @@
 		0FC2005DF7280A5FEE7A4853 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5CCAAB092686048200B52F8C /* Map */,
 				7757BC412404E47B0063ACBD /* Common */,
 				955169B2243C77BF0072F8AB /* Savings */,
 				955BF9D2243B30E5004621BB /* Partner */,
@@ -555,6 +560,15 @@
 				95E08EBD2446E7E40048DCDB /* OmegaBankUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5CCAAB092686048200B52F8C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
+				5CCAAB152689F2DB00B52F8C /* MapViewController.xib */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		5CF0CD81267368A900D92B93 /* Common */ = {
@@ -1953,6 +1967,7 @@
 				77196AA423FBC2CE007C8C84 /* LoginViewController.xib in Resources */,
 				95CF5E99243CABF300BD94A8 /* ProductCell.xib in Resources */,
 				9599A4D0242893CB000411EC /* PartnerCell.xib in Resources */,
+				5CCAAB172689F2DB00B52F8C /* MapViewController.xib in Resources */,
 				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
 				95D8F86224853EC0005B1934 /* ErrorViewController.xib in Resources */,
 				777961BA240E62B70066762B /* PartnerListViewController.xib in Resources */,
@@ -2231,6 +2246,7 @@
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
+				5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */,
 				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
 				774B93E724249FB3008237BF /* LayoutAttributesAnimator.swift in Sources */,
 			);
