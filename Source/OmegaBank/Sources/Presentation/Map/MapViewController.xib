@@ -36,6 +36,9 @@
                             </constraints>
                             <color key="tintColor" name="textSupplementary"/>
                             <state key="normal" image="Plus"/>
+                            <connections>
+                                <action selector="zoomInButtonPressed" destination="-1" eventType="touchUpInside" id="PYM-4k-nOq"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9D-dl-VKF">
                             <rect key="frame" x="0.0" y="48" width="48" height="48"/>
@@ -46,6 +49,9 @@
                             </constraints>
                             <color key="tintColor" name="textSupplementary"/>
                             <state key="normal" image="Minus"/>
+                            <connections>
+                                <action selector="zoomOutButtonPressed" destination="-1" eventType="touchUpInside" id="LYG-ql-52S"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -58,6 +64,9 @@
                     </constraints>
                     <color key="tintColor" name="textSupplementary"/>
                     <state key="normal" image="location"/>
+                    <connections>
+                        <action selector="locationButtonPressed" destination="-1" eventType="touchUpInside" id="HTs-uD-NN5"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

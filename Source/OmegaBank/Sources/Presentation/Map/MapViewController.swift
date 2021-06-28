@@ -12,6 +12,13 @@ import UIKit
 
 final class MapViewController: PageViewController {
     
+    // MARK: - Private types
+    
+    private enum CameraZoom {
+        case zoomIn
+        case zoomOut
+    }
+    
     // MARK: - Private properties
     
     private var locationManager = CLLocationManager()
@@ -38,5 +45,43 @@ final class MapViewController: PageViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - View controller
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    // MARK: - Private methods
+    
+    private func changeCamera(with zoom: CameraZoom) {
+        var region: MKCoordinateRegion = mapView.region
+        
+        switch zoom {
+        case .zoomOut:
+            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
+            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
+        case .zoomIn:
+            region.span.latitudeDelta /= 2.0
+            region.span.longitudeDelta /= 2.0
+        }
+        
+        mapView.setRegion(region, animated: false)
+    }
+    
+    // MARK: - IB Action
+    
+    @IBAction private func zoomInButtonPressed() {
+        changeCamera(with: .zoomIn)
+    }
+    
+    @IBAction private func zoomOutButtonPressed() {
+        changeCamera(with: .zoomOut)
+    }
+    
+    @IBAction private func locationButtonPressed() {
+        
     }
 }
