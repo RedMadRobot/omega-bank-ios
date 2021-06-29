@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 import UIKit
 
-final class MapViewController: PageViewController {
+final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Private types
     
@@ -21,11 +21,16 @@ final class MapViewController: PageViewController {
     
     // MARK: - Private properties
     
-    private var locationManager = CLLocationManager()
+    private lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.delegate = self
+        return manager
+    }()
     
     // MARK: - IBOutlets
     
     @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var locationButton: UIButton!
     
     // MARK: - Init
     
@@ -48,13 +53,47 @@ final class MapViewController: PageViewController {
     }
     
     // MARK: - View controller
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.userTrackingMode = .follow
+        
+        updateLocationStatus(CLLocationManager.authorizationStatus())
     }
     
     // MARK: - Private methods
+    
+    private func updateLocationStatus(_ status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            locationButton.isHidden = false
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            locationButton.isHidden = true
+        case .denied:
+            locationButton.isHidden = false
+            mapView.showsUserLocation = false
+            showAlert(title: "Geo settings are disabled",
+                      message: "Turn on on settings",
+                      actions: [
+                        UIAlertAction(title: "Cancel", style: .cancel),
+                        UIAlertAction(title: "Settings", style: .default, handler: { _ in
+                            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+                            if UIApplication.shared.canOpenURL(settingsUrl) {
+                                UIApplication.shared.open(settingsUrl)
+                            }
+                        })
+                      ],
+                      preferredAction: nil)
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationButton.isHidden = false
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+            locationButtonPressed()
+        default:
+            break
+        }
+    }
     
     private func changeCamera(with zoom: CameraZoom) {
         var region: MKCoordinateRegion = mapView.region
@@ -81,7 +120,14 @@ final class MapViewController: PageViewController {
     }
     
     @IBAction private func locationButtonPressed() {
-        
+        guard let location = mapView.userLocation.location else { return }
+        mapView.setCenter(location.coordinate, animated: true)
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        updateLocationStatus(status)
     }
 }
 

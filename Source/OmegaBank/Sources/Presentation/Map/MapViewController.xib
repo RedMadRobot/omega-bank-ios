@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="OmegaBank" customModuleProvider="target">
             <connections>
+                <outlet property="locationButton" destination="zTF-jb-08g" id="sfE-pb-HbA"/>
                 <outlet property="mapView" destination="qsP-9p-ryO" id="plQ-0p-HNI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,7 +57,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTF-jb-08g">
-                    <rect key="frame" x="309" y="598" width="48" height="48"/>
+                    <rect key="frame" x="310" y="598" width="48" height="48"/>
                     <color key="backgroundColor" name="backgroundPrimaryPressed"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="tM0-4V-rus"/>
@@ -73,7 +74,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="qsP-9p-ryO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Tg-im-OSc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zTF-jb-08g" secondAttribute="trailing" constant="18" id="DNC-Iw-HAD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zTF-jb-08g" secondAttribute="trailing" constant="17" id="DNC-Iw-HAD"/>
                 <constraint firstItem="pzI-Sq-M8f" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="DXt-ym-iZr"/>
                 <constraint firstItem="qsP-9p-ryO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Dll-IC-xcA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzI-Sq-M8f" secondAttribute="trailing" constant="18" id="RQk-xY-saw"/>

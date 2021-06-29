@@ -59,7 +59,7 @@ final class ServiceLayer {
     
     /// Сервис работы с депозитами
     private(set) lazy var depositListService = DepositListImpl(apiClient: apiClient)
-
+ 
     private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(
             baseURL: baseURL.fetch(),

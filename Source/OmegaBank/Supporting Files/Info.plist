@@ -30,6 +30,10 @@
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
 	<string>For secure login</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow the usage of geolocation data to determine the nearest ATMs</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow the usage of geolocation data to determine the nearest ATMs</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UISupportedInterfaceOrientations</key>
