@@ -15,6 +15,8 @@ protocol AlertPresentable: AnyObject {
         okTitleAction: String,
         cancelTitleAction: String,
         completion: @escaping (Bool) -> Void)
+    
+    func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction?)
 }
 
 extension AlertPresentable where Self: UIViewController {
@@ -42,6 +44,19 @@ extension AlertPresentable where Self: UIViewController {
         alert.addAction(UIAlertAction(title: cancelTitleAction, style: .default) { _ in
             completion(false)
         })
+        present(alert, animated: true)
+    }
+    
+    /// Классический алерт с настраиваемыми кнопками действия
+    /// - Parameters:
+    ///   - title: Заголовок
+    ///   - message: Текст
+    ///   - actions: Действия
+    ///   - preferredAction: Предпочтительное действие
+    func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actions.forEach(alert.addAction)
+        alert.preferredAction = preferredAction
         present(alert, animated: true)
     }
     
