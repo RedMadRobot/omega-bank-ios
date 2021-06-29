@@ -67,8 +67,7 @@ final class MapViewController: PageViewController {
             region.span.latitudeDelta /= 2.0
             region.span.longitudeDelta /= 2.0
         }
-        
-        mapView.setRegion(region, animated: false)
+        mapView.animatedZoom(zoomRegion: region, duration: 0.2)
     }
     
     // MARK: - IB Action
@@ -83,5 +82,13 @@ final class MapViewController: PageViewController {
     
     @IBAction private func locationButtonPressed() {
         
+    }
+}
+
+extension MKMapView {
+    func animatedZoom(zoomRegion: MKCoordinateRegion, duration: TimeInterval) {
+        UIView.animate(withDuration: duration) {
+            self.setRegion(zoomRegion, animated: true)
+        }
     }
 }

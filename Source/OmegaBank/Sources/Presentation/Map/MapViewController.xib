@@ -74,7 +74,7 @@
             <constraints>
                 <constraint firstItem="qsP-9p-ryO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Tg-im-OSc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zTF-jb-08g" secondAttribute="trailing" constant="18" id="DNC-Iw-HAD"/>
-                <constraint firstItem="pzI-Sq-M8f" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DXt-ym-iZr"/>
+                <constraint firstItem="pzI-Sq-M8f" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="DXt-ym-iZr"/>
                 <constraint firstItem="qsP-9p-ryO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Dll-IC-xcA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzI-Sq-M8f" secondAttribute="trailing" constant="18" id="RQk-xY-saw"/>
                 <constraint firstItem="qsP-9p-ryO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="VcT-0V-pFn"/>
