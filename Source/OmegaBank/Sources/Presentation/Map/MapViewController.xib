@@ -63,7 +63,7 @@
                         <constraint firstAttribute="width" constant="48" id="wbb-M7-2EL"/>
                     </constraints>
                     <color key="tintColor" name="textSupplementary"/>
-                    <state key="normal" image="location"/>
+                    <state key="normal" image="Location"/>
                     <connections>
                         <action selector="locationButtonPressed" destination="-1" eventType="touchUpInside" id="HTs-uD-NN5"/>
                     </connections>
@@ -85,9 +85,9 @@
         </view>
     </objects>
     <resources>
+        <image name="Location" width="32" height="32"/>
         <image name="Minus" width="32" height="32"/>
         <image name="Plus" width="32" height="32"/>
-        <image name="location" width="26" height="26"/>
         <namedColor name="backgroundPrimaryPressed">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

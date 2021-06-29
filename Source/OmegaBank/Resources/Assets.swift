@@ -20,9 +20,9 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
   public static let logout = ImageAsset(name: "logout")
+  public static let location = ImageAsset(name: "Location")
   public static let minus = ImageAsset(name: "Minus")
   public static let plus = ImageAsset(name: "Plus")
-  public static let location = ImageAsset(name: "location")
   public static let faceid = ImageAsset(name: "faceid")
   public static let touchid = ImageAsset(name: "touchid")
   public static let backspace = ImageAsset(name: "backspace")
