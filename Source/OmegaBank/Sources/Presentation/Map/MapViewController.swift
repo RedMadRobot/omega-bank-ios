@@ -19,6 +19,13 @@ final class MapViewController: PageViewController, AlertPresentable {
         case zoomOut
     }
     
+    private enum Constants {
+        static let coordinatesMoscow = (latitude: 55.751244, longitude: 37.618423)
+        static let scaleMoscow = 35000.0
+        static let scaleUserLocation = 1000.0
+        static let durationAnimation = 0.2
+    }
+    
     // MARK: - Private properties
     
     private lazy var locationManager: CLLocationManager = {
@@ -26,6 +33,8 @@ final class MapViewController: PageViewController, AlertPresentable {
         manager.delegate = self
         return manager
     }()
+    
+    private var locationStatus: CLAuthorizationStatus?
     
     // MARK: - IBOutlets
     
@@ -56,7 +65,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.userTrackingMode = .follow
+        showMapCenter()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
     }
@@ -70,31 +79,66 @@ final class MapViewController: PageViewController, AlertPresentable {
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
             locationButton.isHidden = true
+            mapView.showsUserLocation = false
+            showMapCenter()
         case .denied:
             locationButton.isHidden = false
             mapView.showsUserLocation = false
-            showAlert(title: "Geo settings are disabled",
-                      message: "Turn on on settings",
-                      actions: [
-                        UIAlertAction(title: "Cancel", style: .cancel),
-                        UIAlertAction(title: "Settings", style: .default, handler: { _ in
-                            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-                            if UIApplication.shared.canOpenURL(settingsUrl) {
-                                UIApplication.shared.open(settingsUrl)
-                            }
-                        })
-                      ],
-                      preferredAction: nil)
+            showMapCenter()
         case .authorizedAlways, .authorizedWhenInUse:
             locationButton.isHidden = false
-            mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
-            locationButtonPressed()
+            mapView.showsUserLocation = true
+            showUserLocation()
         default:
             break
         }
+        
+        self.locationStatus = status
     }
     
+    /// Алерт перехода в настройки, для включения геолокации
+    private func showSettingsAlert() {
+        showAlert(title: "Geo settings are disabled",
+                  message: "Turn on on settings",
+                  actions: [
+                    UIAlertAction(title: "Cancel", style: .cancel),
+                    UIAlertAction(title: "Settings", style: .default, handler: { _ in
+                        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+                        if UIApplication.shared.canOpenURL(settingsUrl) {
+                            UIApplication.shared.open(settingsUrl)
+                        }
+                    })
+                  ],
+                  preferredAction: nil)
+    }
+    
+    /// Отображение Москвы на карте
+    private func showMapCenter() {
+        mapView.setRegion(MKCoordinateRegion(
+                            center: CLLocationCoordinate2D(
+                                                latitude: Constants.coordinatesMoscow.latitude,
+                                                longitude: Constants.coordinatesMoscow.longitude),
+                            latitudinalMeters: Constants.scaleMoscow,
+                            longitudinalMeters: Constants.scaleMoscow),
+                          animated: false)
+        
+    }
+    
+    /// Отображение пользователя на карте
+    private func showUserLocation() {
+        guard let location = locationManager.location else {
+            return }
+        
+        let region = MKCoordinateRegion(
+            center: location.coordinate,
+            latitudinalMeters: Constants.scaleUserLocation,
+            longitudinalMeters: Constants.scaleUserLocation)
+        
+        mapView.setRegion(region, animated: true)
+    }
+    
+    /// Изменение зума карты
     private func changeCamera(with zoom: CameraZoom) {
         var region: MKCoordinateRegion = mapView.region
         
@@ -106,7 +150,8 @@ final class MapViewController: PageViewController, AlertPresentable {
             region.span.latitudeDelta /= 2.0
             region.span.longitudeDelta /= 2.0
         }
-        mapView.animatedZoom(zoomRegion: region, duration: 0.2)
+        
+        mapView.animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
     }
     
     // MARK: - IB Action
@@ -120,8 +165,10 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     @IBAction private func locationButtonPressed() {
-        guard let location = mapView.userLocation.location else { return }
-        mapView.setCenter(location.coordinate, animated: true)
+        guard locationStatus != .denied else {
+            showSettingsAlert()
+            return }
+        showUserLocation()
     }
 }
 
