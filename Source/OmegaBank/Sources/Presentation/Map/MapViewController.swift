@@ -27,14 +27,13 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     // MARK: - Private properties
-    
+    private let officesService: OfficesService
+    private var locationStatus: CLAuthorizationStatus?
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
         return manager
     }()
-    
-    private var locationStatus: CLAuthorizationStatus?
     
     // MARK: - IBOutlets
     
@@ -51,7 +50,9 @@ final class MapViewController: PageViewController, AlertPresentable {
         return navigationController
     }
     
-    init() {
+    init(officesService: OfficesService = ServiceLayer.shared.officesService) {
+        self.officesService = officesService
+        
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
         
         navigationItem.title = "Offices"
@@ -115,13 +116,14 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     /// Отображение Москвы на карте
     private func showMapCenter() {
-        mapView.setRegion(MKCoordinateRegion(
-                            center: CLLocationCoordinate2D(
-                                                latitude: Constants.coordinatesMoscow.latitude,
-                                                longitude: Constants.coordinatesMoscow.longitude),
-                            latitudinalMeters: Constants.scaleMoscow,
-                            longitudinalMeters: Constants.scaleMoscow),
-                          animated: false)
+        mapView.setRegion(
+            MKCoordinateRegion(
+                center: CLLocationCoordinate2D(
+                    latitude: Constants.coordinatesMoscow.latitude,
+                    longitude: Constants.coordinatesMoscow.longitude),
+                latitudinalMeters: Constants.scaleMoscow,
+                longitudinalMeters: Constants.scaleMoscow),
+            animated: false)
         
     }
     

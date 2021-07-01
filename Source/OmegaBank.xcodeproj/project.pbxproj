@@ -15,6 +15,9 @@
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
 		5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C2B26808ADA0006F261 /* AlertPresentable.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
+		5C8A2D2E268CBAE500D6EFDF /* OfficesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */; };
+		5C8A2D33268CC57600D6EFDF /* OfficesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */; };
+		5C8A2D34268CC58700D6EFDF /* Offices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Offices.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -267,6 +270,9 @@
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
+		5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesService.swift; sourceTree = "<group>"; };
+		5C8A2D2F268CC10000D6EFDF /* Offices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offices.swift; sourceTree = "<group>"; };
+		5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesEndpoint.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -545,6 +551,7 @@
 				95770A40246BEB0900FE058F /* CardListService.swift */,
 				951032C5246E90B4005902ED /* DepositListService.swift */,
 				77C8B0FC2418D29D00B2EB3D /* PartnetListService.swift */,
+				5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */,
 				5C300D2E2678D0F700E75879 /* BiometricService.swift */,
 			);
 			path = Service;
@@ -751,6 +758,7 @@
 				95770A2D246BDBA700FE058F /* Auth */,
 				95770A2C246BDB4100FE058F /* Savings */,
 				7700FD502412609E00210AD3 /* PartnersEndpoint.swift */,
+				5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -770,6 +778,7 @@
 			children = (
 				77196A8A23FAC636007C8C84 /* AuthData.swift */,
 				7700FD53241262DE00210AD3 /* Partner.swift */,
+				5C8A2D2F268CC10000D6EFDF /* Offices.swift */,
 				95541B24246AC9A800F1CD48 /* Card.swift */,
 				95541B26246AC9B800F1CD48 /* Deposit.swift */,
 				954BE144247BE6D3007DEA64 /* CardInfo.swift */,
@@ -2235,6 +2244,7 @@
 				774B93EC2424A9EB008237BF /* CardAttributesAnimator.swift in Sources */,
 				5C147C2A267C90310006F261 /* Typealias.swift in Sources */,
 				954BD42D242C967F00DDF91A /* PartnerLimitViewModel.swift in Sources */,
+				5C8A2D2E268CBAE500D6EFDF /* OfficesService.swift in Sources */,
 				955383A72449C52000DAD89B /* Environment.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
@@ -2275,6 +2285,7 @@
 				77196A7E23FAB1EE007C8C84 /* Endpoint.swift in Sources */,
 				77C34B4A23FE4A4A005CFD23 /* APIService.swift in Sources */,
 				77196A8B23FAC636007C8C84 /* AuthData.swift in Sources */,
+				5C8A2D33268CC57600D6EFDF /* OfficesEndpoint.swift in Sources */,
 				77196A8623FABAB7007C8C84 /* Codable.swift in Sources */,
 				95541B25246AC9A800F1CD48 /* Card.swift in Sources */,
 				95EB186C246C39E4000D53F4 /* ApplyDepositEndpoint.swift in Sources */,
@@ -2282,6 +2293,7 @@
 				954BE14B247BF229007DEA64 /* DepositInfo.swift in Sources */,
 				77196A8D23FAC6B4007C8C84 /* URLRequest+HTTP.swift in Sources */,
 				77196AA923FBCD11007C8C84 /* CheckSmsCodeEndpoint.swift in Sources */,
+				5C8A2D34268CC58700D6EFDF /* Offices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
