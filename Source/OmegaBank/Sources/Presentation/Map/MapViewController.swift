@@ -8,7 +8,7 @@
 
 import CoreLocation
 import MapKit
-import UIKit
+import struct OmegaBankAPI.Office
 
 final class MapViewController: PageViewController, AlertPresentable {
     
@@ -27,6 +27,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     // MARK: - Private properties
+    private var progress: Progress?
     private let officesService: OfficesService
     private var locationStatus: CLAuthorizationStatus?
     private lazy var locationManager: CLLocationManager = {
@@ -62,16 +63,29 @@ final class MapViewController: PageViewController, AlertPresentable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        progress?.cancel()
+    }
+    
     // MARK: - View controller
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showMapCenter()
+        loadAnnotation()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
     }
     
     // MARK: - Private methods
+    
+    private func show(_ offices: [Office]) {
+        let annotations: [MKAnnotation] = offices.compactMap { office in
+            MapAnnotation(latitude: office.location.latitude, longitude: office.location.longitude)
+        }
+        
+        mapView.addAnnotations(annotations)
+    }
     
     private func updateLocationStatus(_ status: CLAuthorizationStatus) {
         switch status {
@@ -156,6 +170,18 @@ final class MapViewController: PageViewController, AlertPresentable {
         mapView.animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
     }
     
+    /// Загрузка офисов
+    private func loadAnnotation() {
+        progress = officesService.load { [weak self] result in
+            switch result {
+            case .success(let offices):
+                self?.show(offices)
+            case .failure:
+                break
+            }
+        }
+    }
+    
     // MARK: - IB Action
     
     @IBAction private func zoomInButtonPressed() {
@@ -186,4 +212,8 @@ extension MKMapView {
             self.setRegion(zoomRegion, animated: true)
         }
     }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    
 }
