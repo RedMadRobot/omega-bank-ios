@@ -17,7 +17,7 @@
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
 		5C8A2D2E268CBAE500D6EFDF /* OfficesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */; };
 		5C8A2D33268CC57600D6EFDF /* OfficesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */; };
-		5C8A2D34268CC58700D6EFDF /* Offices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Offices.swift */; };
+		5C8A2D34268CC58700D6EFDF /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Office.swift */; };
 		5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
@@ -272,7 +272,7 @@
 		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 		5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesService.swift; sourceTree = "<group>"; };
-		5C8A2D2F268CC10000D6EFDF /* Offices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offices.swift; sourceTree = "<group>"; };
+		5C8A2D2F268CC10000D6EFDF /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesEndpoint.swift; sourceTree = "<group>"; };
 		5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
@@ -781,7 +781,7 @@
 			children = (
 				77196A8A23FAC636007C8C84 /* AuthData.swift */,
 				7700FD53241262DE00210AD3 /* Partner.swift */,
-				5C8A2D2F268CC10000D6EFDF /* Offices.swift */,
+				5C8A2D2F268CC10000D6EFDF /* Office.swift */,
 				95541B24246AC9A800F1CD48 /* Card.swift */,
 				95541B26246AC9B800F1CD48 /* Deposit.swift */,
 				954BE144247BE6D3007DEA64 /* CardInfo.swift */,
@@ -2297,7 +2297,7 @@
 				954BE14B247BF229007DEA64 /* DepositInfo.swift in Sources */,
 				77196A8D23FAC6B4007C8C84 /* URLRequest+HTTP.swift in Sources */,
 				77196AA923FBCD11007C8C84 /* CheckSmsCodeEndpoint.swift in Sources */,
-				5C8A2D34268CC58700D6EFDF /* Offices.swift in Sources */,
+				5C8A2D34268CC58700D6EFDF /* Office.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Offices.swift
+//  Office.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 30.06.2021.
@@ -16,17 +16,7 @@ public struct Office: Decodable {
     public let location: Location
     public let workHours: String?
     public let phone: String?
-       
-    // MARK: - Init
     
-    public init(id: Int, name: String?, address: String?, location: Location, workHours: String?, phone: String?) {
-        self.id = id
-        self.name = name
-        self.address = address
-        self.location = location
-        self.workHours = workHours
-        self.phone = phone
-    }
 }
 
 public struct Location: Decodable {
