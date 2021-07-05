@@ -70,18 +70,25 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - View controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         
         showMapCenter()
-        loadAnnotation()
+        loadOffices()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
     }
     
     // MARK: - Private methods
     
-    private func show(_ offices: [Office]) {
+    /// Добавление аннотаций на карту
+    private func addAnnotations(_ offices: [Office]) {
         let annotations: [MKAnnotation] = offices.compactMap { office in
-            MapAnnotation(latitude: office.location.latitude, longitude: office.location.longitude)
+            let annotation = MapAnnotation(
+                latitude: office.location.latitude,
+                longitude: office.location.longitude,
+                title: office.name,
+                subtitle: office.address)
+            return annotation
         }
         
         mapView.addAnnotations(annotations)
@@ -171,11 +178,11 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     /// Загрузка офисов
-    private func loadAnnotation() {
+    private func loadOffices() {
         progress = officesService.load { [weak self] result in
             switch result {
             case .success(let offices):
-                self?.show(offices)
+                self?.addAnnotations(offices)
             case .failure:
                 break
             }
@@ -200,11 +207,15 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
+
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         updateLocationStatus(status)
     }
 }
+
+// MARK: - MKMapView
 
 extension MKMapView {
     func animatedZoom(zoomRegion: MKCoordinateRegion, duration: TimeInterval) {
@@ -214,6 +225,26 @@ extension MKMapView {
     }
 }
 
+// MARK: - MKMapViewDelegate
+
 extension MapViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: MapAnnotation.identifier) as? MKMarkerAnnotationView
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MapAnnotation.identifier)
+        }
+        
+        annotationView?.canShowCallout = true
+        annotationView?.glyphImage = Asset.omega.image
+        annotationView?.glyphTintColor = .textPrimary
+        annotationView?.markerTintColor = .curve2
+        
+        return annotationView
+    }
 }

@@ -571,12 +571,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5C8A2D3B26933BB200D6EFDF /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		5CCAAB092686048200B52F8C /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
-				5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */,
+				5C8A2D3B26933BB200D6EFDF /* Annotations */,
 				5CCAAB152689F2DB00B52F8C /* MapViewController.xib */,
+				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
