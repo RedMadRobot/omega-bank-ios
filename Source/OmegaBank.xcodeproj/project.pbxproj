@@ -19,6 +19,7 @@
 		5C8A2D33268CC57600D6EFDF /* OfficesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */; };
 		5C8A2D34268CC58700D6EFDF /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Office.swift */; };
 		5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */; };
+		5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -275,6 +276,7 @@
 		5C8A2D2F268CC10000D6EFDF /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesEndpoint.swift; sourceTree = "<group>"; };
 		5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */,
+				5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -2238,6 +2241,7 @@
 				777426C1240523B5008E5810 /* NibLoadable.swift in Sources */,
 				77196A9923FACB58007C8C84 /* KeychainStorage.swift in Sources */,
 				77AAE4362417B5CB0012A9D9 /* PageViewController.swift in Sources */,
+				5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */,
 				953B144124507BCE00D609B0 /* HotActionView.swift in Sources */,
 				77C8B0FD2418D29D00B2EB3D /* PartnetListService.swift in Sources */,
 				958BD2D9243223CB00543642 /* ViewControllerTransitionAnimator.swift in Sources */,

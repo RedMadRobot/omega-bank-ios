@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 import struct OmegaBankAPI.Office
 
-final class MapViewController: PageViewController, AlertPresentable {
+final class MapViewController: PageViewController, AlertPresentable, MKMapViewDelegate {
     
     // MARK: - Private types
     
@@ -18,6 +18,8 @@ final class MapViewController: PageViewController, AlertPresentable {
         case zoomIn
         case zoomOut
     }
+    
+    // MARK: - Constants
     
     private enum Constants {
         static let coordinatesMoscow = (latitude: 55.751244, longitude: 37.618423)
@@ -27,6 +29,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     // MARK: - Private properties
+    
     private var progress: Progress?
     private let officesService: OfficesService
     private var locationStatus: CLAuthorizationStatus?
@@ -70,7 +73,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - View controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
+        registerMapAnnotationView()
         
         showMapCenter()
         loadOffices()
@@ -79,6 +82,12 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     // MARK: - Private methods
+    
+    private func registerMapAnnotationView() {
+        mapView.register(
+            MarkerAnnotationView.self,
+            forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    }
     
     /// Добавление аннотаций на карту
     private func addAnnotations(_ offices: [Office]) {
@@ -222,29 +231,5 @@ extension MKMapView {
         UIView.animate(withDuration: duration) {
             self.setRegion(zoomRegion, animated: true)
         }
-    }
-}
-
-// MARK: - MKMapViewDelegate
-
-extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        guard !annotation.isKind(of: MKUserLocation.self) else {
-            return nil
-        }
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(
-            withIdentifier: MapAnnotation.identifier) as? MKMarkerAnnotationView
-        if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MapAnnotation.identifier)
-        }
-        
-        annotationView?.canShowCallout = true
-        annotationView?.glyphImage = Asset.omega.image
-        annotationView?.glyphTintColor = .textPrimary
-        annotationView?.markerTintColor = .curve2
-        
-        return annotationView
     }
 }
