@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 import struct OmegaBankAPI.Office
 
-final class MapViewController: PageViewController, AlertPresentable, MKMapViewDelegate {
+final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Private types
     
@@ -73,6 +73,7 @@ final class MapViewController: PageViewController, AlertPresentable, MKMapViewDe
     // MARK: - View controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         registerMapAnnotationView()
         
         showMapCenter()
@@ -213,6 +214,21 @@ final class MapViewController: PageViewController, AlertPresentable, MKMapViewDe
             showSettingsAlert()
             return }
         showUserLocation()
+    }
+}
+
+// MARK: - MKMapViewDelegate
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        return MarkerAnnotationView(
+            annotation: annotation,
+            reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 }
 

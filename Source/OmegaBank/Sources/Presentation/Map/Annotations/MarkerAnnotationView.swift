@@ -27,8 +27,6 @@ final class MarkerAnnotationView: MKMarkerAnnotationView {
         
         if let annotation = annotation as? MapAnnotation {
             setup(annotation)
-        } else {
-            setup()
         }
     }
     
@@ -46,17 +44,6 @@ final class MarkerAnnotationView: MKMarkerAnnotationView {
         markerTintColor = .curve2
         titleVisibility = .hidden
         detailLabel.text = annotation.subtitle
-        detailCalloutAccessoryView = detailLabel
-    }
-    
-    private func setup() {
-        
-        canShowCallout = true
-        glyphImage = Asset.omega.image
-        glyphTintColor = .textPrimary
-        markerTintColor = .curve2
-        titleVisibility = .hidden
-        detailLabel.text = "test\ntest\ntest"
         detailCalloutAccessoryView = detailLabel
     }
 }
