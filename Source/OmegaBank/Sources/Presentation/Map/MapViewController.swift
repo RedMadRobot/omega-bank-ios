@@ -30,9 +30,11 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Private properties
     
-    private var progress: Progress?
     private let officesService: OfficesService
+    private var progress: Progress?
     private var locationStatus: CLAuthorizationStatus?
+    
+    //    private lazy var mapsAppsHelper = MapAppsHelper(annotation: <#T##MKAnnotation#>)
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -76,7 +78,7 @@ final class MapViewController: PageViewController, AlertPresentable {
         mapView.delegate = self
         registerMapAnnotationView()
         
-        showMapCenter()
+        showMoscow()
         loadOffices()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
@@ -112,11 +114,11 @@ final class MapViewController: PageViewController, AlertPresentable {
         case .restricted:
             locationButton.isHidden = true
             mapView.showsUserLocation = false
-            showMapCenter()
+            showMoscow()
         case .denied:
             locationButton.isHidden = false
             mapView.showsUserLocation = false
-            showMapCenter()
+            showMoscow()
         case .authorizedAlways, .authorizedWhenInUse:
             locationButton.isHidden = false
             locationManager.startUpdatingLocation()
@@ -146,7 +148,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     /// Отображение Москвы на карте
-    private func showMapCenter() {
+    private func showMoscow() {
         mapView.setRegion(
             MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
@@ -220,7 +222,6 @@ final class MapViewController: PageViewController, AlertPresentable {
 // MARK: - MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate {
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else {
             return nil
@@ -229,6 +230,30 @@ extension MapViewController: MKMapViewDelegate {
         return MarkerAnnotationView(
             annotation: annotation,
             reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    }
+    
+    func mapView(
+        _ mapView: MKMapView,
+        annotationView view: MKAnnotationView,
+        calloutAccessoryControlTapped control: UIControl) {
+        
+        guard let annotation = view.annotation as? MapAnnotation else {
+            return
+        }
+        
+        let mapHelper = MapAppsHelper(annotation: annotation)
+        let placemark = MKPlacemark(
+            coordinate: CLLocationCoordinate2D(
+                latitude: annotation.coordinate.latitude,
+                longitude: annotation.coordinate.longitude
+            )
+        )
+        let mapItem = MKMapItem(placemark: placemark)
+        
+        showAlert(mapOptions: mapHelper.availableMapApps) {
+            mapItem.openInMaps(launchOptions: mapHelper.availableMapApps)
+            
+        }
     }
 }
 
