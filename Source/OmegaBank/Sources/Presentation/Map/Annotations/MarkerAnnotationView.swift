@@ -18,6 +18,11 @@ final class MarkerAnnotationView: MKMarkerAnnotationView {
         label.font = UIFont.body2
         return label
     }()
+    private let mapsButton: UIButton = {
+        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 32, height: 32)))
+        button.setBackgroundImage(Asset.maps.image, for: .normal)
+        return button
+    }()
     
     // MARK: - Init
     
@@ -39,11 +44,14 @@ final class MarkerAnnotationView: MKMarkerAnnotationView {
     private func setup(_ annotation: MapAnnotation) {
         
         canShowCallout = true
+        
         glyphImage = Asset.omega.image
         glyphTintColor = .textPrimary
         markerTintColor = .curve2
         titleVisibility = .hidden
+        
         detailLabel.text = annotation.subtitle
         detailCalloutAccessoryView = detailLabel
+        rightCalloutAccessoryView = mapsButton
     }
 }
