@@ -17,17 +17,13 @@ protocol AlertPresentable: AnyObject {
         completion: @escaping (Bool) -> Void)
     
     func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction?)
+    
+    func showAlert(mapOptions: [String: URL], renderAppleMaps: @escaping VoidClosure)
 }
 
 extension AlertPresentable where Self: UIViewController {
     
-    /// Классический алерт, с двумя кнопками действия
-    /// - Parameters:
-    ///   - title: Заголовок
-    ///   - text: Описание
-    ///   - okTitleAction: Заголовок кнопки согласия
-    ///   - cancelTitleAction: Заголовок кнопки отмены
-    ///   - completion: Результат нажатия на кнопки, true – согласие, false – отказ
+    /// Alert с двумя кнопками действий
     func showAlert(
         title: String?,
         text: String?,
@@ -47,12 +43,7 @@ extension AlertPresentable where Self: UIViewController {
         present(alert, animated: true)
     }
     
-    /// Классический алерт с настраиваемыми кнопками действия
-    /// - Parameters:
-    ///   - title: Заголовок
-    ///   - message: Текст
-    ///   - actions: Действия
-    ///   - preferredAction: Предпочтительное действие
+    /// Alert с настраиваемыми кнопками действий
     func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         actions.forEach(alert.addAction)
@@ -60,4 +51,25 @@ extension AlertPresentable where Self: UIViewController {
         present(alert, animated: true)
     }
     
+    /// ActionSheet с предложением открыть маршрут в картах
+    /// - Parameters:
+    ///   - mapOptions: Словарь, с названием открываемых карт
+    ///   - renderAppleMaps: Открытие маршрута в appleMap
+    func showAlert(mapOptions: [String: URL], renderAppleMaps: @escaping VoidClosure) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Apple Maps", style: .default, handler: { _ in
+            renderAppleMaps()
+        }))
+        
+        mapOptions.forEach { option in
+            alert.addAction(UIAlertAction(title: option.key, style: .default, handler: { _ in
+                UIApplication.shared.open(option.value, options: [:], completionHandler: nil)
+            }))
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
+    }
 }
