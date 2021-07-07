@@ -20,6 +20,10 @@
 		5C8A2D34268CC58700D6EFDF /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Office.swift */; };
 		5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */; };
 		5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */; };
+		5C8A2D3F2695A36B00D6EFDF /* MapAppScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */; };
+		5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */; };
+		5C8A2D442695BC8300D6EFDF /* MapAppsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* MapAppsHelper.swift */; };
+		5C8A2D492695DBF900D6EFDF /* YandexMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -277,6 +281,10 @@
 		5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesEndpoint.swift; sourceTree = "<group>"; };
 		5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotationView.swift; sourceTree = "<group>"; };
+		5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppScheme.swift; sourceTree = "<group>"; };
+		5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsScheme.swift; sourceTree = "<group>"; };
+		5C8A2D432695BC8300D6EFDF /* MapAppsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppsHelper.swift; sourceTree = "<group>"; };
+		5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexMapsScheme.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -582,10 +590,30 @@
 			path = Annotations;
 			sourceTree = "<group>";
 		};
+		5C8A2D402695A37500D6EFDF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5C8A2D472695D9F100D6EFDF /* Schemes */,
+				5C8A2D432695BC8300D6EFDF /* MapAppsHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5C8A2D472695D9F100D6EFDF /* Schemes */ = {
+			isa = PBXGroup;
+			children = (
+				5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */,
+				5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */,
+				5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */,
+			);
+			path = Schemes;
+			sourceTree = "<group>";
+		};
 		5CCAAB092686048200B52F8C /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				5C8A2D3B26933BB200D6EFDF /* Annotations */,
+				5C8A2D402695A37500D6EFDF /* Helper */,
 				5CCAAB152689F2DB00B52F8C /* MapViewController.xib */,
 				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
 			);
@@ -2189,6 +2217,7 @@
 				5C12B0DD26847A4D003AEEE6 /* Assets.swift in Sources */,
 				777426B42405197B008E5810 /* TableViewCell.swift in Sources */,
 				77C8B1002418D98500B2EB3D /* ErrorItem.swift in Sources */,
+				5C8A2D3F2695A36B00D6EFDF /* MapAppScheme.swift in Sources */,
 				77196AA223FBC2A0007C8C84 /* LoginViewController.swift in Sources */,
 				95CB3E122459BB7800C6F5C6 /* SubtitleView.swift in Sources */,
 				958BD2D42432005900543642 /* LayoutGuide.swift in Sources */,
@@ -2197,6 +2226,7 @@
 				9599A4C824289165000411EC /* ViewCorners.swift in Sources */,
 				5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */,
 				774B93E524249F41008237BF /* AnimatedCollectionViewLayout.swift in Sources */,
+				5C8A2D492695DBF900D6EFDF /* YandexMapsScheme.swift in Sources */,
 				9542410E24445A6E00E2C196 /* ViewController.swift in Sources */,
 				9542410A244445AA00E2C196 /* Transaction.swift in Sources */,
 				7757BC442404E4B90063ACBD /* NavigationController.swift in Sources */,
@@ -2264,6 +2294,7 @@
 				955383A72449C52000DAD89B /* Environment.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
+				5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */,
 				951032CD246E9D1F005902ED /* ProductType.swift in Sources */,
 				77196A9723FACA6C007C8C84 /* AccessTokenStorage.swift in Sources */,
 				5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */,
@@ -2272,6 +2303,7 @@
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
+				5C8A2D442695BC8300D6EFDF /* MapAppsHelper.swift in Sources */,
 				5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */,
 				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
 				774B93E724249FB3008237BF /* LayoutAttributesAnimator.swift in Sources */,
