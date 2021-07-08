@@ -19,14 +19,6 @@ final class PartnerListContainerViewController: PageViewController {
     
     // MARK: - Initializers
     
-    static func make(delegate: ProfileViewControllerDelegate?) -> UIViewController {
-        let controller = PartnerListContainerViewController()
-        controller.delegate = delegate
-        let navigationController = NavigationController(rootViewController: controller)
-
-        return navigationController
-    }
-    
     init(partnerListService: PartnerListService = ServiceLayer.shared.partnerListService) {
         self.partnerListService = partnerListService
         

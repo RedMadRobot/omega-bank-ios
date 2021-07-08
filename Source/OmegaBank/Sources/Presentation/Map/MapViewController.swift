@@ -31,15 +31,13 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - Private properties
     
     private let officesService: OfficesService
-    private var progress: Progress?
-    private var locationStatus: CLAuthorizationStatus?
-    
-    //    private lazy var mapsAppsHelper = MapAppsHelper(annotation: <#T##MKAnnotation#>)
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
         return manager
     }()
+    private var progress: Progress?
+    private var locationStatus: CLAuthorizationStatus?
     
     // MARK: - IBOutlets
     
@@ -47,14 +45,6 @@ final class MapViewController: PageViewController, AlertPresentable {
     @IBOutlet private var locationButton: UIButton!
     
     // MARK: - Init
-    
-    static func make(delegate: ProfileViewControllerDelegate?) -> UIViewController {
-        let controller = MapViewController()
-        controller.delegate = delegate
-        let navigationController = NavigationController(rootViewController: controller)
-        
-        return navigationController
-    }
     
     init(officesService: OfficesService = ServiceLayer.shared.officesService) {
         self.officesService = officesService

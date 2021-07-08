@@ -12,12 +12,15 @@ import UIKit
 final class AppViewController: UITabBarController {
 
     private let loginService: LoginService
+    private let factory: TabBarScreenFactory
     private var isAuthorized: Bool { loginService.isAuthorized }
     private var isAuthenticationCompleted = false
 
     init(
-        loginService: LoginService = ServiceLayer.shared.loginService) {
+        loginService: LoginService = ServiceLayer.shared.loginService,
+        factory: TabBarScreenFactory = ServiceLayer.shared.tabBarFactory) {
         self.loginService = loginService
+        self.factory = factory
 
         super.init(nibName: nil, bundle: nil)
         
@@ -75,9 +78,9 @@ final class AppViewController: UITabBarController {
         
         tabBar.isHidden = false
         
-        let productList = MainProductListContainerViewController.make(delegate: self)
-        let partnerList = PartnerListContainerViewController.make(delegate: self)
-        let map = MapViewController.make(delegate: self)
+        let productList = factory.makeMainProductListContainerViewController(delegate: self)
+        let partnerList = factory.makePartnerListContainerViewController(delegate: self)
+        let map = factory.makeMapViewController(delegate: self)
 
         let tabBarViewControllers = [
             productList,

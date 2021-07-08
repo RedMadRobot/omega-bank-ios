@@ -62,6 +62,9 @@ final class ServiceLayer {
     
     /// Сервис работы с офисами
     private(set) lazy var officesService = OfficesServiceImpl(apiClient: apiClient)
+    
+    /// Фабрика создания VC для таббара
+    private(set) lazy var tabBarFactory = TabBarScreenFactory()
  
     private(set) lazy var apiClient: ApiClient = {
         OmegaBankAPI.Client(

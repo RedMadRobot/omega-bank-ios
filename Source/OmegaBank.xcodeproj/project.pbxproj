@@ -10,6 +10,7 @@
 		14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658DAB702A03CEE79F4968D4 /* Assets.xcassets */; };
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
+		5C0790462696F865005BC7DF /* PageViewControllerFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0790452696F865005BC7DF /* PageViewControllerFabric.swift */; };
 		5C12B0DD26847A4D003AEEE6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12B0DC26847A4D003AEEE6 /* Assets.swift */; };
 		5C12B0E126848E8C003AEEE6 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C12B0E026848E8C003AEEE6 /* ColorAssets.xcassets */; };
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
@@ -271,6 +272,7 @@
 		1EB4F9E0D9D47A973F654243 /* Pods-OmegaBankUITests.app-store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankUITests.app-store.xcconfig"; path = "Target Support Files/Pods-OmegaBankUITests/Pods-OmegaBankUITests.app-store.xcconfig"; sourceTree = "<group>"; };
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C0790452696F865005BC7DF /* PageViewControllerFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerFabric.swift; sourceTree = "<group>"; };
 		5C12B0DC26847A4D003AEEE6 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		5C12B0E026848E8C003AEEE6 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -904,6 +906,7 @@
 				958BD2D52432237D00543642 /* Transition */,
 				777426B224051967008E5810 /* View */,
 				7757BC422404E4860063ACBD /* View Controller */,
+				5C0790452696F865005BC7DF /* PageViewControllerFabric.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2222,6 +2225,7 @@
 				95CB3E122459BB7800C6F5C6 /* SubtitleView.swift in Sources */,
 				958BD2D42432005900543642 /* LayoutGuide.swift in Sources */,
 				958BD2CE2431FCC600543642 /* PartnerLimitCollectionViewController.swift in Sources */,
+				5C0790462696F865005BC7DF /* PageViewControllerFabric.swift in Sources */,
 				958F1481247D2E510052F9EF /* ProductTypeDescriptorViewController.swift in Sources */,
 				9599A4C824289165000411EC /* ViewCorners.swift in Sources */,
 				5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */,
