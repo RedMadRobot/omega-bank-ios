@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import struct OmegaBankAPI.Office
 
 final class MapAnnotation: NSObject, MKAnnotation {
     
@@ -24,6 +25,18 @@ final class MapAnnotation: NSObject, MKAnnotation {
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.title = title
         self.subtitle = subtitle
+    }
+    
+}
+
+extension Office {
+
+    var annotation: MapAnnotation {
+        MapAnnotation(
+            latitude: location.latitude,
+            longitude: location.longitude,
+            title: name,
+            subtitle: address)
     }
     
 }

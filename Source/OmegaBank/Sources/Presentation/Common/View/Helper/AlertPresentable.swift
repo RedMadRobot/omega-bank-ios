@@ -44,7 +44,7 @@ extension AlertPresentable where Self: UIViewController {
     }
     
     /// Alert с настраиваемыми кнопками действий
-    func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction?) {
+    func showAlert(title: String?, message: String?, actions: [UIAlertAction], preferredAction: UIAlertAction? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         actions.forEach(alert.addAction)
         alert.preferredAction = preferredAction

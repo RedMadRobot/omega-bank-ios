@@ -22,7 +22,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - Constants
     
     private enum Constants {
-        static let coordinatesMoscow = (latitude: 55.751244, longitude: 37.618423)
+        static let coordinateMoscow = CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423)
         static let scaleMoscow = 35000.0
         static let scaleUserLocation = 1000.0
         static let durationAnimation = 0.2
@@ -63,12 +63,12 @@ final class MapViewController: PageViewController, AlertPresentable {
     }
     
     // MARK: - View controller
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         registerMapAnnotationView()
         
-        showMoscow()
         loadOffices()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
@@ -84,14 +84,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     /// Добавление аннотаций на карту
     private func addAnnotations(_ offices: [Office]) {
-        let annotations: [MKAnnotation] = offices.compactMap { office in
-            let annotation = MapAnnotation(
-                latitude: office.location.latitude,
-                longitude: office.location.longitude,
-                title: office.name,
-                subtitle: office.address)
-            return annotation
-        }
+        let annotations = offices.map { $0.annotation }
         
         mapView.addAnnotations(annotations)
     }
@@ -123,27 +116,25 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     /// Алерт перехода в настройки, для включения геолокации
     private func showSettingsAlert() {
-        showAlert(title: "Geo settings are disabled",
-                  message: "Turn on on settings",
-                  actions: [
-                    UIAlertAction(title: "Cancel", style: .cancel),
-                    UIAlertAction(title: "Settings", style: .default, handler: { _ in
-                        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-                        if UIApplication.shared.canOpenURL(settingsUrl) {
-                            UIApplication.shared.open(settingsUrl)
-                        }
-                    })
-                  ],
-                  preferredAction: nil)
+        showAlert(
+            title: "Geo settings are disabled",
+            message: "Turn on settings",
+            actions: [
+                UIAlertAction(title: "Cancel", style: .cancel),
+                UIAlertAction(title: "Settings", style: .default, handler: { _ in
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                          UIApplication.shared.canOpenURL(settingsUrl) else {
+                        return }
+                    UIApplication.shared.open(settingsUrl)
+                })
+            ])
     }
     
     /// Отображение Москвы на карте
     private func showMoscow() {
         mapView.setRegion(
             MKCoordinateRegion(
-                center: CLLocationCoordinate2D(
-                    latitude: Constants.coordinatesMoscow.latitude,
-                    longitude: Constants.coordinatesMoscow.longitude),
+                center: Constants.coordinateMoscow,
                 latitudinalMeters: Constants.scaleMoscow,
                 longitudinalMeters: Constants.scaleMoscow),
             animated: false)
