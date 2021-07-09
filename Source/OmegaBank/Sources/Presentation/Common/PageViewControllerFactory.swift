@@ -1,5 +1,5 @@
 //
-//  PageViewControllerFabric.swift
+//  PageViewControllerFactory.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 08.07.2021.

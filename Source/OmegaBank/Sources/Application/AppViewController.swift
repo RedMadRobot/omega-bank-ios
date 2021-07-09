@@ -18,7 +18,7 @@ final class AppViewController: UITabBarController {
 
     init(
         loginService: LoginService = ServiceLayer.shared.loginService,
-        factory: TabBarScreenFactory = ServiceLayer.shared.tabBarFactory) {
+        factory: TabBarScreenFactory = TabBarScreenFactory()) {
         self.loginService = loginService
         self.factory = factory
 

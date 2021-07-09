@@ -15,9 +15,9 @@ final class MapAnnotation: NSObject, MKAnnotation {
     
     let coordinate: CLLocationCoordinate2D
     
-    var title: String?
+    let title: String?
     
-    var subtitle: String?
+    let subtitle: String?
     
     // MARK: - Init
     

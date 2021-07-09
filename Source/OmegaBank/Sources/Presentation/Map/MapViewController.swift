@@ -222,7 +222,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
         
-        let mapHelper = MapAppsHelper(annotation: annotation)
+        let mapHelper = AppsSchemasHelper(annotation: annotation)
         let placemark = MKPlacemark(
             coordinate: CLLocationCoordinate2D(
                 latitude: annotation.coordinate.latitude,

@@ -1,5 +1,5 @@
 //
-//  MapAppsHelper.swift
+//  AppsSchemasHelper.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 07.07.2021.
@@ -8,7 +8,7 @@
 
 import MapKit
 
-final class MapAppsHelper {
+final class AppsSchemasHelper {
     
     private let mapSchemes: [MapAppScheme]
     private let annotation: MKAnnotation
