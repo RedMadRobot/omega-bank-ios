@@ -24,7 +24,6 @@ public enum Asset {
   public static let minus = ImageAsset(name: "Minus")
   public static let plus = ImageAsset(name: "Plus")
   public static let maps = ImageAsset(name: "maps")
-  public static let omega = ImageAsset(name: "omega")
   public static let faceid = ImageAsset(name: "faceid")
   public static let touchid = ImageAsset(name: "touchid")
   public static let backspace = ImageAsset(name: "backspace")

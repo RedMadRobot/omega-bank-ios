@@ -45,7 +45,7 @@ final class MarkerAnnotationView: MKMarkerAnnotationView {
         
         canShowCallout = true
         
-        glyphImage = Asset.omega.image
+        glyphText = "Ω"
         glyphTintColor = .textPrimary
         markerTintColor = .curve2
         titleVisibility = .hidden
