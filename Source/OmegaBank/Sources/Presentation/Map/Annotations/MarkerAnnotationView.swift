@@ -46,6 +46,7 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
         markerTintColor = .curve2
         titleVisibility = .hidden
         subtitleVisibility = .hidden
+        canShowCallout = false
         
         glyphText = annotation.memberAnnotations.count < 100 ? "\(annotation.memberAnnotations.count)" : "99+"
     }
