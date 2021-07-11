@@ -24,7 +24,7 @@
 		5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */; };
 		5C8A2D3F2695A36B00D6EFDF /* MapAppScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */; };
 		5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */; };
-		5C8A2D442695BC8300D6EFDF /* AppsSchemasHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* AppsSchemasHelper.swift */; };
+		5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */; };
 		5C8A2D492695DBF900D6EFDF /* YandexMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
@@ -287,7 +287,7 @@
 		5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppScheme.swift; sourceTree = "<group>"; };
 		5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsScheme.swift; sourceTree = "<group>"; };
-		5C8A2D432695BC8300D6EFDF /* AppsSchemasHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSchemasHelper.swift; sourceTree = "<group>"; };
+		5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSchemeRouter.swift; sourceTree = "<group>"; };
 		5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexMapsScheme.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
@@ -598,7 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8A2D472695D9F100D6EFDF /* Schemes */,
-				5C8A2D432695BC8300D6EFDF /* AppsSchemasHelper.swift */,
+				5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2311,7 +2311,7 @@
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
-				5C8A2D442695BC8300D6EFDF /* AppsSchemasHelper.swift in Sources */,
+				5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */,
 				5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */,
 				60230FF1A4E12C954480D34B /* ServiceLayer.swift in Sources */,
 				774B93E724249FB3008237BF /* LayoutAttributesAnimator.swift in Sources */,
