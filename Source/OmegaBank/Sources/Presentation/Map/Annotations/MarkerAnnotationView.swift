@@ -24,34 +24,29 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
         return button
     }()
     
-    // MARK: - Init
+    // MARK: - Public methods
     
-    required override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        
-        if let annotation = annotation as? MapAnnotation {
-            setup(annotation)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Private properties
-    
-    private func setup(_ annotation: MapAnnotation) {
-        
-        canShowCallout = true
+    func setupMapAnnotation(_ annotation: MapAnnotation) {
         
         glyphText = "Ω"
+        
         glyphTintColor = .textPrimary
         markerTintColor = .curve2
         titleVisibility = .hidden
+        canShowCallout = true
         
         detailLabel.text = annotation.subtitle
         detailCalloutAccessoryView = detailLabel
         rightCalloutAccessoryView = mapsButton
+    }
+    
+    func setupClusterAnnotation(_ annotation: MKClusterAnnotation) {
+        
+        glyphTintColor = .textPrimary
+        markerTintColor = .curve2
+        titleVisibility = .hidden
+        subtitleVisibility = .hidden
+        
+        glyphText = annotation.memberAnnotations.count < 100 ? "\(annotation.memberAnnotations.count)" : "99+"
     }
 }

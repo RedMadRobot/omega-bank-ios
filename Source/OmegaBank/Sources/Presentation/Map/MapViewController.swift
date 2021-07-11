@@ -206,9 +206,17 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        return MarkerAnnotationView(
-            annotation: annotation,
-            reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        if let annotation = annotation as? MapAnnotation {
+            let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: MarkerAnnotationView.self)
+            view.setupMapAnnotation(annotation)
+            return view
+        } else if let annotation = annotation as? MKClusterAnnotation {
+            let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
+            view.setupClusterAnnotation(annotation)
+            return view
+        }
+        return nil
     }
     
     func mapView(
