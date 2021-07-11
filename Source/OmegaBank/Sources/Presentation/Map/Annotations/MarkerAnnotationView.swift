@@ -8,7 +8,7 @@
 
 import MapKit
 
-final class MarkerAnnotationView: MKMarkerAnnotationView {
+final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
     
     // MARK: - Private properties
     

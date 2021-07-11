@@ -77,9 +77,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - Private methods
     
     private func registerMapAnnotationView() {
-        mapView.register(
-            MarkerAnnotationView.self,
-            forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        registerAnnotationViewNib(mapView: mapView, MarkerAnnotationView.self)
     }
     
     /// Добавление аннотаций на карту
