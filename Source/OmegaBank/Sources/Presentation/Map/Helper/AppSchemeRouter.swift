@@ -17,9 +17,14 @@ final class AppSchemeRouter {
     lazy private(set) var availableMapApps: [String: URL] = {
         var availableSchemes: [String: URL] = [:]
         for scheme in mapSchemes {
-            if let schemeUrl = scheme.scheme, UIApplication.shared.canOpenURL(schemeUrl), let url = scheme.url {
-                availableSchemes[scheme.label] = url
+            guard
+                let url = URL(string: "\(scheme.scheme)" + "://"),
+                UIApplication.shared.canOpenURL(url),
+                let availableUrl = scheme.url
+            else {
+                continue
             }
+            availableSchemes[scheme.label] = availableUrl
         }
         
         return availableSchemes

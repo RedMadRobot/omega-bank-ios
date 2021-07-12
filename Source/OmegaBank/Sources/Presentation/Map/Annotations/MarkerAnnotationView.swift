@@ -10,16 +10,28 @@ import MapKit
 
 final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let widthButton = 32
+        static let heightButton = 32
+    }
+    
     // MARK: - Private properties
     
     private let detailLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont.body2
+        label.font = .body2
         return label
     }()
     private let mapsButton: UIButton = {
-        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 32, height: 32)))
+        let button = UIButton(
+            frame: CGRect(
+                origin: .zero,
+                size: CGSize(
+                    width: Constants.widthButton,
+                    height: Constants.heightButton)))
         button.setBackgroundImage(Asset.maps.image, for: .normal)
         return button
     }()
@@ -27,7 +39,6 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
     // MARK: - Public methods
     
     func setupMapAnnotation(_ annotation: MapAnnotation) {
-        
         glyphText = "Ω"
         
         glyphTintColor = .textPrimary
@@ -41,6 +52,7 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
     }
     
     func setupClusterAnnotation(_ annotation: MKClusterAnnotation) {
+        glyphText = annotation.memberAnnotations.count < 100 ? "\(annotation.memberAnnotations.count)" : "99+"
         
         glyphTintColor = .textPrimary
         markerTintColor = .curve2
@@ -48,6 +60,5 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
         subtitleVisibility = .hidden
         canShowCallout = false
         
-        glyphText = annotation.memberAnnotations.count < 100 ? "\(annotation.memberAnnotations.count)" : "99+"
     }
 }

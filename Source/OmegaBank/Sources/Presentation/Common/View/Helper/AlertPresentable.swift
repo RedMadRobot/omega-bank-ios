@@ -58,16 +58,15 @@ extension AlertPresentable where Self: UIViewController {
     func showAlert(mapOptions: [String: URL], renderAppleMaps: @escaping VoidClosure) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Apple Maps", style: .default, handler: { _ in
-            renderAppleMaps()
-        }))
+        alert.addAction(UIAlertAction(title: "Apple Maps", style: .default) { _ in renderAppleMaps() })
         
-        mapOptions.forEach { option in
-            alert.addAction(UIAlertAction(title: option.key, style: .default, handler: { _ in
-                UIApplication.shared.open(option.value, options: [:], completionHandler: nil)
-            }))
-        }
-        
+        mapOptions
+            .map { option in
+                UIAlertAction(title: option.key, style: .default) { _ in
+                    UIApplication.shared.open(option.value, options: [:], completionHandler: nil)
+                }
+            }
+            .forEach { alert.addAction($0) }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true)

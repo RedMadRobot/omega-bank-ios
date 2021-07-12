@@ -19,27 +19,25 @@ struct YandexMapsScheme: MapAppScheme {
         static let mapTypeValue = "map"
     }
     
-    let label: String = "Yandex Maps"
-    let scheme: URL? = URL(string: "yandexmaps://")
+    let label = "Yandex Maps"
+    let scheme = "yandexmaps"
     var annotation: MKAnnotation
     
     var url: URL? {
-        let stringScheme = scheme?.absoluteString
-        
-        let request = URLRequest(url: URL(string: stringScheme!)!)
-        var components = URLComponents(url: request.url!, resolvingAgainstBaseURL: false)
-        let coordinateQueryItem = URLQueryItem(
-            name: Constants.pointParameter,
-            value: String(describing: "\(annotation.coordinate.longitude),\(annotation.coordinate.latitude)"))
-        let scaleQueryItem = URLQueryItem(name: Constants.scaleParameter, value: Constants.scaleValue)
-        let mapTypeQueryItem = URLQueryItem(name: Constants.mapTypeParameter, value: Constants.mapTypeValue)
-        components?.queryItems = [coordinateQueryItem, scaleQueryItem, mapTypeQueryItem]
-        
-        return components?.url
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = ""
+        components.queryItems = [
+            URLQueryItem(
+                name: Constants.pointParameter,
+                value: String(describing: "\(annotation.coordinate.longitude),\(annotation.coordinate.latitude)")),
+            URLQueryItem(name: Constants.scaleParameter, value: Constants.scaleValue),
+            URLQueryItem(name: Constants.mapTypeParameter, value: Constants.mapTypeValue)
+        ]
+        return components.url
     }
     
     init(annotation: MKAnnotation) {
         self.annotation = annotation
     }
-    
 }

@@ -21,24 +21,23 @@ struct GoogleMapsScheme: MapAppScheme {
         static let mapModeValue = "standard"
     }
     
-    let label: String = "Google Maps"
-    let scheme: URL? = URL(string: "comgooglemaps://")
+    let label = "Google Maps"
+    let scheme = "comgooglemaps"
     var annotation: MKAnnotation
     
     var url: URL? {
-        let stringScheme = scheme?.absoluteString
-        
-        let request = URLRequest(url: URL(string: stringScheme!)!)
-        var components = URLComponents(url: request.url!, resolvingAgainstBaseURL: false)
-        let pointQueryItem = URLQueryItem(name: Constants.pointParameter, value: Constants.pointValue)
-        let coordinateQueryItem = URLQueryItem(
-            name: Constants.locationParameter,
-            value: "\(annotation.coordinate.latitude),\(annotation.coordinate.longitude)")
-        let scaleQueryItem = URLQueryItem(name: Constants.scaleParameter, value: Constants.scaleValue)
-        let mapModeQueryItem = URLQueryItem(name: Constants.mapModeParameter, value: Constants.mapModeValue)
-        components?.queryItems = [pointQueryItem, coordinateQueryItem, scaleQueryItem, mapModeQueryItem]
-        
-        return components?.url
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = ""
+        components.queryItems = [
+            URLQueryItem(name: Constants.pointParameter, value: Constants.pointValue),
+            URLQueryItem(
+                name: Constants.locationParameter,
+                value: "\(annotation.coordinate.latitude),\(annotation.coordinate.longitude)"),
+            URLQueryItem(name: Constants.scaleParameter, value: Constants.scaleValue),
+            URLQueryItem(name: Constants.mapModeParameter, value: Constants.mapModeValue)
+        ]
+        return components.url
     }
     
     init(annotation: MKAnnotation) {

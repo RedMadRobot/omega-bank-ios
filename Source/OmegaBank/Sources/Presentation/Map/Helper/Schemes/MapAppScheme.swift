@@ -14,8 +14,9 @@ protocol MapAppScheme {
     var url: URL? { get }
         
     /// URL для проверки установленного приложения
-    var scheme: URL? { get }
+    var scheme: String { get }
     
+    /// Лейбл кнопки
     var label: String { get }
     
     var annotation: MKAnnotation { get set }

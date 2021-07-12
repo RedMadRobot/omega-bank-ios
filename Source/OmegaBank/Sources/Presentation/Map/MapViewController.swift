@@ -38,6 +38,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     }()
     private var progress: Progress?
     private var locationStatus: CLAuthorizationStatus?
+    private var errorViewController: ErrorViewController?
     
     // MARK: - IBOutlets
     
@@ -102,7 +103,7 @@ final class MapViewController: PageViewController, AlertPresentable {
             showMoscow()
         case .authorizedAlways, .authorizedWhenInUse:
             locationButton.isHidden = false
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
             mapView.showsUserLocation = true
             showUserLocation()
         default:
@@ -119,13 +120,26 @@ final class MapViewController: PageViewController, AlertPresentable {
             message: "Turn on settings",
             actions: [
                 UIAlertAction(title: "Cancel", style: .cancel),
-                UIAlertAction(title: "Settings", style: .default, handler: { _ in
-                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
-                          UIApplication.shared.canOpenURL(settingsUrl) else {
+                UIAlertAction(title: "Settings", style: .default) { _ in
+                    guard
+                        let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                        UIApplication.shared.canOpenURL(settingsUrl)
+                    else {
                         return }
                     UIApplication.shared.open(settingsUrl)
-                })
+                }
             ])
+    }
+    
+    private func showError(_ item: ErrorItem, onAction: VoidClosure? = nil) {
+        let vc = ErrorViewController(item, onAction: onAction)
+        addChildViewController(vc, to: view)
+        errorViewController = vc
+    }
+    
+    private func removeError() {
+        errorViewController?.removeChildFromParent()
+        errorViewController = nil
     }
     
     /// Отображение Москвы на карте
@@ -174,13 +188,16 @@ final class MapViewController: PageViewController, AlertPresentable {
             switch result {
             case .success(let offices):
                 self?.addAnnotations(offices)
-            case .failure:
-                break
+            case .failure(let error):
+                self?.showError(.error(error), onAction: { [weak self] in
+                    self?.removeError()
+                    self?.loadOffices()
+                })
             }
         }
     }
     
-    // MARK: - IB Action
+    // MARK: - IBAction
     
     @IBAction private func zoomInButtonPressed() {
         changeCamera(with: .zoomIn)
@@ -193,7 +210,8 @@ final class MapViewController: PageViewController, AlertPresentable {
     @IBAction private func locationButtonPressed() {
         guard locationStatus != .denied else {
             showSettingsAlert()
-            return }
+            return
+        }
         showUserLocation()
     }
 }
@@ -206,13 +224,12 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
+        let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
         if let annotation = annotation as? MapAnnotation {
-            let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
             view.clusteringIdentifier = String(describing: MarkerAnnotationView.self)
             view.setupMapAnnotation(annotation)
             return view
         } else if let annotation = annotation as? MKClusterAnnotation {
-            let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
             view.setupClusterAnnotation(annotation)
             return view
         }
@@ -239,7 +256,6 @@ extension MapViewController: MKMapViewDelegate {
         
         showAlert(mapOptions: mapHelper.availableMapApps) {
             mapItem.openInMaps(launchOptions: mapHelper.availableMapApps)
-            
         }
     }
 }
@@ -249,6 +265,14 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         updateLocationStatus(status)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationButtonPressed()
     }
 }
 
