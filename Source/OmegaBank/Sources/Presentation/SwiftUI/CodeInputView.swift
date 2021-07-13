@@ -19,7 +19,7 @@ struct CodeInputView: View {
                 TextField("Code", text: $code)
                     .multilineTextAlignment(.center)
                     .keyboardType(.numberPad)
-                    .padding(16)
+                    .padding(12)
             }
             .border(Color(.cellBorder))
             .frame(height: 50)

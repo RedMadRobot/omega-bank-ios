@@ -11,27 +11,7 @@ import UIKit
 
 struct LoginView: View {
     
-    var isEnabled: Bool {
-        switch stage {
-        case .phone:
-            return phone.count > 6
-        case .sms(_):
-            return code.count > 3
-        }
-    }
-    @State var stage: LoginState = .phone
-    @State var phone: String = ""
-    @State var code: String = ""
-    
-    var trailingButtonTitle: String {
-        switch stage {
-        case .phone:
-            return "Next"
-        case .sms(_):
-            return "Login"
-        }
-    }
-    
+    @StateObject var model = LoginViewModel()
     var body: some View {
         NavigationView {
             ZStack {
@@ -48,38 +28,42 @@ struct LoginView: View {
                     
                     Spacer()
                 }
+                
                 VStack(alignment: .center) {
-                    switch stage {
+                    switch model.stage {
                     case .phone:
-                        PhoneInputView(phone: $phone)
+                        PhoneInputView(phone: $model.phone)
                     case .sms(_):
-                        CodeInputView(code: $code)
+                        CodeInputView(code: $model.code)
                     }
                 }
             }
             .ignoresSafeArea(edges: .top)
+            
+//            duration: Constants.transitionTime,
+//            options: [.showHideTransitionViews]
         
             // TODO Make a separate view and pass state via @Binding?
             .navigationBarItems(leading:
-                                    stage == .phone ? nil :
+                                    model.stage == .phone ? nil :
                                     Button(action: {
-                                        stage = .phone
+                                        model.stage = .phone
                                     }) {
                                         Text("Back")
                                             .font(Font(UIFont.body1))
                                             .foregroundColor( Color(.textPrimary))
                                     }, trailing: Button(action: {
-                                        if stage == .phone {
-                                            stage = .sms(phone: phone)
+                                        if model.stage == .phone {
+                                            model.stage = .sms(phone: model.phone)
                                         } else {
                                             // TODO
                                         }
                                     }) {
-                                        Text(trailingButtonTitle)
+                                        Text(model.trailingButtonTitle)
                                             .font(Font(UIFont.body1))
-                                            .foregroundColor(isEnabled ? Color(.textPrimary) : nil)
+                                            .foregroundColor(model.isEnabled ? Color(.textPrimary) : nil)
                                             .colorScheme(.light)
-                                            .disabled(!isEnabled)
+                                            .disabled(!model.isEnabled)
                                     })
         }
     }

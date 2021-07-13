@@ -94,6 +94,7 @@
 		874B571D269C6C04006F0876 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B571C269C6C04006F0876 /* LoginView.swift */; };
 		874B5722269DE195006F0876 /* PhoneInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5721269DE195006F0876 /* PhoneInputView.swift */; };
 		874B5724269DE784006F0876 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5723269DE784006F0876 /* CodeInputView.swift */; };
+		874B5727269DEC12006F0876 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5726269DEC12006F0876 /* LoginViewModel.swift */; };
 		8F317A3D218558E99167066F /* Pods_OmegaBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */; };
 		951032C6246E90B4005902ED /* DepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032C5246E90B4005902ED /* DepositListService.swift */; };
 		951032CB246E9CC2005902ED /* UserProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595793246D47CD00F65BC3 /* UserProduct.swift */; };
@@ -361,6 +362,7 @@
 		874B571C269C6C04006F0876 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		874B5721269DE195006F0876 /* PhoneInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputView.swift; sourceTree = "<group>"; };
 		874B5723269DE784006F0876 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
+		874B5726269DEC12006F0876 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		951032C5246E90B4005902ED /* DepositListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositListService.swift; sourceTree = "<group>"; };
 		951032CC246E9D1F005902ED /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
@@ -1040,6 +1042,7 @@
 		874B570B269C274C006F0876 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				874B5725269DEC04006F0876 /* View Model */,
 				874B570C269C275D006F0876 /* CurvedView.swift */,
 				874B5711269C3563006F0876 /* LoginBackground.swift */,
 				874B571C269C6C04006F0876 /* LoginView.swift */,
@@ -1047,6 +1050,14 @@
 				874B5723269DE784006F0876 /* CodeInputView.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		874B5725269DEC04006F0876 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				874B5726269DEC12006F0876 /* LoginViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		951F873F24754BB200785552 /* Selector */ = {
@@ -2400,6 +2411,7 @@
 				874B5712269C3563006F0876 /* LoginBackground.swift in Sources */,
 				874B5724269DE784006F0876 /* CodeInputView.swift in Sources */,
 				874B571B269C68FE006F0876 /* LoginState.swift in Sources */,
+				874B5727269DEC12006F0876 /* LoginViewModel.swift in Sources */,
 				874B5722269DE195006F0876 /* PhoneInputView.swift in Sources */,
 				874B56FE269C2728006F0876 /* OmegaBankSwiftUIApp.swift in Sources */,
 				874B570D269C275D006F0876 /* CurvedView.swift in Sources */,
