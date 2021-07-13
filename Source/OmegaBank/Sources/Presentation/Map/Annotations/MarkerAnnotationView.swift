@@ -13,8 +13,7 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
     // MARK: - Constants
     
     private enum Constants {
-        static let widthButton = 32
-        static let heightButton = 32
+        static let mapButtonFrame = CGRect(origin: .zero, size: CGSize(width: 32, height: 32))
     }
     
     // MARK: - Private properties
@@ -26,12 +25,7 @@ final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
         return label
     }()
     private let mapsButton: UIButton = {
-        let button = UIButton(
-            frame: CGRect(
-                origin: .zero,
-                size: CGSize(
-                    width: Constants.widthButton,
-                    height: Constants.heightButton)))
+        let button = UIButton(frame: Constants.mapButtonFrame)
         button.setBackgroundImage(Asset.maps.image, for: .normal)
         return button
     }()

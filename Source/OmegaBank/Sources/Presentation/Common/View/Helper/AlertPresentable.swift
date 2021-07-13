@@ -63,7 +63,7 @@ extension AlertPresentable where Self: UIViewController {
         mapOptions
             .map { option in
                 UIAlertAction(title: option.key, style: .default) { _ in
-                    UIApplication.shared.open(option.value, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(option.value)
                 }
             }
             .forEach { alert.addAction($0) }
