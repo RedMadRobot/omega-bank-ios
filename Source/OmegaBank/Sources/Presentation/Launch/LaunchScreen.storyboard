@@ -51,10 +51,10 @@
     </scenes>
     <resources>
         <namedColor name="bar1">
-            <color red="0.20800000429153442" green="0.15399999916553497" blue="0.68400001525878906" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.20800000429153442" green="0.15299999713897705" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="bar2">
-            <color red="0.38899999856948853" green="0.11900000274181366" blue="0.61900001764297485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3880000114440918" green="0.11800000071525574" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
