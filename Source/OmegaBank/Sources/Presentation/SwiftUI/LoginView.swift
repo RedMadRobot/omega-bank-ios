@@ -11,8 +11,17 @@ import UIKit
 
 struct LoginView: View {
     
-    @State var isEnabled = false
+    var isEnabled: Bool {
+        switch stage {
+        case .phone:
+            return phone.count > 6
+        case .sms(_):
+            return code.count > 3
+        }
+    }
     @State var stage: LoginState = .phone
+    @State var phone: String = ""
+    @State var code: String = ""
     
     var trailingButtonTitle: String {
         switch stage {
@@ -39,6 +48,14 @@ struct LoginView: View {
                     
                     Spacer()
                 }
+                VStack(alignment: .center) {
+                    switch stage {
+                    case .phone:
+                        PhoneInputView(phone: $phone)
+                    case .sms(_):
+                        CodeInputView(code: $code)
+                    }
+                }
             }
             .ignoresSafeArea(edges: .top)
         
@@ -46,13 +63,17 @@ struct LoginView: View {
             .navigationBarItems(leading:
                                     stage == .phone ? nil :
                                     Button(action: {
-                                        //
+                                        stage = .phone
                                     }) {
                                         Text("Back")
                                             .font(Font(UIFont.body1))
                                             .foregroundColor( Color(.textPrimary))
                                     }, trailing: Button(action: {
-                                        //
+                                        if stage == .phone {
+                                            stage = .sms(phone: phone)
+                                        } else {
+                                            // TODO
+                                        }
                                     }) {
                                         Text(trailingButtonTitle)
                                             .font(Font(UIFont.body1))

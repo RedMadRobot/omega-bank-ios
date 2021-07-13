@@ -7,15 +7,28 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CodeInputView: View {
+    @Binding var code: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack() {
+            Text("Enter Code")
+            HStack() {
+                TextField("Code", text: $code)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                    .padding(16)
+            }
+            .border(Color(.cellBorder))
+            .frame(height: 50)
+        }
     }
 }
 
 struct CodeInputView_Previews: PreviewProvider {
     static var previews: some View {
-        CodeInputView()
+        CodeInputView(code: .constant("2222"))
     }
 }
