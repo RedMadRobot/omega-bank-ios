@@ -1,5 +1,5 @@
 //
-//  HorizonalScrollableViewController.swift
+//  HorizontalScrollableViewController.swift
 //  OmegaBank
 //
 //  Created by Nikolay Zhukov on 5/21/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HorizonalScrollableViewController: UIViewController {
+final class HorizontalScrollableViewController: UIViewController {
 
     // MARK: - IBOutlets
     
@@ -33,7 +33,7 @@ final class HorizonalScrollableViewController: UIViewController {
     
     private var didAppearOnce = false
     
-    // MARK: - HorizonalScrollableViewController
+    // MARK: - HorizontalScrollableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,9 +95,9 @@ final class HorizonalScrollableViewController: UIViewController {
 
 }
 
-extension HorizonalScrollableViewController: StackViewPresentable {}
+extension HorizontalScrollableViewController: StackViewPresentable {}
 
-extension HorizonalScrollableViewController: UIScrollViewDelegate {
+extension HorizontalScrollableViewController: UIScrollViewDelegate {
     
     func scrollViewWillEndDragging(
         _ scrollView: UIScrollView,

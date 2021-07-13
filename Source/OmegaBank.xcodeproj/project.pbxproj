@@ -100,7 +100,7 @@
 		951032D1246EB872005902ED /* MockDepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032D0246EB872005902ED /* MockDepositListService.swift */; };
 		951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F873B24753C8100785552 /* ScrollViewPager.swift */; };
 		951F874224754BFF00785552 /* CardTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */; };
-		9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */; };
+		9539569D2476A65E00B0331E /* HorizontalScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539569C2476A65E00B0331E /* HorizontalScrollableViewController.swift */; };
 		953A2EE824961ECB00A9B6DE /* PartnerListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A2EE724961ECB00A9B6DE /* PartnerListContainerViewController.swift */; };
 		953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B143A2450758F00D609B0 /* HotActionListViewController.swift */; };
 		953B144024507BCE00D609B0 /* HotActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953B143E24507BCE00D609B0 /* HotActionView.xib */; };
@@ -367,7 +367,7 @@
 		951032D0246EB872005902ED /* MockDepositListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDepositListService.swift; sourceTree = "<group>"; };
 		951F873B24753C8100785552 /* ScrollViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPager.swift; sourceTree = "<group>"; };
 		951F874124754BFF00785552 /* CardTypeSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSelectorViewController.swift; sourceTree = "<group>"; };
-		9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonalScrollableViewController.swift; sourceTree = "<group>"; };
+		9539569C2476A65E00B0331E /* HorizontalScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollableViewController.swift; sourceTree = "<group>"; };
 		953A2EE724961ECB00A9B6DE /* PartnerListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerListContainerViewController.swift; sourceTree = "<group>"; };
 		953B143A2450758F00D609B0 /* HotActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotActionListViewController.swift; sourceTree = "<group>"; };
 		953B143E24507BCE00D609B0 /* HotActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotActionView.xib; sourceTree = "<group>"; };
@@ -926,7 +926,7 @@
 				956F17A8243F456B0045D2BC /* TitledPageViewController.xib */,
 				9542410D24445A6E00E2C196 /* ViewController.swift */,
 				95466BF8248B9F4400FAE6EE /* VerticalScrollableViewController.swift */,
-				9539569C2476A65E00B0331E /* HorizonalScrollableViewController.swift */,
+				9539569C2476A65E00B0331E /* HorizontalScrollableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -2217,7 +2217,7 @@
 				958BD2D72432239400543642 /* FadeTransition.swift in Sources */,
 				5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */,
 				955F49DC248B7C4B000750EA /* MainProductListContainerViewController.swift in Sources */,
-				9539569D2476A65E00B0331E /* HorizonalScrollableViewController.swift in Sources */,
+				9539569D2476A65E00B0331E /* HorizontalScrollableViewController.swift in Sources */,
 				9599A4D42428AB0C000411EC /* UIImageView+Download.swift in Sources */,
 				95428192245EA3D500716676 /* StackedViewController.swift in Sources */,
 				5C12B0DD26847A4D003AEEE6 /* Assets.swift in Sources */,

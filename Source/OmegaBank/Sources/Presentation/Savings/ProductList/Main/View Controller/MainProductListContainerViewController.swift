@@ -143,7 +143,7 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
     }
 
     private func addHotActions() {
-        let container = HorizonalScrollableViewController()
+        let container = HorizontalScrollableViewController()
         let controller = HotActionListViewController()
         
         addArrangedChild(container)
