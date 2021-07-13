@@ -9,11 +9,6 @@
 import InputMask
 import UIKit
 
-/// Этап аутентификации.
-enum LoginState {
-    case phone
-    case sms(phone: String)
-}
 
 protocol LoginViewControllerDelegate: AnyObject {
     func loginViewControllerDidAuth(_ controller: LoginViewController)

@@ -89,6 +89,9 @@
 		874B5710269C32A0006F0876 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599A4DE2428D341000411EC /* CAGradientLayer.swift */; };
 		874B5712269C3563006F0876 /* LoginBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5711269C3563006F0876 /* LoginBackground.swift */; };
 		874B5713269C6156006F0876 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BC482404E5D50063ACBD /* Font.swift */; };
+		874B571A269C68FE006F0876 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5719269C68FE006F0876 /* LoginState.swift */; };
+		874B571B269C68FE006F0876 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B5719269C68FE006F0876 /* LoginState.swift */; };
+		874B571D269C6C04006F0876 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B571C269C6C04006F0876 /* LoginView.swift */; };
 		8F317A3D218558E99167066F /* Pods_OmegaBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */; };
 		951032C6246E90B4005902ED /* DepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032C5246E90B4005902ED /* DepositListService.swift */; };
 		951032CB246E9CC2005902ED /* UserProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595793246D47CD00F65BC3 /* UserProduct.swift */; };
@@ -352,6 +355,8 @@
 		874B5706269C2729006F0876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		874B570C269C275D006F0876 /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		874B5711269C3563006F0876 /* LoginBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBackground.swift; sourceTree = "<group>"; };
+		874B5719269C68FE006F0876 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		874B571C269C6C04006F0876 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9283B12EFE816628821DB7C9 /* OmegaBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmegaBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		951032C5246E90B4005902ED /* DepositListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositListService.swift; sourceTree = "<group>"; };
 		951032CC246E9D1F005902ED /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
@@ -608,6 +613,7 @@
 			children = (
 				77196AA123FBC2A0007C8C84 /* LoginViewController.swift */,
 				77196AA323FBC2CE007C8C84 /* LoginViewController.xib */,
+				874B5719269C68FE006F0876 /* LoginState.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1032,6 +1038,7 @@
 			children = (
 				874B570C269C275D006F0876 /* CurvedView.swift */,
 				874B5711269C3563006F0876 /* LoginBackground.swift */,
+				874B571C269C6C04006F0876 /* LoginView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2315,6 +2322,7 @@
 				77196A9723FACA6C007C8C84 /* AccessTokenStorage.swift in Sources */,
 				5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */,
 				A831740758724667D902F5D4 /* AppDelegate.swift in Sources */,
+				874B571A269C68FE006F0876 /* LoginState.swift in Sources */,
 				95770A41246BEB0900FE058F /* CardListService.swift in Sources */,
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
@@ -2381,8 +2389,10 @@
 				874B5700269C2728006F0876 /* ContentView.swift in Sources */,
 				874B5710269C32A0006F0876 /* CAGradientLayer.swift in Sources */,
 				874B5713269C6156006F0876 /* Font.swift in Sources */,
+				874B571D269C6C04006F0876 /* LoginView.swift in Sources */,
 				874B570F269C3242006F0876 /* Color.swift in Sources */,
 				874B5712269C3563006F0876 /* LoginBackground.swift in Sources */,
+				874B571B269C68FE006F0876 /* LoginState.swift in Sources */,
 				874B56FE269C2728006F0876 /* OmegaBankSwiftUIApp.swift in Sources */,
 				874B570D269C275D006F0876 /* CurvedView.swift in Sources */,
 			);

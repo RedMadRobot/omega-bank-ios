@@ -15,6 +15,7 @@ enum FillColor {
 }
 
 struct LoginBackground: View {
+    
     static let viewsCount = 3
     var palettes: [FillColor] {
         return [
@@ -25,36 +26,14 @@ struct LoginBackground: View {
     }
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                VStack {
-                    GeometryReader { geometry in
-                        ForEach(0..<LoginBackground.viewsCount) { i in
-                            let translation = -(geometry.size.width / 2 * CGFloat(i))
-                            CurvedView(
-                                translationTransform:
-                                    CGAffineTransform(translationX: translation, y: 0),
-                                color: palettes[i])
-                            
-                        }
-                    }.frame(height: 220)
-                    
-                    Spacer()
-                }
-                VStack {
-                    HStack(alignment: .center) {
-                        Button(action: {
-                            //
-                        }) {
-                            Text("Sign Up")
-                                .font(Font(UIFont.header1))
-                                .foregroundColor(Color(.textPrimary))
-                        }
-                    }.padding(.top, 70)
-                    
-                    Spacer()
-                }
-            }.ignoresSafeArea(edges: .top)
+        GeometryReader { geometry in
+            ForEach(0..<LoginBackground.viewsCount) { i in
+                let translation = -(geometry.size.width / 2 * CGFloat(i))
+                CurvedView(
+                    translationTransform:
+                        CGAffineTransform(translationX: translation, y: 0),
+                    color: palettes[i])
+            }
         }
     }
 }
