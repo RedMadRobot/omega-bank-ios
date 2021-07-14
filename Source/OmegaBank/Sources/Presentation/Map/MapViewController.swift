@@ -234,6 +234,11 @@ extension MapViewController: MKMapViewDelegate {
             view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
+        } else if let annotation = annotation as? AtmMapAnnotation {
+            let view = dequeueReusableView(mapView: mapView, AtmMarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
+            view.setup(annotation)
+            return view
         }
         return nil
     }
