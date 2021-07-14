@@ -38,7 +38,6 @@ class BankPointMarkerAnnotationView: MKMarkerAnnotationView {
     
     func setupBankPointMarkerAnnotationView() {
         glyphTintColor = .textPrimary
-        markerTintColor = .curve2
         titleVisibility = .hidden
         canShowCallout = true
         

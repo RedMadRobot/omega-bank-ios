@@ -13,8 +13,9 @@ final class OfficeMarkerAnnotationView: BankPointMarkerAnnotationView {
 
     // MARK: - Public methods
     
-    func setup(_ annotation: MapAnnotation) {
+    func setup(_ annotation: OfficeMapAnnotation) {
         setupBankPointMarkerAnnotationView()
+        markerTintColor = .curve2
         glyphText = "Ω"
         
         detailLabel.text = annotation.subtitle
