@@ -12,11 +12,13 @@ import UIKit
 struct LoginView: View {
     
     @StateObject var model = LoginViewModel()
+    
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    LoginBackground().frame(height: 220)
+                    LoginBackground()
+                        .frame(height: 220)
                     Spacer()
                 }
                 VStack {
@@ -24,7 +26,8 @@ struct LoginView: View {
                         Text("Sign Up")
                             .font(Font(UIFont.header1))
                             .foregroundColor(Color(.textPrimary))
-                    }.padding(.top, 70)
+                    }
+                    .padding(.top, 70)
                     
                     Spacer()
                 }
@@ -39,25 +42,18 @@ struct LoginView: View {
                 }
             }
             .ignoresSafeArea(edges: .top)
-            
-//            duration: Constants.transitionTime,
-//            options: [.showHideTransitionViews]
         
             // TODO Make a separate view and pass state via @Binding?
             .navigationBarItems(leading:
                                     model.stage == .phone ? nil :
                                     Button(action: {
-                                        model.stage = .phone
+                                        model.goBack()
                                     }) {
                                         Text("Back")
                                             .font(Font(UIFont.body1))
                                             .foregroundColor( Color(.textPrimary))
                                     }, trailing: Button(action: {
-                                        if model.stage == .phone {
-                                            model.stage = .sms(phone: model.phone)
-                                        } else {
-                                            // TODO
-                                        }
+                                        model.goNextStage()
                                     }) {
                                         Text(model.trailingButtonTitle)
                                             .font(Font(UIFont.body1))

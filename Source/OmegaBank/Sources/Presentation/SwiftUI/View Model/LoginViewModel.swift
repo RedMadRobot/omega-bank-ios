@@ -10,6 +10,10 @@ import Foundation
 
 final class LoginViewModel: ObservableObject {
     
+    @Published var stage: LoginState = .phone
+    @Published var phone: String = ""
+    @Published var code: String = ""
+    
     var isEnabled: Bool {
         switch stage {
         case .phone:
@@ -20,15 +24,12 @@ final class LoginViewModel: ObservableObject {
     }
     
     var isPhoneValid: Bool {
-        
+        return phone.count < 7
     }
+    
     var isCodeValid: Bool {
         return code.count < 5
     }
-    
-    @Published var stage: LoginState = .phone
-    @Published var phone: String = ""
-    @Published var code: String = ""
     
     var trailingButtonTitle: String {
         switch stage {
@@ -37,5 +38,17 @@ final class LoginViewModel: ObservableObject {
         case .sms(_):
             return "Login"
         }
+    }
+    
+    func goNextStage() {
+        if stage == .phone {
+            stage = .sms(phone: phone)
+        } else {
+            // TODO
+        }
+    }
+    
+    func goBack() {
+        stage = .phone
     }
 }
