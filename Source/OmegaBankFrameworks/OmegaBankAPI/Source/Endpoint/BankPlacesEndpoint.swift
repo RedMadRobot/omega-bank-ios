@@ -1,5 +1,5 @@
 //
-//  OfficesEndpoint.swift
+//  BankPlacesEndpoint.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 30.06.2021.
@@ -8,12 +8,8 @@
 
 import Foundation
 
-struct OfficesResponse: Decodable {
-    let offices: [Office]
-}
-
 /// Получаем список офисов
-public struct OfficesEndpoint: JsonEndpoint, Encodable {
+public struct BankPlacesEndpoint: JsonEndpoint, Encodable {
     
     // MARK: - Init
     
@@ -21,9 +17,9 @@ public struct OfficesEndpoint: JsonEndpoint, Encodable {
     
     // MARK: - JsonEndpoint
         
-    public typealias Content = [Office]
+    public typealias Content = BankPlaces
     
-    func content(from root: OfficesResponse) -> [Office] { root.offices }
+    func content(from root: BankPlaces) -> BankPlaces { root }
     
     public func makeRequest() throws -> URLRequest {
         let url = URL(string: "offices")!

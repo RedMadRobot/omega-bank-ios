@@ -30,7 +30,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Private properties
     
-    private let officesService: OfficesService
+    private let officesService: BankPlacesService
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -47,7 +47,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Init
     
-    init(officesService: OfficesService = ServiceLayer.shared.officesService) {
+    init(officesService: BankPlacesService = ServiceLayer.shared.officesService) {
         self.officesService = officesService
         
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
