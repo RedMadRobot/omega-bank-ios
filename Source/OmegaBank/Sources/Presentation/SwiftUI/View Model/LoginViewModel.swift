@@ -11,10 +11,13 @@ import Foundation
 final class LoginViewModel: ObservableObject {
     
     private let loginService: LoginService
+    private var progress: Progress?
     
     @Published var stage: LoginState = .phone
     @Published var phone: String = ""
     @Published var code: String = ""
+    @Published var error: String? = nil
+    @Published var hasError: Bool = false
     
     init(service: LoginService = ServiceLayer.shared.loginService) {
         self.loginService = service
@@ -46,15 +49,48 @@ final class LoginViewModel: ObservableObject {
         }
     }
     
+    func sendPhone() {
+        progress = loginService.sendPhoneNumber(phone: phone) { [weak self] error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.hasError = true
+                self.error = error.localizedDescription
+                return
+            }
+            
+            self.stage = .sms(phone: self.phone)
+        }
+    }
+    
+    func sendCode() {
+        progress = loginService.checkSmsCode(smsCode: code) { [weak self] error in
+            guard let self = self else { return }
+
+            if let error = error {
+                self.hasError = true
+                self.error = error.localizedDescription
+                return
+            }
+            
+            //self?.authSucceed()
+        }
+    }
+    
     func goNextStage() {
-        if stage == .phone {
-            stage = .sms(phone: phone)
-        } else {
-            // TODO
+        switch stage {
+        case .phone:
+            sendPhone()
+        case .sms(_):
+            sendCode()
         }
     }
     
     func goBack() {
         stage = .phone
+    }
+    
+    deinit {
+        progress?.cancel()
     }
 }

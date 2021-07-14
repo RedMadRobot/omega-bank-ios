@@ -40,9 +40,16 @@ struct LoginView: View {
                         CodeInputView(code: $model.code)
                     }
                 }
+                .alert(isPresented: $model.hasError) {
+                    Alert(title: Text("Error"),
+                          message: Text(model.error ?? ""),
+                          dismissButton: .default(Text("OK")) {
+                            model.hasError = false
+                          })
+                }
             }
             .ignoresSafeArea(edges: .top)
-        
+            
             // TODO Make a separate view and pass state via @Binding?
             .navigationBarItems(leading:
                                     model.stage == .phone ? nil :
