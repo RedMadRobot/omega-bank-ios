@@ -10,9 +10,15 @@ import Foundation
 
 final class LoginViewModel: ObservableObject {
     
+    private let loginService: LoginService
+    
     @Published var stage: LoginState = .phone
     @Published var phone: String = ""
     @Published var code: String = ""
+    
+    init(service: LoginService = ServiceLayer.shared.loginService) {
+        self.loginService = service
+    }
     
     var isEnabled: Bool {
         switch stage {

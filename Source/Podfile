@@ -16,6 +16,11 @@ target 'OmegaBank' do
   main_pods
 end
 
+target 'OmegaBankSwiftUI' do
+  project 'OmegaBank.xcodeproj'
+  main_pods
+end
+
 target 'OmegaBankAPI' do
   use_frameworks!
 
