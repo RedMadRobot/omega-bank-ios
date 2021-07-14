@@ -8,7 +8,7 @@
 
 import MapKit
 
-final class MarkerAnnotationView: MKMarkerAnnotationView, NibRepresentable {
+final class MarkerAnnotationView: MKMarkerAnnotationView {
     
     // MARK: - Constants
     
