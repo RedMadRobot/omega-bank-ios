@@ -21,7 +21,7 @@
 		5C8A2D33268CC57600D6EFDF /* OfficesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */; };
 		5C8A2D34268CC58700D6EFDF /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* Office.swift */; };
 		5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */; };
-		5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */; };
+		5C8A2D3D2694562400D6EFDF /* OfficeMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* OfficeMarkerAnnotationView.swift */; };
 		5C8A2D3F2695A36B00D6EFDF /* MapAppScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */; };
 		5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */; };
 		5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */; };
@@ -34,6 +34,9 @@
 		5CCAAB062685225800B52F8C /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */; };
 		5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB142689F2DB00B52F8C /* MapViewController.swift */; };
 		5CCAAB172689F2DB00B52F8C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCAAB152689F2DB00B52F8C /* MapViewController.xib */; };
+		5CF00882269DA72F009A716F /* AtmMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00881269DA72F009A716F /* AtmMarkerAnnotationView.swift */; };
+		5CF00884269DA74E009A716F /* ClusterMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00883269DA74E009A716F /* ClusterMarkerAnnotationView.swift */; };
+		5CF00889269DB30A009A716F /* BankPointMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00888269DB30A009A716F /* BankPointMarkerAnnotationView.swift */; };
 		5CF0CD8026725AAC00D92B93 /* PinCodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */; };
 		5CF23314266F872600B99879 /* PinCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */; };
 		5CF23317266F878100B99879 /* PinCodeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */; };
@@ -284,7 +287,7 @@
 		5C8A2D2F268CC10000D6EFDF /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		5C8A2D31268CC40700D6EFDF /* OfficesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesEndpoint.swift; sourceTree = "<group>"; };
 		5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
-		5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotationView.swift; sourceTree = "<group>"; };
+		5C8A2D3C2694562300D6EFDF /* OfficeMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppScheme.swift; sourceTree = "<group>"; };
 		5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsScheme.swift; sourceTree = "<group>"; };
 		5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSchemeRouter.swift; sourceTree = "<group>"; };
@@ -297,6 +300,9 @@
 		5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionViewController.swift; sourceTree = "<group>"; };
 		5CCAAB142689F2DB00B52F8C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5CCAAB152689F2DB00B52F8C /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		5CF00881269DA72F009A716F /* AtmMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmMarkerAnnotationView.swift; sourceTree = "<group>"; };
+		5CF00883269DA74E009A716F /* ClusterMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterMarkerAnnotationView.swift; sourceTree = "<group>"; };
+		5CF00888269DB30A009A716F /* BankPointMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPointMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5CF0CD7F26725AAC00D92B93 /* PinCodeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeEntryViewController.swift; sourceTree = "<group>"; };
 		5CF23312266F872600B99879 /* PinCodeCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCreateViewController.swift; sourceTree = "<group>"; };
 		5CF23316266F878100B99879 /* PinCodeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseViewController.swift; sourceTree = "<group>"; };
@@ -589,7 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */,
-				5C8A2D3C2694562300D6EFDF /* MarkerAnnotationView.swift */,
+				5CF00885269DA766009A716F /* View */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -622,6 +628,17 @@
 				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		5CF00885269DA766009A716F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5CF00881269DA72F009A716F /* AtmMarkerAnnotationView.swift */,
+				5CF00883269DA74E009A716F /* ClusterMarkerAnnotationView.swift */,
+				5C8A2D3C2694562300D6EFDF /* OfficeMarkerAnnotationView.swift */,
+				5CF00888269DB30A009A716F /* BankPointMarkerAnnotationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5CF0CD81267368A900D92B93 /* Common */ = {
@@ -2249,6 +2266,8 @@
 				953A2EE824961ECB00A9B6DE /* PartnerListContainerViewController.swift in Sources */,
 				9599A4DF2428D341000411EC /* CAGradientLayer.swift in Sources */,
 				7700FD5724126F3700210AD3 /* AppViewController.swift in Sources */,
+				5CF00884269DA74E009A716F /* ClusterMarkerAnnotationView.swift in Sources */,
+				5CF00889269DB30A009A716F /* BankPointMarkerAnnotationView.swift in Sources */,
 				95DB7FE024598CF800538755 /* MainAddCardViewController.swift in Sources */,
 				954BD433242CB47700DDF91A /* PartnerDescriptionView.swift in Sources */,
 				5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */,
@@ -2279,7 +2298,7 @@
 				777426C1240523B5008E5810 /* NibLoadable.swift in Sources */,
 				77196A9923FACB58007C8C84 /* KeychainStorage.swift in Sources */,
 				77AAE4362417B5CB0012A9D9 /* PageViewController.swift in Sources */,
-				5C8A2D3D2694562400D6EFDF /* MarkerAnnotationView.swift in Sources */,
+				5C8A2D3D2694562400D6EFDF /* OfficeMarkerAnnotationView.swift in Sources */,
 				953B144124507BCE00D609B0 /* HotActionView.swift in Sources */,
 				77C8B0FD2418D29D00B2EB3D /* PartnetListService.swift in Sources */,
 				958BD2D9243223CB00543642 /* ViewControllerTransitionAnimator.swift in Sources */,
@@ -2310,6 +2329,7 @@
 				95770A41246BEB0900FE058F /* CardListService.swift in Sources */,
 				9544F9EE242A1E7900127693 /* CurvedView.swift in Sources */,
 				958F146C247D1D9E0052F9EF /* SubmitButton.swift in Sources */,
+				5CF00882269DA72F009A716F /* AtmMarkerAnnotationView.swift in Sources */,
 				77196AAE23FCFB37007C8C84 /* Results.swift in Sources */,
 				5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */,
 				5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */,

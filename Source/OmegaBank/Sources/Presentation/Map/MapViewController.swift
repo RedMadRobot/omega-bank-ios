@@ -78,7 +78,8 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - Private methods
     
     private func registerMapAnnotationView() {
-        registerAnnotationViewNib(mapView: mapView, MarkerAnnotationView.self)
+        registerAnnotationViewNib(mapView: mapView, OfficeMarkerAnnotationView.self)
+        registerAnnotationViewNib(mapView: mapView, ClusterMarkerAnnotationView.self)
     }
     
     /// Добавление аннотаций на карту
@@ -224,13 +225,14 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
         if let annotation = annotation as? MapAnnotation {
-            view.clusteringIdentifier = String(describing: MarkerAnnotationView.self)
-            view.setupMapAnnotation(annotation)
+            let view = dequeueReusableView(mapView: mapView, OfficeMarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: OfficeMarkerAnnotationView.self)
+            view.setup(annotation)
             return view
         } else if let annotation = annotation as? MKClusterAnnotation {
-            view.setupClusterAnnotation(annotation)
+            let view = dequeueReusableView(mapView: mapView, ClusterMarkerAnnotationView.self, for: annotation)
+            view.setup(annotation)
             return view
         }
         return nil
