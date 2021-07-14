@@ -16,8 +16,8 @@ final class AtmMarkerAnnotationView: BankPointMarkerAnnotationView {
     override func setup(_ annotation: MKAnnotation) {
         super.setup(annotation)
         
-        markerTintColor = .curve1
         glyphText = "ω"
+        markerTintColor = .curve1
     }
     
 }
