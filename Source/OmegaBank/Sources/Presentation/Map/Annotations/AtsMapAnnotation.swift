@@ -1,17 +1,17 @@
 //
-//  MapAnnotation.swift
+//  AtsMapAnnotation.swift
 //  OmegaBank
 //
-//  Created by Konsantin Makhov on 01.07.2021.
+//  Created by Konsantin Makhov on 14.07.2021.
 //  Copyright © 2021 RedMadRobot. All rights reserved.
 //
 
-import MapKit
-import struct OmegaBankAPI.Office
+import Foundation
 
-final class MapAnnotation: NSObject, MKAnnotation {
-    
-    static let identifier = String(describing: self)
+import MapKit
+import struct OmegaBankAPI.Atm
+
+final class AtmMapAnnotation: NSObject, MKAnnotation {
     
     let coordinate: CLLocationCoordinate2D
     
@@ -26,17 +26,14 @@ final class MapAnnotation: NSObject, MKAnnotation {
         self.title = title
         self.subtitle = subtitle
     }
-    
 }
 
-extension Office {
-
-    var annotation: MapAnnotation {
-        MapAnnotation(
+extension Atm {
+    var annotation: AtmMapAnnotation {
+        AtmMapAnnotation(
             latitude: location.latitude,
             longitude: location.longitude,
             title: name,
             subtitle: address)
     }
-    
 }

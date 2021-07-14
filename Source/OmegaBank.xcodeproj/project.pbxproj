@@ -17,15 +17,16 @@
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
 		5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C2B26808ADA0006F261 /* AlertPresentable.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
-		5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */; };
 		5C8A2D2E268CBAE500D6EFDF /* BankPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2D268CBAE500D6EFDF /* BankPlacesService.swift */; };
 		5C8A2D33268CC57600D6EFDF /* BankPlacesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* BankPlacesEndpoint.swift */; };
 		5C8A2D34268CC58700D6EFDF /* BankPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* BankPlaces.swift */; };
+		5C8A2D38268E129D00D6EFDF /* OfficeMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D37268E129D00D6EFDF /* OfficeMapAnnotation.swift */; };
 		5C8A2D3D2694562400D6EFDF /* OfficeMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3C2694562300D6EFDF /* OfficeMarkerAnnotationView.swift */; };
 		5C8A2D3F2695A36B00D6EFDF /* MapAppScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */; };
 		5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */; };
 		5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */; };
 		5C8A2D492695DBF900D6EFDF /* YandexMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */; };
+		5CA22032269F51750099305F /* AtsMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA22031269F51750099305F /* AtsMapAnnotation.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -283,15 +284,16 @@
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
-		5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		5C8A2D2D268CBAE500D6EFDF /* BankPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlacesService.swift; sourceTree = "<group>"; };
 		5C8A2D2F268CC10000D6EFDF /* BankPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlaces.swift; sourceTree = "<group>"; };
 		5C8A2D31268CC40700D6EFDF /* BankPlacesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlacesEndpoint.swift; sourceTree = "<group>"; };
+		5C8A2D37268E129D00D6EFDF /* OfficeMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeMapAnnotation.swift; sourceTree = "<group>"; };
 		5C8A2D3C2694562300D6EFDF /* OfficeMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5C8A2D3E2695A36B00D6EFDF /* MapAppScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppScheme.swift; sourceTree = "<group>"; };
 		5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsScheme.swift; sourceTree = "<group>"; };
 		5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSchemeRouter.swift; sourceTree = "<group>"; };
 		5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexMapsScheme.swift; sourceTree = "<group>"; };
+		5CA22031269F51750099305F /* AtsMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtsMapAnnotation.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -594,7 +596,8 @@
 		5C8A2D3B26933BB200D6EFDF /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
-				5C8A2D37268E129D00D6EFDF /* MapAnnotation.swift */,
+				5C8A2D37268E129D00D6EFDF /* OfficeMapAnnotation.swift */,
+				5CA22031269F51750099305F /* AtsMapAnnotation.swift */,
 				5CF00885269DA766009A716F /* View */,
 			);
 			path = Annotations;
@@ -2307,7 +2310,7 @@
 				5CF23317266F878100B99879 /* PinCodeBaseViewController.swift in Sources */,
 				5CB8E42E266FC83600A689D5 /* PinCodeIndicatorView.swift in Sources */,
 				5CF23319266F888800B99879 /* PinCodeView.swift in Sources */,
-				5C8A2D38268E129D00D6EFDF /* MapAnnotation.swift in Sources */,
+				5C8A2D38268E129D00D6EFDF /* OfficeMapAnnotation.swift in Sources */,
 				95D8F86124853EC0005B1934 /* ErrorViewController.swift in Sources */,
 				95CF5E98243CABF300BD94A8 /* ProductCell.swift in Sources */,
 				958F1486247D30440052F9EF /* MainAddDepositViewController.swift in Sources */,
@@ -2320,6 +2323,7 @@
 				5C8A2D2E268CBAE500D6EFDF /* BankPlacesService.swift in Sources */,
 				955383A72449C52000DAD89B /* Environment.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
+				5CA22032269F51750099305F /* AtsMapAnnotation.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
 				5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */,
 				951032CD246E9D1F005902ED /* ProductType.swift in Sources */,

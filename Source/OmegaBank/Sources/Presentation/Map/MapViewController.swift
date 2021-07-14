@@ -80,13 +80,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     private func registerMapAnnotationView() {
         registerAnnotationViewNib(mapView: mapView, OfficeMarkerAnnotationView.self)
         registerAnnotationViewNib(mapView: mapView, ClusterMarkerAnnotationView.self)
-    }
-    
-    /// Добавление аннотаций на карту
-    private func addAnnotations(_ offices: [Office]) {
-        let annotations = offices.map { $0.annotation }
-        
-        mapView.addAnnotations(annotations)
+        registerAnnotationViewNib(mapView: mapView, AtmMarkerAnnotationView.self)
     }
     
     private func updateLocationStatus(_ status: CLAuthorizationStatus) {
@@ -187,8 +181,8 @@ final class MapViewController: PageViewController, AlertPresentable {
     private func loadOffices() {
         progress = officesService.load { [weak self] result in
             switch result {
-            case .success(let offices):
-                self?.addAnnotations(offices)
+            case .success(let places):
+                _ = places.map { self?.mapView.addAnnotations($0) }
             case .failure(let error):
                 self?.showError(.error(error), onAction: { [weak self] in
                     self?.removeError()
@@ -225,13 +219,18 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        if let annotation = annotation as? MapAnnotation {
+        if let annotation = annotation as? OfficeMapAnnotation {
             let view = dequeueReusableView(mapView: mapView, OfficeMarkerAnnotationView.self, for: annotation)
-            view.clusteringIdentifier = String(describing: OfficeMarkerAnnotationView.self)
+            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
         } else if let annotation = annotation as? MKClusterAnnotation {
             let view = dequeueReusableView(mapView: mapView, ClusterMarkerAnnotationView.self, for: annotation)
+            view.setup(annotation)
+            return view
+        } else if let annotation = annotation as? AtmMapAnnotation {
+            let view = dequeueReusableView(mapView: mapView, AtmMarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
         }
@@ -243,9 +242,7 @@ extension MapViewController: MKMapViewDelegate {
         annotationView view: MKAnnotationView,
         calloutAccessoryControlTapped control: UIControl) {
         
-        guard let annotation = view.annotation as? MapAnnotation else {
-            return
-        }
+        guard let annotation = view.annotation else { return }
         
         let mapHelper = AppSchemeRouter(annotation: annotation)
         let placemark = MKPlacemark(
