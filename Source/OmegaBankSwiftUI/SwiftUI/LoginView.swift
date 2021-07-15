@@ -35,7 +35,7 @@ struct LoginView: View {
                 VStack(alignment: .center) {
                     switch model.stage {
                     case .phone:
-                        PhoneInputView(phone: $model.phone)
+                        PhoneInputView(phone: $model.thePhone)
                     case .sms(_):
                         CodeInputView(code: $model.code)
                     }

@@ -15,6 +15,18 @@ final class LoginViewModel: ObservableObject {
     
     @Published var stage: LoginState = .phone
     @Published var phone: String = ""
+    var thePhone: String {
+        set(newValue) {
+            var mutatingPhone = newValue
+                .applyPatternOnNumbers(pattern: "(###) ###-##-##", replacementCharacter: "#")
+            let chars = newValue.count - 15
+            mutatingPhone.removeLast(chars >= 0 ? chars : 0 )
+            phone = mutatingPhone
+        }
+        get {
+            return phone
+        }
+    }
     @Published var code: String = ""
     @Published var error: String? = nil
     @Published var hasError: Bool = false
