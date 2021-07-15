@@ -37,16 +37,16 @@ struct CurvedView: View {
             switch color {
             case .color(let c):
                 Path { path in createPath(&path, geometry: geometry) }
-                .fill(c)
-                .transformEffect(scaleTransform.concatenating(translationTransform))
+                    .fill(c)
+                    .transformEffect(scaleTransform.concatenating(translationTransform))
             case .gradient(let c1, let c2):
                 let gradient = LinearGradient(
                     gradient: Gradient(colors: [c1, c2]),
                     startPoint: UnitPoint(x: 0, y: 0),
                     endPoint: UnitPoint(x: geometry.size.width - geometry.size.width / 2, y: geometry.size.height))
                 Path { path in createPath(&path, geometry: geometry) }
-                .fill(gradient)
-                .transformEffect(scaleTransform.concatenating(translationTransform))
+                    .fill(gradient)
+                    .transformEffect(scaleTransform.concatenating(translationTransform))
             }
         }
     }

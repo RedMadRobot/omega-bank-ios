@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var model = LoginViewModel()
+    
     var body: some View {
-        LoginView()
+        if model.isAuthenticated {
+            CreatePincodeView()
+        } else {
+            LoginView(model: model)
+        }
     }
 }
 

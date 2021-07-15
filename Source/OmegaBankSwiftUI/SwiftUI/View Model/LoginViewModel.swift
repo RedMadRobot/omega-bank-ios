@@ -15,6 +15,15 @@ final class LoginViewModel: ObservableObject {
     
     @Published var stage: LoginState = .phone
     @Published var phone: String = ""
+    @Published var code: String = ""
+    @Published var error: String? = nil
+    @Published var hasError: Bool = false
+    @Published var isAuthenticated = false
+    
+    init(service: LoginService = ServiceLayer.shared.loginService) {
+        self.loginService = service
+    }
+    
     var thePhone: String {
         set(newValue) {
             var mutatingPhone = newValue
@@ -26,13 +35,6 @@ final class LoginViewModel: ObservableObject {
         get {
             return phone
         }
-    }
-    @Published var code: String = ""
-    @Published var error: String? = nil
-    @Published var hasError: Bool = false
-    
-    init(service: LoginService = ServiceLayer.shared.loginService) {
-        self.loginService = service
     }
     
     var isEnabled: Bool {
@@ -78,14 +80,14 @@ final class LoginViewModel: ObservableObject {
     func sendCode() {
         progress = loginService.checkSmsCode(smsCode: code) { [weak self] error in
             guard let self = self else { return }
-
+            
             if let error = error {
                 self.hasError = true
                 self.error = error.localizedDescription
                 return
             }
             
-            //self?.authSucceed()
+            self.isAuthenticated = true
         }
     }
     

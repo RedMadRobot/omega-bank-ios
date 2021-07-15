@@ -11,7 +11,7 @@ import UIKit
 
 struct LoginView: View {
     
-    @StateObject var model = LoginViewModel()
+    @ObservedObject var model = LoginViewModel()
     
     var body: some View {
         NavigationView {
@@ -74,7 +74,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(model: LoginViewModel())
     }
 }
 
