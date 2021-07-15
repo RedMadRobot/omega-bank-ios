@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="OmegaBank" customModuleProvider="target">
+            <connections>
+                <outlet property="locationButton" destination="zTF-jb-08g" id="sfE-pb-HbA"/>
+                <outlet property="mapView" destination="qsP-9p-ryO" id="plQ-0p-HNI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qsP-9p-ryO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </mapView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-Sq-M8f">
+                    <rect key="frame" x="309" y="285.5" width="48" height="96"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3P-BZ-l8j">
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                            <color key="backgroundColor" name="backgroundPrimaryPressed"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="Qzk-G5-o0d"/>
+                                <constraint firstAttribute="height" constant="48" id="Y3o-U7-pLr"/>
+                            </constraints>
+                            <color key="tintColor" name="textSupplementary"/>
+                            <state key="normal" image="Plus"/>
+                            <connections>
+                                <action selector="zoomInButtonPressed" destination="-1" eventType="touchUpInside" id="PYM-4k-nOq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9D-dl-VKF">
+                            <rect key="frame" x="0.0" y="48" width="48" height="48"/>
+                            <color key="backgroundColor" name="backgroundPrimaryPressed"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="HxC-T1-Q5L"/>
+                                <constraint firstAttribute="width" constant="48" id="iOf-ak-J29"/>
+                            </constraints>
+                            <color key="tintColor" name="textSupplementary"/>
+                            <state key="normal" image="Minus"/>
+                            <connections>
+                                <action selector="zoomOutButtonPressed" destination="-1" eventType="touchUpInside" id="LYG-ql-52S"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTF-jb-08g">
+                    <rect key="frame" x="310" y="598" width="48" height="48"/>
+                    <color key="backgroundColor" name="backgroundPrimaryPressed"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="tM0-4V-rus"/>
+                        <constraint firstAttribute="width" constant="48" id="wbb-M7-2EL"/>
+                    </constraints>
+                    <color key="tintColor" name="textSupplementary"/>
+                    <state key="normal" image="Location"/>
+                    <connections>
+                        <action selector="locationButtonPressed" destination="-1" eventType="touchUpInside" id="HTs-uD-NN5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="qsP-9p-ryO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Tg-im-OSc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zTF-jb-08g" secondAttribute="trailing" constant="17" id="DNC-Iw-HAD"/>
+                <constraint firstItem="pzI-Sq-M8f" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="DXt-ym-iZr"/>
+                <constraint firstItem="qsP-9p-ryO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Dll-IC-xcA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzI-Sq-M8f" secondAttribute="trailing" constant="18" id="RQk-xY-saw"/>
+                <constraint firstItem="qsP-9p-ryO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="VcT-0V-pFn"/>
+                <constraint firstItem="qsP-9p-ryO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bkr-fG-gdV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zTF-jb-08g" secondAttribute="bottom" constant="21" id="kym-Sn-Rt5"/>
+            </constraints>
+            <point key="canvasLocation" x="-20.289855072463769" y="86.383928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Location" width="32" height="32"/>
+        <image name="Minus" width="32" height="32"/>
+        <image name="Plus" width="32" height="32"/>
+        <namedColor name="backgroundPrimaryPressed">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textSupplementary">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

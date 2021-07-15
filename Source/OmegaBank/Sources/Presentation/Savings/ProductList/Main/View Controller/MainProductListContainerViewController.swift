@@ -48,22 +48,6 @@ final class MainProductListContainerViewController: VerticalScrollableViewContro
         fatalError("init(coder:) has not been implemented")
     }
     
-    static func make(delegate: ProfileViewControllerDelegate?) -> UIViewController {
-        let title = "Savings"
-        let productList = PageViewController(title: title, tabBarImage: #imageLiteral(resourceName: "signin"))
-        productList.delegate = delegate
-        
-        let vc = MainProductListContainerViewController()
-        let titledViewController = TitledPageViewController(
-            title: title,
-            embeddedViewController: vc
-        )
-        productList.addChildViewController(titledViewController, to: productList.view)
-
-        let nc = NavigationController(rootViewController: productList)
-        return nc
-    }
-    
     deinit {
         progresses.forEach { $0.cancel() }
     }
