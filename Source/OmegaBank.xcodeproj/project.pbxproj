@@ -126,6 +126,7 @@
 		87A32135269F144000A1F4C9 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196A9A23FACC04007C8C84 /* DataStorage.swift */; };
 		87CFC1B526A05C4F00A8F985 /* String+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CFC1B426A05C4F00A8F985 /* String+Mask.swift */; };
 		87CFC1B726A06BB100A8F985 /* CreatePincodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CFC1B626A06BB100A8F985 /* CreatePincodeView.swift */; };
+		87CFC1B826A071EA00A8F985 /* OfficesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2D268CBAE500D6EFDF /* OfficesService.swift */; };
 		8F317A3D218558E99167066F /* Pods_OmegaBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09A3B03CE52A6482381A3B5 /* Pods_OmegaBankUITests.framework */; };
 		951032C6246E90B4005902ED /* DepositListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951032C5246E90B4005902ED /* DepositListService.swift */; };
 		951032CB246E9CC2005902ED /* UserProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95595793246D47CD00F65BC3 /* UserProduct.swift */; };
@@ -2584,6 +2585,7 @@
 				874B5735269F1256006F0876 /* DepositListService.swift in Sources */,
 				874B5700269C2728006F0876 /* ContentView.swift in Sources */,
 				874B5710269C32A0006F0876 /* CAGradientLayer.swift in Sources */,
+				87CFC1B826A071EA00A8F985 /* OfficesService.swift in Sources */,
 				87A32135269F144000A1F4C9 /* DataStorage.swift in Sources */,
 				874B5713269C6156006F0876 /* Font.swift in Sources */,
 				874B571D269C6C04006F0876 /* LoginView.swift in Sources */,
