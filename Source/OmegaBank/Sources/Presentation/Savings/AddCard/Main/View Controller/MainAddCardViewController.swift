@@ -137,7 +137,7 @@ final class MainAddCardViewController: VerticalScrollableViewController {
     }
     
     private func addSelectorViewController() {
-        let horizontalContainerViewController = HorizonalScrollableViewController()
+        let horizontalContainerViewController = HorizontalScrollableViewController()
         addArrangedChild(horizontalContainerViewController)
         
         selectorViewController = CardTypeSelectorViewController(cardTypes: cardTypes)

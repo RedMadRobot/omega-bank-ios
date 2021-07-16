@@ -30,7 +30,7 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Private properties
     
-    private let officesService: OfficesService
+    private let officesService: BankPlacesService
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -47,12 +47,12 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     // MARK: - Init
     
-    init(officesService: OfficesService = ServiceLayer.shared.officesService) {
+    init(officesService: BankPlacesService = ServiceLayer.shared.officesService) {
         self.officesService = officesService
         
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
         
-        navigationItem.title = "Offices"
+        navigationItem.title = "Offices & Bankomats"
     }
     
     required init?(coder: NSCoder) {
@@ -78,14 +78,9 @@ final class MapViewController: PageViewController, AlertPresentable {
     // MARK: - Private methods
     
     private func registerMapAnnotationView() {
-        registerAnnotationViewNib(mapView: mapView, MarkerAnnotationView.self)
-    }
-    
-    /// Добавление аннотаций на карту
-    private func addAnnotations(_ offices: [Office]) {
-        let annotations = offices.map { $0.annotation }
-        
-        mapView.addAnnotations(annotations)
+        mapView.registerAnnotationView(OfficeMarkerAnnotationView.self)
+        mapView.registerAnnotationView(ClusterMarkerAnnotationView.self)
+        mapView.registerAnnotationView(AtmMarkerAnnotationView.self)
     }
     
     private func updateLocationStatus(_ status: CLAuthorizationStatus) {
@@ -186,8 +181,9 @@ final class MapViewController: PageViewController, AlertPresentable {
     private func loadOffices() {
         progress = officesService.load { [weak self] result in
             switch result {
-            case .success(let offices):
-                self?.addAnnotations(offices)
+            case .success(let (offices, atms)):
+                self?.mapView.addAnnotations(offices)
+                self?.mapView.addAnnotations(atms)
             case .failure(let error):
                 self?.showError(.error(error), onAction: { [weak self] in
                     self?.removeError()
@@ -224,13 +220,19 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        let view = dequeueReusableView(mapView: mapView, MarkerAnnotationView.self, for: annotation)
-        if let annotation = annotation as? MapAnnotation {
-            view.clusteringIdentifier = String(describing: MarkerAnnotationView.self)
-            view.setupMapAnnotation(annotation)
+        if let annotation = annotation as? OfficeMapAnnotation {
+            let view = mapView.dequeueReusableView(OfficeMarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
+            view.setup(annotation)
             return view
         } else if let annotation = annotation as? MKClusterAnnotation {
-            view.setupClusterAnnotation(annotation)
+            let view = mapView.dequeueReusableView(ClusterMarkerAnnotationView.self, for: annotation)
+            view.setup(annotation)
+            return view
+        } else if let annotation = annotation as? AtmMapAnnotation {
+            let view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
+            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
+            view.setup(annotation)
             return view
         }
         return nil
@@ -241,9 +243,7 @@ extension MapViewController: MKMapViewDelegate {
         annotationView view: MKAnnotationView,
         calloutAccessoryControlTapped control: UIControl) {
         
-        guard let annotation = view.annotation as? MapAnnotation else {
-            return
-        }
+        guard let annotation = view.annotation else { return }
         
         let mapHelper = AppSchemeRouter(annotation: annotation)
         let placemark = MKPlacemark(

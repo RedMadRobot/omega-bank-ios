@@ -133,7 +133,7 @@ final class MainAddDepositViewController: VerticalScrollableViewController {
     }
     
     private func addSelectorViewController() {
-        let horizontalContainerViewController = HorizonalScrollableViewController()
+        let horizontalContainerViewController = HorizontalScrollableViewController()
         addArrangedChild(horizontalContainerViewController)
         
         selectorViewController = DepositTypeSelectorViewController(depositTypes: depositTypes)

@@ -1,5 +1,5 @@
 //
-//  MapAnnotation.swift
+//  OfficeMapAnnotation.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 01.07.2021.
@@ -9,9 +9,7 @@
 import MapKit
 import struct OmegaBankAPI.Office
 
-final class MapAnnotation: NSObject, MKAnnotation {
-    
-    static let identifier = String(describing: self)
+final class OfficeMapAnnotation: NSObject, MKAnnotation {
     
     let coordinate: CLLocationCoordinate2D
     
@@ -26,17 +24,14 @@ final class MapAnnotation: NSObject, MKAnnotation {
         self.title = title
         self.subtitle = subtitle
     }
-    
 }
 
 extension Office {
-
-    var annotation: MapAnnotation {
-        MapAnnotation(
+    var annotation: MKAnnotation {
+        OfficeMapAnnotation(
             latitude: location.latitude,
             longitude: location.longitude,
             title: name,
             subtitle: address)
     }
-    
 }
