@@ -235,7 +235,7 @@ extension MapViewController: MKMapViewDelegate {
             view.setup(annotation)
             return view
         } else if let annotation = annotation as? AtmMapAnnotation {
-            let view = dequeueReusableView(mapView: mapView, AtmMarkerAnnotationView.self, for: annotation)
+            let view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
             view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
