@@ -11,7 +11,7 @@
 		306126D87C00665EC66607E3 /* Pods_OmegaBankAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F1BEFA05C3C636FF85B0E /* Pods_OmegaBankAPI.framework */; };
 		5A176ED273F4379989CCEFB8 /* Pods_OmegaBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E288B1C4237B0563B80A49 /* Pods_OmegaBank.framework */; };
 		5C0790462696F865005BC7DF /* PageViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0790452696F865005BC7DF /* PageViewControllerFactory.swift */; };
-		5C07904F269858F4005BC7DF /* UIAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07904E269858F4005BC7DF /* UIAnnotationView.swift */; };
+		5C07904F269858F4005BC7DF /* MKMapView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07904E269858F4005BC7DF /* MKMapView+extension.swift */; };
 		5C12B0DD26847A4D003AEEE6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12B0DC26847A4D003AEEE6 /* Assets.swift */; };
 		5C12B0E126848E8C003AEEE6 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C12B0E026848E8C003AEEE6 /* ColorAssets.xcassets */; };
 		5C147C2A267C90310006F261 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C29267C90310006F261 /* Typealias.swift */; };
@@ -26,7 +26,7 @@
 		5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */; };
 		5C8A2D442695BC8300D6EFDF /* AppSchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */; };
 		5C8A2D492695DBF900D6EFDF /* YandexMapsScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */; };
-		5CA22032269F51750099305F /* AtsMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA22031269F51750099305F /* AtsMapAnnotation.swift */; };
+		5CA22032269F51750099305F /* AtmMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA22031269F51750099305F /* AtmMapAnnotation.swift */; };
 		5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */; };
 		5CB8E42A266F927C00A689D5 /* PinCodeBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */; };
 		5CB8E42C266FB30F00A689D5 /* PinCodeKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */; };
@@ -278,7 +278,7 @@
 		21F7884ED66CBDF8F60523BE /* Pods-OmegaBankAPI.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPI.qa.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPI/Pods-OmegaBankAPI.qa.xcconfig"; sourceTree = "<group>"; };
 		5641AE11A7FC176697C5D344 /* Pods-OmegaBankAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmegaBankAPITests.debug.xcconfig"; path = "Target Support Files/Pods-OmegaBankAPITests/Pods-OmegaBankAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C0790452696F865005BC7DF /* PageViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerFactory.swift; sourceTree = "<group>"; };
-		5C07904E269858F4005BC7DF /* UIAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnnotationView.swift; sourceTree = "<group>"; };
+		5C07904E269858F4005BC7DF /* MKMapView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+extension.swift"; sourceTree = "<group>"; };
 		5C12B0DC26847A4D003AEEE6 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		5C12B0E026848E8C003AEEE6 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		5C147C29267C90310006F261 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		5C8A2D412695A3E400D6EFDF /* GoogleMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsScheme.swift; sourceTree = "<group>"; };
 		5C8A2D432695BC8300D6EFDF /* AppSchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSchemeRouter.swift; sourceTree = "<group>"; };
 		5C8A2D482695DBF900D6EFDF /* YandexMapsScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexMapsScheme.swift; sourceTree = "<group>"; };
-		5CA22031269F51750099305F /* AtsMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtsMapAnnotation.swift; sourceTree = "<group>"; };
+		5CA22031269F51750099305F /* AtmMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmMapAnnotation.swift; sourceTree = "<group>"; };
 		5CB8E427266F921300A689D5 /* PinCodeDigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDigitButton.swift; sourceTree = "<group>"; };
 		5CB8E429266F927C00A689D5 /* PinCodeBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeBaseButton.swift; sourceTree = "<group>"; };
 		5CB8E42B266FB30F00A689D5 /* PinCodeKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardView.swift; sourceTree = "<group>"; };
@@ -597,7 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8A2D37268E129D00D6EFDF /* OfficeMapAnnotation.swift */,
-				5CA22031269F51750099305F /* AtsMapAnnotation.swift */,
+				5CA22031269F51750099305F /* AtmMapAnnotation.swift */,
 				5CF00885269DA766009A716F /* View */,
 			);
 			path = Annotations;
@@ -979,7 +979,7 @@
 				958BD2D32432005900543642 /* LayoutGuide.swift */,
 				777426BE24052364008E5810 /* UITableView+Nib.swift */,
 				9599A4D82428B09F000411EC /* UICollectionView+Nib.swift */,
-				5C07904E269858F4005BC7DF /* UIAnnotationView.swift */,
+				5C07904E269858F4005BC7DF /* MKMapView+extension.swift */,
 				777426C0240523B5008E5810 /* NibLoadable.swift */,
 				77CF6F3424066FB3000A5082 /* BarButtonItems.swift */,
 				9599A4C724289165000411EC /* ViewCorners.swift */,
@@ -2286,7 +2286,7 @@
 				95466BFA248B9F4400FAE6EE /* VerticalScrollableViewController.swift in Sources */,
 				951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */,
 				5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */,
-				5C07904F269858F4005BC7DF /* UIAnnotationView.swift in Sources */,
+				5C07904F269858F4005BC7DF /* MKMapView+extension.swift in Sources */,
 				777961B9240E62B70066762B /* PartnerListViewController.swift in Sources */,
 				9542411124445CC800E2C196 /* SavingModel.swift in Sources */,
 				953B143C2450758F00D609B0 /* HotActionListViewController.swift in Sources */,
@@ -2323,7 +2323,7 @@
 				5C8A2D2E268CBAE500D6EFDF /* BankPlacesService.swift in Sources */,
 				955383A72449C52000DAD89B /* Environment.swift in Sources */,
 				77196A9323FAC898007C8C84 /* LoginService.swift in Sources */,
-				5CA22032269F51750099305F /* AtsMapAnnotation.swift in Sources */,
+				5CA22032269F51750099305F /* AtmMapAnnotation.swift in Sources */,
 				77196A9B23FACC04007C8C84 /* DataStorage.swift in Sources */,
 				5C8A2D422695A3E400D6EFDF /* GoogleMapsScheme.swift in Sources */,
 				951032CD246E9D1F005902ED /* ProductType.swift in Sources */,

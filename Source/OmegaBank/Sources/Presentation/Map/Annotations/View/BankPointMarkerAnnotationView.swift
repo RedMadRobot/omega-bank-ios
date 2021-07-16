@@ -36,7 +36,14 @@ class BankPointMarkerAnnotationView: MKMarkerAnnotationView {
     
     // MARK: - Public methods
     
-    func setupBankPointMarkerAnnotationView() {
+    func setup(_ annotation: MKAnnotation) {
+        setupBankPointMarkerAnnotationView()
+        detailLabel.text = annotation.subtitle?.flatMap { $0 }
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupBankPointMarkerAnnotationView() {
         glyphTintColor = .textPrimary
         titleVisibility = .hidden
         canShowCallout = true

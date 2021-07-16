@@ -1,5 +1,5 @@
 //
-//  AtsMapAnnotation.swift
+//  AtmMapAnnotation.swift
 //  OmegaBank
 //
 //  Created by Konsantin Makhov on 14.07.2021.
@@ -29,7 +29,7 @@ final class AtmMapAnnotation: NSObject, MKAnnotation {
 }
 
 extension Atm {
-    var annotation: AtmMapAnnotation {
+    var annotation: MKAnnotation {
         AtmMapAnnotation(
             latitude: location.latitude,
             longitude: location.longitude,

@@ -6,18 +6,18 @@
 //  Copyright © 2021 RedMadRobot. All rights reserved.
 //
 
-import Foundation
+import MapKit
 
 /// View банкоматов
 final class AtmMarkerAnnotationView: BankPointMarkerAnnotationView {
     
     // MARK: - Public methods
     
-    func setup(_ annotation: AtmMapAnnotation) {
-        setupBankPointMarkerAnnotationView()
+    override func setup(_ annotation: MKAnnotation) {
+        super.setup(annotation)
+        
         markerTintColor = .curve1
         glyphText = "ω"
-        
-        detailLabel.text = annotation.subtitle
     }
+    
 }

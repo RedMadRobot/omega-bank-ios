@@ -27,7 +27,7 @@ final class OfficeMapAnnotation: NSObject, MKAnnotation {
 }
 
 extension Office {
-    var annotation: OfficeMapAnnotation {
+    var annotation: MKAnnotation {
         OfficeMapAnnotation(
             latitude: location.latitude,
             longitude: location.longitude,
