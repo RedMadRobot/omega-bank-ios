@@ -6,9 +6,8 @@
 //  Copyright © 2021 RedMadRobot. All rights reserved.
 //
 
-import Foundation
-
 import MapKit
+
 import struct OmegaBankAPI.Atm
 
 final class AtmMapAnnotation: NSObject, MKAnnotation {

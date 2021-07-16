@@ -181,9 +181,9 @@ final class MapViewController: PageViewController, AlertPresentable {
     private func loadOffices() {
         progress = officesService.load { [weak self] result in
             switch result {
-            case .success(let places):
-                self?.mapView.addAnnotations(places.0)
-                self?.mapView.addAnnotations(places.1)
+            case .success(let (offices, atms)):
+                self?.mapView.addAnnotations(offices)
+                self?.mapView.addAnnotations(atms)
             case .failure(let error):
                 self?.showError(.error(error), onAction: { [weak self] in
                     self?.removeError()

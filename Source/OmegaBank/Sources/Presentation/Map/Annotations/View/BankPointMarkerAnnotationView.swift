@@ -38,7 +38,7 @@ class BankPointMarkerAnnotationView: MKMarkerAnnotationView {
     
     func setup(_ annotation: MKAnnotation) {
         setupBankPointMarkerAnnotationView()
-        detailLabel.text = annotation.subtitle?.flatMap { $0 }
+        detailLabel.text = annotation.subtitle.flatMap { $0 }
     }
     
     // MARK: - Private methods

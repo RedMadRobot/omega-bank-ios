@@ -15,7 +15,6 @@ extension MKMapView {
     }
 
     func dequeueReusableView<T>(_ viewType: T.Type, for annotation: MKAnnotation) -> T where T: MKAnnotationView {
-        
         let anyView = dequeueReusableAnnotationView(
             withIdentifier: String(describing: viewType.self),
             for: annotation)
@@ -23,7 +22,7 @@ extension MKMapView {
         guard let view = anyView as? T else {
             fatalError("Unexpected cell type \(anyView)")
         }
-
+        
         return view
     }
 }
