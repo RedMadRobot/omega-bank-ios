@@ -36,7 +36,6 @@
 		5CCAAB042684DD8000B52F8C /* WorkScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */; };
 		5CCAAB062685225800B52F8C /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */; };
 		5CCAAB162689F2DB00B52F8C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAAB142689F2DB00B52F8C /* MapViewController.swift */; };
-		5CCAAB172689F2DB00B52F8C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCAAB152689F2DB00B52F8C /* MapViewController.xib */; };
 		5CF00882269DA72F009A716F /* AtmMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00881269DA72F009A716F /* AtmMarkerAnnotationView.swift */; };
 		5CF00884269DA74E009A716F /* ClusterMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00883269DA74E009A716F /* ClusterMarkerAnnotationView.swift */; };
 		5CF00889269DB30A009A716F /* BankPointMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF00888269DB30A009A716F /* BankPointMarkerAnnotationView.swift */; };
@@ -305,7 +304,6 @@
 		5CCAAB032684DD8000B52F8C /* WorkScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkScheduler.swift; sourceTree = "<group>"; };
 		5CCAAB052685225800B52F8C /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionViewController.swift; sourceTree = "<group>"; };
 		5CCAAB142689F2DB00B52F8C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		5CCAAB152689F2DB00B52F8C /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		5CF00881269DA72F009A716F /* AtmMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5CF00883269DA74E009A716F /* ClusterMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		5CF00888269DB30A009A716F /* BankPointMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPointMarkerAnnotationView.swift; sourceTree = "<group>"; };
@@ -648,7 +646,6 @@
 				5C8A2D3B26933BB200D6EFDF /* Annotations */,
 				5CA2203726A039A20099305F /* Common */,
 				5C8A2D402695A37500D6EFDF /* Helper */,
-				5CCAAB152689F2DB00B52F8C /* MapViewController.xib */,
 				5CCAAB142689F2DB00B52F8C /* MapViewController.swift */,
 				5CA2203A26A0820C0099305F /* View */,
 			);
@@ -2066,7 +2063,6 @@
 				77196AA423FBC2CE007C8C84 /* LoginViewController.xib in Resources */,
 				95CF5E99243CABF300BD94A8 /* ProductCell.xib in Resources */,
 				9599A4D0242893CB000411EC /* PartnerCell.xib in Resources */,
-				5CCAAB172689F2DB00B52F8C /* MapViewController.xib in Resources */,
 				14D65EDD727842BB590A5D7D /* Assets.xcassets in Resources */,
 				95D8F86224853EC0005B1934 /* ErrorViewController.xib in Resources */,
 				777961BA240E62B70066762B /* PartnerListViewController.xib in Resources */,

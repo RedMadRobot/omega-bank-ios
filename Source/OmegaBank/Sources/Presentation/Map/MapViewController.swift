@@ -12,44 +12,23 @@ import struct OmegaBankAPI.Office
 
 final class MapViewController: PageViewController, AlertPresentable {
     
-    // MARK: - Private types
-    
-    private enum CameraZoom {
-        case zoomIn
-        case zoomOut
-    }
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let coordinateMoscow = CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423)
-        static let scaleMoscow = 35000.0
-        static let scaleUserLocation = 1000.0
-        static let durationAnimation = 0.2
-    }
-    
     // MARK: - Private properties
     
     private let officesService: BankPlacesService
-    private lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.delegate = self
-        return manager
-    }()
+    private var locationManager: CLLocationManager
     private var progress: Progress?
     private var locationStatus: CLAuthorizationStatus?
     private var errorViewController: ErrorViewController?
-    
-    // MARK: - IBOutlets
-    
-    @IBOutlet private var mapView: MKMapView!
-    @IBOutlet private var locationButton: UIButton!
+
+    private var mapView: MapView
     
     // MARK: - Init
     
     init(officesService: BankPlacesService = ServiceLayer.shared.officesService) {
         self.officesService = officesService
-        
+        self.locationManager = CLLocationManager()
+        self.mapView = MapView(locationManager: locationManager)
+
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
         
         navigationItem.title = "Offices & Bankomats"
@@ -67,12 +46,19 @@ final class MapViewController: PageViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mapView.delegate = self
+        locationManager.delegate = self
+        
         registerMapAnnotationView()
         
         loadOffices()
         
         updateLocationStatus(CLLocationManager.authorizationStatus())
+    }
+    
+    override func loadView() {
+        view = mapView
     }
     
     // MARK: - Private methods
@@ -86,26 +72,24 @@ final class MapViewController: PageViewController, AlertPresentable {
     private func updateLocationStatus(_ status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
-            locationButton.isHidden = false
+            mapView.locationButton.isHidden = false
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            locationButton.isHidden = true
+            mapView.locationButton.isHidden = true
             mapView.showsUserLocation = false
-            showMoscow()
+            mapView.showMoscow()
         case .denied:
-            locationButton.isHidden = false
+            mapView.locationButton.isHidden = false
             mapView.showsUserLocation = false
-            showMoscow()
+            mapView.showMoscow()
         case .authorizedAlways, .authorizedWhenInUse:
-            locationButton.isHidden = false
+            mapView.locationButton.isHidden = false
             locationManager.requestLocation()
             mapView.showsUserLocation = true
-            showUserLocation()
+            mapView.showUserLocation()
         default:
             break
         }
-        
-        self.locationStatus = status
     }
     
     /// Алерт перехода в настройки, для включения геолокации
@@ -137,46 +121,6 @@ final class MapViewController: PageViewController, AlertPresentable {
         errorViewController = nil
     }
     
-    /// Отображение Москвы на карте
-    private func showMoscow() {
-        mapView.setRegion(
-            MKCoordinateRegion(
-                center: Constants.coordinateMoscow,
-                latitudinalMeters: Constants.scaleMoscow,
-                longitudinalMeters: Constants.scaleMoscow),
-            animated: false)
-        
-    }
-    
-    /// Отображение пользователя на карте
-    private func showUserLocation() {
-        guard let location = locationManager.location else {
-            return }
-        
-        let region = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: Constants.scaleUserLocation,
-            longitudinalMeters: Constants.scaleUserLocation)
-        
-        mapView.setRegion(region, animated: true)
-    }
-    
-    /// Изменение зума карты
-    private func changeCamera(with zoom: CameraZoom) {
-        var region: MKCoordinateRegion = mapView.region
-        
-        switch zoom {
-        case .zoomOut:
-            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
-            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
-        case .zoomIn:
-            region.span.latitudeDelta /= 2.0
-            region.span.longitudeDelta /= 2.0
-        }
-        
-        mapView.animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
-    }
-    
     /// Загрузка офисов
     private func loadOffices() {
         progress = officesService.load { [weak self] result in
@@ -191,24 +135,6 @@ final class MapViewController: PageViewController, AlertPresentable {
                 })
             }
         }
-    }
-    
-    // MARK: - IBAction
-    
-    @IBAction private func zoomInButtonPressed() {
-        changeCamera(with: .zoomIn)
-    }
-    
-    @IBAction private func zoomOutButtonPressed() {
-        changeCamera(with: .zoomOut)
-    }
-    
-    @IBAction private func locationButtonPressed() {
-        guard locationStatus != .denied else {
-            showSettingsAlert()
-            return
-        }
-        showUserLocation()
     }
 }
 
@@ -277,7 +203,7 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationButtonPressed()
+        mapView.showUserLocation()
     }
 }
 
