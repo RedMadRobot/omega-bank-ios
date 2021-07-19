@@ -13,14 +13,13 @@ final class MapButton: UIButton {
     // MARK: - Types
     
     private enum Constants {
-        static let width: Int = 48
-        static let height: Int = 48
+        static let size = CGSize(width: 48, height: 48)
     }
     
     // MARK: - Public properties
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: Constants.width, height: Constants.height)
+        Constants.size
     }
     
     // MARK: - Init

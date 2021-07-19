@@ -23,6 +23,12 @@ final class MapView: MKMapView {
         static let coordinateMoscow = CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423)
         static let scaleMoscow = 35000.0
         static let scaleUserLocation = 1000.0
+        static let coordinateMoscowRegion = MKCoordinateRegion(
+            center: coordinateMoscow,
+            latitudinalMeters: scaleMoscow,
+            longitudinalMeters: scaleMoscow)
+        static let userSpan = MKCoordinateSpan(latitudeDelta: scaleUserLocation, longitudeDelta: scaleUserLocation)
+        
         static let durationAnimation = 0.2
         
         static let trailingConstraint: CGFloat = -18
@@ -30,6 +36,7 @@ final class MapView: MKMapView {
     }
     
     // MARK: - Public Properties
+    
     let locationManager: CLLocationManager
     
     let locationButton: MapButton = {
@@ -56,9 +63,6 @@ final class MapView: MKMapView {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 0
         return stackView
     }()
     
@@ -78,63 +82,52 @@ final class MapView: MKMapView {
     // MARK: - Public methods
     
     func showMoscow() {
-        self.setRegion(
-            MKCoordinateRegion(
-                center: Constants.coordinateMoscow,
-                latitudinalMeters: Constants.scaleMoscow,
-                longitudinalMeters: Constants.scaleMoscow),
-            animated: false)
+        setRegion(Constants.coordinateMoscowRegion, animated: true)
     }
     
     func showUserLocation() {
-        guard let location = locationManager.location else {
-            return }
+        guard let location = locationManager.location else { return }
         
-        let region = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: Constants.scaleUserLocation,
-            longitudinalMeters: Constants.scaleUserLocation)
-        
-        self.setRegion(region, animated: true)
+        let region = MKCoordinateRegion(center: location.coordinate, span: Constants.userSpan)
+        setRegion(region, animated: true)
     }
     
     // MARK: - Private methods
     
     private func setupView() {
-        
         setupStackView()
-        stackView.addArrangedSubview(zoomInButton)
-        stackView.addArrangedSubview(zoomOutButton)
-        
         setupLocationButton()
     }
     
     private func setupStackView() {
-        self.addSubview(
+        stackView.addArrangedSubview(zoomInButton)
+        stackView.addArrangedSubview(zoomOutButton)
+        
+        addSubview(
             stackView,
             activate: [
-                stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
                 stackView.trailingAnchor.constraint(
-                    equalTo: self.trailingAnchor,
+                    equalTo: trailingAnchor,
                     constant: Constants.trailingConstraint)
             ])
     }
     
     private func setupLocationButton() {
-        self.addSubview(
+        addSubview(
             locationButton,
             activate: [
                 locationButton.trailingAnchor.constraint(
-                    equalTo: self.trailingAnchor,
+                    equalTo: trailingAnchor,
                     constant: Constants.trailingConstraint),
                 locationButton.bottomAnchor.constraint(
-                    equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                    equalTo: safeAreaLayoutGuide.bottomAnchor,
                     constant: Constants.bottomConstraint)
             ])
     }
     
     private func changeCamera(with zoom: CameraZoom) {
-        var region: MKCoordinateRegion = self.region
+        var region: MKCoordinateRegion = region
         
         switch zoom {
         case .zoomOut:
@@ -145,7 +138,7 @@ final class MapView: MKMapView {
             region.span.longitudeDelta /= 2.0
         }
         
-        self.animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
+        animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
     }
     
     // MARK: - Actions
