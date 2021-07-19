@@ -8,36 +8,28 @@
 
 import MapKit
 
+protocol MapViewControlsDelegate: AnyObject {
+    
+    func mapViewControlsDidSelectLocationButton(_ mapView: MapView)
+    
+    func mapViewControlsDidSelectZoomInButton(_ mapView: MapView)
+    
+    func mapViewControlsDidSelectZoomOutButton(_ mapView: MapView)
+    
+}
+
 final class MapView: MKMapView {
-    
-    // MARK: - Private types
-    
-    private enum CameraZoom {
-        case zoomIn
-        case zoomOut
-    }
     
     // MARK: - Constants
     
     private enum Constants {
-        static let coordinateMoscow = CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423)
-        static let scaleMoscow = 35000.0
-        static let scaleUserLocation = 1000.0
-        static let coordinateMoscowRegion = MKCoordinateRegion(
-            center: coordinateMoscow,
-            latitudinalMeters: scaleMoscow,
-            longitudinalMeters: scaleMoscow)
-        static let userSpan = MKCoordinateSpan(latitudeDelta: scaleUserLocation, longitudeDelta: scaleUserLocation)
-        
-        static let durationAnimation = 0.2
-        
         static let trailingConstraint: CGFloat = -18
         static let bottomConstraint: CGFloat = -21
     }
     
     // MARK: - Public Properties
     
-    let locationManager: CLLocationManager
+    weak var mapControlsDelegate: MapViewControlsDelegate?
     
     let locationButton: MapButton = {
         let button = MapButton()
@@ -68,8 +60,7 @@ final class MapView: MKMapView {
     
     // MARK: - Init
     
-    init(locationManager: CLLocationManager) {
-        self.locationManager = locationManager
+    init() {
         super.init(frame: .zero)
         
         setupView()
@@ -77,19 +68,6 @@ final class MapView: MKMapView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Public methods
-    
-    func showMoscow() {
-        setRegion(Constants.coordinateMoscowRegion, animated: true)
-    }
-    
-    func showUserLocation() {
-        guard let location = locationManager.location else { return }
-        
-        let region = MKCoordinateRegion(center: location.coordinate, span: Constants.userSpan)
-        setRegion(region, animated: true)
     }
     
     // MARK: - Private methods
@@ -126,32 +104,17 @@ final class MapView: MKMapView {
             ])
     }
     
-    private func changeCamera(with zoom: CameraZoom) {
-        var region: MKCoordinateRegion = region
-        
-        switch zoom {
-        case .zoomOut:
-            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
-            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
-        case .zoomIn:
-            region.span.latitudeDelta /= 2.0
-            region.span.longitudeDelta /= 2.0
-        }
-        
-        animatedZoom(zoomRegion: region, duration: Constants.durationAnimation)
-    }
-    
     // MARK: - Actions
     
-    @objc func locationButtonPressed() {
-        showUserLocation()
+    @objc private func locationButtonPressed() {
+        mapControlsDelegate?.mapViewControlsDidSelectLocationButton(self)
     }
     
     @objc private func zoomOutButtonPressed() {
-        changeCamera(with: .zoomOut)
+        mapControlsDelegate?.mapViewControlsDidSelectZoomOutButton(self)
     }
     
     @objc private func zoomInButtonPressed() {
-        changeCamera(with: .zoomIn)
+        mapControlsDelegate?.mapViewControlsDidSelectZoomInButton(self)
     }
 }

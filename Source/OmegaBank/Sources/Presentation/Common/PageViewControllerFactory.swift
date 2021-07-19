@@ -44,7 +44,7 @@ public class TabBarScreenFactory: PageViewControllerFactory {
     }
     
     func makeMapViewController(delegate: ProfileViewControllerDelegate) -> UIViewController {
-        let vc = MapViewController()
+        let vc = MapContainerViewController()
         vc.delegate = delegate
         return NavigationController(rootViewController: vc)
     }
