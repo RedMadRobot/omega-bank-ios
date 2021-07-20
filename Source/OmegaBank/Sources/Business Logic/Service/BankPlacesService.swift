@@ -25,8 +25,8 @@ final class OfficesServiceImpl: APIService, BankPlacesService {
         apiClient.request(BankPlacesEndpoint()) { result in
             switch result {
             case .success(let places):
-                let officeAnnotations = places.offices.map { $0.annotation }
-                let atmAnnotations = places.atms.map { $0.annotation }
+                let officeAnnotations = places.offices.map { $0.makeAnnotation(.office) }
+                let atmAnnotations = places.atms.map { $0.makeAnnotation(.atm) }
                 completion(.success((atmAnnotations, officeAnnotations)))
             case .failure(let error):
                 completion(.failure(error))

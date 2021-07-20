@@ -8,9 +8,18 @@
 
 import MapKit
 
-import struct OmegaBankAPI.Atm
+import struct OmegaBankAPI.BankPlace
 
-final class AtmMapAnnotation: NSObject, MKAnnotation {
+enum AnnotationType {
+    case atm
+    case office
+}
+
+final class MapAnnotation: NSObject, MKAnnotation {
+    
+    // MARK: - Public properties
+    
+    let type: AnnotationType
     
     let coordinate: CLLocationCoordinate2D
     
@@ -20,19 +29,20 @@ final class AtmMapAnnotation: NSObject, MKAnnotation {
     
     // MARK: - Init
     
-    init(latitude: Double, longitude: Double, title: String?, subtitle: String?) {
+    init(type: AnnotationType, latitude: Double, longitude: Double, title: String?, subtitle: String?) {
+        self.type = type
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.title = title
         self.subtitle = subtitle
     }
 }
 
-extension Atm {
-    var annotation: MKAnnotation {
-        AtmMapAnnotation(
+extension BankPlace {
+    func makeAnnotation(_ type: AnnotationType) -> MKAnnotation {
+        MapAnnotation(
+            type: type,
             latitude: location.latitude,
             longitude: location.longitude,
-            title: name,
-            subtitle: address)
+            title: name, subtitle: address)
     }
 }

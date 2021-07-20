@@ -8,7 +8,7 @@
 
 import CoreLocation
 import MapKit
-import struct OmegaBankAPI.Office
+import struct OmegaBankAPI.BankPlace
 
 final class MapContainerViewController: PageViewController, AlertPresentable {
     

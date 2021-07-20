@@ -28,7 +28,6 @@ final class MapViewController: UIViewController, AlertPresentable {
             center: coordinateMoscow,
             latitudinalMeters: scaleMoscow,
             longitudinalMeters: scaleMoscow)
-        static let userSpan = MKCoordinateSpan(latitudeDelta: scaleUserLocation, longitudeDelta: scaleUserLocation)
         
         static let durationAnimation = 0.2
     }
@@ -157,18 +156,19 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        if let annotation = annotation as? OfficeMapAnnotation {
-            let view = mapView.dequeueReusableView(OfficeMarkerAnnotationView.self, for: annotation)
+        if let annotation = annotation as? MapAnnotation {
+            var view: BankPointMarkerAnnotationView
+            switch annotation.type {
+            case .atm:
+                view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
+            case .office:
+                view = mapView.dequeueReusableView(OfficeMarkerAnnotationView.self, for: annotation)
+            }
             view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
         } else if let annotation = annotation as? MKClusterAnnotation {
             let view = mapView.dequeueReusableView(ClusterMarkerAnnotationView.self, for: annotation)
-            view.setup(annotation)
-            return view
-        } else if let annotation = annotation as? AtmMapAnnotation {
-            let view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
-            view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
         }
