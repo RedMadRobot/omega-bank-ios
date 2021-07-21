@@ -8,7 +8,17 @@
 
 import UIKit
 
+protocol MapSegmentedControlsDelegate: AnyObject {
+    
+    func mapSegmentedControlsDidSelectAll(_ mapSegmentedView: MapSegmentedView)
+    
+    func mapSegmentedControlsDidSelectOffices(_ mapSegmentedView: MapSegmentedView)
+    
+}
+
 final class MapSegmentedView: View {
+    
+    weak var delegate: MapSegmentedControlsDelegate?
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Offices", "All"])
@@ -22,5 +32,16 @@ final class MapSegmentedView: View {
         super.commonInit()
         
         addSubview(segmentedControl, with: self)
+    }
+    
+    @objc private func segmentedDidChange(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            delegate?.mapSegmentedControlsDidSelectOffices(self)
+        case 1:
+            delegate?.mapSegmentedControlsDidSelectAll(self)
+        default:
+            break
+        }
     }
 }
