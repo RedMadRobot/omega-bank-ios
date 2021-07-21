@@ -38,11 +38,21 @@ final class MapViewController: UIViewController, AlertPresentable {
     private let locationManager: CLLocationManager
     private var locationStatus: CLAuthorizationStatus?
     
+    private var allAnnotations: [MKAnnotation] = []
+    private var displayedAnnotations: [MKAnnotation] = [] {
+        willSet {
+            self.mapView.removeAnnotations(self.displayedAnnotations)
+        }
+        didSet {
+            self.mapView.addAnnotations(self.displayedAnnotations)
+        }
+    }
+    
     // MARK: - Init
     
     init(annotations: [MKAnnotation], locationManager: CLLocationManager = CLLocationManager()) {
         self.locationManager = locationManager
-        mapView.addAnnotations(annotations)
+        allAnnotations = annotations
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -53,6 +63,7 @@ final class MapViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showAllAnnotations()
         
         mapView.delegate = self
         mapView.mapControlsDelegate = self
@@ -127,6 +138,23 @@ final class MapViewController: UIViewController, AlertPresentable {
         default:
             break
         }
+    }
+    
+    /// Отображение на карте выбранного типа аннотации
+    private func displayOne(annotationType: AnnotationType) {
+        let annotations = allAnnotations.compactMap { annotation -> MapAnnotation? in
+            if let selectedAnnotation = annotation as? MapAnnotation, selectedAnnotation.type == annotationType {
+                return selectedAnnotation
+            }
+            return nil
+        }
+        
+        displayedAnnotations = !annotations.isEmpty ? annotations : []
+    }
+    
+    /// Отображение всех аннотаций на карте
+    private func showAllAnnotations() {
+        self.displayedAnnotations = self.allAnnotations
     }
     
     /// Алерт перехода в настройки, для включения геолокации
@@ -228,6 +256,19 @@ extension MapViewController: MapViewControlsDelegate {
         changeCamera(with: .zoomOut)
     }
     
+}
+
+// MARK: - MapSegmentedControlsDelegate
+
+extension MapViewController: MapSegmentedControlsDelegate {
+    
+    func mapSegmentedControlsDidSelectAll(_ mapSegmentedView: MapSegmentedView) {
+        showAllAnnotations()
+    }
+    
+    func mapSegmentedControlsDidSelectOffices(_ mapSegmentedView: MapSegmentedView) {
+        displayOne(annotationType: .office)
+    }
 }
 
 // MARK: - MKMapView
