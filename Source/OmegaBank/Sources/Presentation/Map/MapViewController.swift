@@ -38,11 +38,21 @@ final class MapViewController: UIViewController, AlertPresentable {
     private let locationManager: CLLocationManager
     private var locationStatus: CLAuthorizationStatus?
     
+    private var allAnnotations: [MKAnnotation] = []
+    private var displayedAnnotations: [MKAnnotation] = [] {
+        willSet {
+            self.mapView.removeAnnotations(self.displayedAnnotations)
+        }
+        didSet {
+            self.mapView.addAnnotations(self.displayedAnnotations)
+        }
+    }
+    
     // MARK: - Init
     
     init(annotations: [MKAnnotation], locationManager: CLLocationManager = CLLocationManager()) {
         self.locationManager = locationManager
-        mapView.addAnnotations(annotations)
+        allAnnotations = annotations
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -53,6 +63,7 @@ final class MapViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showAllAnnotations()
         
         mapView.delegate = self
         mapView.mapControlsDelegate = self
@@ -129,6 +140,23 @@ final class MapViewController: UIViewController, AlertPresentable {
         }
     }
     
+    /// Отображение на карте выбранного типа аннотации
+    private func displayOne(annotationType: AnnotationType) {
+        let annotations = allAnnotations.compactMap { annotation -> MapAnnotation? in
+            if let selectedAnnotation = annotation as? MapAnnotation, selectedAnnotation.type == annotationType {
+                return selectedAnnotation
+            }
+            return nil
+        }
+        
+        displayedAnnotations = !annotations.isEmpty ? annotations : []
+    }
+    
+    /// Отображение всех аннотаций на карте
+    private func showAllAnnotations() {
+        self.displayedAnnotations = self.allAnnotations
+    }
+    
     /// Алерт перехода в настройки, для включения геолокации
     private func showSettingsAlert() {
         showAlert(
@@ -157,7 +185,13 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         if let annotation = annotation as? MapAnnotation {
-            let view = mapView.dequeueReusableView(annotation.type.viewType, for: annotation)
+            var view: BankPointMarkerAnnotationView
+            switch annotation.type {
+            case .atm:
+                view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
+            case .office:
+                view = mapView.dequeueReusableView(OfficeMarkerAnnotationView.self, for: annotation)
+            }
             view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
@@ -204,6 +238,36 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         showUserLocation()
+    }
+}
+
+// MARK: - MapViewControlsDelegate
+
+extension MapViewController: MapViewControlsDelegate {
+    func mapViewControlsDidSelectLocationButton(_ mapView: MapView) {
+        showUserLocation()
+    }
+    
+    func mapViewControlsDidSelectZoomInButton(_ mapView: MapView) {
+        changeCamera(with: .zoomIn)
+    }
+    
+    func mapViewControlsDidSelectZoomOutButton(_ mapView: MapView) {
+        changeCamera(with: .zoomOut)
+    }
+    
+}
+
+// MARK: - MapSegmentedControlsDelegate
+
+extension MapViewController: MapSegmentedControlsDelegate {
+    
+    func mapSegmentedControlsDidSelectAll(_ mapSegmentedView: MapSegmentedView) {
+        showAllAnnotations()
+    }
+    
+    func mapSegmentedControlsDidSelectOffices(_ mapSegmentedView: MapSegmentedView) {
+        displayOne(annotationType: .office)
     }
 }
 

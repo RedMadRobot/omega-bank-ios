@@ -15,7 +15,7 @@ enum ClearAnimation {
     case push
 }
 
-final class PinCodeIndicatorView: UIView, NibLoadable {
+final class PinCodeIndicatorView: View, NibLoadable {
     
     // MARK: - Private types
     
