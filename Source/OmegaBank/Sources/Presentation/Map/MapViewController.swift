@@ -157,13 +157,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         if let annotation = annotation as? MapAnnotation {
-            var view: BankPointMarkerAnnotationView
-            switch annotation.type {
-            case .atm:
-                view = mapView.dequeueReusableView(AtmMarkerAnnotationView.self, for: annotation)
-            case .office:
-                view = mapView.dequeueReusableView(OfficeMarkerAnnotationView.self, for: annotation)
-            }
+            let view = mapView.dequeueReusableView(annotation.type.viewType, for: annotation)
             view.clusteringIdentifier = String(describing: BankPointMarkerAnnotationView.self)
             view.setup(annotation)
             return view
@@ -236,6 +230,19 @@ extension MKMapView {
     func animatedZoom(zoomRegion: MKCoordinateRegion, duration: TimeInterval) {
         UIView.animate(withDuration: duration) {
             self.setRegion(zoomRegion, animated: true)
+        }
+    }
+}
+
+// MARK: - AnnotationType
+
+extension AnnotationType {
+    var viewType: BankPointMarkerAnnotationView.Type {
+        switch self {
+        case .atm:
+            return AtmMarkerAnnotationView.self
+        case .office:
+            return OfficeMarkerAnnotationView.self
         }
     }
 }
