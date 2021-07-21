@@ -9,25 +9,17 @@
 import Foundation
 
 public struct BankPlaces: Decodable {
-    public let offices: [Office]
-    public let atms: [Atm]
+    public let offices: [BankPlace]
+    public let atms: [BankPlace]
 }
 
-public struct Office: Decodable {
+public struct BankPlace: Decodable {
     public let id: Int
     public let name: String?
     public let address: String?
     public let location: Location
     public let workHours: String?
     public let phone: String?
-}
-
-public struct Atm: Decodable {
-    public let id: Int
-    public let name: String?
-    public let address: String?
-    public let location: Location
-    public let workHours: String?
 }
 
 public struct Location: Decodable {

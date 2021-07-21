@@ -13,7 +13,7 @@ class PinCodeBaseButton: UIButton {
     
     // MARK: - Types
     
-    enum Constants {
+    private enum Constants {
         static let width: Int = 72
         static let height: Int = 72
         static let cornerRadius: CGFloat = 36
