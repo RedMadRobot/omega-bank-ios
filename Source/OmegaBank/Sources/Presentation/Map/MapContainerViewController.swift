@@ -24,8 +24,6 @@ final class MapContainerViewController: PageViewController, AlertPresentable {
         bankPlacesService = officesService
 
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
-        
-        navigationItem.title = "Offices & Bankomats"
     }
     
     required init?(coder: NSCoder) {
@@ -58,8 +56,12 @@ final class MapContainerViewController: PageViewController, AlertPresentable {
     }
     
     private func showMap(annotations: [MKAnnotation]) {
-        let vc = MapViewController(annotations: annotations)
-        addChildViewController(vc, to: view)
+        let mapViewController = MapViewController(annotations: annotations)
+        addChildViewController(mapViewController, to: view)
+        
+        let segmentedView = MapSegmentedView()
+        segmentedView.delegate = mapViewController
+        navigationItem.titleView = segmentedView
     }
     
     /// Загрузка офисов
