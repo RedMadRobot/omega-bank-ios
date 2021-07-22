@@ -18,7 +18,7 @@ protocol PinCodeKeyBoardViewDelegate: AnyObject {
     
 }
 
-final class PinCodeKeyboardView: UIView, NibLoadable {
+final class PinCodeKeyboardView: View, NibLoadable {
     
     // MARK: - Public Properties
     
@@ -43,14 +43,9 @@ final class PinCodeKeyboardView: UIView, NibLoadable {
     
     // MARK: - Init
     
-    init() {
-        super.init(frame: .zero)
-        
+    override func commonInit() {
+        super.commonInit()
         isExclusiveTouch = true
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     // MARK: - IBAction

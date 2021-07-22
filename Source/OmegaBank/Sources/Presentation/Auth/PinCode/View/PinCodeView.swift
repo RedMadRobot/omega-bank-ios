@@ -32,7 +32,7 @@ enum RightButtonItem {
     }
 }
 
-final class PinCodeView: UIView {
+final class PinCodeView: View {
     
     // MARK: - Private Types
     
@@ -152,14 +152,9 @@ final class PinCodeView: UIView {
     
     // MARK: - Init
     
-    init() {
-        super.init(frame: .zero)
-        
+    override func commonInit() {
+        super.commonInit()
         setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     // MARK: - Public methods

@@ -47,6 +47,7 @@ class BankPointMarkerAnnotationView: MKMarkerAnnotationView {
         glyphTintColor = .textPrimary
         titleVisibility = .hidden
         canShowCallout = true
+        animatesWhenAdded = true
         
         detailCalloutAccessoryView = detailLabel
         rightCalloutAccessoryView = mapsButton

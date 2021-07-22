@@ -18,6 +18,7 @@
 		5C147C2C26808ADA0006F261 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C147C2B26808ADA0006F261 /* AlertPresentable.swift */; };
 		5C300D2F2678D0F700E75879 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C300D2E2678D0F700E75879 /* BiometricService.swift */; };
 		5C62550D26A5975D00BEC353 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62550C26A5975D00BEC353 /* MapViewController.swift */; };
+		5C6FF8F126A70608001D5F2E /* MapSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FF8F026A70608001D5F2E /* MapSegmentedView.swift */; };
 		5C8A2D2E268CBAE500D6EFDF /* BankPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2D268CBAE500D6EFDF /* BankPlacesService.swift */; };
 		5C8A2D33268CC57600D6EFDF /* BankPlacesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D31268CC40700D6EFDF /* BankPlacesEndpoint.swift */; };
 		5C8A2D34268CC58700D6EFDF /* BankPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A2D2F268CC10000D6EFDF /* BankPlaces.swift */; };
@@ -286,6 +287,7 @@
 		5C147C2B26808ADA0006F261 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		5C300D2E2678D0F700E75879 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 		5C62550C26A5975D00BEC353 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5C6FF8F026A70608001D5F2E /* MapSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSegmentedView.swift; sourceTree = "<group>"; };
 		5C8A2D2D268CBAE500D6EFDF /* BankPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlacesService.swift; sourceTree = "<group>"; };
 		5C8A2D2F268CC10000D6EFDF /* BankPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlaces.swift; sourceTree = "<group>"; };
 		5C8A2D31268CC40700D6EFDF /* BankPlacesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankPlacesEndpoint.swift; sourceTree = "<group>"; };
@@ -634,6 +636,7 @@
 		5CA2203A26A0820C0099305F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C6FF8F026A70608001D5F2E /* MapSegmentedView.swift */,
 				5CA2203826A081DD0099305F /* MapView.swift */,
 			);
 			path = View;
@@ -2303,6 +2306,7 @@
 				9599A4DC2428C38C000411EC /* String+Html.swift in Sources */,
 				9599A4D92428B09F000411EC /* UICollectionView+Nib.swift in Sources */,
 				77AC2ACD2614B69D0072A81F /* PartnerCell.swift in Sources */,
+				5C6FF8F126A70608001D5F2E /* MapSegmentedView.swift in Sources */,
 				95466BFA248B9F4400FAE6EE /* VerticalScrollableViewController.swift in Sources */,
 				951F873C24753C8100785552 /* ScrollViewPager.swift in Sources */,
 				5CB8E428266F921300A689D5 /* PinCodeDigitButton.swift in Sources */,

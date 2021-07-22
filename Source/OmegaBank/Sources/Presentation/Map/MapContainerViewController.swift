@@ -24,8 +24,6 @@ final class MapContainerViewController: PageViewController, AlertPresentable {
         bankPlacesService = officesService
 
         super.init(title: "Map", tabBarImage: #imageLiteral(resourceName: "map"))
-        
-        navigationItem.title = "Offices & Bankomats"
     }
     
     required init?(coder: NSCoder) {
@@ -58,16 +56,22 @@ final class MapContainerViewController: PageViewController, AlertPresentable {
     }
     
     private func showMap(annotations: [MKAnnotation]) {
-        let vc = MapViewController(annotations: annotations)
-        addChildViewController(vc, to: view)
+        let mapViewController = MapViewController(annotations: annotations)
+        addChildViewController(mapViewController, to: view)
+        
+        let segmentedView = MapSegmentedView()
+        segmentedView.delegate = mapViewController
+        navigationItem.titleView = segmentedView
     }
     
     /// Загрузка офисов
     private func loadOffices() {
         progress = bankPlacesService.load { [weak self] result in
             switch result {
-            case .success(let (offices, atms)):
-                self?.showMap(annotations: offices + atms)
+            case .success(let places) where places.isEmpty:
+                self?.showError(.empty)
+            case .success(let places):
+                self?.showMap(annotations: places)
             case .failure(let error):
                 self?.showError(.error(error), onAction: { [weak self] in
                     self?.removeError()

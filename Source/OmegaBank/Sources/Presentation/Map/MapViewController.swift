@@ -38,11 +38,14 @@ final class MapViewController: UIViewController, AlertPresentable {
     private let locationManager: CLLocationManager
     private var locationStatus: CLAuthorizationStatus?
     
+    private var allAnnotations: [MKAnnotation] = []
+    private var displayedAnnotations: [MKAnnotation] = []
+    
     // MARK: - Init
     
     init(annotations: [MKAnnotation], locationManager: CLLocationManager = CLLocationManager()) {
         self.locationManager = locationManager
-        mapView.addAnnotations(annotations)
+        allAnnotations = annotations
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -53,6 +56,7 @@ final class MapViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        show(allAnnotations)
         
         mapView.delegate = self
         mapView.mapControlsDelegate = self
@@ -127,6 +131,21 @@ final class MapViewController: UIViewController, AlertPresentable {
         default:
             break
         }
+    }
+    
+    /// Отображение на карте выбранного типа аннотации
+    private func displayOne(annotationType: AnnotationType) {
+        let annotations = allAnnotations
+                    .compactMap { $0 as? MapAnnotation }
+                    .filter { $0.type == annotationType }
+        
+        !annotations.isEmpty ? show(annotations) : show([])
+    }
+    
+    private func show(_ annotations: [MKAnnotation]) {
+        mapView.removeAnnotations(displayedAnnotations)
+        mapView.addAnnotations(annotations)
+        displayedAnnotations = annotations
     }
     
     /// Алерт перехода в настройки, для включения геолокации
@@ -204,6 +223,18 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         showUserLocation()
+    }
+}
+
+// MARK: - MapSegmentedControlsDelegate
+
+extension MapViewController: MapSegmentedControlsDelegate {
+    func mapSegmentedControlsDidSelectAll(_ mapSegmentedView: MapSegmentedView) {
+        show(allAnnotations)
+    }
+    
+    func mapSegmentedControlsDidSelectOffices(_ mapSegmentedView: MapSegmentedView) {
+        displayOne(annotationType: .office)
     }
 }
 
