@@ -19,5 +19,4 @@ final class AtmMarkerAnnotationView: BankPointMarkerAnnotationView {
         glyphText = "ω"
         markerTintColor = .curve1
     }
-    
 }

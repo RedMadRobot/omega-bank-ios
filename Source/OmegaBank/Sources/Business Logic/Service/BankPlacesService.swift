@@ -13,7 +13,7 @@ import OmegaBankAPI
 protocol BankPlacesService {
     
     /// Обработчик ответа на загрузку списка офисов
-    typealias AnnotationsHandler = ResultHandler<([MKAnnotation], [MKAnnotation])>
+    typealias AnnotationsHandler = ResultHandler<[MKAnnotation]>
     
     /// Загрузка списка партнеров
     func load(completion: @escaping AnnotationsHandler) -> Progress
@@ -27,7 +27,7 @@ final class OfficesServiceImpl: APIService, BankPlacesService {
             case .success(let places):
                 let officeAnnotations = places.offices.map { $0.makeAnnotation(.office) }
                 let atmAnnotations = places.atms.map { $0.makeAnnotation(.atm) }
-                completion(.success((atmAnnotations, officeAnnotations)))
+                completion(.success((atmAnnotations + officeAnnotations)))
             case .failure(let error):
                 completion(.failure(error))
             }

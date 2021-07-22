@@ -43,6 +43,7 @@ extension BankPlace {
             type: type,
             latitude: location.latitude,
             longitude: location.longitude,
-            title: name, subtitle: address)
+            title: name,
+            subtitle: address)
     }
 }
