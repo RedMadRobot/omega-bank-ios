@@ -39,14 +39,7 @@ final class MapViewController: UIViewController, AlertPresentable {
     private var locationStatus: CLAuthorizationStatus?
     
     private var allAnnotations: [MKAnnotation] = []
-    private var displayedAnnotations: [MKAnnotation] = [] {
-        willSet {
-            mapView.removeAnnotations(displayedAnnotations)
-        }
-        didSet {
-            mapView.addAnnotations(displayedAnnotations)
-        }
-    }
+    private var displayedAnnotations: [MKAnnotation] = []
     
     // MARK: - Init
     
@@ -63,7 +56,7 @@ final class MapViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showAllAnnotations()
+        show(allAnnotations)
         
         mapView.delegate = self
         mapView.mapControlsDelegate = self
@@ -146,12 +139,13 @@ final class MapViewController: UIViewController, AlertPresentable {
                     .compactMap { $0 as? MapAnnotation }
                     .filter { $0.type == annotationType }
         
-        displayedAnnotations = !annotations.isEmpty ? annotations : []
+        !annotations.isEmpty ? show(annotations) : show([])
     }
     
-    /// Отображение всех аннотаций на карте
-    private func showAllAnnotations() {
-        self.displayedAnnotations = self.allAnnotations
+    private func show(_ annotations: [MKAnnotation]) {
+        mapView.removeAnnotations(displayedAnnotations)
+        mapView.addAnnotations(annotations)
+        displayedAnnotations = annotations
     }
     
     /// Алерт перехода в настройки, для включения геолокации
@@ -236,7 +230,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MapSegmentedControlsDelegate {
     func mapSegmentedControlsDidSelectAll(_ mapSegmentedView: MapSegmentedView) {
-        showAllAnnotations()
+        show(allAnnotations)
     }
     
     func mapSegmentedControlsDidSelectOffices(_ mapSegmentedView: MapSegmentedView) {
