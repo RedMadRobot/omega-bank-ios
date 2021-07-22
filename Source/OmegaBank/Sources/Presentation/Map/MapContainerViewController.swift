@@ -68,8 +68,10 @@ final class MapContainerViewController: PageViewController, AlertPresentable {
     private func loadOffices() {
         progress = bankPlacesService.load { [weak self] result in
             switch result {
-            case .success(let (offices, atms)):
-                self?.showMap(annotations: offices + atms)
+            case .success(let places) where places.isEmpty:
+                self?.showError(.empty)
+            case .success(let places):
+                self?.showMap(annotations: places)
             case .failure(let error):
                 self?.showError(.error(error), onAction: { [weak self] in
                     self?.removeError()
